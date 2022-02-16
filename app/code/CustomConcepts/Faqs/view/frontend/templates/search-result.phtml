@@ -1,0 +1,70 @@
+<?php
+/**
+ * FAQs And Product Questions
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    FAQs And Product Questions
+ * @author     Asif Hussain <support@fmeextensions.com>
+ *
+ * @copyright  Copyright 2012 www.fmeextensions.com All right reserved
+ */
+?>
+
+<?php
+
+$faqs = $block->getSearchResults();
+
+$num_of_faqs = count($faqs);
+$request = $block->getData('seachValue');
+$shipping_faq = $block->getShippingFaqId();
+
+?>
+<div id="wrappers" class="faq-search-result">
+    <div class="section-title">
+        <strong><?php echo __('Found').' '.$num_of_faqs.' '.__('results for').' "'.$request.'"'; ?></strong></div>
+
+        <div class="success-msg" id="rating-success" style="display:none;"><p id="rating_message"></p></div>
+        <div class="error-msg" id="rating-fail" style="display:none;"><p id="rating_message"></p></div>
+
+
+    <?php if ( count($faqs) == 0 ) : ?>
+        <h2 class="faqcontact"><?php echo __("No search results faq"); ?></h2>
+        <a class="faqlink" href="./contactforms"><?php echo __('contact us'); ?></a>
+    <?php else : ?>
+
+        <div class="topics-container">
+            <?php foreach ($faqs as $_faqs): ?>
+                <div class="faq">
+                    <h2 class="faqtitle"><?php echo $_faqs["title"]; ?></h2>
+                    <div class="answer" id="answer-<?php echo $_faqs['faqs_id'];?>"><?php echo $block->filterOutputHtml($_faqs['faq_answer']); ?>
+                        <?php if($_faqs['faqs_id']== $shipping_faq):?>
+                            <div class="dynamic-shipping-methods">
+                                <?php echo $block->getHTMLShippingMethods();?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            <h2 class="faqcontact"><?php echo __("Didn't find what you're looking for?"); ?></h2>
+            <a class="faqlink" href="./contactforms"><?php echo __('contact us'); ?></a>
+        </div>
+    <?php endif; ?>
+
+
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "set_search_value": {
+                "searchValue": "<?php echo $request ?>"
+            }
+        }
+    }
+</script>

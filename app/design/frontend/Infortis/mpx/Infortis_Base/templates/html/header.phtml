@@ -1,0 +1,660 @@
+<?php
+/**
+ * @var \Infortis\Base\Block\Html\Header $block
+ */
+?>
+<?php
+    $authLinkBlock = $block->getLayout()->createBlock('Magento\Customer\Block\Account\AuthorizationLink');
+
+    //TODO: replace all $this with $block
+    $theme = $block->getHelperTheme();
+    $helperHeader = $block->getHelperHeader();
+    $connectorMenu = $block->getHelperConnectorMenu();
+
+    //Get HTML of header blocks
+    //**************************************************************
+    //TODO: print main containers: "header.container" and "header-wrapper"
+    $currencySwitcherHtml = ""; // $this->getChildHtml('currency');
+    $mobileCurrencySwitcherHtml = ""; // $this->getChildHtml('currency.mobile');
+    $languageSwitcherHtml = ""; // $this->getChildHtml('store_language');
+    $mobileLanguageSwitcherHtml = ""; // $this->getChildHtml('store_language.mobile');
+
+    $cartHtml = $this->getChildHtml('minicart');
+    $compareHtml = $this->getChildHtml('compareMini'); //TODO: original name is catalog.compare.sidebar. Add it through layout and add custom name.
+    $compareLinkHtml = $this->getChildHtml('catalog.compare.link'); //TODO: this is original block in the header with the link to compare
+    $logoHtml = $this->getChildHtml('site-logo');
+    $logoMobileHtml = $this->getChildHtml('site-logo-mobile');
+    $searchHtml = $this->getChildHtml('topSearch'); //TODO:
+
+    $accountLinksHtml = $this->getChildHtml('account-links'); //('top.links')
+    //$userMenuHtml = $this->getChildHtml('header-wrapper') . $this->getChildHtml('store.links'); //TODO: tmp append 'store.links' here
+    //$userMenuHtml = $this->getChildHtml('header-wrapper');
+    $userMenuHtml = $this->getChildHtml('user-menu')
+        . $this->getChildHtml('header-wrapper');
+    $menuHtml = $this->getChildHtml('store.menu');
+
+    // $currencySwitcherHtml = $this->getChildHtml('currency');
+    // $languageSwitcherHtml = $this->getChildHtml('store_language');
+    // $cartHtml = $this->getChildHtml('cart_sidebar');
+    // $compareHtml = $this->getChildHtml('compareMini');
+    // $logoHtml = $this->getChildHtml('logo');
+    // $searchHtml = $this->getChildHtml('search_wrapper');
+    // $accountLinksHtml = $this->getChildHtml('account_links');
+    // $userMenuHtml = $this->getChildHtml('user_menu');
+    // $menuHtml = $this->getChildHtml('topMenu');
+
+    //Layout settings and basic flags
+    //**************************************************************
+
+    //Sticky header
+    $sticky = $theme->getCfg('header/sticky');
+
+    //Mobile header
+    $mobileHeaderMode = true; // TODO: remove. This option is deprecated since Ultimo 2.4.0 // $theme->getCfg('header/mode');
+    $mobileMenuThreshold = 770; // Set default value, in case mobile menu threshold doesn't exist
+    if ($sticky)
+    {
+        $val = $connectorMenu->getMobileMenuThreshold();
+        if ($val !== NULL)
+        {
+            $mobileMenuThreshold = $val;
+        }
+    }
+
+    //This flag indicates that in mobile header the default language/currency switchers should be hidden
+    //and replaced with mobile versions of those switchers
+    $moveSwitchers = $theme->getCfg('header/mobile_move_switchers');
+
+    //Get grid classes for header sections
+    $grid = $helperHeader->getGridClasses();
+
+    //Get positions of header blocks
+    $position = $helperHeader->getPositions();
+
+    //Check if main menu is displayed inisde a section (full-width section) at the bottom of the header
+    $menuDisplayedInFullWidthContainer = $helperHeader->isMenuDisplayedInFullWidthContainer();
+
+    //Additional classes for primary header blocks holder
+    //TODO: improve: add this class only when menu inside primary header, not in top header.
+    $hpClasses = '';
+    if ($menuDisplayedInFullWidthContainer === false)
+    {
+        $hpClasses = ' hp-blocks-holder--stacked'; //Important: keep the space at the beginning
+    }
+
+    //Additional classes
+    //**************************************************************
+    //Header
+    $classes['root'] = '';
+    if ($moveSwitchers)
+        $classes['root'] .= ' move-switchers';
+
+    //Menu
+    $classes['nav-container'] = '';
+    if ($sticky && $theme->getCfg('header/sticky_full_width'))
+        $classes['nav-container'] .= ' sticky-container--full-width';
+
+    if ($menuDisplayedInFullWidthContainer === false)
+        $classes['nav-container'] .= ' simple';
+
+    //Assign blocks to selected positions
+    //**************************************************************
+    $html = array();
+
+    //Logo (before search, to keep the search box below the logo if blocks stacked vertically)
+    $html[$position['logo']][] = '<div class="logo-wrapper logo-wrapper--regular">' . $logoHtml . '</div>';
+
+    //If mobile mode enabled, place block markers on configured positions
+    if ($mobileHeaderMode)
+    {
+        //Mini cart
+        if (!empty($cartHtml))
+        {
+            $html[$position['cart']][] = '<div id="mini-cart-marker-regular"></div>';
+        }
+
+        //Mini compare
+        // if (!empty($compareHtml))
+        // {
+        //     $html[$position['compare']][] = '<div id="mini-compare-marker-regular"></div>';
+        // }
+
+        //Search
+        if (!empty($searchHtml))
+        {
+            $html['search'][] = '<div id="search-marker-regular"></div>';
+        }
+
+        //Account links
+        if (!empty($accountLinksHtml))
+        {
+            $html[$position['account-links']][] = '<div id="account-links-marker-regular"></div>';
+        }
+    }
+    else //Mobile mode disabled (deprecated)
+    {
+        //Mini cart
+        if (!empty($cartHtml))
+        {
+            $html[$position['cart']][] = '<div id="mini-cart-marker-regular"></div>' . $cartHtml;
+        }
+
+        //Mini compare
+        // if (!empty($compareHtml))
+        // {
+        //     $html[$position['compare']][] = '<div id="mini-compare-marker-regular"></div>' . $compareHtml;
+        // }
+
+        //Search
+        if (!empty($searchHtml))
+        {
+            $html['search'][] = '<div id="search-marker-regular"></div>' . $searchHtml;
+        }
+
+        //Account links
+        if (!empty($accountLinksHtml))
+        {
+            $html[$position['account-links']][] = '<div id="account-links-marker-regular"></div>' . $accountLinksHtml;
+        }
+    }
+
+    //User menu
+    $html[$position['user-menu']][] = $userMenuHtml;
+
+    $menuHtml .='<li class="accountl-link-mobile nav-item level0 level-top mobile-show"><a class="level-top"  href="' . $block->getUrl('customer/account/login') . '"> <span>' . __('Account') . '</span></a></li>';
+
+    if ($authLinkBlock->isLoggedIn()) {
+        $menuHtml .='<li class="accountl-link-mobile nav-item level0 level-top mobile-show"><a class="level-top"  href="' . $block->getUrl('customer/account/logout') . '"> <span>' . __('Log Out') . '</span></a></li>';
+    }
+
+    //Main menu
+    $menuContainerHtml = '
+    <div id="mainmenu" class="nav-container sticky-container' . ($classes['nav-container'] ? $classes['nav-container'] : '') . '">
+        <div class="nav container clearer">
+            <div class="inner-container">' . $menuHtml . '</div>
+        </div>
+    </div>';
+    if ($menuDisplayedInFullWidthContainer === false)
+    {
+        $html[$position['main-menu']][] = $menuContainerHtml;
+    }
+
+    //Currency switcher
+    if (!empty($currencySwitcherHtml))
+    {
+         $html[$position['currency']][] = '<div id="currency-switcher-wrapper-regular">' . $currencySwitcherHtml . '</div>';
+    }
+
+    //Language switcher
+    if (!empty($languageSwitcherHtml))
+    {
+        $html[$position['language']][] = '<div id="lang-switcher-wrapper-regular">' . $languageSwitcherHtml . '</div>';
+    }
+
+    //Skip links and blocks displayed via skip links
+    //**************************************************************
+    //Skip links count
+    $skipLinksCount = 0;
+
+    //Search
+    if (!empty($searchHtml))
+    {
+        $skipLinksCount++;
+    }
+
+    //Account links
+    if (!empty($accountLinksHtml))
+    {
+        $skipLinksCount++;
+    }
+
+    //Mini cart
+    if (!empty($cartHtml))
+    {
+        $skipLinksCount++;
+    }
+
+    //Mini compare
+    // if (!empty($compareHtml))
+    // {
+    //     $skipLinksCount++;
+    // }
+
+    //Main menu
+    if (!empty($menuHtml))
+    {
+        $skipLinksCount++;
+    }
+
+    $sitewide_message = $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('sitewide-message')->toHtml();
+?>
+
+<div id="header-container" class="header-container header-mobile page-header<?php if ($classes['root']) echo $classes['root']; ?>">
+    <div id="top" class="header-container2">
+        <div class="header-container3">
+            <?php if ($mobileHeaderMode): ?>
+            <!-- Part of the header displayed only in mobile mode -->
+            <div class="header-m-container">
+                <div class="header-m-top-container">
+                    <div class="header-m-top header container clearer">
+                        <div class="inner-container">
+                            <?php echo $this->getChildHtml('container_mobile_header_top'); ?>
+
+                            <?php if ($moveSwitchers == false): ?>
+                                <?php if ($mobileCurrencySwitcherHtml): ?>
+                                    <div id="currency-switcher-wrapper-mobile" class="item item-right"><?php echo $mobileCurrencySwitcherHtml; ?></div>
+                                <?php endif; ?>
+                                <?php if ($mobileLanguageSwitcherHtml): ?>
+                                    <div id="lang-switcher-wrapper-mobile" class="item item-right"><?php echo $mobileLanguageSwitcherHtml; ?></div>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </div> <!-- end: inner-container -->
+                    </div> <!-- end: header-m-top -->
+                </div> <!-- end: header-m-top-container -->
+
+                <div class="header-m-primary-container">
+                    <div class="header-m-primary header container">
+                        <div class="inner-container">
+
+                            <?php if ($moveSwitchers && ($mobileCurrencySwitcherHtml || $mobileLanguageSwitcherHtml)): ?>
+                                <div id="header-collateral" class="header-collateral">
+                                    <?php echo $mobileLanguageSwitcherHtml; ?>
+                                    <?php echo $mobileCurrencySwitcherHtml; ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="clearer after-mobile-logo"></div>
+
+                            <!-- Skip links -->
+                            <div class="skip-links-wrapper skip-links--<?php echo $skipLinksCount; ?>">
+
+                                <?php if (!empty($menuHtml)): ?>
+                                    <a href="#header-nav" class="skip-link skip-nav">
+                                        <span class="icon ic ic-menu"></span>
+                                        <span class="label"><?php echo __('Menu'); ?></span>
+                                    </a>
+                                <?php endif; ?>
+
+                                <!-- Mobile logo -->
+                                <div class="logo-wrapper--mobile">
+                                    <?php echo $logoMobileHtml; ?>
+                                </div>
+
+                                <?php if (!empty($searchHtml)): ?>
+                                    <a href="#header-search" class="skip-link skip-search">
+                                        <span class="icon ic ic-search"></span>
+                                        <span class="label"><?php echo __('Search'); ?></span>
+                                    </a>
+                                <?php endif; ?>
+
+                                <?php //Skip content - ontainers for blocks displayed on mobile devices ?>
+
+                                <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('block_b2b_toplink')->toHtml(); ?>
+
+                                <?php //Mini cart (and its skip link) on mobile devices - it has to be just after the other skip links and before other blocks ?>
+                                <?php if (!empty($cartHtml)): ?>
+                                    <div id="mini-cart-marker-mobile"></div>
+                                    <?php echo $cartHtml; ?>
+                                <?php endif; ?>
+
+                                <?php if (!empty($searchHtml)): ?>
+                                    <div id="search-marker-mobile"></div>
+                                    <?php echo $searchHtml; ?>
+                                <?php endif; ?>
+
+                                <?php if (!empty($accountLinksHtml)): ?>
+                                    <div id="account-links-marker-mobile"></div>
+                                    <?php echo $accountLinksHtml; ?>
+                                <?php endif; ?>
+
+                                <?php //if (!empty($compareHtml)): ?>
+                                <!--    <div id="mini-compare-marker-mobile"></div>-->
+                                <!--    --><?php //echo $compareHtml; ?>
+                                <?php //endif; ?>
+
+                                    <div class="skip-links-clearer clearer"></div>
+
+                            </div> <!-- end: skip-links-wrapper -->
+
+                                <?php //Menu on mobile devices ?>
+                                    <div id="header-nav" class="skip-content skip-content--style">
+                                        <div id="nav-marker-mobile"></div>
+                                        <div class="static_links_mobile">
+                                            <?php //echo $this->getLayout()->createBlock('Magento\Store\Block\Switcher')->setTemplate('Magento_Store::switch/stores.phtml')->toHtml(); ?>
+                                            <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('mobile_menu_about')->toHtml(); ?>
+                                            <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('block_b2b_toplink')->toHtml(); ?>
+                                        </div>
+                                    </div>
+
+                        </div> <!-- end: inner-container -->
+                    </div> <!-- end: header-m-primary -->
+                </div> <!-- end: header-m-primary-container -->
+
+            </div> <!-- end: header-m-container -->
+            <?php endif; //end: mode ?>
+
+            <!-- Part of the header displayed only in regular mode -->
+            <div class="header-top-container">
+                <?php if($sitewide_message): ?>
+                    <div class="sidewide-message">
+                        <?= $sitewide_message ?>
+                    </div>
+                <?php endif; ?>
+
+                <div class="header-top header container clearer">
+                    <div class="inner-container">
+
+                        <?php //echo $this->getChildHtml('skip_to_content'); ?>
+
+                        <?php
+                            //Central column is displayed above left and right columns to avoid incorrect layout
+                            //because all columns contain inline elements.
+                            $containerHeaderTopCentral = $this->getChildHtml('container_header_top_central_1');
+                        ?>
+                        <?php if (isset($html['topCentral']) || $containerHeaderTopCentral): ?>
+                            <div class="central-column">
+
+                                <?php if (isset($html['topCentral'])): ?>
+                                    <?php foreach ($html['topCentral'] as $element): ?>
+                                        <div class="item item-interface"><?php echo $element; ?></div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+
+                                <?php if ($containerHeaderTopCentral): ?>
+                                    <div class="item">
+                                        <?php echo $containerHeaderTopCentral; ?>
+                                    </div>
+                                <?php endif; ?>
+
+                            </div> <!-- end: central column -->
+                        <?php endif; ?>
+
+                        <div class="left-column grid12-5">
+                            <?php if (isset($html['topRight'])): ?>
+                                <?php foreach ($html['topRight'] as $element): ?>
+                                    <div class="item item-left item-interface"><?php echo $element; ?></div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+
+                            <div class="item hide-below-960">
+                                <div class="header_top_text">
+                                    <?php echo $this->getChildHtml('header.top.bar');?>
+                                </div>
+                            </div>
+
+<!--                             <?php if (isset($html['topLeft'])): ?>
+                                <?php foreach ($html['topLeft'] as $element): ?>
+                                    <div class="item item-left item-interface"><?php echo $element; ?></div>
+                                <?php endforeach; ?>
+                            <?php endif; ?> -->
+
+                            <?php if ($tmpHtml = $this->getChildHtml('container_header_top_left_1')): ?>
+                                <div class="item item-left"><?php echo $tmpHtml; ?></div>
+                            <?php endif; ?>
+
+                            <?php if ($tmpHtml = $this->getChildHtml('block_header_top_left')): ?>
+                                <div class="item item-left"><?php echo $tmpHtml; ?></div>
+                            <?php endif; ?>
+
+                            <?php //if ($tmpHtml = $this->getWelcome()): ?>
+                            <!--    <div class="item item-left hide-below-960">-->
+                            <!--        <div class="welcome">--><?php //echo $tmpHtml; ?><!--</div>-->
+                            <!--    </div>-->
+                            <?php //endif; ?>
+
+                            <?php //if ($compareLinkHtml): ?>
+                            <!--    <div class="item item-left">-->
+                            <!--        --><?php //echo $compareLinkHtml; ?>
+                            <!--    </div>-->
+                            <?php //endif; ?>
+
+                        </div> <!-- end: left column -->
+
+                        <div class="right-column grid12-6 header-right-service-wrap">
+                            <div class="header_top_text  hide-below-960">
+                                <div class="mwidth header-right-service font-nunito">
+                                    <img class="image3" src="<?= $block->getViewFileUrl('images/header-top/speedy-support-white.png') ?>" alt="">
+                                    <div id="some-div" class="truck">
+                                        <p><?php echo __('Printing specialist'); ?></p>
+                                    </div>
+                                    <img class="image2" src="<?= $block->getViewFileUrl('images/header-top/secure-payment-white.png') ?>" alt="">
+                                    <div id="some-div" class="truck">
+                                        <p><?php echo __('Secure payment methods'); ?></p>
+                                    </div>
+                                    <img src="<?= $block->getViewFileUrl('images/header-top/rating-white.png') ?>" alt="" class="image4">
+                                    <div id="some-div" class="truck">
+                                        <div class="iframe_data"><p><?php echo __('High customer satisfaction'); ?></p></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <?php if ($tmpHtml = $this->getChildHtml('container_header_top_right_1')): ?>
+                                <div class="item item-right"><?php echo $tmpHtml; ?></div>
+                            <?php endif; ?>
+
+                            <?php if ($tmpHtml = $this->getChildHtml('block_header_top_right')): ?>
+                                <div class="item item-right"><?php echo $tmpHtml; ?></div>
+                            <?php endif; ?>
+
+                        </div> <!-- end: right column -->
+
+                    </div> <!-- end: inner-container -->
+                </div> <!-- end: header-top -->
+            </div> <!-- end: header-top-container -->
+
+            <div class="header-primary-container">
+                <div class="header-primary header container">
+                    <div class="inner-container">
+
+                        <?php echo $this->getChildHtml('topContainer'); ?>
+
+                        <?php
+                        //Important: do not add any additional blocks directly inside the "hp-blocks-holder" div.
+                        //Additional blocks, if needed, can be added inside columns (left, central, righ).
+                        ?>
+                        <div class="hp-blocks-holder<?php if($hpClasses) echo $hpClasses; ?>">
+
+                            <?php if (isset($grid['primLeftCol'])): ?>
+                                <!-- Left column -->
+                                <div class="hp-block-single center-column col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padleft">
+                                    <?php echo $this->getChildHtml('container_header_primary_left_1'); ?>
+                                    <?php if (isset($html['primLeftCol'])): ?>
+                                        <?php foreach ($html['primLeftCol'] as $element): ?>
+                                            <div class="item"><?php echo $element; ?></div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div> <!-- end: left column -->
+                            <?php endif; ?>
+
+                            <?php /*if (isset($grid['primCentralCol'])): ?>
+                                <!-- Central column -->
+                                <div class="hp-block central-column col-sm-12 col-md-3 col-lg-3">
+                                    <?php echo $this->getChildHtml('container_header_primary_central_1'); ?>
+                                    <?php if (isset($html['primCentralCol'])): ?>
+                                        <?php foreach ($html['primCentralCol'] as $element): ?>
+                                            <div class="item"><?php echo $element; ?></div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div> <!-- end: central column -->
+                            <?php endif;*/ ?>
+
+                            <?php if (isset($grid['primRightCol'])): ?>
+                                <!-- Right column -->
+                                <div class="hp-block-single center-column col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padleft">
+                                    <?php echo $this->getChildHtml('container_header_primary_right_1'); ?>
+                                    <?php if (isset($html['primRightCol'])): ?>
+                                        <?php foreach ($html['primRightCol'] as $element): ?>
+                                            <div class="item clearfix"><?php echo $element; ?></div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </div> <!-- end: right column -->
+                            <?php endif; ?>
+
+                        </div> <!-- end: hp-blocks-holder -->
+
+                    </div> <!-- end: inner-container -->
+                </div> <!-- end: header-primary -->
+            </div> <!-- end: header-primary-container -->
+
+            <div class="mobile-hide" style="width: 100%">
+                <?php if ($menuDisplayedInFullWidthContainer): ?>
+                    <?php echo $menuContainerHtml; ?>
+                <?php endif; ?>
+            </div>
+
+            <!-- Search column -->
+            <div class="hp-block-single center-column col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padleft">
+                <?php if (isset($html['search'])): ?>
+                    <?php foreach ($html['search'] as $element): ?>
+                        <div class="item clearfix"><?php echo $element; ?></div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div> <!-- end: right column -->
+
+        </div> <!-- end: header-container3 -->
+    </div> <!-- end: header-container2 -->
+</div> <!-- end: header-container -->
+<script type="text/javascript">
+//<![CDATA[
+
+requirejs(['jquery', 'smartheader', 'stickyheader'], function(jQuery, smartheader, stickyheader) {
+
+    var theHeaderContainer = jQuery('#header-container');
+
+    <?php //Important: mobile header code must be executed before sticky header code ?>
+    <?php if ($mobileHeaderMode): ?>
+
+        //alert('header tpl, before smartheader'); ///TODO
+
+        theHeaderContainer.smartheader();
+
+    <?php endif; //end: mode  ?>
+
+    jQuery(function($) {
+
+        //console.log('header tpl, on(ready), ater smartheader'); ///
+        //alert('header tpl, on(ready), ater smartheader'); ///TODO
+
+        <?php if ($mobileHeaderMode): ?>
+            var sidewideMessage = $('.sidewide-message');
+            //Skip Links
+            var skipContents = $('.skip-content');
+            var skipLinks = $('.skip-link');
+            skipLinks.on('click', function (e) {
+                e.preventDefault();
+
+                var self = $(this);
+                var target = $(e.target).hasClass('ic-cart') ? $(e.target).closest('.skip-link') : self.attr('href');
+
+                //Get target element
+                var elem = $(target);
+
+                //Check if stub is open
+                var isSkipContentOpen = elem.hasClass('skip-active') ? 1 : 0;
+
+                //Hide all stubs
+                skipLinks.removeClass('skip-active');
+                skipContents.removeClass('skip-active');
+                var mainContainer = $('.main-container');
+
+                //Toggle stubs
+                if (isSkipContentOpen) {
+                    self.removeClass('skip-active');
+                    if ($('body').hasClass('cms-index-index')) {
+                        if ($(e.target).hasClass('ic-search') || $(e.target).hasClass('skip-searchbar')) {
+                            if ($(e.target).hasClass('ic-search')) {
+                                $('.skip-searchbar').removeClass('skip-active');
+                                if (sidewideMessage.length) {
+                                    sidewideMessage[0].style.marginTop = 0;
+                                }
+                                mainContainer[0].style.marginTop = 0;
+                            } else {
+                                if (!$('.skip-cart').hasClass('skip-active') && !$('.skip-searchbar').hasClass('skip-active')) {
+                                    $('.skip-searchbar').addClass('skip-active');
+                                    mainContainer[0].style.marginTop = parseFloat($('.skip-searchbar').innerHeight()) - 3 + "px";
+                                }
+                            }
+                        } else {
+                            $('.skip-searchbar').addClass('skip-active');
+                            if (!sidewideMessage.length) {
+                                mainContainer[0].style.marginTop = parseFloat($('.skip-searchbar').innerHeight()) - 3 + "px";
+                            }
+                        }
+                    }
+                } else {
+                    self.addClass('skip-active');
+                    elem.addClass('skip-active');
+
+                    if ($('body').hasClass('cms-index-index')) {
+                        if ($(e.target).hasClass('.skip-cart') && $('.skip-cart').hasClass('skip-active')) {
+                            $('#header-cart').parent().hide();
+                            $('.skip-cart').removeClass('skip-active')
+                        }
+                        if (sidewideMessage.length) {
+                            sidewideMessage[0].style.marginTop = parseFloat($('#header-search').innerHeight()) + "px";
+                        }
+                        if ($(e.target).hasClass('ic-search') || !$('.skip-searchbar').hasClass('skip-active') && !$(e.target).hasClass('ic-menu')) {
+                            if (!sidewideMessage.length) {
+                                mainContainer[0].style.marginTop = parseFloat($('.skip-searchbar').innerHeight()) - 3 + "px";
+                            }
+                        }
+                    }
+
+                    if ($(e.target).hasClass('skip-cart') || $(e.target).hasClass('ic-cart')) {
+                        $('#header-cart').parent().show();
+                    }
+                }
+            });
+
+            // Adjust main-container margin-top on page load
+            var mainContainer = $('.main-container');
+            if ($('body').hasClass('cms-index-index')) {
+                if (window.innerWidth < 768) {
+                    if (sidewideMessage.length) {
+                        sidewideMessage[0].style.marginTop = parseFloat($('#header-search').innerHeight()) + "px";
+                    }
+                    if (mainContainer.length && !sidewideMessage.length) {
+                        mainContainer[0].style.marginTop = parseFloat($('.skip-searchbar').innerHeight()) - 3 + "px";
+                    }
+                }
+            }
+
+        <?php endif; //end: mode  ?>
+
+        <?php if ($sticky): ?>
+
+            var stickyHeaderSettings = {
+                stickyThreshold: <?php echo $mobileMenuThreshold; ?>
+            };
+            theHeaderContainer.stickyheader(stickyHeaderSettings);
+
+        <?php endif; //end: if sticky  ?>
+
+    }); //end: on document ready
+
+}); //end: requirejs
+
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+
+    //Expose the header container if jQuery script (smartheader) failed
+
+    // var jsHeaderContainerObject = document.getElementById("header-container");
+    // if (jsHeaderContainerObject.style.display == 'none')
+    // {
+    //     jsHeaderContainerObject.style.display = "block";
+    //     jsHeaderContainerObject.classList.add("js-shown"); ///
+    // }
+
+//]]>
+</script>
+<script type="text/x-magento-init">
+    {
+        "#timer": {
+            "cc_timer": {}
+        }
+    }
+</script>

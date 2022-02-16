@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="main.content" htmlClass="page-main container" />
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Your order has been received.</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceBlock name="checkout.success">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">CustomConcepts_Base::success.phtml</argument>
+            </action>
+            <arguments>
+                <argument name="checkout_success_view_model" xsi:type="object">CustomConcepts\Base\ViewModel\CheckoutSuccessViewModel</argument>
+            </arguments>
+            <block class="CustomConcepts\Base\Block\Shareorder" name="shareOrder" template="CustomConcepts_Base::shareorder/shareorder.phtml"/>
+        </referenceBlock>
+
+        <referenceBlock name="checkout.registration" remove="true"/>
+    </body>
+</page>

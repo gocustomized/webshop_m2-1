@@ -1,0 +1,8 @@
+CustomConcepts_CustomerAccount module
+
+description: this is module contains modification for the account page of magento.
+
+functionalities:
+ - Order Search functionality on sales/order/history/
+ - Limit reorder to orders within 30 days old
+ - Add Welcome Message block on customer/account/index/

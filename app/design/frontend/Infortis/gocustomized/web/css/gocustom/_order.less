@@ -1,0 +1,113 @@
+/**
+ * 
+ * 
+ * Product Page Review CSS
+ */
+
+& when (@media-common = true) {
+    .return-status, .order-status{
+        margin-bottom: 0;
+        vertical-align: bottom;
+    }
+    .order-links{
+        font-size: 16px;
+    }
+    .order-details-items{
+        margin-top: 30px;
+    }
+    .order-links .nav.item.current {
+        background-color: #fff;
+    }
+    .order-links .item {
+        background-color: #f5f5f5;
+        padding: 10px;
+        margin: 0 5px 0 0;
+        border: 1px solid #eee;
+        border-bottom: 0;
+    }
+    .account .block-reorder .actions-toolbar{
+        max-width: none;
+    }
+    .account .block-reorder .product-item .field.item{
+        width: 10%;
+        float: left;
+    }
+    .account .block-reorder .product-item-name{
+        width: 90%;
+        float: left;
+    }
+    .sidebar .product-items-names .product-item{
+        display: inline-block;
+        width:100%;
+    }
+    .sidebar .block .block-title{
+        margin-bottom: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px; 
+    }
+    .sidebar .block .block-title strong{
+        font-size: 16px;
+        font-family: 'Montserrat',sans-serif;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+
+} // end: media-common
+//
+//  Desktop
+//  _____________________________________________
+
+@media (max-width: 1024px) {
+    .account.page-layout-2columns-left .sidebar-additional {
+        width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .account .page-main, .cms-privacy-policy .page-main{
+        padding-top: 0;
+    }
+}
+@media (max-width: 460px) {
+    .order-links .item{
+        display: block;
+        margin-right:0;
+    }
+    .order-links{
+        margin-bottom:0;
+        border-bottom:0;
+    }
+    .order-details-items{
+        border: 1px solid #eee;
+        padding: 10px;
+        margin-top: 0;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+}
+
+//
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+}
+
+
+
+
+
+

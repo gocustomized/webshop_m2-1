@@ -1,0 +1,133 @@
+/**
+ * Infortis/mpx
+ * Custom CSS fallback
+ * app/design/frontend/Infortis/mpx/web/css/_custom.less
+ */
+
+//
+//  Custom CSS fallback
+//  _____________________________________________
+
+//  Fallback file for CSS overrides in custom child-themes. Should be EMPTY.
+//
+//  To add custom CSS styles, create custom child-theme (with Ultimo
+//  as its parent theme) and create "_custom.less" in the following location:
+//  <YOUR_MAGENTO_INSTALL_DIRECTORY>/app/design/frontend/<YOUR_VENDOR_NAME>/<YOUR_THEME_NAME>/web/css/_custom.less
+
+
+ & when (@media-common = true) {
+     .ban {
+            position: relative;
+            overflow: hidden;
+            .bannertextmiddle {
+                top: 55%;
+                transform: translateY(-50%);
+            }
+            .bannertextright {
+                right: 5%;
+                text-align: right;
+            }
+            .bannertext {
+                font-size: 3vw;
+                width: 30%;
+                position: absolute;
+                color: white;
+            }
+            .bannertextleft {
+                left: 5%;
+            }
+             
+            
+        }
+        .the-slideshow{
+            .cap {
+                position: absolute;
+                padding: 15px;
+            }
+            .button {
+                font-size: 18px;
+                line-height: 45px;
+                padding: 0 25px;
+            }
+        }
+        .cms-index-index {
+            .slider-arrows2 {
+                .owl-controls {
+                    .owl-buttons {
+                        .owl-prev{
+                            background: rgba(0, 0, 0, 0) url("../images/arrow-left-gray.svg") no-repeat scroll 0 center !important;
+                            width:31px;
+                            height: 81px;
+                            opacity: 1;
+                            left: 20px;
+                            &:before {
+                                display:none;
+                            }
+
+                        }
+                        .owl-next {
+                            background: rgba(0, 0, 0, 0) url("../images/arrow-right-gray.svg") no-repeat scroll 0 center !important;
+                            width:31px;
+                            height: 81px;
+                            opacity: 1;
+                            right: 20px;
+                            &:before {
+                                display:none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+ } // end: media-common
+ 
+ //
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .mobile-hide {
+        display: inline-block;
+    }
+    .mobile-show {
+        display: none;
+    }
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+
+
+}
+ 
+ //
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+ 
+
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .mobile-hide {
+        display: none;
+    }
+    .mobile-show {
+        display: block;
+    }
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+
+}
+ 
+

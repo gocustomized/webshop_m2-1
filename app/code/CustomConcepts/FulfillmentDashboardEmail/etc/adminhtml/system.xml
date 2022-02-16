@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_FulfillmentDashboardEmail extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_FulfillmentDashboardEmail
+ * @copyright Copyright (c) 2020
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="email" translate="label" sortOrder="200"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Base::config_gocustomized_gocustomizer</resource>
+            <label>Fulfillment Email Configuration</label>
+            <group id="messages" type="text" sortOrder="122" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>Template Per Store</label>
+                <field id="template"  translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <label>Template</label>
+                    <comment>Select the email template to be sent to users</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

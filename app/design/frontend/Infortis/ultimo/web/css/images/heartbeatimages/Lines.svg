@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="65px" viewBox="0 0 1440 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Lines</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Landing-desktop-" transform="translate(0.000000, -543.000000)" stroke="#FEC233" stroke-width="6">
+            <g id="Banner" transform="translate(0.000000, 345.000000)">
+                <g id="Lines" transform="translate(0.000000, 201.000000)">
+                    <polyline id="Line_03" points="951.078125 33.4947017 901.760354 33.4947017 659.493744 33.4947017 648.10922 59 632.299714 0 620.82767 33.4947017 523 33.4947017"></polyline>
+                    <polyline id="Line_02" points="1442.39844 33.4947017 1252.24374 33.4947017 1240.85922 59 1225.04971 0 1213.57767 33.4947017 974 33.4947017"></polyline>
+                    <polyline id="Line_01" points="541.625 33.4947017 380.164145 33.4947017 136.999628 33.4947017 125.572909 59 109.704809 0 98.1902463 33.4947017 0 33.4947017"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

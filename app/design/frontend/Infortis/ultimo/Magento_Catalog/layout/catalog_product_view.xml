@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Magento_Theme::js/cloud-zoom.1.0.2.js"/>
+        <script src="Magento_Theme::js/jquery.cloudzoom.min.js"/>
+        <script src="Magento_Theme::js/jquery.owlcarousel.min.js"/>
+    </head>
+
+    <body>
+        <referenceBlock name="product.price.final" remove="true"/>
+        <referenceBlock name="product.info.stock.sku" remove="true"/>
+
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View" name="make.custom.case" template="Magento_Catalog::product/view/howdomakecase.phtml" group="detailed_info" >
+                <arguments>
+                    <argument name="block_id" xsi:type="string">no_description_3</argument>
+                    <argument translate="true" name="title" xsi:type="string">HOW DO I MAKE MY OWN CUSTOM CASE</argument>
+                </arguments>
+            </block>
+            <block class="CustomConcepts\UltimoGocustomized\Block\BusinessOrder" name="business.order" template="Magento_Catalog::product/view/businessorder.phtml" group="detailed_info" >
+                <arguments>
+                    <argument name="block_id" xsi:type="string">block_product_tab5</argument>
+                    <argument translate="true" name="title" xsi:type="string">Business Order?</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

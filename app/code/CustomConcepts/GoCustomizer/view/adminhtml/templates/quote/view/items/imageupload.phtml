@@ -1,0 +1,40 @@
+<?php
+/**
+ * Cart2Quote
+ */
+/** @var $block \Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn */
+?>
+<?php
+$item = $block->getItem();
+
+$buttonOptions = [
+    'label' => __('Upload Image'),
+    'onclick' => sprintf('uploadImage(%s)', $item->getId()),
+    'class' => 'finalimage' . $item->getId()
+];
+
+if (isset($item) && !empty($item) && $item->getId()) :
+    $gocustomizerData = $item->getGocustomizerData();
+    if ($gocustomizerData != ''):
+        $_data = unserialize($gocustomizerData);
+        ?>
+        <div id="imagereplace-<?php echo $item->getId() ?>">
+            <?php if(isset($_data['design_engine_url'])): ?>
+                <a href="<?php echo $_data['design_engine_url'] ?>" target="_blank"><img src="<?php echo $_data['design_engine_url']; ?>" height="80"/></a>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+    <div class="imageuploadbtn" id="imageuploadbtn-<?php echo $item->getId() ?>">
+        <?php echo $block->getLayout()->createBlock('Magento\Backend\Block\Widget\Button')->setData($buttonOptions)->toHtml(); ?>
+    </div>
+    <div id="imagereplace-<?php echo $item->getId() ?>">
+
+    </div>
+    <div id="progressbar-<?php echo $item->getId() ?>" class="file-rows">
+        <span class="file-info"></span>
+        <div class="progressbar-container">
+            <div class="progressbar upload-progress" style="width: 0%;"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+<?php endif; ?>

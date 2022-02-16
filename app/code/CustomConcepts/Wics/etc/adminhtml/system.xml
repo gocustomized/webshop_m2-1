@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cc_wics" translate="label" sortOrder="250" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <class>separator-top</class>
+            <label>WICS</label>
+            <tab>gocustomized</tab>
+            <resource>Magento_Shipping::carriers</resource> <!-- @todo create own ACL -->
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable WICS integration</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="api" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <comment>
+                    <![CDATA[
+                      <a href="https://test.servicelayer.wics.nl/" target="_blank">Sandbox WICS Service Layer</a>
+                    | <a href="https://servicelayer.wics.nl/" target="_blank">WICS Service Layer</a>
+                    | <a href="https://docs.wics.nl/" target="_blank">WICS documentation</a>
+                    ]]>
+                </comment>
+                <label>API</label>
+                <field id="base_url" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Base URL</label>
+                    <comment>
+                        <![CDATA[
+                      The base url should be: https://test.servicelayer.wics.nl or https://servicelayer.wics.nl
+                    ]]>
+                    </comment>
+                </field>
+                <field id="key" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Key</label>
+                </field>
+                <field id="secret" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+            </group>
+            <group id="slack" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Slack notifications</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Slack notifications</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="web_hook" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Webhook path</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

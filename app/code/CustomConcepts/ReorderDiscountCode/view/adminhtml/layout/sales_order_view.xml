@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--/**
+* CustomConcepts_ReorderDiscountCode extension
+* @category  CustomConcepts_Extensions
+* @package   CustomConcepts_ReorderDiscountCode
+* @copyright Copyright (c) 2017
+* @author GoCustomized <info@gocustomized.com>
+*/-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        
+        <referenceContainer name="content">
+            <block class="CustomConcepts\ReorderDiscountCode\Block\Adminhtml\Sales\Order\View"  name="reorderdiscountbutton" />
+            <block class="CustomConcepts\ReorderDiscountCode\Block\Adminhtml\Sales\Order\View\Info\Block"
+                   name="reorderdiscountcode.order.info.custom.block" 
+                   after="-"
+                   template="CustomConcepts_ReorderDiscountCode::reorderdiscountcode/reorderdiscountcode.phtml" before="order_info" />
+        </referenceContainer> 
+    </body>
+</page>

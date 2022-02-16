@@ -1,0 +1,258 @@
+<?php
+/**
+ * @var \CustomConcepts\Base\Block\ProductView $block
+ */
+?>
+<?php
+$theme = $block->getHelperTheme();
+$helperProductView = $block->getHelperProductView();
+$helperLabels = $this->helper('Infortis\Base\Helper\Labels');
+$helperAddToLinks = $this->helper('Infortis\Base\Helper\AddToLinks');
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+
+$_product = $block->getProduct();
+$customizerBlock = $this->getLayout()->createBlock('CustomConcepts\GoCustomizer\Block\Gocustomizer');
+$goCustomizerId = $customizerBlock->getGoCustomizerProductId($_product);
+$customizerProductType = $customizerBlock->getCustomizerProductType($_product);
+
+//Get grid classes for product page sections
+$grid = $helperProductView->getGridClasses();
+
+//Get positions of blocks
+$position = $helperProductView->getPositions();
+
+//Brand info
+$brandHtml = $block->getChildHtml('brand-info');
+if (!empty($brandHtml)) {
+    if (isset($p[$position['brand']])) {
+        $p[$position['brand']] = $p[$position['brand']] . $brandHtml;
+    } else {
+        $p[$position['brand']] = $brandHtml;
+    }
+}
+
+//Product collateral data
+$collateralHtml = $block->getChildHtml('product.info.details');
+if (!empty($collateralHtml)) {
+    if (isset($p[$position['collateral']])) {
+        $p[$position['collateral']] = $p[$position['collateral']] . $collateralHtml;
+    } else {
+        $p[$position['collateral']] = $collateralHtml;
+    }
+}
+
+//Related products
+$relatedProductsHtml = $block->getChildHtml('catalog.product.related');
+if (!empty($relatedProductsHtml)) {
+    if (isset($p[$position['related']])) {
+        $p[$position['related']] = $p[$position['related']] . $relatedProductsHtml;
+    } else {
+        $p[$position['related']] = $relatedProductsHtml;
+    }
+}
+
+//Up-sell products
+$upsellProductsHtml = $block->getChildHtml('product.info.upsell');
+if (!empty($upsellProductsHtml)) {
+    if (isset($p[$position['upsell']])) {
+        $p[$position['upsell']] = $p[$position['upsell']] . $upsellProductsHtml;
+    } else {
+        $p[$position['upsell']] = $upsellProductsHtml;
+    }
+}
+
+/** SET rating summary data */
+$block->setRatingSummaryData($_product);
+$ratingSummary = $block->getRatingSummary();
+$reviewsCount = $block->getReviewsCount();
+
+/** GET special price */
+/** @var CustomConcepts\Base\Helper\Price $priceHelper */
+$priceHelper = $this->helper('CustomConcepts\Base\Helper\Price');
+$price = $block->getProductFormattedPrice();
+$origPrice = null;
+if($priceHelper->hasSpecialPrice($_product)){
+    $price = $priceHelper->getFormattedSpecialPrice($_product);
+    $origPrice = $priceHelper->getFormattedOriginalPrice($_product);
+}
+
+/** Add to cart URL for simple products */
+/** @var Magento\Catalog\Block\Product\ListProduct $productListBlock */
+$productListBlock = $block->getLayout()->createBlock('Magento\Catalog\Block\Product\ListProduct');
+$currentRoute = $block->getRequest()->getRouteName() . '/' . $block->getRequest()->getControllerName() . '/' . $block->getRequest()->getActionName();
+$addToCartUrl = '';
+if($currentRoute == 'catalog/product/view'){
+    $addToCartUrl = $productListBlock->getAddToCartUrl($_product);
+} elseif($itemId = $this->getRequest()->getParam('id')) {
+    $addToCartUrl = $block->getUrl('checkout/cart/updateItemOptions', ['_current' => true,'_use_rewrite' => true, '_query' => ['id' => $itemId]]);
+}
+?>
+<div class="top-container product-page mobile-show">
+    <div class="product-name">
+        <h1 itemprop="name">
+                <?php
+		$_subname = '';
+                $_nameFull = $_helper->productAttribute($_product, $_product->getName(), 'name');
+                if(($pos_dash = strpos($_nameFull, '-'))!==false){
+                    $_name = substr($_nameFull, 0, $pos_dash+1);
+                    $_subname = substr($_nameFull, $pos_dash+2, strlen($_nameFull));
+                }else{
+                    $_name = $_nameFull;
+                }
+                echo $_name; ?>
+            <span class="smallprodname"><?php echo $_subname; ?></span>
+        </h1>
+    </div>
+    <?php if($ratingSummary && $reviewsCount): ?>
+        <div class="rating-box" id="goto-reviews-form">
+            <div class="rating" style="width:<?= $block->escapeHtmlAttr($ratingSummary); ?>%"></div>
+        </div>
+    <?php else: ?>
+        <div class="reviews-actions">
+            <a class="action add" href="#review-form">
+                <?= __('Be the first to review this product') ?>
+            </a>
+        </div>
+    <?php endif; ?>
+</div>
+
+<div class="product-view product-columns-wrapper container">
+
+    <div class="product-img-column <?php echo $grid['imgCol']; ?> no-left-gutter product media">
+
+        <?php echo $block->getChildHtml('product.info.media'); ?>
+        <?php //echo $helperLabels->getLabels($block->getProduct()); ?>
+        <?php if (isset($p['imgCol_1'])) echo $p['imgCol_1']; ?>
+
+        <?php //Container at the bottom ?>
+        <?php echo $block->getChildHtml('container_product_image_1'); ?>
+
+        <div class="non-collapsing-column-placeholder"></div>
+
+    </div>
+
+    <?php //TODO: remove old classes such as "product-shop" (if possible. check it first, test old styles) ?>
+    <div class="product-primary-column product-shop <?php echo $grid['primCol']; ?> product-info-main">
+        <div class="product-name mobile-hide">
+            <h1 itemprop="name"><?php echo $block->getProductTitle(); ?></h1>
+        </div>
+
+        <div class="mobile-hide product-review">
+            <?php echo $block->getChildHtml('product.info.review'); ?>
+        </div>
+
+        <div class="mobile-hide product-price">
+            <?php if($priceHelper->hasSpecialPrice($_product)): ?>
+                <div class="orig-price-box">
+                <span class="regular-price" id="product-price-<?php echo $this->getProduct()->getId(); ?>">
+                    <span class="orig-price"><?php echo $origPrice; ?></span>
+                </span>
+                </div>
+            <?php endif; ?>
+            <div class="price-box">
+                <span class="regular-price" id="product-price-<?php echo $this->getProduct()->getId(); ?>">
+                    <span class="price"><?php echo $price; ?></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="mobile-product-footer mobile-show">
+            <div class="mobile-price-box">
+                <?php if($priceHelper->hasSpecialPrice($_product)): ?>
+                <span class="orig-price"><?php echo $origPrice; ?></span>
+                <?php endif; ?>
+                <span class="price"><?php echo $price; ?></span>
+            </div>
+
+            <form data-role="tocart-form" data-product-sku="<?= $_product->getSku(); ?>" action="<?php echo $addToCartUrl; ?>" method="post" id="product_addtocart_form">
+                <?php echo $block->getBlockHtml('formkey')?>
+                <?= $block->getBlockHtml('product.info.addtocart'); ?>
+            </form>
+        </div>
+
+        <?php //Container at the top ?>
+        <?php echo $block->getChildHtml('container_product_primary_1'); ?>
+
+        <?php if (isset($p['primCol_1'])) echo $p['primCol_1']; ?>
+        <?php echo $block->getChildHtml('product.info.main'); ?>
+
+        <?php if (isset($p['primCol_2'])) echo $p['primCol_2']; ?>
+
+        <?php //Container at the bottom ?>
+        <?php echo $block->getChildHtml('container_product_primary_2'); ?>
+    </div>
+
+    <?php if (isset($grid['secCol'])): ?>
+        <div class="product-secondary-column custom-sidebar-right <?php echo $grid['secCol']; ?> no-right-gutter">
+            <div class="inner">
+
+                <?php //Container at the top ?>
+                <?php echo $block->getChildHtml('container_product_secondary_1'); ?>
+
+                <?php if (isset($p['secCol_1'])) echo $p['secCol_1']; ?>
+                <?php echo $block->getChildHtml('block_product_secondary_bottom'); ?>
+                <?php if (isset($p['secCol_2'])) echo $p['secCol_2']; ?>
+
+                <?php //Container at the bottom ?>
+                <?php echo $block->getChildHtml('container_product_secondary_2'); ?>
+
+                <?php //if (isset($p['secCol_3'])) echo $p['secCol_3']; ?>
+
+                <?php //TODO: ?>
+                <?php if ($tmpHtml = $block->getChildHtml('product_secondary_top_placeholder')): ?>
+                    <div class="feature-wrapper bottom-border"><?php echo $tmpHtml; ?></div>
+                <?php endif; ?>
+
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <div class="product-lower-primary-column <?php echo $grid['lowerPrimCol']; ?>">
+
+        <?php echo $block->getChildHtml('bundle.options.container'); ?>
+        <?php echo $block->getChildHtml('moved.downloadable.product-info'); ?>
+
+        <?php //Container at the top. Important: required AFTER the bundle and downloadable blocks. ?>
+        <?php echo $block->getChildHtml('container_product_lower_primary_1'); ?>
+
+        <?php if (isset($p['lowerPrimCol_1'])) echo $p['lowerPrimCol_1']; ?>
+
+        <?php //Container at the bottom ?>
+        <?php echo $block->getChildHtml('container_product_lower_primary_2'); ?>
+
+    </div>
+
+    <?php if (isset($grid['lowerSecCol'])): ?>
+        <div class="product-lower-secondary-column custom-sidebar-right <?php echo $grid['lowerSecCol']; ?>">
+            <div class="inner">
+
+                <?php //Container at the top ?>
+                <?php echo $block->getChildHtml('container_product_lower_secondary_1'); ?>
+
+                <?php if (isset($p['lowerSecCol_1'])) echo $p['lowerSecCol_1']; ?>
+
+                <?php //Container at the bottom ?>
+                <?php echo $block->getChildHtml('container_product_lower_secondary_2'); ?>
+
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
+
+<script type="text/javascript">
+    requirejs(['jquery'], function(jQuery) {
+        jQuery(window).on('load resize', function () {
+            jQuery('.stickyfooter').removeClass('stickyfooter1024')
+            if (window.innerWidth == 768 && window.innerHeight == 1024) {
+                jQuery('.stickyfooter').addClass('stickyfooter1024')
+            }
+        });
+        jQuery("#goto-reviews-form, .reviews-actions .add").click(function(e) {
+            e.preventDefault();
+            jQuery('#tab-label-reviews-title').click();
+            jQuery('html, body').animate({
+                scrollTop: jQuery("#review-form").offset().top -20
+            }, 1000);
+        });
+    });
+</script>

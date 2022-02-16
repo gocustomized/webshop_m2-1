@@ -1,0 +1,93 @@
+<?php
+/** @var \CustomConcepts\RelatedProducts\Block\Adminhtml\RelatedProducts $block */
+//echo print_r($block->getData('params'));
+//echo print_r($block->getSelectedParams());
+$selectedIds = $block->getSelectedParams();
+/** @var \Magento\Catalog\Helper\Image $imageHelper */
+$imageHelper = $this->helper('Magento\Catalog\Helper\Image');
+?>
+
+<div class="selected-products-wrapper" align="center">
+    <h1>Selected Products</h1>
+    <table class="select-products">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+        </tr>
+        <?php foreach ($selectedIds as $selectedId): ?>
+            <?php
+            $product = $block->getProduct($selectedId);
+            ?>
+            <tr>
+                <td><img src="<?= $imageHelper->init($product, 'product_thumbnail_image')->getUrl(); ?>" alt="None"></td>
+                <td><?= $product->getName() ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
+
+<div class="forms-wrapper">
+    <form id="related_products_form" class="assign-form" action="<?= $block->getAssignUrl() ?>" method="GET">
+        <h1>Assign Relationships</h1>
+        <?php $ctr = 1 ?>
+        <?php foreach ($selectedIds as $selectedId): ?>
+            <input type="hidden" name="selected<?= $ctr ?>" value="<?= $selectedId ?>" />
+            <?php $ctr += 1 ?>
+        <?php endforeach; ?>
+
+        <div class="form-fields">
+            <div class="form-field">
+                <label for="link_type" class="field-label">Link Type:</label>
+                <select name="link_type" class="field-input">
+                    <option value="crosssell">Crosssell</option>
+                    <option value="upsell">Upsell</option>
+                    <option value="related">Related</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="ids" class="field-label">Select to IDs</label>
+                <textarea id="ids" name="ids" class="field-input"></textarea>
+            </div>
+        </div>
+
+        <div class="action-buttons-wrapper">
+            <input type="submit" value="Assign" class="action-button">
+        </div>
+    </form>
+
+    <form id="related_products_form" class="remove-form" action="<?= $block->getRemoveUrl() ?>" method="GET">
+        <h1>Remove Relationships</h1>
+        <?php $ctr = 1 ?>
+        <?php foreach ($selectedIds as $selectedId): ?>
+            <input type="hidden" name="selected<?= $ctr ?>" value="<?= $selectedId ?>" />
+            <?php $ctr += 1 ?>
+        <?php endforeach; ?>
+
+        <div class="form-fields">
+            <div class="form-field">
+                <label for="link_type" class="field-label">Link Type:</label>
+                <select name="link_type" class="field-input">
+                    <option value="crosssell">Crosssell</option>
+                    <option value="upsell">Upsell</option>
+                    <option value="related">Related</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-fields">
+            <div class="form-field">
+                <label for="algorithm" class="field-label">Algorithm</label>
+                <select name="algorithm" class="field-input" required>
+                    <option value=""></option>
+                    <option value="0">Remove relations between products only</option>
+                    <option value="1">Remove selected products from ALL relations in the catalog</option>
+                    <option value="2">Remove all relations from selected products</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="action-buttons-wrapper">
+            <input type="submit" value="Remove" class="action-button">
+        </div>
+    </form>
+</div>

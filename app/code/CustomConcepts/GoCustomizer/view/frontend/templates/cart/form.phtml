@@ -1,0 +1,48 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**  @var $block \Magento\Checkout\Block\Cart */
+
+$mergedCells = ($this->helper('Magento\Tax\Helper\Data')->displayCartBothPrices() ? 2 : 1);
+$esd = $this->helper('CustomConcepts\Estimations\Helper\ShippingDate')->getMaxESD(false, 'full');
+?>
+
+<?= $block->getChildHtml('form_before'); ?>
+
+<div class="page-title flexer justify-between">
+    <h1><?= $block->escapeHtml(__('Shopping Cart')); ?></h1>
+    <button class="checkout-button mobile-hide"
+            onclick="window.location.assign('<?= $block->getCheckoutUrl(); ?>')">
+        <?= $block->escapeHtml(__('Checkout')); ?>
+    </button>
+</div>
+<p class="maxesd">
+    <?= __('Order now and your order will be shipped on %1!', $esd['max_esd'] ? $esd['max_esd'] : ""); ?>
+</p>
+
+<form action="<?php /* @escapeNotVerified */ echo $block->getUrl('checkout/cart/updatePost') ?>"
+          method="post"
+          id="form-validate"
+          data-mage-init='{"validation":{}}'
+          class="form form-cart">
+    <?php echo $block->getBlockHtml('formkey'); ?>
+    <div class="cart table-wrapper<?php echo $mergedCells == 2 ? ' detailed' : ''; ?>">
+        <div id="shopping-cart-table"
+               class="cart items data table"
+               data-mage-init='{"shoppingCart":{"emptyCartButton": "action.clear",
+               "updateCartActionContainer": "#update_cart_action_container"}}'>
+            <?php foreach ($block->getItems() as $_item): ?>
+                <?php echo $block->getItemHtml($_item) ?>
+            <?php endforeach ?>
+        </div>
+    </div>
+    <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update=""/>
+</form>
+<?php echo $block->getChildHtml('checkout.cart.order.actions') ?>
+<?php echo $block->getChildHtml('shopping.cart.table.after'); ?>
+

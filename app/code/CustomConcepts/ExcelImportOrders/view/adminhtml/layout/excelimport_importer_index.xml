@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_ExcelImportOrders extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_ExcelImportOrders
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="CustomConcepts\ExcelImportOrders\Block\Adminhtml\Importer\Edit\Tab\Form" name="importer"/>
+        </referenceContainer>
+    </body>
+</page>

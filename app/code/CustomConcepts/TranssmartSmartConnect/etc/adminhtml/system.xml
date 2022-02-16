@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="transsmart">
+            <group id="default_shipment_properties" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="booking_profile" showInDefault="1" showInWebsite="1" showInStore="1" />
+                <field id="mail_type" showInDefault="1" showInWebsite="1" showInStore="1" />
+                <field id="incoterm" showInDefault="1" showInWebsite="1" showInStore="1" />
+                <field id="costcenter" showInDefault="1" showInWebsite="1" showInStore="1" />
+                <field id="package_type" showInDefault="1" showInWebsite="1" showInStore="1" />
+            </group>
+        </section>
+    </system>
+</config>

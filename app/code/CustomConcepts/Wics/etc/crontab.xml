@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="cc_sync_wics_stock_items" instance="CustomConcepts\Wics\Service\Synchronizer" method="synchronize">
+            <schedule>0 * * * *</schedule>
+        </job>
+    </group>
+</config>

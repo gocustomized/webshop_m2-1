@@ -1,0 +1,89 @@
+/* Main slider */
+.bannerboldtext, .bannersmalltext {
+    color: white;
+}
+
+.bannerboldtext {
+    font-family: Montserrat;
+    text-transform: uppercase;
+    font-size: 2.5vw;
+    margin: 0;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.bannersmalltext {
+    margin-top: 16px;
+    text-transform: none;
+    font-weight: 400;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .bannerboldtext {
+        font-size: 3vw;
+    }
+
+    .bannersmalltext {
+        font-size: 2vw;
+    }
+}
+
+@media (min-width: 1400px) {
+    .bannersmalltext {
+        font-size: 1.6vw;
+    }
+}
+
+.review-list {
+    margin: 10px 30px;
+    border: 3px solid #c3c3c3;
+    padding: 20px;
+    min-height: 200px;
+
+    h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .r-date {
+        font-weight: 500 !important;
+        font-size: 0.8rem !important;
+    }
+
+    .ratings .amount {
+        font-weight: 500 !important;
+        font-size: 1rem !important;
+        color: #ed6d4f !important;
+        margin-right: 25px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .ratings .amount {
+        display: none;
+    }
+}
+
+.rating-box .rating {
+    height: 20px;
+}
+
+.review-star .star {
+    font-size: 4rem !important;
+    position: absolute;
+    top: 25%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    color: #fff;
+    text-align: center;
+}
+
+.cms-home {
+    .owl-carousel .owl-item img {
+        display: block;
+        width: inherit !important;
+        margin: 0 auto;
+    }
+}
+

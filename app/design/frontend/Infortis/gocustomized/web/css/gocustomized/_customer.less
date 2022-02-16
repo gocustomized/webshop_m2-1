@@ -1,0 +1,243 @@
+/**
+ * 
+ * 
+ * Product Page Review CSS
+ */
+
+& when (@media-common = true) {
+
+
+    .sidebar-main{
+        position:relative;
+        .account-nav{
+            background-color:#fbfbfb;
+            border:1px solid #ededed;
+            padding:0!important;
+        }
+
+    }
+
+    .box-actions{
+        a{
+            &:first-child{
+                margin-left:0;
+            }
+            text-decoration:none;
+            color:#a3b1c6;
+            border-bottom:2px solid;
+            padding-bottom:2px;
+            margin-left:5px;
+        }
+    }
+
+    .form-address-edit,
+    .form-edit-account,
+    .form-newsletter-manage{
+        padding: 20px 15px;
+        background-color: #fbfbfb;
+        border: 1px solid #ededed;
+        box-sizing: border-box;
+        .fieldset{
+            .legend{
+                margin-left:0;
+                margin:0 auto;
+                display:block;
+                width:100%;
+                float:none;
+                font-size:1.3em;
+                span{
+                    font-family:'Montserrat', sans-serif;
+                    padding-bottom: 7px;
+                    border-bottom: 1px solid #e5e5e5;
+                    border-bottom-color: rgb(229, 229, 229);
+                    font-weight: normal;
+                    text-align:left;
+                    margin-bottom: 15px;
+                    display:block;
+                }
+            }
+            .field{
+                box-sizing: border-box;
+                margin: 0 0 29px;
+                width: 50%;
+                float: left;
+                padding: 0 5px 0;
+                margin-bottom:15px;
+                &::before{
+                    width:100%;
+                    float:none;
+                }
+                select{
+                    height:45px;
+                    border-color: #ededed;
+                    color: #3c3a40;
+                    outline: none;
+                    &:focus{
+                        box-shadow:none;
+                    }
+                }
+
+                input{
+                    border-color: #ededed;
+                    color: #3c3a40;
+                    height:45px;
+                    outline: none;
+                    &:not([disabled]) {
+                        &:focus{
+                            box-shadow:none;
+                        }
+
+                    }
+                }
+                input[type="checkbox"]{
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin:0 auto;
+                }
+                .control{
+                    width:100%;
+                    float: none;
+                    .field{
+                        margin-top:20px;
+                    }
+                    .captcha-reload{
+                        float:right;
+                        padding:10px 15px;
+                        background:@btn-primary-bg;
+                        color:#fff;
+                        &:hover{
+                            background:@btn-primary-bg-hover;
+                        }  
+                    }
+                }
+                .label{
+                    float:none;
+                    text-align: left;
+                    margin-bottom:15px;
+                    margin-top:2px;
+                    width:auto;
+                    display:inline-block;
+                }
+            }
+
+            .field.choice{
+                &::before{
+                    margin:0;
+                    width:100%;
+                    float:none !important;
+                }
+                width:100% !important;;
+                float:none!important;
+                clear:both;
+                margin-bottom:0;
+                input{
+                    height:auto;
+                }
+            }
+
+
+            .field:not(.choice){
+                .label{
+                    padding: 0;
+                    text-align: left;
+                    width: 100%;
+                    box-sizing: border-box;
+                    float: none;
+                }
+                .control{
+                    width: 100%;
+                    float: none;
+                }
+
+            }
+            .street{
+                .additional{
+                    width:100%;
+                    float:none;
+                }
+            }
+
+        }
+
+
+        .actions-toolbar{
+            position:relative;
+            overflow:hidden;
+            margin-right:0;
+            margin-left:0 !important;
+            .primary{
+                min-width: 180px;
+                float:right;
+                button{
+                    padding:15px 10px;
+                }
+                .action{
+                    background:@btn-primary-bg;
+                    color:#fff;
+                    &:hover{
+                        background:@btn-primary-bg-hover;
+                    }
+                }
+
+            }
+            .secondary{
+                position:relative;
+                float:left;
+                a{
+                    color:#a3b1c6;
+                    font-weight:400;
+                    text-decoration:underline;
+                    &:hover{
+                        color:#7d8faa;
+                    }
+                }
+                .back{
+                    font-size: 14px;
+                    font-weight: 500;
+                    text-transform:uppercase;
+                }
+            }
+        }
+    }
+
+
+} // end: media-common
+//
+//  Desktop
+//  _____________________________________________
+
+
+
+@media (max-width: 1200px) and (min-width: 768px) {
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+}
+
+
+
+
+
+

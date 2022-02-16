@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bluebirdday\TranssmartSmartConnectExtension\Model\Shipment\Creator"
+                type="CustomConcepts\GhostShipment\Model\Shipment\Creator" />
+
+    <preference for="CustomConcepts\GhostShipment\Api\GhostShipmentCreatorInterface"
+                type="CustomConcepts\GhostShipment\Service\GhostShipmentCreator" />
+    <preference for="CustomConcepts\GhostShipment\Api\GhostShipmentExceptionHandlerInterface"
+                type="CustomConcepts\GhostShipment\Service\GhostShipmentExceptionHandler" />
+    <preference for="CustomConcepts\GhostShipment\Api\TranssmartShipmentFieldGeneratorInterface"
+                type="CustomConcepts\GhostShipment\Service\TranssmartShipmentFieldGenerator" />
+    <preference for="Bluebirdday\TranssmartSmartConnectExtension\Model\Shipment\Synchronizer"
+                type="CustomConcepts\GhostShipment\Model\Shipment\Synchronizer" />
+    <preference for="Bluebirdday\TranssmartSmartConnect\Model\Transsmart\Adapter"
+                type="CustomConcepts\GhostShipment\Model\Transsmart\Adapter" />
+    <preference for="Bluebirdday\TranssmartSmartConnectExtension\Observer\BookShipmentObserver"
+                type="CustomConcepts\GhostShipment\Observer\BookShipmentObserver" />
+    <preference for="Bluebirdday\TranssmartSmartConnectExtension\Controller\Adminhtml\Shipment\Book"
+                type="CustomConcepts\GhostShipment\Controller\Adminhtml\Shipment\Book" />
+
+    <preference for="Magento\Sales\Model\Order\Shipment"
+                type="CustomConcepts\GhostShipment\Model\Order\Shipment" />
+
+    <type name="Magento\Sales\Model\ResourceModel\Order\Handler\State">
+        <plugin name="cc_ghost_shipment_order_state_check" type="CustomConcepts\GhostShipment\Plugin\Sales\ResourceModel\Order\Handler\State"/>
+    </type>
+    <type name="CustomConcepts\GhostShipment\Service\GhostShipmentExceptionHandler">
+        <arguments>
+            <argument name="shipmentGrid" xsi:type="object">ShipmentGridAggregator</argument>
+        </arguments>
+    </type>
+    <virtualType name="ShipmentGridAggregator" type="Magento\Sales\Model\ResourceModel\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <!--merging didn't work, so we duplicate all the params here-->
+                <item name="entity_id" xsi:type="string">sales_shipment.entity_id</item>
+                <item name="increment_id" xsi:type="string">sales_shipment.increment_id</item>
+                <item name="store_id" xsi:type="string">sales_shipment.store_id</item>
+                <item name="order_increment_id" xsi:type="string">sales_order.increment_id</item>
+                <item name="order_created_at" xsi:type="string">sales_order.created_at</item>
+                <item name="customer_name" xsi:type="object">CustomerNameAggregator</item>
+                <item name="total_qty" xsi:type="string">sales_shipment.total_qty</item>
+                <item name="shipment_status" xsi:type="string">sales_shipment.shipment_status</item>
+                <item name="order_status" xsi:type="string">sales_order.status</item>
+                <item name="billing_address" xsi:type="object">BillingAddressAggregator</item>
+                <item name="shipping_address" xsi:type="object">ShippingAddressAggregator</item>
+                <item name="billing_name" xsi:type="object">BillingNameAggregator</item>
+                <item name="shipping_name" xsi:type="object">ShippingNameAggregator</item>
+                <item name="customer_email" xsi:type="string">sales_order.customer_email</item>
+                <item name="customer_group_id" xsi:type="string">sales_order.customer_group_id</item>
+                <item name="payment_method" xsi:type="string">sales_order_payment.method</item>
+                <item name="created_at" xsi:type="string">sales_shipment.created_at</item>
+                <item name="updated_at" xsi:type="string">sales_shipment.updated_at</item>
+                <item name="order_id" xsi:type="string">sales_shipment.order_id</item>
+                <item name="shipping_information" xsi:type="string">sales_order.shipping_description</item>
+                <item name="transsmart_status" xsi:type="string">sales_shipment.transsmart_status</item>
+                <item name="transsmart_tracking_url" xsi:type="string">sales_shipment.transsmart_tracking_url</item>
+                <!--ghost shipment column we need-->
+                <item name="ghost_shipment" xsi:type="string">sales_shipment.ghost_shipment</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="CustomConcepts\GhostShipment\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="CustomConcepts\GhostShipment\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">ghostshipment</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">CustomConcepts\GhostShipment\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

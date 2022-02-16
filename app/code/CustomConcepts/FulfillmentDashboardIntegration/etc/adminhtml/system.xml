@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<system>
+    <section id="cc_dashboard_integration" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1"
+             showInStore="1">
+        <class>separator-top</class>
+        <label>Fulfillment Dashboard Integration</label>
+        <tab>gocustomized</tab>
+        <resource>CustomConcepts_Base::config_gocustomized_gocustomizer</resource>
+        <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>General</label>
+            <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                   showInWebsite="1" showInStore="1" canRestore="1">
+                <label>Enable fulfillment dashboard integration</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            </field>
+        </group>
+        <group id="api" translate="label" sortOrder="20" showInDefault="1">
+            <label>API</label>
+            <depends>
+                <field id="cc_dashboard_integration/general/enabled">1</field>
+            </depends>
+            <field id="domain" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Fulfillment dashboard domain</label>
+                <comment>Ex:http://fulfillment-test.customconcepts.com/</comment>
+            </field>
+            <field id="shipment_creation_path" translate="label" type="text" sortOrder="20" showInDefault="1">
+                <label>shipment_creation_path</label>
+                <comment>api/v2/shipment</comment>
+            </field>
+        </group>
+        <group id="fields" translate="label" sortOrder="20" showInDefault="1">
+            <label>Additional fields</label>
+            <depends>
+                <field id="cc_dashboard_integration/general/enabled">1</field>
+            </depends>
+            <field id="supplier_name" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Supplier name</label>
+            </field>
+        </group>
+    </section>
+</system>
+</config>

@@ -1,0 +1,132 @@
+& when (@media-common = true) {
+    .block.block-side-nav{
+        border: 1px solid #ededed;
+        margin-top: 2em;
+
+        .block-side-nav-title{
+            display: none;
+        }
+
+        .content{
+            background-color: #fbfbfb;
+            padding: 15px 6px;
+        }
+    }
+
+    .block.account-nav{
+        display: none;
+    }
+
+    .box-title{
+        width: 100%;
+    }
+
+    .welcome-msg {
+        margin:0 0 1.6666em;
+        .hello {
+            font-size:1.2em;
+            line-height:1.2em;
+            margin-bottom: 10px;
+            p{
+                padding: 0;
+            }
+            strong {
+                font-weight: normal;
+            }
+        }
+    }
+
+    .account {
+        .form-address-edit {
+            .fieldset {
+                .field {
+                    &.taxvat {
+                        display: none;
+                    }
+
+                    &.street,
+                    &.taxvat,
+                    &.choice {
+                        width: 100%;
+
+                        label.label {
+                            width: 100%;
+                            text-align: left;
+                        }
+
+                        & > .control {
+                            width: 47%;
+                        }
+                    }
+
+                    select {
+                        height: 40px !important;
+                    }
+
+                    label.label {
+                        height: 38px;
+
+                        span {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sales-order-shipment{
+        .order-details-items.shipments{
+            .order-title{
+                display: flex;
+
+                .order-title-actions{
+                    margin-left: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    text-decoration: underline;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px){
+    .action.primary{
+        font-size: 1rem;
+        padding: 4px 15px;
+    }
+
+    .page-title-wrapper{
+        border-bottom: 1px solid #ededed;
+    }
+
+    .account {
+        .form-address-edit {
+            .fieldset {
+                .field {
+                    &.street,
+                    &.taxvat {
+                        & > .control {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sales-order-shipment{
+        .order-details-items.shipments{
+            .order-title{
+                .order-title-actions{
+                    margin-left: 10px;
+                    justify-content: space-evenly;
+                }
+            }
+        }
+    }
+}
+
+

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock name="order_create_shipping_form"
+                    class="CustomConcepts\TranssmartSmartConnect\Block\Adminhtml\Order\Create\Shipping\Method\Form"
+                    template="CustomConcepts_TranssmartSmartConnect::order/create/shipping/method/form.phtml">
+        <arguments>
+            <argument name="jsLayout" xsi:type="array">
+                <item name="components" xsi:type="array">
+                    <item name="transsmart-locator-trigger" xsi:type="array">
+                            <item name="component" xsi:type="string">CustomConcepts_TranssmartSmartConnect/js/trigger</item>
+                            <item name="config" xsi:type="array">
+                                <item name="template" xsi:type="string">CustomConcepts_TranssmartSmartConnect/trigger</item>
+                            </item>
+                            <item name="children" xsi:type="array">
+                                <item name="transsmart-locator-modal" xsi:type="array">
+                                    <item name="component" xsi:type="string">CustomConcepts_TranssmartSmartConnect/js/modal</item>
+                                    <item name="displayArea" xsi:type="string">transsmart-locator-modal</item>
+                                    <item name="config" xsi:type="array">
+                                        <item name="template" xsi:type="string">ui/modal/modal-component</item>
+                                    </item>
+                                    <item name="options" xsi:type="array">
+                            <item name="type" xsi:type="string">popup</item>
+                            <item name="title" xsi:type="string" translate="true">Choose a pickup location</item>
+                            <item name="modalClass" xsi:type="string">locator</item>
+                        </item>
+                                    <item name="children" xsi:type="array">
+                                        <item name="transsmart-locator-map" xsi:type="array">
+                                            <item name="component" xsi:type="string">CustomConcepts_TranssmartSmartConnect/js/map</item>
+                                            <item name="config" xsi:type="array">
+                                                <item name="template" xsi:type="string">CustomConcepts_TranssmartSmartConnect/map</item>
+                                            </item>
+
+                                            <item name="sortOrder" xsi:type="string">1</item>
+                                        </item>
+
+                                        <item name="transsmart-locator-search" xsi:type="array">
+                                            <item name="component" xsi:type="string">CustomConcepts_TranssmartSmartConnect/js/search</item>
+                                                <item name="config" xsi:type="array">
+                                                    <item name="template" xsi:type="string">CustomConcepts_TranssmartSmartConnect/search</item>
+                                                </item>
+
+                                            <item name="sortOrder" xsi:type="string">2</item>
+                                        </item>
+
+                                        <item name="transsmart-locator-list" xsi:type="array">
+                                            <item name="component" xsi:type="string">CustomConcepts_TranssmartSmartConnect/js/list</item>
+
+                                            <item name="config" xsi:type="array">
+                                                <item name="template" xsi:type="string">CustomConcepts_TranssmartSmartConnect/list</item>
+                                            </item>
+                                            <item name="sortOrder" xsi:type="string">3</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </referenceBlock>
+
+    <referenceBlock name="order_create_billing_form" template="CustomConcepts_TranssmartSmartConnect::order/create/billing/method/form.phtml"/>
+</page>

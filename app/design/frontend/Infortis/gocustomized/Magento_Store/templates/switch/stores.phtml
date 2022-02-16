@@ -1,0 +1,76 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Store\Block\Switcher $block */
+
+?>
+<?php if (count($block->getGroups())>1): ?>
+<div class="switcher store switcher-store custom-store-switcher" id="switcher-store">
+    <div class="actions dropdown options switcher-options">
+        <?php foreach ($block->getGroups() as $_group): ?>
+        <?php if ($_group->getId() == $block->getCurrentGroupId()): ?>
+            <div class="action toggle switcher-trigger"
+                 role="button"
+                 tabindex="0"
+                 data-mage-init='{"dropdown":{}}'
+                 data-toggle="dropdown"
+                 data-trigger-hover-button="true"
+                 id="switcher-store-trigger">
+                <strong>
+                    <?php if($_group->getCode() == "main_website_store"): ?>
+                        <i class="lang-us"></i>
+                    <?php else: ?>
+                        <i class="lang-<?php echo $block->escapeHtml(substr($_group->getCode(), 0, 2)); ?>"></i>
+                    <?php endif; ?>
+                    <span><?php echo __('Change Country'); ?></span>
+                    <span class="dropdown-toggle-custom"></span>
+                </strong>
+
+            </div>
+
+        <?php endif; ?>
+        <?php endforeach; ?>
+        <ul class="dropdown switcher-dropdown" data-target="dropdown">
+            <?php foreach ($block->getGroups() as $_group): ?>
+                <li class="switcher-option">
+                <?php $i = 1;?>
+               <?php foreach ($_group->getStores() as $_lang): ?>
+                    <?php if (strpos($_lang->getBaseUrl(), 'default') !== false) { continue; } ?>
+                    <?php $code = substr($_lang->getCode(), 0, 2); ?>
+
+                    <?php if ($i == 1): ?>
+                        <?php $sub_store_lable = strtoupper(substr($_lang->getCode(), 0,2)); ?>
+                        <a href="<?= $_lang->getBaseUrl(); ?>"><i class="lang-<?php echo $code ?>"></i></a>
+                        <a href="<?= $_lang->getBaseUrl(); ?>">
+                            <?= $block->escapeHtml($sub_store_lable) ?>
+                        </a>
+                    <?php else:?>
+                        <?php $sub_store_lable = strtoupper(substr($_lang->getCode(), -2)); ?>
+                        <a href="<?= $_lang->getBaseUrl(); ?>">
+                            <?= $block->escapeHtml($sub_store_lable) ?>
+                        </a>
+                    <?php endif;?>
+                        <?php $i++; ?>
+                <?php endforeach; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<script>
+    require(['jquery'], function($){
+        if (window.matchMedia('(min-width: 769px)').matches) {
+            $('.switcher-options').mouseover(function() {
+                $(this).addClass('active');
+            }).mouseout(function() {
+                $(this).removeClass('active');
+            });
+        }
+    });
+</script>
+<?php endif; ?>

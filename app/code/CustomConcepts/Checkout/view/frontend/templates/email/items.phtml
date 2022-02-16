@@ -1,0 +1,73 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/** @var $block \Magento\Sales\Block\Order\Email\Items */
+
+/** @var CustomConcepts\GoCustomizer\ViewModel\GocustomizerViewModel $gcViewModel */
+$gcViewModel = $block->getGcViewModel();
+$gcHelper = $gcViewModel->getGcHelper();
+$ccPriceHelper = $gcViewModel->getCcPriceHelper();
+?>
+<?php $_order = $block->getOrder() ?>
+<?php if ($_order) : ?>
+    <?php $_items = $_order->getAllItems(); ?>
+    <table class="email-items-gc" style="width: 50%">
+        <?php foreach ($_items as $_item) : ?>
+            <?php if (!$_item->getParentItem()) : ?>
+                <?php
+                    $product = $gcViewModel->getTranslatedProduct($_item->getProduct()->getId()) ?: $_item;
+                ?>
+                <tbody>
+                    <tr>
+                        <td style="text-align: center">
+                            <?php if ($gcHelper->isGocustomizerProduct($_item)): ?>
+                                <img alt="<?= $_item->getProduct()->getName(); ?>" src="<?= $gcHelper->getProductThumbnail($_item); ?>" height="160"/>
+                            <?php else: ?>
+                                <img alt="<?= $_item->getProduct()->getName(); ?>" src="<?= $gcHelper->getProductDefaultThumbnail($_item); ?>" height="160"/>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center"><p><b><?= $product->getName(); ?></b></p></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center">
+                            <span style="border-right: 1px solid black; padding-right: 10px;"><?= $product->getAttributeText('customproduct_color'); ?></span>
+                            <span style="padding: 0 10px; border-right: 1px solid black;"><?= number_format($_item->getQtyOrdered()); ?>&nbsp;<?= ($_item->getQtyOrdered() > 1) ? __('Items') : __('Item'); ?></span>
+                            <span style="padding-left: 10px;"><?= $ccPriceHelper->convertPriceToCurrency($_item->getProduct()->getPrice()); ?></span>
+                        </td>
+                    </tr>
+                </tbody>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </table>
+    <table class="order-totals" style="width: 50%; float: right; border-top: 1px solid black; text-align: right">
+        <?= $block->getChildHtml('order_totals') ?>
+    </table>
+    <?php if ($this->helper(\Magento\GiftMessage\Helper\Message::class)
+            ->isMessagesAllowed('order', $_order, $_order->getStore())
+        && $_order->getGiftMessageId()
+    ) : ?>
+        <?php $_giftMessage = $this->helper(\Magento\GiftMessage\Helper\Message::class)
+            ->getGiftMessage($_order->getGiftMessageId()); ?>
+        <?php if ($_giftMessage) : ?>
+            <br />
+            <table class="message-gift">
+                <tr>
+                    <td>
+                        <h3><?= $block->escapeHtml(__('Gift Message for this Order')) ?></h3>
+                        <strong><?= $block->escapeHtml(__('From:')) ?></strong> <?= $block->escapeHtml($_giftMessage->getSender()) ?>
+                        <br /><strong><?= $block->escapeHtml(__('To:')) ?></strong> <?= $block->escapeHtml($_giftMessage->getRecipient()) ?>
+                        <br /><strong><?= $block->escapeHtml(__('Message:')) ?></strong>
+                        <br /><?= $block->escapeHtml($_giftMessage->getMessage()) ?>
+                    </td>
+                </tr>
+            </table>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php endif; ?>

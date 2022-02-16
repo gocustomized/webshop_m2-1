@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="cms_block">
+        <column xsi:type="datetime" name="start_date" nullable="true" comment="Block Creation Time"/>
+        <column xsi:type="datetime" name="end_date" nullable="true" comment="Block Modification Time"/>
+    </table>
+</schema>

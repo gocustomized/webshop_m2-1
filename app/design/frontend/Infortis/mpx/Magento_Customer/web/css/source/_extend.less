@@ -1,0 +1,487 @@
+& when (@media-common = true) {
+    .page-title-wrapper{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .page-title{
+            flex-basis: auto;
+            line-height: 37px;
+            font-size: 19px;
+            font-weight: 600;
+        }
+
+        .current-page-title{
+            border-bottom: 1px solid #e5e5e5;
+            flex-basis: 100%;
+            font-weight: 600;
+            font-family: 'Nunito', sans-serif;
+        }
+    }
+
+    .welcome-msg,
+    a,
+    .box-title span {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    a span {
+        text-transform: none;
+    }
+
+    .form-edit-account, .form-address-edit{
+        .fieldset{
+            .legend{
+                font-size: 20px;
+                border-bottom: 1px solid #e5e5e5;
+                width: 100%;
+                margin-bottom: 20px;
+                padding-bottom: 8px;
+            }
+        }
+    }
+
+    .form-address-edit{
+        .actions-toolbar{
+            .primary{
+                float: right;
+
+                .action.save.primary{
+                    padding: 10px 15px;
+                    font-size: 20px;
+                }
+            }
+
+            .secondary{
+                float: left;
+
+                .action.back:before{
+                    content: "\ea40";
+                    font-family: 'icomoon-icons';
+                }
+            }
+        }
+    }
+
+    .columns{
+        .column.main{
+            h1,
+            h2,
+            h3 {
+                font-family: 'Nunito', sans-serif;
+            }
+
+            .block-reorder-heading,
+            .block-title,
+            .block-title strong {
+                font-family: 'Nunito', sans-serif;
+                text-transform: none;
+                font-size: 24px !important;
+            }
+
+            .actions-toolbar{
+                border-top: 1px solid #e5e5e5;
+                padding-top: 12px;
+            }
+
+            .action.view {
+                float: right;
+
+                span {
+                    font-weight: 400;
+                    margin-left: 10px;
+                    font-size: 12px !important;
+                    text-transform: none;
+                    font-family: 'Nunito', sans-serif;
+                }
+            }
+
+            a.action {
+                &:hover {
+                    span {
+                        color: #f4b400;
+                    }
+                }
+            }
+
+            .table-order-items {
+                th {
+                    font-size: 14px;
+                    margin-bottom: -1px;
+
+                    &.col.actions {
+                        padding: 8px 10px 8px 0;
+                    }
+                }
+
+                td {
+                    &.col.shipping {
+                        font-size: 14px;
+                    }
+
+                    &.col.price,
+                    &.col.subtotal {
+                        .price-including-tax,
+                        .price-excluding-tax {
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                .action.view {
+                    margin-top: 0;
+                    float: none;
+
+                    span {
+                        margin-left: 0;
+                        font-size: 14px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .account {
+        .page-main {
+            > .page-title-wrapper {
+                .page-title {
+                    display: none;
+                    flex-basis: 25.5%;
+                }
+
+                h1.current-page-title {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .form-address-edit {
+            .fieldset {
+                .legend {
+                    font-weight: 500;
+                }
+
+                .field {
+                    &.taxvat {
+                        display: none;
+                    }
+
+                    &.city,
+                    &.region,
+                    &.zip,
+                    &.country {
+                        width: 275px;
+                        display: inline-block;
+                        margin-bottom: 10px;
+                    }
+
+                    &.choice {
+                        width: 100%;
+                        display: block;
+                        margin: 0 0 10px;
+
+                        &.shipping {
+                            margin: 0 0 20px;
+                        }
+
+                        label.label {
+                            font-weight: bold;
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                #swissup-address-fields-container {
+                    display: none;
+                }
+
+                .required {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .block-reorder-heading,
+        .block-title,
+        .block-title strong {
+            font-family: 'Nunito', sans-serif;
+            text-transform: none;
+        }
+
+        .toolbar {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .action.back {
+            margin-left: 5px;
+
+            &:before {
+                content: "\ea40";
+                font-family: 'icomoon-icons';
+                font-size: 12px;
+            }
+
+            span {
+                margin-left: 5px;
+            }
+        }
+
+        a.action {
+            &:hover {
+                span {
+                    color: #f4b400;
+                }
+            }
+        }
+
+        .message.info {
+            font-size: 16px;
+
+            span {
+                &:before {
+                    font-family: 'icomoon-icons';
+                    top: 18px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .sales-order-shipment{
+        .order-details-items.shipments{
+            .order-title{
+                display: flex;
+
+                .order-title-actions{
+                    margin-left: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    text-decoration: underline;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: @screen__m){
+    .account {
+        .form-address-edit {
+            .fieldset {
+                .field {
+                    .control {
+                        width: 262px;
+
+                        input {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px){
+    .page-main{
+        .columns{
+            padding: 0;
+        }
+    }
+
+    .category-description.seo.std,
+    .breadcrumbs {
+        padding: 0 10px;
+    }
+
+    .order-search-wrapper{
+        #my_order_search{
+            display: flex;
+
+            .order-search-input{
+                flex-basis: 80%;
+            }
+
+            .order-search-button{
+                flex-basis: 20%;
+            }
+        }
+    }
+
+    .account {
+        .form-address-edit {
+            .fieldset {
+                margin-bottom: 10px;
+
+                .legend {
+                    margin-bottom: 15px;
+                }
+
+                .field {
+                    width: 100%;
+                    margin: 0 0 10px;
+
+                    &.zip,
+                    &.country {
+                        width: 100%;
+                    }
+
+                    &.country {
+                        select {
+                            width: 100%;
+                        }
+                    }
+
+                    &.street {
+                        .control {
+                            input#street_1 {
+                                margin: 0 0 10px;
+                            }
+
+                            .nested {
+                                .field.additional {
+                                    label.label {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .control {
+                        input {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sales-order-shipment{
+        .order-details-items.shipments{
+            .order-title{
+                .order-title-actions{
+                    margin-left: 10px;
+                    justify-content: space-evenly;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: @screen__s){
+    .account{
+        .page-title-wrapper{
+            .page-title{
+                display: none;
+            }
+
+            .current-page-title{
+                font-size: 25px;
+                margin-left: 0 !important;
+            }
+        }
+    }
+
+    .form-edit-account, .form-address-edit{
+        .actions-toolbar{
+            .primary, .secondary{
+                width: 100%;
+            }
+
+            .action.back{
+                display: none;
+            }
+        }
+
+        .fieldset{
+            .field{
+                margin: 0 0 30px;
+            }
+        }
+    }
+
+    .account{
+        .fieldset{
+            .field{
+                .label {
+                    top: 0;
+                    position: relative;
+                }
+            }
+
+            .field.choice{
+                .label{
+                    top: 5px
+                }
+            }
+        }
+    }
+
+    .block-dashboard-info{
+        .box-head{
+            h2{
+                font-size: 24px;
+            }
+        }
+    }
+
+    .account {
+        .form-address-edit {
+            .fieldset {
+                margin-bottom: 10px;
+
+                .legend {
+                    margin-bottom: 15px;
+                }
+
+                .field {
+                    width: 100%;
+                    margin: 0 0 10px;
+
+                    &.zip,
+                    &.country {
+                        width: 100%;
+                    }
+
+                    &.country {
+                        select {
+                            width: 100%;
+                        }
+                    }
+
+                    .street {
+                        .control {
+                            input#street_1 {
+                                margin: 0 0 10px;
+                            }
+
+                            .nested {
+                                .field.additional {
+                                    label.label {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .control {
+                        input {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

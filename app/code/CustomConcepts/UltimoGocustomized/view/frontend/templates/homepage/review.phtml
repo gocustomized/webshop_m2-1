@@ -1,0 +1,90 @@
+<?php
+// Load Reviews & Stats
+$_limit = $this->getLimit();
+$limit = isset($_limit) ? $_limit : 6;
+//Get Object Manager Instance
+$reviews = $block->getReviews($limit);
+// Load Stats
+$stats = $block->getStats();
+
+if ($stats->getData('score') > 0) {
+    $stats->setPercentage($stats->getData('score'));
+    $stats->setStarsQty(number_format(($stats->getData('score') / 10), 1));
+}
+?>
+<div class="block-graybg">
+    <div class="kiyoh container padding-tb-50">
+        <div class="section-title border-bottom">
+            <?php echo __('WHAT PEOPLE ARE SAYING ABOUT US'); ?>
+        </div>
+        <div class="review-content margin-top-30">
+            <div class="grid12-3 center-text">
+                <div class="review-star ">
+                    <span class="star"><?php echo ($stats->getData('score') > 70) ? $stats->getStarsQty() : 8.1; ?></span>
+                </div>
+            </div>
+            <div class="review-slider grid12-9">
+                <?php if ($reviews->getSize()): ?>
+                    <div class="owl-carousel review-carousel">
+                        <?php
+                        $i = 0;
+                        foreach ($reviews as $review):
+                            ?>
+                            <div class="review-list">	
+                                <h3><?php echo $review->getData('customer_name'); ?></h3>
+                                <span class="r-date"> <?php echo $this->dateFormater()->date($review->getData('date_created'))->format('F d, Y'); ?></span>
+                                <?php if ($review->getData('score')): ?>
+                                    <div class="ratings">
+                                        <span class="amount"><?php echo $review->getData('score'); ?> </span>
+                                        <div class="rating-box">
+                                            <div class="rating" style="width:<?php echo ($review->getData('score') * 10); ?>%"></div>
+                                        </div>
+                                    </div>                                    
+                                <?php endif; ?>
+                                <?php if ($review->getData('positive')): ?>
+                                    <p class="r-description"><?php echo nl2br($review->getData('positive')); ?></p>
+                                <?php endif; ?>                                     
+                            </div>
+                            <?php
+                            $i++;
+                        endforeach;
+                        ?>
+                    </div>
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        requirejs(['jquery', 'owlcarousel'], function (jQuery, owl)
+                        {
+                            jQuery(function ($) {
+                                var owl = $('.review-carousel');
+                                owl.owlCarousel({
+                                    lazyLoad: true,
+                                    itemsCustom: [[0, 1], [320, 1], [480, 2], [768, 2], [992, 2], [1200, 2]],
+                                    responsiveRefreshRate: 50,
+                                    slideSpeed: 200,
+                                    paginationSpeed: 500,
+                                    scrollPerPage: true,
+                                    stopOnHover: true,
+                                    rewindNav: true,
+                                    rewindSpeed: 600,
+                                    pagination: false,
+                                    navigation: true,
+                                    navigationText: false
+
+                                });
+                            });
+                        });
+                    //]]>
+                    </script>
+                <?php else: ?>
+                    <p class="note-msg"><?php echo __('No reviews found...'); ?></p>
+                <?php endif; ?>
+                <p class="clearfix readmore right-link">
+                    <a class="read-more" href="<?php echo $block->getReviewPageUrl(); ?>">
+                        <?php echo __('ALL REVIEWS') ?>
+                    </a>
+                </p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

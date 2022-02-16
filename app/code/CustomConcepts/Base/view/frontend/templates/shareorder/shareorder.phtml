@@ -1,0 +1,113 @@
+<div class="line_above_footer" style="margin-bottom: 20px;"></div>
+<?php
+if ($this->isActiveShareOrder() === '1' && $this->getConfigValue('facebookShareOrder/general/facebook_app_id') != '') {
+    $facebook_app_id = $this->getConfigValue('facebookShareOrder/general/facebook_app_id');
+    $facebook_title = $this->getConfigValue('facebookShareOrder/general/facebook_title');
+    $facebook_desc = $this->getConfigValue('facebookShareOrder/general/facebook_desc');
+    $orderObject = $this->getOrder();
+    $orderItems = $this->getItems();
+    ?>
+    <div id='fb-root'></div>
+    <div class="category-products padding-tb-30 share-order-category-products">
+        <script src='https://connect.facebook.net/en_US/all.js'></script>
+        <script>
+            FB.init({appId: "<?php echo $facebook_app_id ?>", status: true, cookie: true});
+
+            function postToFeed(product_url, product_image, product_name) {
+                var pname = product_name;
+                // calling the API ...
+                var obj = {
+                    method: 'feed',
+                    redirect_uri: product_url,
+                    link: product_url,
+                    picture: product_image,
+                    name: '<?php echo $facebook_title; ?>',
+                    caption: product_name,
+                    description: '<?php echo $facebook_desc; ?>',
+                    display: 'popup'
+                };
+
+                function callback(response) {
+                    if (response && !response.error_code) {
+                        jQuery('.success-msg').slideDown().delay(5000).slideUp();
+
+                    } else {
+                        jQuery('.error-msg').slideDown().delay(5000).slideUp();
+                    }
+
+                }
+                FB.ui(obj, callback);
+            }
+        </script>
+        <!-- Share title-->
+        <div class="page-title-wrapper-shareorder">
+            <h2 class="page-title ">
+                <span><?php echo __('Happy with your design, share it!'); ?></span>
+            </h2>
+        </div>
+        <div class="products wrapper grid products-grid">
+            <ol class="products list items product-items">
+                <?php foreach ($orderItems as $item): ?>
+                    <?php
+                    $_product = $item->getProduct();
+                    $widthBig = 258;
+                    $heightBig = 245;
+                    $widthSmall = 71;
+                    $heightSmall = 65;
+
+                    $url = $_product->getProductUrl();
+                    $name = $this->stripTags($_product->getName());
+                    $thumbnail = '';
+//            /*Need to add if needed copies as it is from M1*/
+//            $attributeSetName = $this->getAttributeSetName($_product->getAttributeSetId());
+//                if ($attributeSetName == 'Customizer Product') {
+//                    $product_options = $item->getProductOptions();
+//                    foreach ($product_options['options'] as $_option) {
+//                        if ($_option['label'] == 'thumbnail') {
+//                            $thumbnail = $_option['value'];
+//                            break;
+//                        }
+//                    }
+//                } 
+                    if ($this->getGocustomizerHelper()->isGocustomizerProduct($item)) {
+                        $thumbnail = $this->getGocustomizerHelper()->getProductThumbnail($item);
+                    } else {
+                        $thumbnail = $this->getImageHelper()->init($_product, 'category_page_grid')->setImageFile($_product->getFile())->getUrl();
+                        //$thumbnail = $this->getImageHelper()->init($_product, 'product_page_image_small')->setImageFile($_product->getFile())->resize(301, 301)->getUrl();
+                    }
+                    ?>
+                    <li class="shareorder single-product-item col-sm-4 col-md-3 col-lg-3">
+                        <div class="product-item-info" data-container="product-grid">
+                            <span class="product-image-container" style="width:240px;">
+                                <span class="product-image-wrapper">
+                                    <img class="product-image-photo" data-image2x="<?php echo $thumbnail; ?>" src="<?php echo $thumbnail; ?>" width="240" height="300" alt="<?php echo $name; ?>"/>
+                                </span>
+                            </span>
+                            <div class="product details product-item-details">
+                                <div class="product-item-inner">
+                                    <div class="product actions product-item-actions">
+                                        <div data-role="add-to-links" class="actions-secondary">
+                                            <a class="action subscribe primary" id="button-<?php echo $name; ?>" href="javascript:postToFeed('<?php echo $url; ?>','<?php echo $thumbnail; ?>','<?php echo $name; ?>')"><?php echo __('Share'); ?></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>    
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    </div>
+    <ul class="messages">
+        <li style="display:none;" class="success-msg message success">
+            <ul>
+                <li id="share-succes"><?php echo __('Your design has been shared, thanks!'); ?></li>
+            </ul>
+        </li>
+        <li style="display:none;" class="error-msg message error">
+            <ul>
+                <li id="share-failed"><?php echo __('Sharing your design has failed, please try again.'); ?></li>
+            </ul>
+        </li>
+    </ul>
+<?php } ?>

@@ -1,0 +1,65 @@
+<?php
+/**
+ * FAQs And Product Questions
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    FAQs And Product Questions
+ * @author     Asif Hussain <support@fmeextensions.com>
+ *
+ * @copyright  Copyright 2012 www.fmeextensions.com All right reserved
+ */
+?>
+
+<?php
+if ($block->getDisplayCategories() == 'selected'):
+    $topics = $this->getTopics();
+else :
+    $topics = $this->getTopics(1);
+endif;
+$num_of_question_to_display = $block->getShowNumberOfQuestions();
+$shipping_faq = $block->getShippingFaqId();
+?>
+<div id="faqcontainer">
+    <div class="section-title">
+        <strong><?php echo __('FAQs'); ?></strong>
+    </div>
+    <?php if (count($topics) == 0) : ?>
+        <p class="empty"><?php echo __('No Category find yet!') ?></p>
+    <?php else : ?>
+        <div id="topics-container">
+            <?php
+            foreach ($topics as $_topic):
+                ?>
+                <?php $faqs = $this->getFaqsOfMainTopics($_topic['topic_id']);?>
+                <?php if (count($faqs) == 0): ?>
+            <?php else: ?>
+                <?php
+                $i = 0;
+                foreach ($faqs as $f_val): $i++;
+                    ?>
+                    <?php if($i <= $num_of_question_to_display): ?>
+                        <div class="faqholder" data-mage-init='{"faq_collapse": {}}'>
+                            <h2 class="faqtitle"><?php echo $f_val['title']; ?></h2>
+                            <div class="answer" id="answer-<?php echo $f_val['faqs_id'];?>"><?php echo $block->filterOutputHtml($f_val['faq_answer']); ?>
+                                <?php if($f_val['faqs_id'] == $shipping_faq):?>
+                                    <div class="dynamic-shipping-methods">
+                                        <?php echo $this->getHTMLShippingMethods();?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+</div>
+

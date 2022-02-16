@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--/**
+ * CustomConcepts_OrderExport extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_OrderExport
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="CustomConcepts\OrderExport\Block\Adminhtml\OrderExport\Edit" name="exporter"/>
+        </referenceContainer>
+    </body>
+</page>

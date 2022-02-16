@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">kiyohreview_grid_data.kiyohreview_grid_data_source</item>
+            <item name="deps" xsi:type="string">kiyohreview_grid_data.kiyohreview_grid_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">kiyohreview_grid_columns</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="truncate">
+                <url path="kiyohreview/process/truncateAction"/>
+                <class>primary</class>
+                <label translate="true">Remove all Ratings</label>
+            </button>
+        </buttons>
+        <spinner>kiyohreview_grid_columns</spinner>
+        <deps>
+            <dep>kiyohreview_grid_data.kiyohreview_grid_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="kiyohreview_grid_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">KiyohreviewGridDataProvider</argument>
+            <argument name="name" xsi:type="string">kiyohreview_grid_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">review_id</argument>
+            <argument name="requestFieldName" xsi:type="string">review_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <container name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="template" xsi:type="string">ui/grid/toolbar</item>
+                <item name="stickyTmpl" xsi:type="string">ui/grid/sticky/toolbar</item>
+            </item>
+        </argument>
+        <bookmark name="bookmarks">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="namespace" xsi:type="string">kiyohreview_grid_data</item>
+                    </item>
+                </item>
+            </argument>
+        </bookmark>
+        <component name="columns_controls">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="columnsData" xsi:type="array">
+                        <item name="provider" xsi:type="string">kiyohreview_grid_data.kiyohreview_grid_data.kiyohreview_grid_columns</item>
+                    </item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
+                    <item name="displayArea" xsi:type="string">dataGridActions</item>
+                </item>
+            </argument>
+        </component>
+
+        <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="columnsProvider" xsi:type="string">kiyohreview_grid_data.kiyohreview_grid_data.kiyohreview_grid_columns</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">kiyohreview_grid_data.kiyohreview_grid_data.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.filters</item>
+                    </item>
+                    <item name="templates" xsi:type="array">
+                        <item name="filters" xsi:type="array">
+                            <item name="select" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                                <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            </item>
+                        </item>
+                    </item>
+                    <item name="childDefaults" xsi:type="array">
+                        <item name="provider" xsi:type="string">kiyohreview_grid_data.kiyohreview_grid_data.listing_top.listing_filters</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">kiyohreview_grid_data.kiyohreview_grid_data.kiyohreview_grid_columns.${ $.index }:visible</item>
+                        </item>
+                    </item>
+                </item>
+                <item name="observers" xsi:type="array">
+                    <item name="column" xsi:type="string">column</item>
+                </item>
+            </argument>
+        </filters>  
+        <massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
+            <action name="hide">
+                <settings>
+                    <url path="kiyohreview/massaction/massHide"/>
+                    <type>hide</type>
+                    <label translate="true">Set as Not Visible</label>
+                </settings>                
+            </action>            
+            <action name="visible">
+                <settings>
+                    <url path="kiyohreview/massaction/massVisible"/>
+                    <type>visible</type>
+                    <label translate="true">Make Visible</label>
+                </settings>                
+            </action>            
+            <action name="addsidebar">
+                <settings>
+                    <url path="kiyohreview/massaction/massAddsidebar"/>
+                    <type>addsidebar</type>
+                    <label translate="true">Add Sidebar</label>
+                </settings>                
+            </action>            
+            <action name="removesidebar">
+                <settings>
+                    <url path="kiyohreview/massaction/massRemovesidebar"/>
+                    <type>removesidebar</type>
+                    <label translate="true">Remove Sidebar</label>
+                </settings>                
+            </action>            
+        </massaction>      
+        <paging name="listing_paging">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">kiyohreview_grid_data.kiyohreview_grid_data.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.paging</item>
+                    </item>
+                    <item name="selectProvider" xsi:type="string">kiyohreview_grid_data.kiyohreview_grid_data.kiyohreview_grid_columns.ids</item>
+                </item>
+            </argument>
+        </paging>
+    </container>
+    <columns name="kiyohreview_grid_columns">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="storageConfig" xsi:type="array">
+                    <item name="provider" xsi:type="string">kiyohreview_grid_data.kiyohreview_grid_data.listing_top.bookmarks</item>
+                    <item name="namespace" xsi:type="string">current</item>
+                </item>
+            </item>
+        </argument>
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>review_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="review_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="label" xsi:type="string" translate="true">Review ID</item>
+                </item>
+            </argument>
+        </column>
+        <column name="company">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="label" xsi:type="string" translate="true">Store</item>
+                </item>
+            </argument>
+        </column>
+        <column name="customer_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="label" xsi:type="string" translate="true">User</item>
+                </item>
+            </argument>
+        </column>
+        <column name="customer_place">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="label" xsi:type="string" translate="true">Place</item>
+                </item>
+            </argument>
+        </column>
+        <column name="customer_email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="label" xsi:type="string" translate="true">Email</item>
+                </item>
+            </argument>
+        </column>
+        <column name="recommendation" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <filter>select</filter>
+                <options class="CustomConcepts\Kiyoh\Ui\Component\Listing\Column\Recommendation\Options"/>
+                <dataType>select</dataType>
+                <label translate="true">Recommendation</label>
+            </settings>
+        </column>
+        <column name="sidebar" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <filter>select</filter>
+                <options class="CustomConcepts\Kiyoh\Ui\Component\Listing\Column\Recommendation\Options"/>
+                <dataType>select</dataType>
+                <label translate="true">Sidebar</label>
+            </settings>
+        </column>
+        <column name="status" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <filter>select</filter>
+                <options class="CustomConcepts\Kiyoh\Ui\Component\Listing\Column\Recommendation\Options"/>
+                <dataType>select</dataType>
+                <label translate="true">Active</label>
+            </settings>
+        </column>
+        
+        <column name="score" class="CustomConcepts\Kiyoh\Ui\Component\Listing\Column\Score">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                    <item name="label" xsi:type="string" translate="true">Score</item>
+                </item>
+            </argument>
+            <settings>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="date_created" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Date</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

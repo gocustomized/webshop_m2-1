@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_ExcelImportOrders extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_ExcelImportOrders
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="CustomConcepts_ExcelImportOrders::excelimport" title="Excel Order Import" module="CustomConcepts_ExcelImportOrders" sortOrder="20" parent="Magento_Sales::sales" action="excelimport/importer" resource="CustomConcepts_ExcelImportOrders::excelimport" />
+    </menu>
+</config>

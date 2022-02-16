@@ -1,0 +1,607 @@
+html,body{
+    height: 100%;
+    margin:0;
+    padding: 0;
+    color: #063B38;
+    scroll-behavior: smooth;
+}
+
+.inner-container{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.backyellow .container{
+    padding: 0 20px;
+}
+
+.heartbeatouter .flex{
+    display: flex;
+}
+
+.heartbeatouter .heartbanner{
+    background: url('../images/heartbeatimages/Leaves_mobile.svg') no-repeat, linear-gradient(180deg, #F8F0B3 0%, #E6DEA4 100%);
+    background-size: cover;
+    overflow:hidden;
+}
+
+.heartbeatouter .bannertext{
+    letter-spacing: 1.24px;
+    line-height: 2;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.heartbeatouter .heartbanner h1{
+    font-size: 40px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: #096F45;
+    text-transform: uppercase;
+    /*text-shadow: 0 3px 0 #ECBF90;*/
+    letter-spacing: 1px;
+}
+
+.heartbeatouter .heartbeatwrap{
+    width: 100vw;
+    margin-left: -10px;
+    margin-top: 20px;
+}
+.heartbeatouter .heartbeatwrap img{
+    display: inline-block;
+}
+.heartbeatouter .heartgreen{
+    color: #57BF9A;
+}
+
+.heartbeatouter .heartbeatwrap span{
+    width: calc(100% - 140px);
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.heartbeatouter .heartbanner .mobilebanner{
+    width: 90%;
+    margin-left: 5%;
+}
+
+.heartbeatouter .heartbanner > p{
+    padding: 0 20px;
+    text-align: center;
+}
+
+.heartbeatouter .apple-text{
+    line-height: 28px;
+    letter-spacing: 0.89px;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont;
+    margin: 0;
+}
+
+.heartbeatouter .heartbanner .apple-text{
+    text-align: center;
+}
+
+.heartbeatouter .heartbtn{
+    border-radius: 4px;
+    font-size: 20px;
+    line-height: 37px;
+    padding-top: 8px;
+    color: #fff;
+    text-decoration: none;
+    width: 80%;
+    background-color: #063B38;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    letter-spacing: 0.67px;
+    max-width: 250px;
+}
+
+.heartbeatouter .container{
+    margin: 0 auto;
+    position: relative;
+}
+
+.heartbeatouter .sectionheader{
+    font-size: 36px;
+    line-height: 1;
+}
+
+.heartbeatouter .smalltext{
+    font-size: 14px;
+    letter-spacing: 0.7px;
+    line-height: 2;
+}
+
+.heartbeatouter .sticki-container-wrapper{
+    /*position: relative;*/
+    /*height: 100vh;*/
+    height: 100%;
+}
+
+.heartbeatouter .sticki-container-wrapper .sticki-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+}
+
+.heartbeatouter .sticki-container{
+    height: 100vh;
+    min-height: 400px;
+    top: 0;
+    position: sticky;
+    text-align: center;
+}
+
+.heartbeatouter .sticki-container > div, .sticki-row > div{
+    flex-basis: 70%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.heartbeatouter .stickimgholder .heartbtn{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.heartbeatouter .stickimgholder img, .sticki-row > div > img{
+    max-width: 350px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.heartbeatouter .sticki-container .hearttextholder, .sticki-row .stickitextholder{
+    flex-basis: 30%;
+}
+
+.heartbeatouter .sticki-container-wrapper .sticki-container > div img, .sticki-row > div img{
+    top: auto;
+    left: auto;
+    width: 100%;
+}
+
+.heartbeatouter .sticki-content{
+    position: relative;
+    z-index: 100;
+}
+
+.heartbeatouter .sticki-content .row{
+    height: 300vh;
+    min-height: 400px;
+}
+
+.hearttextholder p{
+    margin-top: 20px;
+    margin-bottom: 28px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.heartbeatouter .hearttextholder h2{
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.over{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+}
+
+.heartbeatouter .sticki_sentinel {
+    background: yellow;
+    position: absolute;
+    left: 0;
+    right: 0; /* needs dimensions */
+    visibility: hidden;
+}
+.heartbeatouter .sticki_sentinel--top {
+    /* Adjust the height and top values based on your on your sticki top position.
+    e.g. make the height bigger and adjust the top so observeHeaders()'s
+    IntersectionObserver fires as soon as the bottom of the sentinel crosses the
+    top of the intersection container. */
+    height: 40px;
+    top: -24px;
+}
+.heartbeatouter .sticki_sentinel--bottom {
+    bottom: 0;
+    /* Height should match the top of the header when it's at the bottom of the
+    intersection container. */
+    height: 200px;
+}
+.heartbeatouter .sticki-row > div{
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.heartbeatouter .fadeIn.sticki-row > div{
+    opacity: 1;
+}
+
+.heartbeatouter .row{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    height: 300vh;
+}
+
+.heartbeatouter .sticki-row{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.heartbeatouter .heartseperator{
+    margin: 40px 0;
+    position: relative;
+}
+
+.heartbeatouter .heartseperator img{
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: none;
+}
+
+.heartbeatouter .heartseperator .beat{
+    transform: rotate(180deg) translateX(50%);
+}
+
+.heartbeatouter .imageholder{
+    position: relative;
+}
+
+.heartbeatouter .imageholder img{
+    width: 100%;
+}
+
+.heartbeatouter .background{
+    position: absolute;
+    top: 0;
+}
+
+.heartbeatouter .bottomflexer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.heartbeatouter .bottomflexer div{
+    flex-basis: 48%;
+    margin-bottom: 4%;
+}
+
+.heartbeatouter .bottomflexer div img{
+    width: 100%;
+}
+
+video {
+    width: 100%;
+}
+
+.flexitem .smalltext{
+    text-align: center;
+}
+
+.heartbeatouter .heartseperator img.leaves{
+    position: absolute;
+    right: -13%;
+    width: 45%;
+    top: -70%;
+    left: auto;
+    transform: none;
+}
+
+.heartbeatouter .mobile-hide{
+    display: none;
+}
+
+.heartbeatouter .mobile-show{
+    display: block;
+}
+
+.heartbeatouter .mbl{
+    margin-bottom: 40px;
+}
+
+.heartbeatouter .mbxl{
+    margin-bottom: 80px;
+}
+
+.heartbeatouter .mbm{
+    margin-bottom: 24px;
+}
+
+.heartbeatouter .mbs{
+    margin-bottom: 10px;
+}
+
+.heartbeatouter .mtm{
+    margin-top: 24px;
+}
+
+.heartbeatouter .mtl{
+    margin-top: 48px;
+}
+
+.heartbeatouter .ptl{
+    padding-top: 40px;
+}
+
+.heartbeatouter .textcenter{
+    text-align: center;
+}
+
+@media screen and (min-width: 768px){
+    .heartbeatouter .heartbanner{
+        background: url('../images/heartbeatimages/Leaves.svg') no-repeat, linear-gradient(180deg, #F8F0B3 0%, #E6DEA4 100%);
+        background-size: cover;
+        overflow:hidden;
+    }
+
+    .heartbeatouter .heartbanner .container{
+        display: flex;
+    }
+
+    .heartbeatouter .sectionheader{
+        font-size: 54px;
+        line-height: 36px;
+    }
+
+    .heartbeatouter .heartbanner .container > div{
+        flex-basis: 50%;
+        position: relative;
+    }
+
+    .heartbeatouter .heartbanner .heartbeatwrap span{
+        width: auto;
+        font-size: 40px;
+        margin-top: 90px;
+        white-space: nowrap;
+    }
+    .heartbeatouter .heartbanner .apple-text{
+        text-align: left;
+    }
+
+    .heartbeatouter .container.backleaves{
+        padding: 100px 0;
+        background-image: url('../images/heartbeatimages/banner_leaves.png');
+        background-size: contain;
+        background-position: 0% 50%;
+        background-repeat: no-repeat;
+    }
+
+
+    .heartbeatouter .desktopflex{
+        z-index: 1;
+    }
+
+    .heartbeatouter .deskbanner{
+        width: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    .heartbeatouter .deskline{
+        width: 101vw;
+        position: absolute;
+        max-width: none;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 0;
+    }
+
+    .heartbeatouter .sticki-container-wrapper .sticki-container{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+
+    .heartbeatouter .sticki-container-wrapper .sticki-container > div, .sticki-row > div{
+        flex-basis: 50%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .heartbeatouter .sticki-row{
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .heartbeatouter .sticki-container-wrapper .sticki-container > div img, .sticki-row > div img{
+        top: auto;
+        left: auto;
+        width: 100%;
+        max-width: none;
+    }
+
+    .heartbeatouter .hearttextholder h2, .hearttextholder p{
+        text-align: left;
+    }
+
+    .heartbeatouter .sticki-container .hearttextholder{
+        text-align: left;
+    }
+
+    .heartbeatouter .sticki-container .hearttextholder a{
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+
+    .heartbeatouter .heartbanner h1{
+        text-align: left;
+        font-size: 60px;
+        margin-bottom: 64px;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    .heartbeatouter .heartbanner .heartbtn{
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .heartbeatouter .apple-text{
+        font-size: 24px;
+        letter-spacing: 1.2px;
+    }
+    /*.heartbanner .container .*/
+
+    .heartbeatouter .heartbeatwrap{
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .heartbeatouter .halfwidth{
+        text-align: left;
+        width: 65%;
+        margin: 0 auto;
+    }
+
+    .heartbeatouter .heartbanner .container{
+        display: flex;
+    }
+
+    .heartbeatouter .sticki-container img{
+        width: 30%;
+    }
+
+    .heartbeatouter .row{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+
+    .heartbeatouter .backyellow{
+        width: 100vw;
+        padding: 120px 0;
+        background: linear-gradient(180deg, #F8F0B3 0%, #E6DEA4 100%);
+    }
+
+    .heartbeatouter .flexer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .heartbeatouter .flexer div{
+        flex-basis: 48%;
+    }
+
+    .heartbeatouter .flexer .hearttextholder{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .heartbeatouter .reverse{
+        flex-direction: row-reverse;
+    }
+
+
+    .heartbeatouter .flexitem video{
+        width: 90%;
+    }
+
+    .heartbeatouter .flexitem .textcenter.heartgreen{
+        color: #096F45;
+        text-align: left;
+        font-size: 54px;
+        line-height: 36px;
+        margin-bottom: 20px;
+    }
+
+    .flexitem .smalltext{
+        text-align: left;
+    }
+
+    .heartbeatouter .flexer div .heartbtn{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .heartbeatouter .mobile-show{
+        display: none !important;
+    }
+
+    .heartbeatouter .mobile-hide{
+        display: block;
+    }
+
+    .heartbeatouter h2.headertext, h1.headertext{
+        font-size: 44px;
+        line-height: 63px;
+    }
+
+    .heartbeatouter h2.headertext{
+        margin-top: 80px;
+    }
+
+    .heartbeatouter .bannertext{
+        margin-bottom: 60px;
+    }
+
+    .heartbeatouter .bottomflexer div{
+        flex-basis: 32%;
+        margin-bottom: 2%;
+    }
+
+    .heartbeatouter .ptxl{
+        padding-top: 60px;
+    }
+    .heartbeatouter .mtl{
+        margin-top: 80px;
+    }
+    .heartbeatouter .mtxl{
+        margin-top: 120px;
+    }
+    .heartbeatouter .dmth{
+        margin-top: 120px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

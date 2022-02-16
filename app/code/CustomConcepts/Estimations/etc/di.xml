@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<type name="Magento\Checkout\Model\ShippingInformationManagement">
+		<plugin disabled="false" name="CustomConcepts_Estimations_Plugin_Magento_Checkout_Model_ShippingInformationManagement" sortOrder="10" type="CustomConcepts\Estimations\Plugin\Magento\Checkout\Model\ShippingInformationManagement"/>
+	</type>
+	<preference for="CustomConcepts\Estimations\Api\EstimationDatesRepositoryInterface" type="CustomConcepts\Estimations\Model\EstimationDatesRepository"/>
+	<preference for="CustomConcepts\Estimations\Api\Data\EstimationDatesInterface" type="CustomConcepts\Estimations\Model\Data\EstimationDates"/>
+	<preference for="CustomConcepts\Estimations\Api\Data\EstimationDatesSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="CustomConcepts\Estimations\Model\ResourceModel\EstimationDates\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">estimations_estimationdates</argument>
+			<argument name="resourceModel" xsi:type="string">CustomConcepts\Estimations\Model\ResourceModel\EstimationDates\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="estimations_estimationdates_listing_data_source" xsi:type="string">CustomConcepts\Estimations\Model\ResourceModel\EstimationDates\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

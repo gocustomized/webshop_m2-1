@@ -1,0 +1,214 @@
+.customer-account-create {
+    legend.legend {
+        font-family: 'Montserrat', san-serif !important;
+    }
+
+    .page-title-wrapper {
+        border-bottom: none;
+    }
+
+    .newsletter label {
+        vertical-align: sub;
+    }
+
+    .password, .confirmation {
+        width: 48%;
+        float: left;
+        margin: 0 0 15px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .control.captcha-image {
+        display: flex;
+    }
+
+    .captcha-img {
+        padding-left: 2px;
+    }
+
+    .captcha-reload {
+        float: none !important;
+        background: none !important;
+        padding: 0 !important;
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .register-actions-toolbar {
+        align-items: baseline;
+
+        a {
+            padding-top: 16px;
+        }
+    }
+
+    .action.back {
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+
+    .action.submit.primary {
+        border: none;
+        text-transform: uppercase;
+        overflow: visible;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        white-space: nowrap;
+        text-align: center;
+        background-color: #ed6d4f;
+        color: #fff;
+        line-height: 45px;
+        padding: 0 25px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .customer-account-create {
+        .password, .confirmation {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .account {
+        .page-title-wrapper h1 {
+            font-size: 16px;
+        }
+
+        .block .title strong {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.account {
+    .nav.item a {
+        color: #3c3a40;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    a {
+        color: #3c3a40;
+    }
+}
+
+.customer-account-forgotpassword {
+    .fieldset {
+        padding: 10px !important;
+        margin: 0 0 10px !important;
+    }
+
+    .fieldset h2.legend {
+        font-size: 18px !important;
+        margin-bottom: 15px !important;
+        text-transform: none !important;
+    }
+
+    .fieldset label {
+        float: none !important;
+        text-align: left !important;
+        width: 100% !important;
+        display: block !important;
+    }
+
+    .fieldset .control {
+        width: 100% !important;
+        float: none !important;
+    }
+
+    .form.password.forget {
+        min-width: inherit;
+        width: 100%;
+    }
+
+    form .actions-toolbar {
+        float: none !important;
+        margin-bottom: 20px !important;
+        padding: 0 5px !important;
+    }
+
+    .action.back {
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        border-bottom: 2px solid #a3b1c6;
+        font-weight: 500;
+        font-size: 14px;
+        color: #a3b1c6;
+        text-decoration: none;
+        cursor: pointer;
+        margin-top: 14px;
+        float: left;
+    }
+
+    button.action.submit.primary {
+        min-width: 140px !important;
+        //clear: both !important;
+        //margin: 30px 0 0 !important;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase;
+        line-height: 30px !important;
+        padding: 10px 15px 8px 15px !important;
+        background-color: #ed6d4f !important;
+        color: #fff !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .customer-account-forgotpassword .actions-toolbar .action.back {
+        display: none;
+    }
+
+    .customer-account-create .register-actions-toolbar .action.back {
+        display: none;
+    }
+
+    .block-gray {
+        padding: 10px;
+    }
+}
+
+div.mage-error[generated] {
+    clear: both !important;
+    font-size: 1em !important;
+    line-height: 1em !important;
+    color: #ee001c !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+@media (min-width: 768px) {
+    .customer-account-forgotpassword .actions-toolbar .primary {
+        float: right !important;
+    }
+
+    .fieldset .legend {
+        margin-left: 0 !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .customer-account-forgotpassword {
+        .field.note, .field.email {
+            width: 50%;
+        }
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .customer-account-forgotpassword .actions-toolbar .primary {
+        width: 100%;
+    }
+
+    .customer-account-create .register-actions-toolbar .primary {
+        width: 100%;
+    }
+}
+
+

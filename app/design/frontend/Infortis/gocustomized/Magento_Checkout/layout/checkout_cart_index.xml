@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/gift_popup.css" />
+        <script src="Magento_Theme::js/jquery.owlcarousel.min.js"/>
+    </head>
+
+    <body>
+        <referenceContainer name="main.content" htmlClass="page-main container checkout-cart-index-container" />
+        <referenceBlock name="checkout.cart.shipping" remove="true" />
+        <referenceBlock name="checkout.cart.coupon" remove="true" />
+        <referenceContainer name="cart.summary" remove="true" />
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceBlock name="breadcrumbs" remove="true" />
+        <referenceContainer name="checkout.cart.items">
+            <container name="checkout.cart.bottom" htmlTag="div" htmlClass="cart-bottom" after="-">
+                <container name="checkout.cart.bottom.right" htmlTag="div" htmlClass="cart-bottom-right">
+                    <container name="checkout.cart.totals" htmlTag="div" htmlClass="cart-bottom-totals-container">
+                        <block class="Magento\Checkout\Block\Cart"
+                               name="checkout.cart.bottom.totals"
+                               template="CustomConcepts_Base::checkout/bottom-totals.phtml" />
+                    </container>
+
+                    <container name="checkout.cart.bottom.toolbar" htmlTag="div" htmlClass="cart-bottom-toolbar">
+                        <container name="checkout.cart.bottom.toolbar.buttons" htmlTag="div" htmlClass="flexer justify-between cart-bottom-toolbar-wrapper">
+                            <block class="CustomConcepts\Giftsection\Block\Checkout\Cart\Popup"
+                                   name="checkout.giftpopup"
+                                   as="giftpopup"
+                                   template="CustomConcepts_Giftsection::checkout/gift-popup.phtml"
+                                   before="-" />
+
+                            <block name="checkout.button"
+                                   class="Magento\Checkout\Block\Cart"
+                                   after="-"
+                                   template="Magento_Checkout::cart/checkout-button.phtml" />
+                        </container>
+                    </container>
+                </container>
+                <container name="checkout.cart.bottom.left" htmlTag="div" htmlClass="cart-bottom-left" />
+            </container>
+        </referenceContainer>
+        <referenceBlock name="checkout.cart.crosssell">
+            <arguments>
+                <argument name="type" xsi:type="string">crosssell</argument>
+            </arguments>
+        </referenceBlock>
+        <move element="checkout.cart.crosssell" destination="checkout.cart.bottom.left" before="-" />
+        <referenceBlock name="checkout.cart.item.renderers.virtual.actions.edit" remove="true" />
+    </body>
+</page>

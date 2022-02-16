@@ -1,0 +1,149 @@
+<?php
+$gifts = $block->getGifts();
+$notecard = $block->getNotecard();
+$addToCartUrl = $notecard['add_to_cart_url'];
+?>
+
+<div class="giftpopupbutton-wrapper">
+    <button class="button giftpopupbutton">
+        <i class="fa fa-gift"></i>
+        <span><?php echo __('Gift options') ?></span>
+    </button>   
+</div>
+
+
+<div class="giftoverlay">
+    <div id="giftpopup" data-show="<?php echo $block->isAutoshow();?>" class="<?php echo (!empty($gifts) ? 'gifts' : 'nogift') ?>">
+        <div id="giftloader"><img src="<?php echo $block->getViewFileUrl('images/loader.svg')?>" alt="<?= __('Loader'); ?>" loading="lazy"/></div>
+        <div class="previewoverlay">
+            <img src="<?php echo $notecard['image_url'];?>" alt="<?php echo $notecard['title'];?>" loading="lazy"/>
+        </div>
+        <div class="kruisjeholder">
+            <div class="kruisje">
+                <img src="<?php echo $block->getViewFileUrl('images/close_btn.svg'); ?>" alt="<?= __('Close'); ?>" loading="lazy"/>
+            </div>
+        </div>
+        <div class="giftheader">
+            <h1><?php echo __('Choose your gift options') ?></h1>
+            <p><?php echo __('Select one or multiple options to receive your order ready for a gift.') ?></p>
+        </div>
+        <div class="giftinner">
+            <?php if(!empty($gifts)): ?>
+                <div id="giftsection">
+                    <div class="wrapcontainer flexer">
+                        <?php foreach($gifts as $sku => $gift) : ?>
+                            <?php if($gift['type'] == 'gift'): ?>
+                                <div class="wrap">
+                                    <div class="image-container">
+                                        <img src="<?php echo $gift['image_url'] ;?>" alt="<?php echo $gift['title'];?>" loading="lazy"/>
+                                    </div>
+                                    <div class="details-container">
+                                        <p class="product-title"><?php echo $gift['title']; ?></p>
+                                        <span class="product-price-container">
+                                            <?php if ($gift['special_price'] != '0') : ?>
+                                                <p class="product-price"><?php echo $gift['special_price'] ?></p>
+                                                <p class="product-special-price"><?php echo $gift['price'] ?></p>
+                                            <?php else: ?>
+                                                <p class="product-price"><?php echo $gift['price'] ?></p>
+                                            <?php endif; ?>
+                                        </span>
+                                        <label class="giftlabel">
+                                            <span class="checkmark-text"><?php echo __('I want it') ?></span>
+                                            <input type="checkbox" name="gifts" style="display: none" data-type="gift" data-title="<?php echo $gift['title']; ?>" data-sku="<?php echo $sku; ?>" data-description="<?php echo $gift['description'];?>" data-price="<?php echo $gift['price'];?>" />
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        <!-- Mobile card section -->
+                        <div class="mobile-show wrap">
+                            <div class="image-container">
+                                <img src="<?php echo $notecard['image_url'];?>" alt="<?php echo $notecard['title'];?>" class="notecard" loading="lazy"/>
+                                <img src="<?php echo $block->getViewFileUrl('images/magnifier.png'); ?>" alt="<?= __('Zoom In'); ?>" class="zoomin magnifier" loading="lazy"/>
+                            </div>
+                            <div class="details-container">
+                                <p class="product-title"><?php echo $notecard['title']; ?></p>
+                                <span class="product-price-container">
+                                    <?php if ($notecard['special_price'] != '0') : ?>
+                                        <p class="product-price"><?php echo $notecard['special_price'] ?></p>
+                                        <p class="product-special-price"><?php echo $notecard['price'] ?></p>
+                                    <?php else: ?>
+                                        <p class="product-price"><?php echo $notecard['price'] ?></p>
+                                    <?php endif; ?>
+                                </span>
+                                <label class="notecardlabel hascard">
+                                    <span class="checkmark-text"><?php echo __('I want it') ?></span>
+                                    <input type="checkbox" style="display: none" data-title="<?php echo $notecard['title']; ?>" data-sku="<?php echo $notecard['sku']; ?>" data-description="<?php echo $notecard['description'];?>" data-price="<?php echo $notecard['price'];?>" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mobile-show wrap">
+                            <div class="form-area">
+                                <textarea id="cardtext" data-url="<?php echo $addToCartUrl;?>" data-sku="<?php echo $notecard['sku'];?>" placeholder="<?php echo __('Please type your card text here...') ?>"></textarea>
+                                <p class="charcount"><?php echo __("You have a maximum of 5 lines. Please use latin characters only and no emoticons.") ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div id="cardsection">
+                <!-- <h1><?php echo __('Add a Special Notecard') ?></h1> -->
+                <div class="flexer">
+                    <!-- <div class="smalltext">
+                        <p>
+                            <?php echo $notecard['description']; ?>
+                        </p>
+                    </div> -->
+                    <div class="previewcard">
+                        <div class="imageholder">
+                            <img src="<?php echo $notecard['image_url'];?>" alt="<?php echo $notecard['title'];?>" class="notecard" loading="lazy"/>
+                            <img src="<?php echo $block->getViewFileUrl('images/magnifier.png'); ?>" alt="<?= __('Zoom In'); ?>" class="zoomin magnifier" loading="lazy"/>
+                        </div>
+                        <div class="buttonholder note-price-button">
+                            <p class="notecard-title"><?php echo $notecard['title']; ?></p>
+                            <span class="notecard-price-container">
+                                <?php if ($notecard['special_price'] != '0') : ?>
+                                    <p class="notecard-price"><?php echo $notecard['special_price'] ?></p>
+                                    <p class="notecard-special-price"><?php echo $notecard['price'] ?></p>
+                                <?php else: ?>
+                                    <p class="notecard-price"><?php echo $notecard['price'] ?></p>
+                                <?php endif; ?>
+                            </span>
+                            <label class="hascard">
+                                <span class="hascard-text"><?= __('I want it'); ?></span>
+                                <input checked="checked" type="checkbox"/>
+                                <span class="checker"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-area">
+                        <textarea id="cardtext" data-url="<?php echo $addToCartUrl;?>" data-sku="<?php echo $notecard['sku'];?>" placeholder="<?php echo __('Please type your card text here...') ?>"></textarea>
+                        <p class="charcount"><?php echo __("You have a maximum of 5 lines. Please use latin characters only and no emoticons.") ?></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="giftaddbuttonholder">
+                <p class="concart"><?php echo __('No thank you') ?></p>
+                <button class="giftaddtocart button btn-checkout smallpopup"><?php echo __('Add to Cart') ?></button>
+            </div> -->
+
+        </div>
+        <div class="giftaddbuttonholder">
+            <p class="concart kruisje"><?php echo __('No thank you') ?></p>
+            <button class="giftaddtocart button btn-checkout smallpopup"><?php echo __('Add to Cart') ?></button>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "CustomConcepts_Giftsection/js/gift_popup": {}
+        }
+    }
+</script>
+
+

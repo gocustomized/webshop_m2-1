@@ -1,0 +1,41 @@
+<!--/**
+* CustomConcepts_Oathlogin extension
+* @category  CustomConcepts_Extensions
+* @package   CustomConcepts_Oathlogin
+* @copyright Copyright (c) 2017
+* @author GoCustomized <info@gocustomized.com>
+*/-->
+
+<!--@subject Created new account  @-->
+<!--@vars {
+"var this.getUrl($store, 'admin')":"Warehouse Account URL",
+"var customer.email":"Customer Email",
+"var customer.name":"Customer Name"
+} @-->
+ 
+{{template config_path="design/email/header_template"}} <!-- pathe of template header-->
+ 
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{var username}}</p>
+            <p>
+                {{trans "Your new account has been created."}}
+            </p>
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            <p>{{trans 'Your Username : <span class="no-link">%username</span>' username=$username |raw}}</p>
+            <p>{{trans 'Your Password : <span class="no-link">%password</span>' password=$password |raw}}</p>
+            <p>{{trans 'Your E-mail   : <span class="no-link">%email</span>' email=$email |raw}}</p>
+            <p>{{trans 'Your FirstName: <span class="no-link">%firstname</span>' firstname=$firstname |raw}}</p>
+            <p>{{trans 'Your LastName : <span class="no-link">%lastname</span>' lastname=$lastname |raw}}</p>
+            
+        </td>
+    </tr>
+
+</table>
+ 
+{{template config_path="design/email/footer_template"}} <!--footer of template-->

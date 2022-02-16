@@ -1,0 +1,158 @@
+<?php
+/**
+ * Cart2Quote
+ */
+/** @var $block \CustomConcept\ExtendedQuote\Block\Adminhtml\Quote\View\Items\ImageUpload */
+?>
+<style>
+    .progressbar {
+        float: left;
+        width: 0;
+        height: 5px;
+        margin-top: 5px;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: #428bca;
+        -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+        -webkit-transition: width .6s ease;
+        -o-transition: width .6s ease;
+        transition: width .6s ease;
+    }
+    .upload-success {
+        background-color: #5cb85c;
+    }
+    .product-image-block img {
+        max-width: 70px;
+        max-height: 70px;
+    }
+    .product-name-block,.product-image-block {
+        float: left;
+    }
+
+    .product-name-block {
+        width: 65%;
+    }
+    .product-image-block {
+        width: 35%;
+        float: right;
+        text-align: right;
+    }
+</style>
+<div id="quote_item_imageupload" class="uploader" style="display:none">
+    <span class="fileinput-button form-buttons">
+        <span><?php /* @escapeNotVerified */ echo __('Browse Files...') ?></span>
+        <input type="hidden" name="item_id" id="item_id"/>
+        <input type="hidden" name="action_type" id="action_type" value="<?= $block->getActionType(); ?>"/>
+        <input class="fileupload" type="file" name="finalimage" data-url="<?php echo $this->getUrl('cc/upload') ?>">
+    </span>
+    <div class="clear"></div>
+    <script>
+        var itemId, actionType;
+        function uploadImage(itemid) {
+            console.log(itemid);
+            itemId = itemid;
+            actionType = jQuery('#action_type').val();
+            var url = jQuery('.fileupload').data('url');
+
+            jQuery('.fileupload').attr('data-url', url + '/item_id/' + itemId);
+            console.log(jQuery('.fileupload').data('url'));
+            jQuery('#quote_item_imageupload .fileupload').click();
+        }
+        require([
+            'jquery',
+            'mage/template',
+            'jquery/file-uploader',
+            'domReady!'
+        ], function ($, mageTemplate) {
+
+
+
+            $('#quote_item_imageupload .fileupload').fileupload({
+                dataType: 'json',
+                formData: {
+                    isAjax: 'true',
+                    form_key: FORM_KEY,
+                },
+                sequentialUploads: true,
+                acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+                // maxFileSize: 30000,
+                add: function (e, data) {
+                    var progressTmpl = mageTemplate('#progressbar-' + itemId),
+                            fileSize,
+                            tmpl;
+
+                    $.each(data.files, function (index, file) {
+                        fileSize = typeof file.size == "undefined" ?
+                                $.mage.__('We could not detect a size.') :
+                                byteConvert(file.size);
+
+                        data.fileId = Math.random().toString(36).substr(2, 9);
+
+                        tmpl = progressTmpl({
+                            data: {
+                                name: file.name,
+                                size: fileSize,
+                                id: data.fileId,
+                            }
+                        });
+                        $('#imageuploadbtn-' + itemId + ' span').text('Uploading...');
+                        $(tmpl).data('image', data).appendTo('#quote_item_imageupload');
+                    });
+                    $(this).fileupload('process', data).done(function () {
+                        data.submit();
+                    });
+                },
+                done: function (e, data) {
+
+                    var progressSelector = '#progressbar-' + itemId + ' .progressbar-container .progressbar';
+                    var tempErrorMessage = document.createElement("div");
+                    $(progressSelector).css('width', '100%');
+                    $('[data-action="show-error"]').children(".message").remove();
+                    if (data.result && !data.result.hasOwnProperty('errorcode')) {
+                        $(progressSelector).removeClass('upload-progress').addClass('upload-success');
+
+                    } else {
+                        tempErrorMessage.className = "message message-warning warning";
+                        tempErrorMessage.innerHTML = data.result.error;
+
+                        $('[data-action="show-error"]').append(tempErrorMessage);
+                        $(progressSelector).removeClass('upload-progress').addClass('upload-failure');
+                    }
+                    if (data.result.success == 1) {
+                        $('#imageuploadbtn-' + itemId).hide();
+                        $('#progressbar-' + itemId).hide();
+                        $('#imagereplace-' + itemId).html('<img src="' + data.result.image + '"/>');
+                    }
+                    else {
+                        $('#imageuploadbtn-' + itemId + ' span').text('Upload Final Image');
+                        $('#progressbar-' + itemId).hide();
+                        $('#imagereplace-' + itemId).html('<span class="message message-error ">' + data.result.message + '</span>');
+                    }
+                },
+                progress: function (e, data) {
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    var progressSelector = '#progressbar-' + itemId + ' .progressbar-container .progressbar';
+                    $(progressSelector).css('width', progress + '%');
+                },
+                fail: function (e, data) {
+                    var progressSelector = '#progressbar-' + itemId + ' .progressbar-container .progressbar';
+                    $(progressSelector).removeClass('upload-progress').addClass('upload-failure');
+                }
+            });
+
+            $('#quote_item_imageupload .fileupload').bind('fileuploadsubmit', function (e, data) {
+                data.formData = {
+                    isAjax: 'true',
+                    form_key: FORM_KEY,
+                    item_id: itemId,
+                    action_type: actionType
+                };
+
+            });
+        });
+
+    </script>
+</div>

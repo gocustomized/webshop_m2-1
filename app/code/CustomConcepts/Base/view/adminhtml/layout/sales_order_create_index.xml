@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <body>
+        <referenceBlock name="data">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">CustomConcepts_Base::orderextrareference/sales/order/create/data.phtml</argument>
+            </action>
+            <block template="CustomConcepts_Base::orderextrareference/orderextrainfoblock.phtml" class="CustomConcepts\Base\Block\Adminhtml\Sales\Order\View\Info\Block" name="orderextrainfo"/>
+        </referenceBlock>
+    </body>
+</page>

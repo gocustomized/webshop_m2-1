@@ -1,0 +1,65 @@
+& when (@media-common = true) {
+    a,
+    a:visited,
+    a:active,
+    .alink,
+    .alink:visited {
+        .font-smoothing();
+        .transition(.2s);
+        color: @dark-charcoal;
+        text-decoration: none;
+
+        span {
+            color: @dark-charcoal;
+        }
+
+        &:hover {
+            color: @dark-charcoal;
+
+            span {
+                color: @dark-charcoal;
+            }
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a.menu-link span,
+    .footer-container.page-footer .block-title.heading,
+    #subscribe-form label,
+    #subscribe-form .input-text,
+    .mpx .textholder h1,
+    .mpx .textholder p,
+    .main-font,
+    .section-title,
+    .products-list .product-name,
+    .block-layered-nav .block-subtitle--filter,
+    .nav-regular .nav-item.level0 > a,
+    .nav-regular .nav-submenu--mega > li > a,
+    .menu-trigger,
+    .nav-mobile .nav-item.level0 > a, /* level 1 */
+    .nav-mobile .nav-item.level1 > a, /* level 2 */
+    .nav-mobile .nav-item.level2 > a, /* level 3 */
+    .nav-holder .dropdown .dropdown-heading,
+    .header-mobile .skip-link .label,
+    .header-mobile .account-links a,
+    .block .block-title,
+    #opc-login h3,
+    .box-account .box-head h2,
+    .order-items h2.table-caption,
+    .order-items h2.sub-title,
+    .order-items .order-comments h2,
+    .heading,
+    .gen-tabs .tabs a,
+    .gen-tabs .acctab,
+    #b2blink a span,
+    .font-bitter,
+    .mpxblocktitle,
+    .product.data.items.style-luma .item.title > .switch strong {
+        .font(@bitter, @_weight-bold);
+    }
+}

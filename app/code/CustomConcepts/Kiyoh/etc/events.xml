@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_shipment_save_after">
+        <observer name="salesOrderShipmentSaveAfter" instance="CustomConcepts\Kiyoh\Observer\SalesOrderShipmentSaveAfter"/>
+    </event>
+    <event name="sales_order_save_commit_after">
+        <observer name="salesOrderSaveCommitAfter" instance="CustomConcepts\Kiyoh\Observer\SalesOrderSaveCommitAfter"/>
+    </event>
+</config>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bluebirdday\TranssmartSmartConnect\Controller\Pickup\Location"
+                type="CustomConcepts\TranssmartSmartConnect\Controller\Pickup\Location"/>
+    <preference for="Magento\Sales\Model\Order\CustomerManagement"
+                type="CustomConcepts\TranssmartSmartConnect\Model\Order\CustomerManagement"/>
+    <!-- Transsmart is overriding the shipping address. this is to make sure that it would not be saved in the address book -->
+    <type name="Bluebirdday\TranssmartSmartConnect\Model\Booking\Profile">
+        <plugin name="booking_profile_after_get_description" type="CustomConcepts\TranssmartSmartConnect\Model\Booking\AfterGetDescription" sortOrder="100"/>
+    </type>
+</config>

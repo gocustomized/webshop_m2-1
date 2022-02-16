@@ -1,0 +1,51 @@
+<?php if ($this->isEnable()): ?>
+<div id="cookie-law" class="cookie-law" style="display: none;">
+        <p>
+            <?php echo $this->privacyMessage(); ?>
+            <a href="<?php echo $this->getBaseURL() . $this->privacyUrl(); ?>">
+                <?php echo $this->privacyUrlText(); ?>
+            </a>
+        </p>
+    </div>
+
+    <style>
+        #cookie-law{
+            text-align: center;
+        }
+        <?php echo $this->cssStyling(); ?>
+
+    </style>
+    
+    <script type="text/javascript">
+        requirejs(['jquery','jquery/jquery.cookie',
+         'domReady!'], function ($) {
+            $(document).ready(function () {
+                <?php if ($this->getPosition() == 'top'): ?>
+                    $('body').prepend($('#cookie-law'));
+                <?php else: ?>
+                    $('body').append($('#cookie-law'));
+                <?php endif; ?>
+                if( $.cookie('showNotice')){
+                    $('#cookie-law').hide();
+                }else{
+                    $('#cookie-law').show();
+                    
+                    var days = <?php echo $this->cookieLifetime(); ?>;
+                    /*
+                     * create cookie 
+                     */
+                    $.cookie('showNotice',1,{path: '/', expires: days });
+                    
+                    var fadeout = <?php echo $this->fadeOut(); ?>;
+                    
+                    if(fadeout > 0 ){
+                        setTimeout(function (){
+                            $('#cookie-law').fadeOut( "slow" );
+                        }, fadeout * 1000);
+                    }
+                }
+            });
+        });
+    </script>
+
+<?php endif; ?>

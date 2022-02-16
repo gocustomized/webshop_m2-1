@@ -1,0 +1,26 @@
+& when (@media-common =true) {
+    .instangram-feed img,.fb-album-container img{
+        max-width:100%;
+        min-height:258px;
+    }
+    #instafeed .img-half, .fb-album-container .img-half{
+        width: 45% !important;
+        display: inline-block;
+        margin-right: 8%;
+    }
+    #instafeed .img-half:last-child, .fb-album-container .img-half:last-child{
+        margin: 0;
+    }
+}
+
+@media all and (max-width:768px) {
+    .instangram-feed img,.fb-album-container img{
+        min-height:159px;
+    }
+    #instafeed .img-half, .fb-album-container .img-half{
+        margin-right: 10px;
+        padding-left: 15px;
+        width: auto !important;
+        margin-bottom: 10px;
+    }
+}

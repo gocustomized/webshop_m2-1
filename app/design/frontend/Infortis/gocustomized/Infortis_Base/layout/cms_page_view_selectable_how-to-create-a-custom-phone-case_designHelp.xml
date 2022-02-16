@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="design-help/help.css" rel="stylesheet" type="text/css"  />
+<!--        <css src="design-help/slick/slick/slick.css" />-->
+<!--        <css src="design-help/slick/slick/slick-theme.css" />-->
+<!--        <css src="design-help/lightGallery/dist/css/lightgallery.css" />-->
+    </head>
+    <body>
+        <referenceContainer name="sidebar.main">
+            <block class="CustomConcepts\Faqs\Block\Faq\Topics"
+                   name="side-topics-block"
+                   template="CustomConcepts_Faqs::block.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

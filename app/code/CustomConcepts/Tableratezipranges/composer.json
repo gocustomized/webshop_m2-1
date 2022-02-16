@@ -1,0 +1,15 @@
+{
+    "name": "CustomConcepts/module-tableratezipranges",
+    "description": "Extending Tablerate to add destination zipcode ranges",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "CustomConcepts\\Tableratezipranges\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

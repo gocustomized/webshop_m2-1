@@ -1,0 +1,6 @@
+CustomConcepts_CustomerAccount module
+
+description: this is module contains modification for our adyen module(3rd party).
+
+functionalities:
+ - recompute amountExcludingTax and taxAmount since adyen always use getPrice() by default that causes bugs on multi currency stores.

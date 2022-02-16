@@ -1,0 +1,123 @@
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+<div class="production-dashboard-container" data-bind="scope: 'production-dashboard-trigger'">
+
+    <div class="messages">
+        <p style="color: red" data-bind="text: errorMessage"></p>
+        <p style="color: green" data-bind="text: successMessage"></p>
+    </div>
+
+
+    <div class="form-wrapper">
+        <span class="scan-barcode-label">Scan Barcode</span><br>
+        <input type="text" data-bind="value: barcodeScan">
+        <input type="button" data-bind="click: scanBarcode, value: scanButtonText">
+        <input type="button" data-bind="click: reset, value: resetButtonText">
+    </div>
+
+    <div data-bind="if: itemId">
+        <h1 class="main-header"><?= __('Information about Item:');  ?><span data-bind="text: itemId"></span></h1>
+        <hr>
+    </div>
+
+    <div class="production-dashboard-wrapper" data-bind="if: itemId">
+        <div class="order-info">
+            <h3 class="info-header"><?= __('Order information'); ?></h3><hr>
+            <table>
+                <tbody>
+                <tr><th><?= __('Store:'); ?></th><td data-bind="text: store"></td></tr>
+                <tr><th><?= __('Orderdate:'); ?></th><td data-bind="text: orderDate"></td></tr>
+                <tr><th><?= __('Order number:');?></th><td data-bind="text: incrementId"></td></tr>
+                <tr><th><?= __('Shipping method:');?></th><td data-bind="text: shippingMethod"></td></tr>
+                <tr><th><?= __('Order status:');?></th><td data-bind="text: status"></td></tr>
+                <tr data-bind="if: otherItems().length > 0">
+                    <th><?= __('Other Items:');?></th>
+                    <td>
+                        <!-- ko foreach: otherItems -->
+                        <a href="#" class="otheritem-link" data-bind="click: $parent.retrieveOtherItem, text: $data"></a>
+                        <!-- /ko -->
+                    </td>
+                </tr>
+                <tr><th><?= __('Order notes:');?></th><td></td><tr>
+                </tbody>
+            </table>
+
+            <div class="scrollable" data-bind="foreach: orderNotes">
+                <span data-bind="text: $data"></span><hr/>
+            </div>
+            <input type="button" class="blue-block" data-bind="click: hideShowCommentForm, value: commentFormVisibleLabel">
+            <div class="add-order-comment-form" data-bind="visible: commentFormVisible">
+                <textarea id="orderComment" name="orderComment"></textarea><br>
+                <input type="button" data-bind="click: hideShowCommentForm, value: 'submit'">
+            </div>
+        </div>
+
+        <div class="client-info">
+            <h3 class="info-header"><?= __('Client Info'); ?></h3><hr>
+
+            <p><b>Customer group:</b> <span data-bind="text: customerGroup"></span></p>
+            <p>
+                <b>Customer address:</b><br>
+                <div data-bind="html: shippingAddress">
+                </div>
+            </p>
+            <br>
+            <span data-bind="text: customerEmail"></span>
+        </div>
+
+        <div class="shipment-item-info" data-bind="if: itemId">
+            <h3 class="info-header"><?= __('Item info'); ?></h3><hr>
+
+            <table>
+                <tbody>
+                    <tr><th><?= __('Status:');?></th><td data-bind="text: itemStatus"></td></tr>
+                    <tr><th><?= __('Supplier:');?></th><td class="supplier" data-bind="text: itemSupplier"></td></tr>
+                    <tr><th><?= __('Color:');?></th><td data-bind="text: itemColor"></td></tr>
+                    <tr><th><?= __('SKU:');?></th><td data-bind="text: itemSku"></tr>
+                    <tr><th><?= __('Quantity:');?></th><td data-bind="text: qty">qty</td></tr>
+                    <tr><th><?= __('Product name:');?></th><td data-bind="text: itemName"></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="product-thumbnail">
+            <h3 class="info-header"><?= __('Thumbnail'); ?></h3><hr>
+            <a target="_blank" data-bind="attr: { href: thumb }">
+                <img data-bind="attr: { src: thumb, alt: 'dropshipment_thumbnail' }" />
+            </a>
+        </div>
+
+        <div class="product-printfile">
+            <h3 class="info-header"><?= __('Printfile'); ?></h3><hr>
+            <a target="_blank" data-bind="attr: { href: design }">
+                <img id="dropshipment_final_image" data-bind="attr: { src: design, alt: 'dropshipment_final_image' }" />
+            </a>
+        </div>
+
+        <div class="production-dashboard-actions">
+            <h3 class="info-header"><?= __('ACTIONS'); ?></h3>
+
+            <a href="#" class="block-link" rel="resend_transsmart" data-bind="click: resendTranssmart">
+                <div class="blue-block">
+                    <h4><?= __('Resend to transsmart'); ?></h4>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "production-dashboard-trigger": {
+                        "component": "CustomConcepts_ProductionDashboard/js/trigger"
+                    }
+                }
+            }
+        }
+    }
+</script>

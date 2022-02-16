@@ -1,0 +1,7 @@
+CustomConcepts_CustomerAccount module
+
+description: Block Scheduler
+
+functionalities:
+ - be able to set start date and end date for CMS block.
+ - cron job to update blocks based on the start and end date.

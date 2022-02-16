@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="prodfaqs" resource="default" engine="innodb" comment="Prodfaqs Table">
+        <column xsi:type="int" name="faqs_id" padding="11" unsigned="true" nullable="false" identity="true" comment="FAQ Id"/>
+        <column xsi:type="int" name="topic_id" padding="11" unsigned="true" nullable="false" comment="Topic Id"/>
+        <column xsi:type="varchar" name="question_type" nullable="false" length="255" default="" comment="Question Type"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" default="" comment="Title"/>
+        <column xsi:type="smallint" name="show_on_main" padding="6" unsigned="true" nullable="false" comment="Show on Main"/>
+        <column xsi:type="text" name="faq_answer" nullable="false" comment="FAQ Answer"/>
+        <column xsi:type="smallint" name="faq_order" padding="6" unsigned="true" nullable="false" default="0" comment="FAQ Answer"/>
+        <column xsi:type="int" name="rating_num" padding="20" unsigned="true" nullable="false" default="0" comment="Rating Number"/>
+        <column xsi:type="int" name="rating_count" padding="20" unsigned="true" nullable="false" default="0" comment="Rating Count"/>
+        <column xsi:type="decimal" name="rating_stars" scale="4" precision="11" nullable="false" default="0.0000" comment="Rating Stars"/>
+        <column xsi:type="smallint" name="accordion_opened" padding="6" nullable="false" default="0" comment="Accordion Opened"/>
+        <column xsi:type="varchar" name="visibility" length="255" nullable="true" default="" comment="Visibility"/>
+        <column xsi:type="smallint" name="status" padding="6" nullable="false" default="0" comment="Status"/>
+        <column xsi:type="varchar" name="customer_name" length="255" nullable="true" default="" comment="Customer Name"/>
+        <column xsi:type="varchar" name="customer_email" length="255" nullable="true" default="" comment="Customer Email"/>
+        <column xsi:type="varchar" name="faq_like" length="255" nullable="true" default="" comment="FAQ Like"/>
+        <column xsi:type="int" name="parent_faq_id" padding="11" nullable="false" default="0" comment="Parent FAQ ID"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Update Time"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="faqs_id"/>
+        </constraint>
+    </table>
+
+    <table name="prodfaqs_topics" resource="default" engine="innodb" comment="Prodfaqs Topics Table">
+        <column xsi:type="int" name="topic_id" padding="11" unsigned="true" nullable="false" identity="true" comment="Topic Id"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" default="" comment="Title"/>
+        <column xsi:type="varchar" name="subtitle" length="255" nullable="true" default="" comment="Field for the subtitle of the topic."/>
+        <column xsi:type="varchar" name="identifier" nullable="false" length="255" default="" comment="Identifier"/>
+        <column xsi:type="smallint" name="status" padding="6" nullable="false" default="0" comment="Status"/>
+        <column xsi:type="smallint" name="default" padding="6" nullable="false" default="2" comment="Default"/>
+        <column xsi:type="smallint" name="show_on_main" padding="6" nullable="false" default="0" comment="Show on Main"/>
+        <column xsi:type="smallint" name="topic_order" padding="6" nullable="false" default="0" comment="Topic Order"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Update Time"/>
+        <column xsi:type="varchar" name="image" length="255" nullable="true" default="" comment="Topic Image"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="topic_id"/>
+        </constraint>
+    </table>
+
+    <table name="prodfaqs_store" resource="default" engine="innodb" comment="Prodfaqs Store Table">
+        <column xsi:type="int" name="topic_id" padding="11" unsigned="true" nullable="false" comment="FAQ Id"/>
+        <column xsi:type="int" name="store_id" padding="11" unsigned="true" nullable="false" comment="FAQ Id"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="topic_id"/>
+            <column name="store_id"/>
+        </constraint>
+    </table>
+
+    <table name="prodfaqs_products" resource="default" engine="innodb" comment="Prodfaqs Products Table">
+        <column xsi:type="int" name="faqs_product_id" padding="11" unsigned="true" identity="true" nullable="false" comment="FAQ Product Id"/>
+        <column xsi:type="int" name="faqs_id" padding="11" unsigned="true" nullable="true" comment="FAQ Id"/>
+        <column xsi:type="int" name="product_id" padding="11" unsigned="true" nullable="true" comment="Product Id"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="faqs_product_id"/>
+        </constraint>
+    </table>
+
+</schema>

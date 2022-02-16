@@ -1,0 +1,123 @@
+<?php
+/**
+ * CustomConcepts_ReorderDiscountCode extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_ReorderDiscountCode
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+$_order = $this->getOrder()
+?>
+
+<div class="entry-edit admin__table-secondary order-subtotal-table" id="reorder_discountcode" name="reorder_discountcode" style="display:none;">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-products admin__page-section-title">
+            <span class="title"> <?php echo __('Sent Discount Code to Client') ?></span>
+        </h4>
+    </div>
+    <fieldset>
+        <table cellspacing="0" class="form-list" style="width: 100%;">
+            <tr>
+                <td class="label"><label><?php echo __('Total Discount') ?></label></td>
+                <td style="text-align: left;">
+                    <input type="hidden" name="hdn_order_id" id="hdn_order_id" value="<?php echo $_order->getIncrementId(); ?>" />
+                    <input type="text" style="width:400px" class="admin__control-text" name="discount_total" id="discount_total" value="<?php echo number_format($_order->getGrandTotal(), 2); ?>"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="label"><label><?php echo __('Select Email Template') ?></label></td>
+                <td style="text-align: left;">
+                    <?php
+                    $storeId = $_order->getStoreId();
+                    $templateIds = $this->getConfigValue('reorderdiscountcode/reorderdis_email/email_template', $storeId);
+                    $templateIds_array = explode(',', $templateIds);
+                    ?>
+                    <select id="dd_email_templates" class="admin__control-select">
+                        <option value="0"></option>
+                        <?php
+                        $template_collection = $this->getTemplateCollection();
+                        if (!empty($template_collection) && count($template_collection) > 0) :
+                            $cnt = 0;
+                            foreach ($template_collection as $template) :
+                                ?>
+                                <option value="<?php echo $template->getTemplateId(); ?>"><?php echo $template->getTemplateCode(); ?></option>
+                                <?php
+                            endforeach;
+                        else:
+                            ?>
+                            <option value="<?php echo $templateIds; ?>"><?php echo __('Reorder Discount Mail(Default)'); ?></option>
+                        <?php
+                        endif;
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="label"><label><?php echo __('Note') ?></label></td>
+                <td style="text-align: left;"><textarea class="admin__control-textarea" name="note" id="note" style="width: 400px; height: 82px;"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="text-align: left;">
+                    <button class="scalable" id="send-discountcode"><span><span><?php echo __('Send') ?></span></span></button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="scalable" id='cancel-discountcode' ><span><span><?php echo __('Cancel') ?></span></span></button>
+                </td> 
+            </tr>
+        </table>
+    </fieldset>
+</div>
+
+<div class="result messages"></div>
+<script>
+    require([
+        "jquery"
+    ], function ($) {
+
+        $('#discountcode').click(function () {
+            $('#reorder_discountcode').show();
+            $('.result').html('');
+            $("html, body").animate({scrollTop: $(document).height()}, 1500, 'swing');
+        });
+
+        $('#cancel-discountcode').click(function () {
+            $('#reorder_discountcode').hide();
+            $('.result').html('');
+            $("html, body").animate({scrollTop: 0}, 1500, 'swing');
+        });
+
+        $('#send-discountcode').click(function () {
+            var template_id = $("#dd_email_templates").val();
+            var note = $("#note").val();
+            if (template_id != 0) {
+                if (confirm("Do you want to send reorder discount code ?")) {
+                    $('#loading-mask').show();
+                    var controller_url = '<?php echo $this->getUrl('reorderdiscountcode') ?>';
+                    var order_id = $('#hdn_order_id').val();
+                    var discount_total = $('#discount_total').val();
+                    var jhx = $.ajax({
+                        type: "POST",
+                        data: "order_id=" + order_id + "&discount_total=" + discount_total + "&template_id=" + template_id + "&note=" + encodeURIComponent(note),
+                        url: controller_url,
+                        success: function (data) {
+                            $('#reorder_discountcode').hide();
+                            if (data == 'view') {
+                                location.reload();
+                            } else if (data == 'ship') {
+                                var entity_id = '<?php echo $_order->getId(); ?>';
+                                setLocation('<?php echo $this->getUrl("adminhtml/order_shipment/new/order_id/", array('order_id' => $_order->getId())) ?>');
+                            } else {
+                                dataArr = jQuery.parseJSON(data);
+                                $('.result').html('<span class="message-error message">' + dataArr.error + '</span>');
+                            }
+                        }
+                    });
+                }
+            } else {
+                $('.result').html('<span class="message-error message">Please select email template</span>');
+                return false;
+            }
+        });
+
+    });
+</script>

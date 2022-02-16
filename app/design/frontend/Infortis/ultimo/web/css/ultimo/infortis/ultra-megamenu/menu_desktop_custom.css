@@ -1,0 +1,374 @@
+/* DEBUGGING STYLES*/
+@media(min-width: 769px) {
+
+    /*#mainmenu > ul > li:nth-child(2) > .nav-panel {*/
+        /*display: block !important;*/
+        /*top: 50px;*/
+    /*}*/
+
+    /* RESET REDUNDANT MENU STYLES */
+    .nav-block--center {
+        margin: 0;
+    }
+
+    .navi .nav-panel-inner {
+        padding: 24px 0;
+        display: flex;
+    }
+
+    .subtab{
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 50px;
+    }
+
+    .subback{
+        width: 25px;
+        height: 25px;
+        top: 10px;
+        left: -35px;
+        position: absolute;
+        cursor: pointer;
+        background-image: url("../../../images/icons8-undo-52.png");
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .showmore{
+        padding-top: 24px;
+        color:#a8a8a8;
+        text-decoration:underline;
+        font-size:14px;
+        padding: 15px;
+        cursor: pointer;
+    }
+
+    #mainmenu .mega .nav-panel{
+        max-width: 900px;
+        max-height: 416px;
+        overflow: hidden;
+    }
+
+    #mainmenu .mega:first-child .nav-panel{
+        max-width: 1000px;
+    }
+
+    #mainmenu .grid12-3, #mainmenu .grid12-9 {
+        margin: 0;
+        float: none;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #mainmenu .grid12-3 {
+        flex-basis: 28%;
+    }
+
+    #mainmenu .grid12-3 > ul{
+        transform: translateX(0);
+        transition: transform 0.3s;
+    }
+
+    #mainmenu .grid12-3 > ul > li{
+        padding: 0;
+    }
+
+    #mainmenu .grid12-3 > ul > li a{
+        padding: 6px;
+        display: inline-block;
+    }
+
+    #mainmenu .grid12-3 > ul > li > a:hover{
+        background-color: white;
+        color: #f4b400;
+    }
+
+    #mainmenu .grid12-3 > ul > li > a .caret{
+        transform: translateX(0) scale(1);
+        transition: transform 0.2s;
+        position: absolute;
+        right: 45px;
+        font-size: 20px;
+        pointer-events: none;
+    }
+
+    #mainmenu .grid12-3 > ul > li > a:hover .caret{
+        transform: translateX(15px) scale(1.5);
+    }
+
+    #mainmenu .grid12-3 > ul.subtab > li > a:hover .caret{
+        transform: translateX(0) scale(1.5);
+    }
+
+    #mainmenu .grid12-3 > ul > li.hovered > a {
+        color: #f4b400;
+    }
+    #mainmenu .grid12-3 > ul > li.hovered > a .caret{
+        transform: translateX(15px) scale(1.5);
+        opacity: 1;
+    }
+
+    #mainmenu .grid12-3 > ul.subtab > li.hovered > a .caret{
+        transform: translateX(0) scale(1.5);
+        opacity: 1;
+    }
+
+    #mainmenu .grid12-3 > ul > li.active > a {
+        text-decoration: underline;
+    }
+
+    /*#mainmenu.nav-regular .nav-panel--dropdown .nav-item > a:hover{*/
+        /*background-color: #B0ACAC;*/
+        /*color: initial;*/
+    /*}*/
+
+    /*#mainmenu .grid12-3 > ul > li.active > a .caret{*/
+        /*transform: translateX(15px) scale(1.5);*/
+        /*opacity: 1;*/
+    /*}*/
+
+    #mainmenu .grid12-3 > ul.goleft{
+        transform: translateX(-110%);
+    }
+
+    #mainmenu .grid12-3 > ul.right{
+        transform: translateX(110%);
+    }
+
+    #mainmenu .grid12-9 {
+        width: 72%;
+    }
+
+    .nav-regular.opt-fx-fade-inout .nav-panel .nav-item--parent > .nav-panel--dropdown {
+        opacity: 1;
+        display: flex;
+    }
+
+    .nav-regular .nav-submenu--mega > li > .nav-panel--dropdown {
+        position: relative;
+    }
+
+    .nav-regular .nav-submenu--mega {
+        margin: 0;
+    }
+
+    #mainmenu .grid12-9 > span {
+        display: none;
+    }
+
+    #mainmenu .grid12-9 > ul {
+        position: relative;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: auto !important;
+        display: none;
+        box-shadow: none;
+        flex-basis: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: white;
+    }
+
+    #mainmenu .grid12-9 > div {
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        position: absolute;
+        text-align: right;
+    }
+
+    .innerimgholder img{
+        padding-right: 24px;
+    }
+
+    #mainmenu .grid12-9 > div:first-child {
+        left: 0;
+    }
+
+    .menutextholder .textinnerholder{
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        text-align: center;
+    }
+
+    .textinnerholder h1{
+        font-size: 16px;
+        color: #3C3A40;
+        line-height: 1.5;
+        font-weight: bold;
+    }
+
+    .textinnerholder h1:after{
+        content: "";
+        width: 50px;
+        height: 50px;
+        display: block;
+        background-image:url("../../../images/icons8-long-arrow-left-filled-100.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        margin: 0 auto;
+    }
+
+    .textinnerholder p{
+        font-size: 16px;
+        color: #B0ACAC;
+        font-style: italic;
+        font-family: Bitter;
+        padding: 0 50px;
+        line-height: 1.5;
+    }
+
+    #mainmenu .grid12-9 > ul > li {
+        flex-basis: 25%;
+        display: flex;
+        max-height: 50%;
+    }
+
+    #mainmenu .mega:first-child .nav-panel .grid12-9 > ul > li{
+        flex-basis: 20%;
+    }
+
+    #mainmenu .grid12-9 > ul > li > a {
+        flex-grow: 1;
+    }
+    #mainmenu .mega:first-child .grid12-9 > ul > li > a img{
+        margin-bottom: 10px;
+    }
+    .otherbrands{
+        display: inline-block;
+        float:left;
+        padding: 0 20px;
+    }
+
+    .otherbrands > span{
+        color: #2b2b2b;
+        font-size: 14px;
+        text-transform: uppercase;
+        line-height: 50px;
+        font-family:'Nunito Sans', sans-serif;
+        font-weight: 600;
+    }
+
+    .otherbrands > li.nav-item.level-top{
+        float: none;
+        display: none;
+    }
+
+    .otherbrands:hover{
+        background-color: white;
+    }
+
+    .otherbrands .outerbrandholder{
+        position: absolute;
+        width: calc(100% - 48px);
+        max-width: 900px;
+        left: 0;
+        background-color: white;
+        display: none;
+        box-shadow: 0 3px 10px rgba(0,0,0, 0.15);
+    }
+
+    .otherbrands:hover .outerbrandholder{
+        display: flex;
+    }
+
+    .outerbrandholder .brandspanel{
+        flex-basis: 66.7%;
+        padding: 24px 0;
+    }
+    .flexervert{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flexer{
+        display: flex;
+    }
+
+    .brandspanel .otherbrandrow > a{
+        flex-basis: 37.5%;
+        padding: 10px 15px;
+        font-size: 16px;
+        position: relative;
+        font-weight: 600;
+        font-family: Nunito, sans-serif;
+        line-height: 1.25;
+    }
+
+    .brandspanel .otherbrandrow > a .caret{
+        display: inline-block;
+        font-size: 20px;
+        transform: rotate(-90deg);
+        position: absolute;
+        opacity: 0.2;
+        right: 60px;
+        top: 6px;
+        transition: all 0.3s;
+        pointer-events: none;
+    }
+
+    .brandspanel .otherbrandrow > a:hover .caret,.brandspanel .otherbrandrow > a.hovered .caret{
+        transform: translateX(15px) scale(1.5) rotate(-90deg);
+        opacity: 1;
+        color: #f4b400;
+    }
+
+    .brandspanel .otherbrandrow > a:hover + div, .otherbrandrow .otherproducts:hover{
+        display: flex;
+    }
+    .otherbrandrow .otherproducts{
+        position: absolute;
+        left: 25%;
+        top: 34px;
+        bottom: 0;
+        right: 35%;
+        display: none;
+        z-index: 1;
+    }
+
+    .brandimageholder{
+        margin-left: auto;
+    }
+
+    .brandimageholder img{
+        padding: 24px 24px 24px 0;
+        height: 310px;
+    }
+
+    .otherbrandrow .otherproducts:first-child{
+        display: flex;
+    }
+
+    .otherproducts .productcasewrap{
+        font-size: 16px;
+    }
+
+    /*.otherproducts .productcasewrap > a{*/
+        /*flex-basis: 30%;*/
+        /*padding-bottom: 16px;*/
+        /*line-height: 1.25;*/
+    /*}*/
+    .otherproducts .productcasewrap .othercaseswrap{
+        width: 90%;
+    }
+    .otherproducts .productcasewrap .menu_products_li_a{
+        text-align: left;
+        padding-bottom: 20px;
+        line-height: 1.25;
+        position: relative;
+        display: flex;
+    }
+    .otherproducts .productcasewrap .menu_products_li_a .ruler{
+        flex-basis: 35%;
+        /*position: absolute;*/
+    }
+
+}

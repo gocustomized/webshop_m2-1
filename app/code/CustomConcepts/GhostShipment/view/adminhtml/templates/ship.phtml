@@ -1,0 +1,13 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+
+<h1>Manually Ship Orders</h1>
+<form action="<?= $block->getUrl('*/*/ship') ?>" method="GET">
+    <p style="font-size: 12px; font-weight: bold">please enter order numbers seperated by comma.</p>
+    <div class="form-field" style="display: flex">
+        <label for="order_numbers" class="field-label" style="margin-right: 5px">Order Numbers</label>
+        <textarea id="order_numbers" name="order_numbers" class="field-input" style="flex-basis: 80%; min-height: 150px"></textarea>
+    </div>
+    <input type="submit" name="submit" value="submit">
+</form>

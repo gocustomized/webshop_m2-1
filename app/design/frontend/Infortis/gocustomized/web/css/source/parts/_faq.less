@@ -1,0 +1,226 @@
+.helpcenter-contactform-index {
+    .contact-form-container {
+        .question-container {
+            padding-top: 20px;
+
+            .question-container-wrapper {
+                font-size: 16px;
+
+                p{
+                    display: inline-block;
+                    font-weight: normal;
+
+                    .tooltip-wrapper {
+                        display: inline-block;
+    
+                        span.question-tooltip {
+                            display: inline-block;
+                            color: #ffffff;
+                            border: solid 1px #a9a9a9;
+                            background-color: #a9a9a9;
+                            border-radius: 30px;
+                            width: 20px;
+                            height: 20px;
+                            text-align: center;
+                            font-size: 14px;
+                            font-weight: bold;
+                            cursor: pointer;
+                            line-height: 20px;
+                        }
+    
+                        span.question-tooltip-message {
+                            font-size: 12px;
+                            color: #ffffff;
+                            background-color: #333333;
+                            padding: 10px;
+                            width: 230px;
+                            max-width: 250px;
+                            position: absolute;
+                            margin-top: 32px;
+                            animation: fadeIn .2s;
+                            -webkit-animation: fadeIn .2s;
+                            -moz-animation: fadeIn .2s;
+                            -o-animation: fadeIn .2s;
+                            -ms-animation: fadeIn .2s;
+                            transform: translate(-55%, 0);
+                            z-index: 2;
+                            display: none;
+                            line-height: 1.5;
+
+                            a {
+                                text-decoration: underline;
+        
+                                &:hover {
+                                    color: #ED6D4F;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .login {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #ED6D4F;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 0 10px;
+            position: relative;
+            line-height: 2;
+        }
+
+        p#login_text {
+            font-size: 16px;
+            color:#a6a6a6;
+            font-style: italic;
+
+            span {
+                a {
+                    color:#a6a6a6;
+                    text-decoration: underline;
+
+                    &:hover {
+                        color: #ED6D4F;
+                    }
+                }
+            }
+        }
+
+        .formoptionwrap {
+            .radiowrap {
+                span.not-yet {
+                    font-size: 16px
+                }
+
+                span.fillout-button {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #ED6D4F;
+                    border: solid 2px #ED6D4F;
+                    text-decoration: none;
+                    padding: 10px 20px;
+                    margin: 10px 0 10px;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+#contactoverlay {
+    .question-container-wrapper {
+        font-size: 16px;
+
+        p {
+            display: inline-block;
+            font-weight: normal;
+
+            .tooltip-wrapper {
+                display: inline-block;
+        
+                .question-tooltip {
+                    display: inline-block;
+                    color: #ffffff;
+                    border: solid 1px #a9a9a9;
+                    background-color: #a9a9a9;
+                    border-radius: 30px;
+                    width: 20px;
+                    height: 20px;
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    line-height: 20px;
+                }
+        
+                .question-tooltip-message {
+                    font-size: 12px;
+                    color: #ffffff;
+                    background-color: #333333;
+                    padding: 10px;
+                    width: 230px;
+                    max-width: 250px;
+                    position: absolute;
+                    margin-top: 32px;
+                    animation: fadeIn .2s;
+                    -webkit-animation: fadeIn .2s;
+                    -moz-animation: fadeIn .2s;
+                    -o-animation: fadeIn .2s;
+                    -ms-animation: fadeIn .2s;
+                    transform: translate(-50%, 0);
+                    z-index: 2;
+                    display: none;
+                    line-height: 1.5;
+
+                    a {
+                        text-decoration: underline;
+
+                        &:hover {
+                            color: #ED6D4F;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    form {
+        .content {
+            ul.form-list {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+#formholder{
+    .top {
+        margin-bottom: 0;
+    
+        .login {
+            padding: 0;
+            background: no-repeat;
+            color: #ED6D4F;
+            font-weight: normal;
+            text-decoration: underline;
+            display: contents;
+        }
+    }
+}
+
+#issueform{
+    flex-grow: 1;
+    margin-top: 20px;
+
+    span {
+        color: #a3b2c6;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px){
+    #issueform{
+        width: 100%;
+    }
+
+    .helpcenter-contactform-index {
+        .contact-form-container {
+            .question-container {
+                .question-container-wrapper {
+                    p {
+                        .tooltip-wrapper {
+                            display: block;
+
+                            .question-tooltip-message {
+                                width: 200px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

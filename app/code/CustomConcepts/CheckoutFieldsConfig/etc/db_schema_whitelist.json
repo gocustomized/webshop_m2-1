@@ -1,0 +1,11 @@
+{
+    "customer_eav_attribute_website": {
+        "column": {
+            "store_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CUSTOMER_EAV_ATTRIBUTE_WEBSITE_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}

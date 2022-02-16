@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts Infotech
+ * CustomConcepts Instagram Extension
+ * 
+ * @category   CustomConcepts
+ * @package    CustomConcepts_Instagram
+ * @copyright  Copyright © 2006-2016 CustomConcepts
+ *  
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/App/etc/routes.xsd">
+    <router id="standard">
+        <route id="instagram" frontName="instagram">
+            <module name="CustomConcepts_Instagram" />
+        </route>
+    </router>
+</config>

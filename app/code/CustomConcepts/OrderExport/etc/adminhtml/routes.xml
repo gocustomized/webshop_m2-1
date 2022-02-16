@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--/**
+ * CustomConcepts_OrderExport extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_OrderExport
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="orderexport" frontName="orderexport">
+            <module name="CustomConcepts_OrderExport" before="Magento_Backend"/>
+        </route>
+    </router>
+</config>

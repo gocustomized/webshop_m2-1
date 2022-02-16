@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+   <virtualType name="KiyohlogGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">CustomConcepts\Kiyoh\Model\ResourceModel\Kiyohlog\Collection</argument>
+        </arguments>
+    </virtualType>    
+    <type name="CustomConcepts\Kiyoh\Model\ResourceModel\Kiyohlog\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">kiyoh_log</argument>
+            <argument name="eventPrefix" xsi:type="string">kiyohlog_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">kiyohlogitem_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">CustomConcepts\Kiyoh\Model\ResourceModel\Kiyohlog</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="kiyohlog_grid_data_source" xsi:type="string">CustomConcepts\Kiyoh\Model\ResourceModel\Kiyohlog\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <virtualType name="KiyohreviewGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">CustomConcepts\Kiyoh\Model\ResourceModel\Kiyohreview\Collection</argument>
+        </arguments>
+    </virtualType>    
+    <type name="CustomConcepts\Kiyoh\Model\ResourceModel\Kiyohreview\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">kiyoh_reviews</argument>
+            <argument name="eventPrefix" xsi:type="string">kiyohreview_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">kiyohreviewitem_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">CustomConcepts\Kiyoh\Model\ResourceModel\Kiyohreview</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="kiyohreview_grid_data_source" xsi:type="string">CustomConcepts\Kiyoh\Model\ResourceModel\Kiyohreview\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    
+</config>

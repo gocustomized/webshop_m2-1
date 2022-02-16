@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="zendesk">
+
+            <group id="features" translate="label comment" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Custom Fields Mapping</label>
+                <comment>Zendesk Custom Field Ids.</comment>
+
+                <field id="order_field_id" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Order Id</label>
+                    <comment>Order Id custom field id.</comment>
+                </field>
+                <field id="status_field_id" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Order Status</label>
+                    <comment>Order Status custom field id.</comment>
+                </field>
+                <field id="type_issue_field_id" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Support Subcategory</label>
+                    <comment>Support Subcategory custom field id.</comment>
+                </field>
+                <field id="support_category_field_id" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Support Category</label>
+                    <comment>Support Category custom field id.</comment>
+                </field>
+                <field id="solution_field_id" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Solution</label>
+                    <comment>Solution custom field id.</comment>
+                </field>
+                <field id="image_field_id" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Image</label>
+                    <comment>Image custom field id.</comment>
+                </field>
+
+
+                <field id="track_and_trace_field_id" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Track and Trace</label>
+                    <comment>Track and Trace custom field id.</comment>
+                </field>
+                <field id="shipmentdate_field_id" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Shipment Date</label>
+                    <comment>Shipment Date custom field id.</comment>
+                </field>
+                <field id="carrier_field_id" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Carrier</label>
+                    <comment>Carrier custom field id.</comment>
+                </field>
+                <field id="carrier_code_field_id" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Carrier Code</label>
+                    <comment>Carrier Code custom field id.</comment>
+                </field>
+                <field id="esd_field_id" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Estimated Shipping Date(ESD)</label>
+                    <comment>ESD custom field id.</comment>
+                </field>
+                <field id="brand_field_id" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Brand</label>
+                    <comment>Brand custom field id.</comment>
+                </field>
+                <field id="country_field_id" translate="label comment" type="text" sortOrder="130" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Country</label>
+                    <comment>Country custom field id.</comment>
+                </field>
+                <field id="edd_min_field_id" translate="label comment" type="text" sortOrder="140" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Estimated Delivery Date Min</label>
+                    <comment>EDD min custom field id.</comment>
+                </field>
+                <field id="edd_max_field_id" translate="label comment" type="text" sortOrder="150" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Estimated Delivery Date Max</label>
+                    <comment>EDD max custom field id.</comment>
+                </field>
+                <field id="created_at_field_id" translate="label comment" type="text" sortOrder="160" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Created At</label>
+                    <comment>Created at custom field id.</comment>
+                </field>
+                <field id="delay_in_working_days_field_id" translate="label comment" type="text" sortOrder="170" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Delay in Working Days</label>
+                    <comment>Delay in Working Days custom field id.</comment>
+                </field>
+                <field id="single_or_multiple_field_id" translate="label comment" type="text" sortOrder="180" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Single or Multiple</label>
+                    <comment>Single or Multiple custom field id.</comment>
+                </field>
+                <field id="reason_cancel" translate="label comment" type="text" sortOrder="190" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Cancellation Reason</label>
+                    <comment>Reason for cancellation field.</comment>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

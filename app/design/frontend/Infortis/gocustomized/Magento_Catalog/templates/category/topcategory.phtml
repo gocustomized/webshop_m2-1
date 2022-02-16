@@ -1,0 +1,46 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+$subcats = $category->getChildrenCategories();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+?>
+<div class="block inlineBlock">
+    <div class="block-content">
+        <div class="category-grid" id="category-grid">
+            <?php
+            foreach ($subcats as $subcat) {
+                $_category = $objectManager->create('Magento\Catalog\Model\Category')->load($subcat->getId());
+                $_outputhelper = $this->helper('Magento\Catalog\Helper\Output');
+                $subcaturl = $subcat->getUrl();            
+                echo '<div class="category-item"><h5 class="name"><a href="' . $subcaturl . '" title="' . $subcat->getName() . '">' . $subcat->getName() . '</a></h5></div>';
+            } ?>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+    requirejs(['jquery','owlcarousel'], function(jQuery, owl)
+    {
+        jQuery(function($) {
+            var owl = $('#category-grid');
+            owl.owlCarousel({
+                navigationText: false,
+                addClassActive: true,
+                navigation: true,
+                autoHeight: true,
+                itemsDesktop:[8000,7],
+                itemsTablet:[768,4],
+                itemsTablet:[640,3],
+                itemsMobile:[479,2]
+            });
+        });
+    });
+
+//]]>
+</script>
+<style>
+    
+</style>
+    

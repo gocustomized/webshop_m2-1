@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <body>
+        <referenceBlock name="order_tab_info">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">CustomConcepts_Base::order/view/tab/info.phtml</argument>
+            </action>
+            <block template="CustomConcepts_Base::orderextrareference/orderextrareference.phtml" class="CustomConcepts\Base\Block\Adminhtml\Sales\Order\View\Info\Block" name="orderextrareference.order.info.custom.block" />
+        </referenceBlock>
+    </body>
+</page>

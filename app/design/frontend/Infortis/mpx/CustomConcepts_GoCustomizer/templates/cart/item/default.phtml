@@ -1,0 +1,59 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Checkout\Block\Cart\Item\Renderer */
+$_item = $block->getItem();
+$product = $_item->getProduct();
+$isVisibleProduct = $product->isVisibleInSiteVisibility();
+/** @var \Magento\Msrp\Helper\Data $helper */
+$helper = $this->helper('Magento\Msrp\Helper\Data');
+$canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinimalPriceLessMsrp($product);
+?>
+
+<div class="cart item flex justify-between cart-item">
+    <div class="thumbholder"><?php echo $this->getProductThumbnail()->toHtml(); ?></div>
+    <div class="infowrap vert-flex justify-around">
+        <h2 class="product-name"><?php echo $block->escapeHtml($block->getProductName()) ?></h2>
+        <div class="flex-start buttonholder">
+            <div class="a-center qty-wrapper flexer qtyflex">
+                <?php if ($_item->getQty() > 1) { ?>
+                <div class="x-qty-button decrease">-</div>
+                <?php } ?>
+
+                <?php if ($_item->getQty() < 2) { ?>
+                    <div class="delete x-qty-button">
+                        <img src="<?= $block->getViewFileUrl('images/icons8-trash-64.png') ?>">
+                    </div>
+                <?php } ?>
+
+                <input id="cart-<?php /* @escapeNotVerified */ echo $_item->getId() ?>-qty"
+                       name="cart[<?php /* @escapeNotVerified */ echo $_item->getId() ?>][qty]"
+                       data-cart-item-id="<?php /* @escapeNotVerified */ echo $_item->getSku() ?>"
+                       value="<?php /* @escapeNotVerified */ echo $block->getQty() ?>"
+                       type="number"
+                       size="4"
+                       title="<?php echo $block->escapeHtml(__('Qty')); ?>"
+                       class="input-text qty"
+                       maxlength="12"
+                       data-validate="{required:true,'validate-greater-than-zero':true}"
+                       data-role="cart-item-qty"/>
+
+                <div class="x-qty-button increase">+</div>
+            </div>
+
+            <a href="<?php echo $block->editLink(); ?>"
+               class="cart-edit"
+               title="<?= $block->escapeHtmlAttr(__('Edit item parameters')) ?>"><?= $block->escapeHtml(__('Edit')) ?></a>
+        </div>
+    </div>
+    <div class="deleteholder vert-flex justify-between actions-toolbar">
+        <?php /* @escapeNotVerified */ echo $block->getActions($_item) ?>
+        <span class="price"><?php echo $block->getRowTotalHtml($_item); ?></span>
+    </div>
+</div>
+

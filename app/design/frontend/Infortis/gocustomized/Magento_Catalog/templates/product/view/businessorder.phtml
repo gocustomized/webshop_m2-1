@@ -1,0 +1,68 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var \Magento\Contact\Block\ContactForm $block */
+?>
+<form class="form contact customb2bform"
+      action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+      id="quote-form"
+      method="post"
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      data-mage-init='{"validation":{}}'>
+    <input type="hidden" id="product_name" name="product_name" value="<?php echo $block->getProductName();?>"/>
+    <fieldset class="fieldset" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+        <legend class="legend business-order-heading"><span><?= $block->escapeHtml(__('Request a Quote For: '. $block->getProductName())) ?></span></legend><br />
+        <div class="field note no-label"><?= $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('b2b_requestform_pdp')->toHtml(); ?></div>
+        <div class="field name required">
+            <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+            <div class="control">
+                <input name="name" id="name" title="<?= $block->escapeHtmlAttr(__('Name')) ?>" value="<?= $block->escapeHtmlAttr($this->helper('Magento\Contact\Helper\Data')->getPostValue('name') ?: $this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field company">
+            <label class="label" for="company"><span><?= $block->escapeHtml(__('Company')) ?></span></label>
+            <div class="control">
+                <input name="company" id="company" title="<?= $block->escapeHtmlAttr(__('Company')) ?>" value="<?= $block->escapeHtmlAttr($this->helper('Magento\Contact\Helper\Data')->getPostValue('company')); ?>" class="input-text" type="text" />
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" for="email"><span><?= $block->escapeHtml(__('Email Address')) ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?= $block->escapeHtmlAttr(__('Email Address')) ?>" value="<?= $block->escapeHtmlAttr($this->helper('Magento\Contact\Helper\Data')->getPostValue('email') ?: $this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        <div class="field telephone">
+            <label class="label" for="telephone"><span><?= $block->escapeHtml(__('Telephone')) ?></span></label>
+            <div class="control">
+                <input name="telephone" id="telephone" title="<?= $block->escapeHtmlAttr(__('Telephone')) ?>" value="<?= $block->escapeHtmlAttr($this->helper('Magento\Contact\Helper\Data')->getPostValue('telephone')) ?>" class="input-text" type="text" />
+            </div>
+        </div>
+        <div class="field quantity required">
+            <label class="label" for="quantity"><span><?= $block->escapeHtml(__('Quantity')) ?></span></label>
+            <div class="control">
+                <input name="quantity" id="quantity" title="<?= $block->escapeHtmlAttr(__('Quantity')) ?>" value="<?= $block->escapeHtmlAttr($this->helper('Magento\Contact\Helper\Data')->getPostValue('quantity')) ?>" class="input-text" type="text" data-validate="{required:true,'validate-number':true}"/>
+            </div>
+        </div>
+        <div class="field comment required">
+            <label class="label" for="comment"><span><?= $block->escapeHtml(__('Details')) ?></span></label>
+            <div class="control">
+                <input type="text" name="comment" id="comment" title="<?= $block->escapeHtmlAttr(__('Details')) ?>" class="input-text" data-validate="{required:true}" value="<?= $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('comment')) ?>">
+            </div>
+        </div>
+        <?= $block->getChildHtml('form.additional.info') ?>
+    </fieldset>
+
+    <input type="hidden" name="hideit" id="hideit" value="" />
+
+    <div class="business-order-toolbar d-flex justify-between align-items-flex-end">
+        <a class="continue-shopping-link" href="/"><?= $block->escapeHtmlAttr(__('Continue Shopping')) ?></a>
+
+        <button type="submit" title="<?= $block->escapeHtmlAttr(__('REQUEST YOUR QUOTE')) ?>" class="button">
+            <?= $block->escapeHtml(__('REQUEST YOUR QUOTE')) ?>
+        </button>
+    </div>
+</form>

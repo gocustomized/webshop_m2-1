@@ -1,0 +1,98 @@
+//
+//  Global Mixins
+//  _____________________________________________
+
+//
+//  Flex Layout
+//  _____________________________________________
+
+.flex-layout() {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -moz-box;
+    display: flex;
+}
+
+.flex-align(@flex-align) {
+    -webkit-align-items: @flex-align;
+    align-items: @flex-align;
+}
+
+.flex-align-content(@flex-align-content) {
+    -webkit-align-content: @flex-align-content;
+    align-content: @flex-align-content;
+}
+
+
+.flex-basis(@flex-basis) {
+    -webkit-flex-basis: @flex-basis;
+    flex-basis: @flex-basis;
+}
+
+.flex-direction(@flex-direction) {
+    -webkit-flex-direction: @flex-direction;
+    -ms-flex-direction: @flex-direction;
+    flex-direction: @flex-direction;
+}
+
+.flex-flow(@flex-flow) {
+    -webkit-flex-flow: @flex-flow;
+    flex-flow: @flex-flow;
+}
+
+.flex-grow(@flex-grow) {
+    -webkit-flex-grow: @flex-grow;
+    flex-grow: @flex-grow;
+}
+
+.flex-justify-content(@justify-content) {
+    -webkit-justify-content: @justify-content;
+    justify-content: @justify-content;
+    -ms-flex-pack: @justify-content;
+}
+
+.flex-order(@order) {
+    -webkit-order: @order;
+    -ms-flex-order: @order;
+    order: @order;
+}
+
+.flex-shrink(@shrink) {
+    -webkit-flex-shrink: @shrink;
+    flex-shrink: @shrink;
+}
+
+.flex-value(@flex) {
+    -webkit-flex: @flex;
+    -ms-flex: @flex;
+    flex: @flex;
+}
+
+.flex-wrap(@flex-wrap) {
+    -webkit-flex-wrap: @flex-wrap;
+    -ms-flex-wrap: @flex-wrap;
+    flex-wrap: @flex-wrap;
+}
+
+//
+//  Transition Effect
+//  _____________________________________________
+
+.transition(@transition) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+
+//
+//  Font Smoothing
+//  _____________________________________________
+
+.font-smoothing() {
+    font-weight: normal;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+}

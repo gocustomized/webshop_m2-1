@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Magento_Catalog::cloud-zoom/cloud-zoom.1.0.2.js"/>
+        <script src="Magento_Catalog::cloud-zoom/jquery.cloudzoom.min.js"/>
+        <css src="Magento_Catalog::owl/assets/owl.carousel.min.css"/>
+        <css src="Magento_Catalog::owl/assets/owl.theme.default.css"/>
+        <script src="Magento_Catalog::js/jquery.owlcarousel.min.js"/>
+    </head>
+
+    <body>
+        <referenceBlock name="product-view-wrapper" class="CustomConcepts\Base\Block\ProductView" template="Magento_Catalog::product/view.phtml" />
+        <referenceBlock name="product.price.final" remove="true"/>
+        <referenceBlock name="product.info.stock.sku" remove="true"/>
+
+        <referenceBlock name="product.info.details">
+            <referenceBlock name="product.info.description" >
+                 <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Product Description</argument>
+                     <argument name="at_label" translate="true" xsi:type="string">Details</argument>
+                 </arguments>
+             </referenceBlock>
+
+            <block class="CustomConcepts\Base\Block\ProductView" name="make.custom.case" template="Magento_Catalog::product/view/howdomakecase.phtml" group="detailed_info" >
+                <arguments>
+                    <argument name="block_id" xsi:type="string">no_description_3</argument>
+                    <argument translate="true" name="title" xsi:type="string">How Do I Make My Own Custom Case</argument>
+                </arguments>
+            </block>
+            <block class="CustomConcepts\UltimoGocustomized\Block\BusinessOrder" name="business.order" template="Magento_Catalog::product/view/businessorder.phtml" group="detailed_info" >
+                <arguments>
+                    <argument name="block_id" xsi:type="string">block_product_tab5</argument>
+                    <argument translate="true" name="title" xsi:type="string">Business Order?</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceBlock name="product.attributes">
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Additional Information</argument>
+                <argument name="at_label" translate="true" xsi:type="string">Additional Information</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="CustomConcepts_Estimations::deliveryrate" title="deliveryrate" sortOrder="100"/>
+				<resource id="CustomConcepts_Estimations::EstimationDates" sortOrder="10" title="EstimationDates">
+					<resource id="CustomConcepts_Estimations::EstimationDates_save" sortOrder="10" title="Save EstimationDates"/>
+					<resource id="CustomConcepts_Estimations::EstimationDates_delete" sortOrder="20" title="Delete EstimationDates"/>
+					<resource id="CustomConcepts_Estimations::EstimationDates_update" sortOrder="30" title="Update EstimationDates"/>
+					<resource id="CustomConcepts_Estimations::EstimationDates_view" sortOrder="40" title="View EstimationDates"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

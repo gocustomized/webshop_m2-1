@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">estimations_estimationdates_listing.estimations_estimationdates_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>estimations_estimationdates_columns</spinner>
+		<deps>
+			<dep>estimations_estimationdates_listing.estimations_estimationdates_listing_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource component="Magento_Ui/js/grid/provider" name="estimations_estimationdates_listing_data_source">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>CustomConcepts_Estimations::EstimationDates</aclResource>
+		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="estimations_estimationdates_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>estimationdates_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="estimations_estimationdates_columns">
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>estimationdates_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="estimationdates_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+		<column name="order_ref">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">order_ref</label>
+			</settings>
+		</column>
+		<column name="order_date">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">order_date</label>
+			</settings>
+		</column>
+		<column name="shipping_date">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">shipping_date</label>
+			</settings>
+		</column>
+		<column name="min_delivery_date">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">min_delivery_date</label>
+			</settings>
+		</column>
+		<column name="max_delivery_date">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">max_delivery_date</label>
+			</settings>
+		</column>
+		<column name="delivery_rate_id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">delivery_rate_id</label>
+			</settings>
+		</column>
+		<column name="carrier_id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">carrier_id</label>
+			</settings>
+		</column>
+		<column name="country">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">country</label>
+			</settings>
+		</column>
+		<column name="created_at">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">created_at</label>
+			</settings>
+		</column>
+	</columns>
+</listing>

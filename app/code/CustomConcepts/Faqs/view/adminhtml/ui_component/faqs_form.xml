@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">faqs_form.faqs_form_data_source</item>
+            <item name="deps" xsi:type="string">faqs_form.faqs_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">FAQ Form</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">faqs_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="save" class="CustomConcepts\Faqs\Block\Adminhtml\Faqs\Edit\SaveButton"/>
+            <button name="delete" class="CustomConcepts\Faqs\Block\Adminhtml\Faqs\Edit\DeleteButton"/>
+            <button name="back" class="CustomConcepts\Faqs\Block\Adminhtml\Faqs\Edit\BackButton"/>
+        </buttons>
+    </settings>
+
+    <dataSource name="faqs_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider class="CustomConcepts\Faqs\Model\Prodfaqs\DataProvider" name="faqs_form_data_source">
+            <settings>
+                <requestFieldName>faqs_id</requestFieldName>
+                <primaryFieldName>faqs_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="prodfaqs">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <!--                <item name="collapsible" xsi:type="boolean">true</item>-->
+                <item name="label" xsi:type="string" translate="true">FAQ Details</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+        <field name="question_type" formElement="select">
+            <settings>
+                <dataType>select</dataType>
+                <label translate="true">Question Type</label>
+                <dataScope>question_type</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="CustomConcepts\Faqs\Model\Prodfaqs\Source\QuestionType"/>
+                        <caption translate="true">-- Please Select --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="title" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">prodfaqs</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Question</label>
+                <dataScope>title</dataScope>
+            </settings>
+        </field>
+
+
+        <field name="status" sortOrder="10" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">prodfaqs</item>
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Enable FAQ</label>
+                <dataScope>status</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">2</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+
+        <field name="topic_id" formElement="select">
+            <settings>
+                <dataType>select</dataType>
+                <label translate="true">Add in Topic</label>
+                <dataScope>topic_id</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="CustomConcepts\Faqs\Model\Prodfaqs\Source\Topic"/>
+                        <caption translate="true">-- Please Select --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="show_on_main" sortOrder="10" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">prodfaqs</item>
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Show on main page</label>
+                <dataScope>show_on_main</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+
+        <field name="visibility" formElement="select">
+            <settings>
+                <dataType>select</dataType>
+                <label translate="true">Visibility</label>
+                <dataScope>visibility</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="CustomConcepts\Faqs\Model\Prodfaqs\Source\Visibility"/>
+                        <caption translate="true">-- Please Select --</caption>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="faq_order" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">prodfaqs</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+                <dataType>number</dataType>
+                <label translate="true">Order / Position</label>
+                <dataScope>faq_order</dataScope>
+            </settings>
+        </field>
+
+        <field name="accordion_opened" formElement="select">
+            <settings>
+                <dataType>select</dataType>
+                <label translate="true">Open in Accordion</label>
+                <dataScope>accordion_opened</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Magento\Config\Model\Config\Source\Yesno"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+
+        <field name="faq_answer" formElement="wysiwyg">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">prodfaqs</item>
+                </item>
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="admin__field-wide">true</class>
+                </additionalClasses>
+                <label/>
+                <dataScope>faq_answer</dataScope>
+            </settings>
+            <formElements>
+                <wysiwyg>
+                    <settings>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
+        </field>
+
+    </fieldset>
+</form>

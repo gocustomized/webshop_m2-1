@@ -1,0 +1,219 @@
+.banner{
+    position: relative;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 1.4;
+}
+.banner img{
+    width: 100%;
+}
+
+.bannerouterwrap{
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1146px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bannerleft .bannerouterwrap{
+
+}
+
+.bannerright .bannerouterwrap{
+    text-align: right;
+}
+
+.bannercenter .bannerouterwrap{
+    text-align: center;
+}
+
+.bannercenter .bannertextwrap{
+    transform: translate(-50%,-50%);
+    left: 50%;
+}
+
+.bannertextwrap{
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 60%;
+}
+
+.bannerright .bannertextwrap{
+    float: right;
+}
+
+.backgroundholder{
+    display: none;
+}
+
+.bannertitle{
+    font-size: 2.5vw;
+    margin: 0;
+    line-height: 1.1;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+}
+.bannersubtext{
+    font-size: 1.8vw;
+    position: relative;
+    display: block;
+    text-shadow: 1px 1px 1px #000;
+}
+.bannerbut{
+    background-color: black;
+    position: relative;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 1.2vw;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 40px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.bannerbut:hover{
+    color: white;
+    background-color: #f4b400 !important;
+}
+
+.bannertextwrap > span{
+    margin-top: 16px;
+}
+
+.bannertextwrap > span ~ span{
+    margin-top: 0px;
+}
+
+.mobile-show{
+    display: none;
+}
+
+.slide .mobile-hide{
+    display: inline-block;
+}
+
+@media(max-width: 450px){
+    .mobile-show{
+        display: block;
+    }
+    .mobile-hide{
+        display: none;
+    }
+
+    .bannertitle{
+        font-size: 1.8rem;
+    }
+    .bannersubtext{
+        font-size: 1.1rem;
+    }
+
+    .bannerbut{
+        font-size: 1.0rem;
+    }
+
+    .bannerouterwrap{
+        width: auto;
+    }
+
+    .bannerright .bannerouterwrap, .bannerleft .bannerouterwrap, .bannercenter .bannerouterwrap{
+        top: 50%;
+        transform: translateY(-50%);
+        bottom: auto;
+        right: 0;
+        left: 0;
+        max-width: none;
+    }
+
+    .bannerright .bannertextwrap{
+        text-align: center;
+        float:none;
+    }
+
+    .backgroundholder{
+        display: none;
+    }
+
+    .bannercenter .bannertextwrap{
+        transform: translateX(-50%);
+        top: 0;
+    }
+
+    .bannertextwrap{
+        top: auto;
+        transform: none;
+        left: 8.75%;
+        right: 8.75%;
+        width: 82.5%;
+        max-width: none;
+    }
+
+
+}
+@media(min-width:450px) and (max-width: 768px){
+    .bannerouterwrap{
+        left: 8.75%;
+        right: 8.75%;
+        transform: none;
+        width: auto;
+    }
+    .bannertextwrap{
+        max-width: 80%;
+    }
+    .bannertitle{
+        font-size: 1.8rem;
+    }
+    .bannersubtext{
+        font-size: 1.1rem;
+    }
+
+    .bannerbut{
+        font-size: 1.0rem;
+    }
+}
+@media(min-width: 768px) and (max-width: 992px){
+      .bannerouterwrap{
+          width: 724px;
+      }
+
+      .bannertitle{
+          font-size: 3vw;
+      }
+      .bannersubtext{
+          font-size: 2vw;
+      }
+      .bannerbut{
+          margin-top: 24px;
+          font-size: 1.5vw;
+      }
+  }
+@media(min-width: 992px) and (max-width: 1199px){
+      .bannerouterwrap{
+          width: 946px;
+      }
+
+    .bannertitle{
+        font-size: 3vw;
+    }
+    .bannersubtext{
+        font-size: 2vw;
+    }
+    .bannerbut{
+        font-size: 1.5vw;
+    }
+}
+
+@media(min-width: 1400px){
+    .bannersubtext{
+        font-size: 1.6vw;
+    }
+    .bannerbut{
+        font-size: 1.1vw;
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "customconcept/module-customprintcloud",
+    "description": "Module for cpc widgets",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        },
+        {
+            "name": "Jeroen van Rijn",
+            "email": "jeroen.vanrijn@customconcepts.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "CustomConcepts\\CustomPrintCloud\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="kiyoh" translate="label" sortOrder="180"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Kiyoh::kiyoh</resource>
+            <label>Kiyoh Review</label>
+            <group id="general" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>API Credentials</label>       
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>  
+                <field id="api_url" translate="label comment" type="select" sortOrder="2" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>API URL</label>
+                    <source_model>CustomConcepts\Kiyoh\Model\Config\Source\ApiUrl</source_model>
+                </field>   
+                <field id="api_id" translate="label comment" type="text" sortOrder="3" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Company ID</label>                    
+                </field>   
+                <field id="api_key" translate="label comment" type="text" sortOrder="4" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Connector Code</label>
+                    <tooltip>You can find this information in your Kiyoh account</tooltip>   
+                </field>   
+                <field id="company" translate="label comment" type="text" sortOrder="5" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Company</label>
+                </field> 
+                <field id="url" translate="label comment" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Url</label>
+                </field>                  
+            </group>
+            <group id="reviews" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>Kiyoh Import Reviews</label>       
+                <field id="cron" translate="label comment" type="select" sortOrder="1" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Use Cronjob</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>   
+                <field id="cron_stats" translate="label comment" type="select" sortOrder="2" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Update Summary</label>
+                    <source_model>CustomConcepts\Kiyoh\Model\Config\Source\Cronfrequency</source_model>
+                </field>   
+                <field id="cron_reviews" translate="label comment" type="select" sortOrder="3" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Update Reviews</label>
+                    <source_model>CustomConcepts\Kiyoh\Model\Config\Source\Cronfrequency</source_model>
+                </field>   
+                <field id="cron_all" translate="label comment" type="select" sortOrder="4" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Update Reviews</label>
+                    <source_model>CustomConcepts\Kiyoh\Model\Config\Source\Cronfrequency</source_model>
+                </field> 
+                <field id="lastrun" translate="label comment" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Last Update</label>
+                </field>  
+                <field id="process" translate="label comment" type="button" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>CustomConcepts\Kiyoh\Block\Adminhtml\System\Config\Form\Field\Process</frontend_model>
+                </field> 
+            </group>
+            <group id="sidebar" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>KiyOh Reviews Sidebar</label>        
+                <field id="left_heading" translate="label comment" sortOrder="1" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Left Sidebar</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>   
+                <field id="left" translate="label comment" type="select" sortOrder="2" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>   
+                <field id="left_qty" translate="label comment" type="text" sortOrder="3" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Number of Reviews</label>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="left">1</field>
+                    </depends>
+                </field>   
+                <field id="left_lenght" translate="label comment" type="text" sortOrder="4" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Length of Reviews</label>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="left">1</field>
+                    </depends>
+                </field>   
+                <field id="left_snippets" translate="label comment" type="select" sortOrder="5" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Add Rich Snippets</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>When using both sidebars make sure you only activate the Rich Snippets for only one sidebar</comment>
+                    <depends>
+                        <field id="left">1</field>
+                    </depends>
+                </field> 
+                <field id="left_link" translate="label comment" type="select" sortOrder="6" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Link to</label>
+                    <source_model>CustomConcepts\Kiyoh\Model\Config\Source\Sidebarlink</source_model>
+                    <depends>
+                        <field id="left">1</field>
+                    </depends>
+                </field> 
+                <field id="right_heading" translate="label comment" sortOrder="7" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Right Sidebar</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="right" translate="label comment" type="select" sortOrder="8" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>   
+                <field id="right_qty" translate="label comment" type="text" sortOrder="9" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Number of Reviews</label>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="right">1</field>
+                    </depends>
+                </field>   
+                <field id="right_lenght" translate="label comment" type="text" sortOrder="10" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Length of Reviews</label>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="right">1</field>
+                    </depends>
+                </field>   
+                <field id="right_snippets" translate="label comment" type="select" sortOrder="11" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Add Rich Snippets</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>When using both sidebars make sure you only activate the Rich Snippets for only one sidebar</comment>
+                    <depends>
+                        <field id="right">1</field>
+                    </depends>
+                </field> 
+                <field id="right_link" translate="label comment" type="select" sortOrder="12" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Link to</label>
+                    <source_model>CustomConcepts\Kiyoh\Model\Config\Source\Sidebarlink</source_model>
+                    <depends>
+                        <field id="right">1</field>
+                    </depends>
+                </field> 
+            </group>
+            <group id="overview" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>KiyOh Overview Page</label>       
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>   
+                <field id="intro" translate="label comment" type="textarea" sortOrder="2" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Intro</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>   
+                <field id="enable_paging" translate="label comment" type="select" sortOrder="3" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Paging</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>   
+                <field id="paging_settings" translate="label comment" type="text" sortOrder="4" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Reviews per page</label>
+                    <tooltip>Comma Separated, as: 10,20,30</tooltip>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field> 
+                <field id="heading_meta" translate="label comment" sortOrder="4" showInDefault="5" showInWebsite="1" showInStore="1">
+                    <label>Meta Data</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="meta_title" translate="label comment" type="text" sortOrder="6" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Meta Title</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field> 
+                <field id="meta_description" translate="label comment" type="textarea" sortOrder="7" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Meta Description</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field> 
+                <field id="meta_keywords" translate="label comment" type="textarea" sortOrder="8" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field> 
+            </group>
+            <group id="invitation" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>Invitation to write the customer experience</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Activate</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Send invitation?</comment>
+                    <tooltip>Send customers automatically receive an invitation to share a customer experience.</tooltip>
+                </field>   
+                <field id="company_email" translate="label comment" type="text" sortOrder="2" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Company Email address</label>
+                    <comment>Use the company email address registered with Kiyoh, this is used as en extra validation.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>   
+                <field id="status" translate="label comment" type="select" sortOrder="3" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Order completed with status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>   
+                <field id="delay" translate="label comment" type="text" sortOrder="4" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Delay</label>
+                    <comment>Send the invitation x days after the order is completed</comment>
+                    <tooltip>This will ensure that the customer receives the invitation shortly after receiving the product and not before. This increases the opportunity that the client will share his experience.</tooltip> 
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>   
+                <field id="backlog" translate="label comment" type="text" sortOrder="5" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Maximum Delay</label>
+                    <comment>Change only if necessary</comment>
+                    <tooltip>Number of days to complete order may last, if it takes longer then no invitation will be sent. Read more about this feature on Kiyoh.nl.</tooltip>  
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>   
+            </group>
+            <group id="log" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>KiyOh Log Settings</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Enable Log Function</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>   
+                <field id="clean" translate="label comment" type="select" sortOrder="2" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Auto Cleaning</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>   
+ 
+                <field id="clean_days" translate="label comment" type="text" sortOrder="3" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Clean after Days</label>
+                    <validate>validate-number</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>   
+            </group>
+            <group id="snippets" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>KiyOh Custom Blocks</label>
+                <comment><![CDATA[<p>The extension comes with two coded blocks.<br>With this blocks you can add  your store rating in a Static block or CMS page.</p><p><br><strong>The Rich Snippets Block.<br></strong>Show your Store-rating with this block and generate results in the Google Search Engine Results better known as Rich Snippets.<br>Paste the code  below at the desired location using a Static Block or a CMS page.</p><p>Code: {{block class="CustomConcepts\Kiyoh\Block\Widget\KiyohRichSnippets" name="kiyohsnippets"}}</p><p><br><strong>Custom Block.</strong><br>With this block you can create  custom block for footer of header, you can paste the code  below at the desired location using a Static Block or a CMS page.<br>To edit this block you need to edit the .phtml file located in the following path: app/code/CustomConcepts/Kiyoh/view/frontend/templates/widget/custom.phtml</p><p>Code: {{block class="CustomConcepts\Kiyoh\Block\Widget\Custom" name="kiyoh"}}</p>]]></comment>
+                <field id="custom_heading" translate="label comment" sortOrder="1" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label></label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

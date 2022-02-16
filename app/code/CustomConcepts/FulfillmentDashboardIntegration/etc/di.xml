@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="CustomConcepts\FulfillmentDashboardIntegration\Api\DashboardShipmentCreatorInterface"
+                type="CustomConcepts\FulfillmentDashboardIntegration\Service\DashboardShipmentCreator" />
+    <preference for="CustomConcepts\FulfillmentDashboardIntegration\Api\DashboardApiAdapterInterface"
+                type="CustomConcepts\FulfillmentDashboardIntegration\Model\Adapter" />
+    <type name="CustomConcepts\FulfillmentDashboardIntegration\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="CustomConcepts\FulfillmentDashboardIntegration\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">CustomConcepts_FulfillmentDashboardIntegration_Log</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">CustomConcepts\FulfillmentDashboardIntegration\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Bluebirdday\TranssmartSmartConnectExtension\Model\Shipment\Creator">
+        <plugin name="cc_dashboard_additional_fields_set" type="CustomConcepts\FulfillmentDashboardIntegration\Plugin\Model\Shipment\Creator"/>
+    </type>
+<!--    <type name="Bluebirdday\TranssmartSmartConnect\Model\Transsmart\Adapter">-->
+<!--        <plugin name="cc_dashboard_before_transsmart_book" type="CustomConcepts\FulfillmentDashboardIntegration\Plugin\Model\Transsmart\Adapter"/>-->
+<!--    </type>-->
+</config>

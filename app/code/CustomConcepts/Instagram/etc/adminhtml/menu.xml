@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts Infotech
+ * CustomConcepts Instagram Extension
+ * 
+ * @category   CustomConcepts
+ * @package    CustomConcepts_Instagram
+ * @copyright  Copyright © 2006-2016 CustomConcepts
+ *  
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+		<add id="CustomConcepts_Instagram::instagram" title="Instagram" module="CustomConcepts_Instagram" sortOrder="56" resource="CustomConcepts_Instagram::instagram"/>
+        <add id="CustomConcepts_Instagram::instagram_config" title="Configuration" module="CustomConcepts_Instagram" sortOrder="20" parent="CustomConcepts_Instagram::instagram" action="adminhtml/system_config/edit/section/instagramsection" resource="CustomConcepts_Instagram::instagram_config"/>
+    </menu>
+</config>

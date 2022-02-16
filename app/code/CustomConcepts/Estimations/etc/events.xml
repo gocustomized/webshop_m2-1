@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+<!--	<event name="sales_quote_add_item">-->
+<!--		<observer instance="CustomConcepts\Estimations\Observer\Sales\QuoteAddItem" name="estimations__observer_sales_sales_quote_add_item"/>-->
+<!--	</event>-->
+	<event name="sales_order_save_after">
+		<observer instance="CustomConcepts\Estimations\Observer\Sales\OrderPlaceAfter" name="estimations__observer_sales_orderplacedafter"/>
+	</event>
+	<event name="email_order_set_template_vars_before">
+		<observer name="add_estimation_to_order_email" instance="CustomConcepts\Estimations\Observer\Sales\AddEstimationToOrderEmail" />
+	</event>
+</config>

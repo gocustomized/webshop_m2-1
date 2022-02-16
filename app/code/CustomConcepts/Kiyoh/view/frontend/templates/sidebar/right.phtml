@@ -1,0 +1,65 @@
+<?php
+/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+?>
+<?php
+$sidebarreviews = $this->getSidebarCollection('right');
+$total = $this->getTotalScore();
+?>
+<?php if ($sidebarreviews && $total): ?>
+    <div class="block kiyoh-sidebar">
+        <div class="block-title">
+            <strong><span><?php echo __('Kiyoh') ?></span></strong>
+        </div>
+        <?php if ($total->getPercentage() > 0): ?>
+            <?php if ($this->getSnippetsEnabled('right')): ?>
+                <div class="block-content" itemscope itemtype="http://schema.org/WebPage">
+                    <div class="total-block-stars"><span style="width: <?php echo $total->getPercentage(); ?>%"></span>
+                    </div>
+                    <div class="total-block-text" itemprop="aggregateRating" itemscope
+                         itemtype="http://schema.org/AggregateRating">
+                        <p><strong><span itemprop="ratingValue"><?php echo $total->getStarsQty(); ?></span> / <span
+                                        itemprop="bestRating">10</span></strong></p>
+                        <p class="based-on"><?php echo __(sprintf('Based on %s reviews', '<span itemprop="ratingCount">' . $total->getVotes() . '</span>')); ?></p>
+                    </div>
+                </div>
+            <?php else: ?>
+                <div class="block-content">
+                    <div class="total-block-stars"><span style="width: <?php echo $total->getPercentage(); ?>%"></span>
+                    </div>
+                    <div class="total-block-text">
+                        <p><strong><?php echo $total->getStarsQty(); ?> / 10</strong></p>
+                        <p class="based-on"><?php echo __(sprintf('Based on %s reviews', '<span itemprop="ratingCount">' . $total->getVotes() . '</span>')); ?></p>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+        <?php $i = 0;
+        foreach ($sidebarreviews as $sidebarreview): ?>
+            <?php $content = $this->formatContent($sidebarreview, 'right'); ?>
+            <div class="block-content">
+                <div class="kiyoh-sidebar-block">
+                    <p><u><?php echo $sidebarreview->getCustomerName(); ?></u> <?php echo $content; ?></p>
+                    <span class="rating-name"><?php echo $this->getFormattedDate($sidebarreview->getDateCreated()); ?></span>
+                    <?php if ($sidebarreview->getScore()): ?>
+                        <span class="rating-empty"><span
+                                    class="rating-star-<?php echo $sidebarreview->getScore(); ?>"></span></span>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php if ($reviewurl = $this->getReviewsUrl('right')): ?>
+            <div class="block-content">
+                <img src="<?php echo $this->getViewFileUrl('images/logo.png'); ?>" class="kiyoh-logo">
+                <div class="actions">
+                    <?php echo $reviewurl; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

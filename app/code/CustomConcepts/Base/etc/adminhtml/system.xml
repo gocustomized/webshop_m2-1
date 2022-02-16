@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="gocustomized" sortOrder="999" translate="label comment">
+            <label>CustomConcepts</label>
+        </tab> 
+        <section id="cookielaw" translate="label" sortOrder="130"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Base::config_gocustomized_cookielaw</resource>
+            <label>Cookie Law</label>
+            <group id="cookielawGroup" type="text" sortOrder="122" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                
+                <label>Cookie Law</label>
+                
+                <field id="show_banner" translate="label" type="select" sortOrder="1" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Show Cookie Banner?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                
+                <field id="cookie_lifetime" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cookie Lifetime (Days)</label>
+                    <validate>validate-number validate-zero-or-greater </validate>
+                </field>
+                
+                <field id="privacy_url" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Privacy Policy URL</label>
+                    <comment>Relative to your Base Url http://www.domain.com/</comment>
+                </field>
+                
+                <field id="privacy_url_text" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Privacy Link Text</label>
+                </field>
+                
+                <field id="privacy_message" translate="label" type="textarea" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Privacy Message</label>
+                </field>
+                
+                <field id="css" translate="label" type="textarea" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Banner CSS Styling</label>
+                </field>
+                
+                <field id="fadeout" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Fade out after (x) seconds</label>
+                    <comment>Enter 0 to make banner stay until user navigates to next page.</comment>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                
+                <field id="position" translate="label comment" type="select" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position</label>
+                    <source_model>CustomConcepts\Base\Model\Config\Source\Position</source_model>
+                    <comment>Where you want to show this notice</comment>
+                </field>
+                
+            </group>
+        </section>
+        
+        <!-- Copy Data Module -->
+        <section id="copydata" translate="label" sortOrder="140"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Base::config_gocustomized_copydata</resource>
+            <label>Copy Store Data</label>
+            <group id="general" type="text" sortOrder="122" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                
+                <field id="from_store" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Copy Store Data From</label>
+                    <source_model>CustomConcepts\Base\Model\Config\Source\Store</source_model>
+                </field>
+                
+                <field id="to_store" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Store to copy Data To</label>
+                    <source_model>CustomConcepts\Base\Model\Config\Source\Store</source_model>
+                </field>
+            
+                <field id="type" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Type</label>
+                    <source_model>CustomConcepts\Base\Model\Config\Source\Options</source_model>
+                    <comment>NOTE: Please save all values by click on button 'Save Config' before click on 'import data' button</comment>
+                </field>
+                
+                <field id="button" translate="label" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_model>CustomConcepts\Base\Block\FrontendModel\Button</frontend_model>
+                </field>
+            </group>
+        </section>
+        <section id="orderextrarerefrence" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1" >
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Base::config_gocustomized_orderextrarerefrence</resource>
+            <label>Order Extra Refrence</label>
+            <group id="general" type="text" sortOrder="122" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <field id="order_note" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order Note </label>
+                    <comment>Please add comma(,) seprated values</comment>
+                </field> 
+            </group>
+        </section>
+        
+        
+        <!-- ShareOrder Module -->
+        <section id="facebookShareOrder" translate="label" sortOrder="155"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Base::config_gocustomized_facebookshare</resource>
+            <label>Facebook Share Configurations</label>
+            <group id="general" type="text" sortOrder="122" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>Facebook Share Configurations</label>
+                <field id="shareorder_enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook Share enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                
+                <field id="facebook_app_id" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook App ID</label>
+                </field>
+                
+                <field id="facebook_title" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook share box Title</label>
+                </field>
+                
+                <field id="facebook_desc" translate="label" type="textarea" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook share box Description</label>
+                </field>
+            
+            </group>
+        </section>
+        
+    </system>
+</config>

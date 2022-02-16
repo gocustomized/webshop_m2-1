@@ -1,0 +1,31 @@
+
+<?php
+/**
+ * @var $block \CustomConcepts\CustomPrintCloud\Block\Widget\Categorypage
+ */
+
+?>
+<div id="category-widget-container" data-mage-init='{"loader": { "icon": "https://customizer.hypernode.io/client/images/gc-loader.svg"}}' ></div>
+
+<script>
+    require(['jquery', 'loader', 'domReady!'], function ($) {
+        'use strict';
+
+        $('#category-widget-container').trigger('processStart');
+    });
+</script>
+<script>
+    <?php
+    $catalogHelperData = $this->helper('Magento\Catalog\Helper\Data');
+    $categoryUrl = $catalogHelperData->getCategory()->getUrl();?>
+    Widget.mount({
+        parentElement: '#category-widget-container',
+        rootURL: '<?= $categoryUrl ?>',
+        brand: '<?php echo $block->getData('brand') ?>',
+        device: '<?php echo $block->getData('device') ?>',
+        design: '<?php echo $block->getData('design') ?>'
+        // TODO: pass customerAuth, apiKey, saveJSONEndpoint
+    });
+</script>
+<style>.ant-col.col-header.ant-col-lg-17.ant-col-lg-offset-7{ display: none;}</style>
+

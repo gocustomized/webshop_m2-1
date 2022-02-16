@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="category.image" remove="true" />
+        <referenceBlock name="category.cms" remove="true" />
+        <referenceBlock name="category.description" remove="true" />
+        <referenceBlock name="sale.reorder.sidebar" remove="true" />
+
+        <referenceBlock name="page.main.title">
+            <block class="Magento\Framework\View\Element\Template" name="category.slider" template="Magento_Catalog::category/topcategory.phtml" after="-" />
+        </referenceBlock>
+
+        <referenceBlock name="columns">
+            <block class="CustomConcepts\UltimoGocustomized\Block\Bestseller" name="category.bestseller" template="Magento_Catalog::category/category-bestseller.phtml" after="-" />
+        </referenceBlock>
+
+        <referenceContainer name="page.wrapper">
+            <block class="CustomConcepts\UltimoGocustomized\Block\CategoryBottomDescription" name="catalog.bottomseo.description" template="Magento_Catalog::category/category-bottom-seo.phtml" before="footer-container" />
+        </referenceContainer>
+
+        <referenceContainer name="main" htmlClass="column main inner-container-category" />
+        <referenceContainer name="main.content" htmlClass="page-main container"></referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- recompute amountExcludingTax and taxAmount since adyen always use getPrice() by default that causes bugs on multi stores -->
+    <type name="Adyen\Payment\Gateway\Request\CheckoutDataBuilder">
+        <plugin name="adyen_after_checkoutdata_bldr" type="CustomConcepts\Adyen\Plugin\Gateway\Request\CheckoutDataBuilder\AfterBuild" sortOrder="100"/>
+    </type>
+    <!-- use store currency and amount on refund. not the base currency/amount -->
+    <type name="Adyen\Payment\Gateway\Request\RefundDataBuilder">
+        <plugin name="adyen_before_refunddata_bldr" type="CustomConcepts\Adyen\Plugin\Gateway\Request\RefundDataBuilder\BeforeBuild" sortOrder="100"/>
+    </type>
+</config>
+

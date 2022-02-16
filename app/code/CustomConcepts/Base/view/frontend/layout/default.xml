@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--/**
+* CustomConcepts_TranssmartShipping extension
+* @category  CustomConcepts_Extensions
+* @package   CustomConcepts_Base
+* @copyright Copyright (c) 2017
+* @author GoCustomized <info@gocustomized.com>
+*/-->
+<page layout="2columns-left" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="before.body.end">
+            <block class="CustomConcepts\Base\Block\Cookielaw" name="cookieLaw" after="-" template="CustomConcepts_Base::cookielaw.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

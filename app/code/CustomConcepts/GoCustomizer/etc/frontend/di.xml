@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_GoCustomizer extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_GoCustomizer
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Checkout\Block\Cart\Item\Renderer" type="CustomConcepts\GoCustomizer\Block\Cart\Item\Renderer" />
+<!--    <type name='Magento\Checkout\Model\Cart\ImageProvider'>-->
+<!--        <plugin name='AfterGetImages' type='CustomConcepts\GoCustomizer\Plugin\Checkout\Model\Cart\AfterGetImages' sortOrder='10'/>-->
+<!--    </type>-->
+    <type name='Magento\Checkout\CustomerData\AbstractItem'>
+        <plugin name='MinicartAfterGetItemData' type='CustomConcepts\GoCustomizer\Plugin\Minicart\AfterGetItemData' sortOrder='10'/>
+    </type>
+</config>

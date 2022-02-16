@@ -1,0 +1,12 @@
+.shipment-items-mpc{
+    width: 100%;
+    background-color: #c3ced4;
+}
+
+.shipment-items-mpc tbody{
+    background-color: white;
+}
+
+.item-info, .item-info-data{
+    text-align: left;
+}

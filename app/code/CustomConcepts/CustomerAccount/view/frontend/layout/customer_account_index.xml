@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Customer\Block\Account\Dashboard\Info" name="account_welcome_message" before="customer_account_dashboard_info" template="CustomConcepts_CustomerAccount::account/dashboard/welcome_message.phtml" />
+        </referenceContainer>
+    </body>
+</page>

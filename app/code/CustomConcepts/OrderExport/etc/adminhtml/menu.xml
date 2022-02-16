@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--/**
+ * CustomConcepts_OrderExport extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_OrderExport
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="CustomConcepts_OrderExport::orderexport" title="Download Orders Tool" module="CustomConcepts_OrderExport" sortOrder="30" parent="Magento_Sales::sales" action="orderexport" resource="CustomConcepts_OrderExport::orderexport" />
+    </menu>
+</config>

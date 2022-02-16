@@ -1,0 +1,14 @@
+{
+    "cc_wics_sync": {
+        "column": {
+            "sync_id": true,
+            "status": true,
+            "message": true,
+            "response_hash": true,
+            "creation_time": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<div class="locator__list list">
+    <label class="list__title" data-bind="text: title"></label>
+
+    <!-- <div class="locator__loader" data-role="locator-loader" data-mage-init="{'loader': {}}"></div> -->
+
+    <ul class="list__items" data-bind="foreach: filteredLocations">
+        <li class="list__item">
+            <label class="list__item-label">
+                <input type="radio" name="location" data-bind="checkedValue: $data, checked: $parent.checkLocation, attr: {id: 'location-' + locationId}" class="list__radio" />
+
+                <span class="list__item-image"><img data-bind="attr: {src: carrierIcon}" width="35" height="35" /></span>
+                <span class="list__item-carrier">
+                    <span class="list__item-name" data-bind="text: name"></span>
+                    <span class="list__item-city" data-bind="text: city"></span>
+                    <span class="list__item-address" data-bind="text: street"></span>
+                    <span class="list__item-carrier-profile-price" data-bind="fromCarrierSalePrice: $data"></span>
+                </span>
+                <span class="list__item-distance" data-bind="text: formattedDistance"></span>
+            </label>
+            <span class="list__item-carrier-profile" data-bind="showProfile: $data.rates.length > 1">
+                <select class="carrier-profile-select"
+                        data-bind="
+                        options: $parent.availableCarrierProfiles($data),
+                        optionsText: 'name',
+                        optionsValue: 'value',
+                        optionsCaption: 'Choose...',
+                        value: selectedCarrierProfile,
+                        event: {change: $parent.carrierProfileSelectObserver}"
+                ></select>
+            </span>
+        </li>
+    </ul>
+    <div class="list__actions">
+        <button type="button" class="locator__list-button" data-bind="css: {'active': isReadyForCheckout}, click: submitLocation, text: buttonText"></button>
+    </div>
+</div>

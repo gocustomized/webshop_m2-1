@@ -1,0 +1,219 @@
+/**
+ * 
+ * 
+ * Product Page Review CSS
+ */
+
+ & when (@media-common = true) {
+     .mb-30{
+         margin-bottom:30px;
+     }
+     .block-gray{
+           padding: 20px 15px;
+        background-color: #fbfbfb;
+        border: 1px solid #ededed;
+        box-sizing: border-box;
+     }
+     
+     .account-sidebar{
+         position: relative;
+         li{
+              list-style: disc;
+              margin-left: 30px;
+         }
+     }
+     .form.create.account{
+         min-width:100% !important;
+         width:100% !important;
+                .actions-toolbar{
+                    position:relative;
+                    overflow:hidden;
+                 margin-right:0;
+                 margin-left:0 !important;
+                 .primary{
+                     min-width: 180px;
+                     float:right;
+                     button{
+                         padding:15px 10px;
+                     }
+                     .action{
+                         background:@btn-primary-bg;
+                         color:#fff;
+                         &:hover{
+                              background:@btn-primary-bg-hover;
+                         }
+                     }
+
+                 }
+                 .secondary{
+                    position:relative;
+                    float:left;
+                    a{
+                        color:#a3b1c6;
+                        font-weight:400;
+                        text-decoration:underline;
+                        &:hover{
+                            color:#7d8faa;
+                        }
+                    }
+                    .back{
+                        font-size: 14px;
+                        font-weight: 500;
+                        text-transform:uppercase;
+                    }
+                }
+            }
+                
+            .fieldset{
+                position:relative;
+                margin:0 auto;
+               &:after {
+                   margin-left: 0;
+               }
+               .legend{
+                   margin-left:0;
+                   margin:0 auto;
+                   display:block;
+                   width:100%;
+                   float:none;
+                   font-size:1.3em;
+                   span{
+                       font-family:'Montserrat', sans-serif;
+                       padding-bottom: 7px;
+                       border-bottom: 1px solid #e5e5e5;
+                       border-bottom-color: rgb(229, 229, 229);
+                       font-weight: normal;
+                       text-align:left;
+                       margin-bottom: 15px;
+                       display:block;
+                   }
+               }
+               .field{
+                   box-sizing: border-box;
+                   margin: 0 0 29px;
+                   width: 50%;
+                   float: left;
+                   padding: 0 5px 0;
+                   margin-bottom:15px;
+                   &::before{
+                       width:100%;
+                       float:none;
+                   }
+                   
+                   input{
+                       border-color: #ededed;
+                       color: #3c3a40;
+                       outline: none;
+                       &:not([disabled]) {
+                           &:focus{
+                               box-shadow:none;
+                           }
+                        
+                        }
+                   }
+                   input[type="checkbox"]{
+                       display: inline-block;
+                       vertical-align: middle;
+                       margin:0 auto;
+                   }
+                   .control{
+                       width:100%;
+                       float: none;
+                       .field{
+                           margin-top:20px;
+                       }
+                       .captcha-reload{
+                           float:right;
+                           padding:10px 15px;
+                            background:@btn-primary-bg;
+                            color:#fff;
+                            &:hover{
+                                 background:@btn-primary-bg-hover;
+                            }  
+                       }
+                   }
+                   .label{
+                       float:none;
+                       text-align: left;
+                       margin-bottom:15px;
+                       margin-top:2px;
+                       width:auto;
+                       display:inline-block;
+                   }
+               }
+               .email-address{
+                   width: 100%;
+                   float: none;
+                   padding: 0;
+               }
+             }
+        
+     }
+     
+ } // end: media-common
+ //
+//  Desktop
+//  _____________________________________________
+
+@media only screen and (max-width: 991px){
+.main .container {
+    max-width: 100%;
+ }
+ .grid12-8,.grid12-4{
+     width:100%;
+     margin:0 auto 30px;
+ }
+  .form.create.account .fieldset .field {
+    width: 100%;
+    float: none;
+    padding: 0;
+    margin: 0 auto 15px;;
+}
+}
+
+@media only screen and (max-width:576px){
+    .form.create.account .fieldset .legend span{
+        margin-bottom:0;
+    }
+    .form.create.account .fieldset .field .label{
+        margin-bottom:0;
+    }
+    .form.create.account .actions-toolbar .primary,
+    .form.create.account .actions-toolbar .secondary{
+        width:100%;
+        min-width:100%;
+        float:none;
+    }
+    
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+}
+ 
+ //
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+     
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+}
+
+
+
+
+
+

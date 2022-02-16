@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Customer\Model\ResourceModel\Attribute"
+                type="CustomConcepts\CheckoutFieldsConfig\Model\ResourceModel\Attribute" />
+
+    <preference for="Swissup\FieldManager\Controller\Adminhtml\Index\Save"
+                type="CustomConcepts\CheckoutFieldsConfig\Swissup\FieldManager\Controller\Adminhtml\Index\Save" />
+    <preference for="Swissup\AddressFieldManager\Controller\Adminhtml\Index\Save"
+                type="CustomConcepts\CheckoutFieldsConfig\Swissup\AddressFieldManager\Controller\Adminhtml\Index\Save" />
+    <preference for="Swissup\CustomerFieldManager\Controller\Adminhtml\Index\Save"
+                type="CustomConcepts\CheckoutFieldsConfig\Swissup\CustomerFieldManager\Controller\Adminhtml\Index\Save" />
+
+    <preference for="Swissup\FieldManager\Controller\Adminhtml\Index\Edit"
+                type="CustomConcepts\CheckoutFieldsConfig\Swissup\FieldManager\Controller\Adminhtml\Index\Edit" />
+    <preference for="Swissup\AddressFieldManager\Controller\Adminhtml\Index\Edit"
+                type="CustomConcepts\CheckoutFieldsConfig\Swissup\AddressFieldManager\Controller\Adminhtml\Index\Edit" />
+    <preference for="Swissup\CustomerFieldManager\Controller\Adminhtml\Index\Edit"
+                type="CustomConcepts\CheckoutFieldsConfig\Swissup\CustomerFieldManager\Controller\Adminhtml\Index\Edit" />
+</config>

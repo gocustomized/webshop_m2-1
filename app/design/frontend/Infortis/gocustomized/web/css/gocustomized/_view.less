@@ -1,0 +1,230 @@
+/**
+ * Infortis/ultimo
+ * Custom CSS fallback
+ * app/design/frontend/Infortis/ultimo/web/css/_custom.less
+ */
+
+//
+//  Custom CSS fallback
+//  _____________________________________________
+
+//  Fallback file for CSS overrides in custom child-themes. Should be EMPTY.
+//
+//  To add custom CSS styles, create custom child-theme (with Ultimo
+//  as its parent theme) and create "_custom.less" in the following location:
+//  <YOUR_MAGENTO_INSTALL_DIRECTORY>/app/design/frontend/<YOUR_VENDOR_NAME>/<YOUR_THEME_NAME>/web/css/_custom.less
+
+
+ & when (@media-common = true) {
+     .page-title-wrapper{
+         &.product{
+            h1{
+                &.page-title{
+                    padding: 30px 0 0;
+                    font-size:2rem;
+                }
+            }
+        }
+     }
+     .separator{
+         border-color: #e5e5e5;
+         display: inline-block;
+         vertical-align: middle;
+         text-indent: -9999px;
+         border-left: 1px solid #e5e5e5;
+         height: 13px;
+         width: 1px;
+         margin: 0 3px;
+    }
+     .rating-summary{
+         .rating-result{
+             width:130px;
+             &:before{
+                 font-size:35px;
+             }
+         }
+     }
+     .reviews-actions{
+         a{
+            color:#a3b1c6;
+            &:hover{
+                color:#7d8faa;
+            }
+            &.add{
+                margin-left: 60px;
+                position: relative;
+                &:before{
+                   left: -50%;
+                   content: ' ';
+                   border-bottom: 2px solid #a3b1c6;
+                   width: 40px;
+                   height: 2px;
+                   display: block;
+                   position: absolute;
+                   top: 30%;
+                }
+            }
+        }
+     }
+     .catalog-product-view{
+         .product-social-links{
+             display: none;
+         }
+         .product-add-form{
+             border:none;
+         }
+         .additional-attributes-wrapper {
+            width: 100%;
+            background: #fbfbfb;
+            border: 1px solid #ededed;
+            margin: 10px 0;
+            tr{
+                background-color: #fff;
+                &:nth-child(2n+1) {
+                    background-color: #fbfbfb;
+                }
+                th{
+                    padding: 8px 10px !important;
+                    width:25%;
+                }
+            }
+        }
+        .product.info.detailed .additional-attributes {
+            width: 100%;
+        }
+
+     }
+
+     .fotorama__wrap{padding-right: 2px;}
+     .fotorama__stage{border: 1px solid #ddd;}
+     .fotorama__nav__frame{
+        border: 1px solid transparent;
+        margin: 0 3px !important;
+        padding: 0 !important;
+        &:hover, &.fotorama__active{
+            border: 1px solid #ddd;
+        }
+     }
+     .fotorama__nav-wrap--horizontal{
+         height:inherit;
+         width:inherit;
+         text-align:center;
+         margin-top: 20px;
+         .fotorama__thumb-border{
+            border-width: 0 !important;
+            height: inherit !important;
+            width: inherit !important;
+
+         }
+        &.fotorama__nav-wrap{
+            .fotorama_vertical_ratio{
+                background: none !important;
+                .fotorama__img {
+                   transform: inherit;
+                   height: inherit;
+                   position: inherit;
+                   top: inherit;
+                   width: inherit;
+               }
+            }
+        }
+     }
+     .review-add .block-title {
+        display: block;
+        font-family: 'Lato', sans-serif;
+        font-size: 17px;
+        margin-bottom: 10px;
+        strong{
+            font-weight:normal;
+        }
+    }
+    .fieldset{
+        .label{
+            font-weight: 500 !important;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            padding-top:0 !important;
+
+        }
+        .review-legend{
+            font-size:14px;
+            &.legend{
+                strong {
+                    display: inline;
+                    margin-left: 6px;
+                }
+            }
+
+        }
+    }
+    body .review-control-vote::before {
+        color: #c7c7c7;
+        font-size: 40px;
+        height: 40px;
+        letter-spacing: -10px;
+        line-height: 20px;
+    }
+    body .review-control-vote label::before {
+        color: #3C3A40;
+        font-size: 40px;
+        height: 40px;
+        letter-spacing: -10px;
+        line-height: 20px;
+    }
+    body .review-form .action.submit.primary {
+        background: #ed6d4f;
+        border: none;
+        color: #FFF;
+        min-width: 140px;
+        line-height: 45px;
+        padding: 0 25px;
+        font-family: 'Montserrat', sans-serif;
+        &:hover {
+            background: #dd4a2c;
+        }
+    }
+    body .product.data.items.style-luma > .item.content:last-child {
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+
+ } // end: media-common
+ //
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+
+
+}
+
+ //
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+
+
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
+
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+}
+
+
+
+
+
+

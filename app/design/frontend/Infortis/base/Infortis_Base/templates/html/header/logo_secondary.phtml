@@ -1,0 +1,17 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/**
+ * @var Infortis\Base\Block\Html\Header\Logo $block
+ */
+?>
+<?php
+    $storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt();
+    $mobileLogoBlock = $block->getLayout()->createBlock('CustomConcepts\Theme\Block\Html\Header\MobileLogo');
+?>
+<a class="logo mobilelogo" href="<?php echo $block->getUrl(''); ?>" title="<?php /* @escapeNotVerified */ echo $storeName ?>">
+    <strong><?php /* @escapeNotVerified */ echo $block->getLogoAlt() ?></strong>
+    <img src="<?php /* @escapeNotVerified */ echo $mobileLogoBlock->getMobileLogoSrc(); ?>"
+         alt="<?php /* @escapeNotVerified */ echo $block->getLogoAlt(); ?>"
+    />
+</a>

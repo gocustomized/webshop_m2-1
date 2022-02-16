@@ -1,0 +1,143 @@
+/**
+ * 
+ * 
+ * Product page Tab CSS
+ */
+
+ & when (@media-common = true) {
+     .product-view{
+         .collateral-tabs{
+             .product{
+                 .item{
+                     &.title{
+                         .data{
+                             &.switch{
+                                text-align: center;
+                                color: #333 !important;
+                                text-transform: uppercase;    
+                                background-color: #fbfbfb !important;
+                                border-color: #eeeeee !important;
+                                &:hover {
+                                    background-color: #ffffff !important;
+                                }
+                             }
+                         }
+                     }
+                     &.active{
+                         .data{
+                             &.switch{
+                                border-bottom: 3px solid #a3b1c6 !important;
+                                color: #a3b1c6 !important;
+                                background-color: #ffffff !important;
+                             }
+                         }
+                     }
+                 }
+             }
+         }
+     } 
+     .data{
+         &.item{
+            &.content {
+               border-color: #eee !important;
+           }
+        }
+     }
+    
+ } // end: media-common
+ //
+//  Desktop
+//  _____________________________________________
+
+
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    
+    .product{
+        &.data{
+            &.items{
+                &.style-luma{
+                    >.item{
+                        &.title{
+                            float: left;
+                            min-width: 20%;
+                        }
+                        &.content {
+                            margin-top: 81px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .product-view{
+         .collateral-tabs{
+             .product{
+                 .item{
+                     &.title{
+                         .data{
+                             &.switch{
+                                padding: 10px 35px 30px;
+                             }
+                         }
+                     }
+                     &.active{
+                         .data{
+                             &.switch{
+                                 padding: 10px 35px 28px !important;
+                             }
+                         }
+                     }
+                 }
+             }
+         }
+     }
+    
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+
+
+}
+ 
+ //
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .product-view{
+        &.product-columns-wrapper{
+            .collateral-tabs{
+                .product{
+                    .item{
+                        &.active{
+                            .data{
+                                &.switch {
+                                    background-color: #fbfbfb !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+   
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+}
+
+
+
+
+
+

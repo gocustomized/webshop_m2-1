@@ -1,0 +1,44 @@
+<?php
+/**
+ * @var $block \Razoyo\AnimalProfile\Block\Profile\View
+ */
+?>
+<p><?= $block->getGreeting() ?></p>
+<div id="animalid-photo"></div>
+<label class="label" for="animal"><strong><?= __('Choose Animal') ?></strong></label>
+<Select name="animal" id="select-animal">
+    <?php foreach ($block->getAnimalOptions() as $animal): ?>
+        <option value="<?= $animal['value'] ?>"><?= $animal['label'] ?></option>
+    <?php endforeach; ?>
+</Select>
+
+<script>
+    require(['jquery', 'domReady!'], function ($) {
+        return $.ajax({
+            url: '<?= $block->getPhotoUrl() ?>',
+            type: 'GET'
+        }).done(
+            function (response) {
+                console.log(response);
+                const photoImg = document.createElement('img');
+                photoImg.alt = 'Profile photo';
+                photoImg.src = response.photo;
+
+                const photoDiv = document.getElementById('animalid-photo');
+                if (photoDiv) {
+                    photoDiv.appendChild(photoImg);
+                }
+            }
+        );
+    });
+</script>
+<script type="text/x-magento-init">
+    {
+        "#select-animal": {
+            "select_animal": {
+                "renderLocation": "#animalid-photo",
+                "photoUrl": "<?= $block->getPhotoUrl() ?>"
+            }
+        }
+    }
+</script>

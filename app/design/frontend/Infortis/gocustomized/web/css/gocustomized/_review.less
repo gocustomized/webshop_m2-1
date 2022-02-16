@@ -1,0 +1,77 @@
+/**
+ * 
+ * 
+ * Product Page Review CSS
+ */
+
+ & when (@media-common = true) {
+    
+    .content .fieldset>.field:not(.choice)>.label {
+        text-align: left;
+        float: none;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .content .fieldset>.field:not(.choice)>.control {
+        float: none;
+        width: 100%;
+    }
+    .content .actions-toolbar.review-form-actions {
+        margin-left: 0 !important;
+    }
+    .review-add .input-text {
+        border: 2px solid #ededed;
+        min-height: 45px;
+    }
+    #review_field {
+        border: 2px solid #ededed;
+        min-height: 140px;
+    }
+    
+ } // end: media-common
+ //
+//  Desktop
+//  _____________________________________________
+@media (max-width: 1200px) and (min-width: 768px) {
+    body .footer .footer-primary-bottom~.grid12-3 {
+        padding: 0 30px;
+    }
+    body .footer-primary.footer.container {
+        max-width: inherit;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .review-form {
+        max-width: inherit;
+        width: 50%;
+    }
+    #review_field {
+        width: 48%;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+}
+ 
+ //
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+     
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+}
+
+
+
+
+
+

@@ -1,0 +1,120 @@
+/**
+ * 
+ * 
+ * Product Page Review CSS
+ */
+
+ & when (@media-common = true) {
+     body{
+        .block{
+            .block-title{
+               font-family:'Montserrat', sans-serif;
+               font-size:1.3em;
+               font-weight:normal;
+           }
+        }
+    }
+     
+     
+     .login-container{
+          position:relative;
+          .block{
+              .block-title{
+                  strong{
+                      font-weight:normal;
+                  }
+              }
+          }
+          .block-customer-login,.block-new-customer{
+                padding: 40px;
+                background-color: #fbfbfb;
+                border: 1px solid #ededed;
+                box-sizing: border-box;
+          }
+          
+          .form-login,.block-new-customer{
+                .actions-toolbar{
+                     margin-right:0;
+                     margin-left:0 !important;
+                     .primary{
+                         min-width: 180px;
+                         button{
+                             padding:15px 10px;
+                         }
+                         .action{
+                             background:@btn-primary-bg;
+                             color:#fff;
+                             &:hover{
+                                  background:@btn-primary-bg-hover;
+                             }
+                         }
+                       
+                     }
+                     .secondary{
+                        position:relative;
+                        a{
+                            color:#a3b1c6;
+                            font-weight:400;
+                            text-decoration:underline;
+                            &:hover{
+                                color:#7d8faa;
+                            }
+                        }
+                    }
+                }
+          
+              .fieldset{
+                &:after {
+                    margin-left: 0;
+                }
+                .field{
+                    .control{
+                        width:100%;
+                        float: none;
+                    }
+                    .label{
+                        width:100%;
+                        float:none;
+                        text-align: left;
+                    }
+                }
+              }
+          }
+        
+     }
+     
+ } // end: media-common
+ //
+//  Desktop
+//  _____________________________________________
+@media (max-width: 1200px) and (min-width: 768px) {
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+}
+ 
+ //
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+     
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+}
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+CustomConcepts_OrderConfirmationEmail module
+
+description: Send order confirmation email after creating an invoice instead of sending the email after placing the order.
+
+functionalities:
+ - disable observer thats sending order confirmation email(sales_model_service_quote_submit_success).
+ - create observer to send order confirmation email after creating an invoice
+ - get customer name base on order customer_is_guest and customer_id. (this is to fix the issue where
+   the customer data was not being set on the sales_order when a new customer checkout with paypal)

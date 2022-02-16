@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--/**
+ * CustomConcepts_ExtendedDropshipment extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_ExtendedDropshipment
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="dropshipments" frontName="dropshipments">
+            <module name="CustomConcepts_ExtendedDropshipment" before="Magento_Backend"/>
+        </route>
+    </router>
+</config>

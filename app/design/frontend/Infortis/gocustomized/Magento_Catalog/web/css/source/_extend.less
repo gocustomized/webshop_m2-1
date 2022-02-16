@@ -1,0 +1,174 @@
+& when (@media-common = true) {
+    .orig-price{
+        font-size: 16px;
+        color: red;
+        text-decoration: line-through;
+    }
+
+    .price-box.flex-column{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .catalog-product-view{
+        .orig-price{
+            font-size: 20px;
+        }
+    }
+
+    .slideshow-wrapper{
+        .owl-carousel .owl-item{
+            overflow: hidden;
+        }
+    }
+}
+
+@media (max-width: 768px){
+    .catalog-product-view{
+        .breadcrumbs{
+            margin-bottom: 25px !important;
+        }
+    }
+
+    .catalog-category-view, .catalogsearch-result-index{
+        .price-box.flex-column{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        .block.filter{
+            margin: 0;
+            left: -10px;
+            width: 100vw;
+            background-color: #1f9f3a;
+
+            .block-content.filter-content{
+                display: none;
+            }
+
+            &.active{
+                .block-content.filter-content{
+                    display: block;
+                }
+            }
+
+            .sort-by-mobile{
+                background-color: white;
+                display: flex;
+                align-items: center;
+                height: 48px;
+
+                strong {
+                    padding: 0 10px;
+                }
+            }
+        }
+
+        .products.wrapper{
+            margin-top: 10px;
+        }
+
+        .toolbar-product-list-bottom {
+            .toolbar.toolbar-products {
+                .toolbar-top {
+                    display: block !important;
+
+                    .toolbar-top-left {
+                        .toolbar-amount,
+                        .toolbar-sorter.sorter {
+                            padding: 8px 0 0;
+                            text-align: center;
+                        }
+                    }
+
+                    .field.limiter {
+                        padding: 8px 0 0;
+                        text-align: center;
+                    }
+                }
+
+                .pager-pages {
+                    display: block !important;
+                    padding: 8px 0 0;
+
+                    ul.items.pages-items {
+                        display: flex;
+                        justify-content: space-between;
+
+                        li.item {
+                            a.action {
+                                background: none;
+                                color: #a3b1c6;
+                                text-transform: uppercase;
+                                font-size: 14px;
+                                font-weight: normal;
+                                line-height: 30px;
+                            }
+                        }
+
+                        ul.page-numbers {
+                            text-align: center;
+
+                            li.item {
+                                display: inline-block;
+                                width: 30px;
+                                height: 30px;
+                                color: #a3b1c6;
+                                font-size: 14px;
+
+                                a.page {
+                                    color: #a3b2c6;
+                                }
+
+                                &.current {
+                                    background: #a3b1c6;
+                                    color: #fff;
+                                    border-radius: 100%;
+                                    line-height: 30px;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .catalogsearch-result-index{
+        .block.filter{
+            margin: 0;
+            left: 0;
+            width: 100vw;
+        }
+
+        .columns .column.main {
+            padding: 0 10px 0;
+
+            .search.results {
+                .category-description,
+                .products.wrapper {
+                    margin: 12px 10px;
+                }
+            }
+        }
+
+        .page-title-wrapper {
+            padding: 0;
+            margin: 0 10px;
+
+            .page-title {
+                padding: 15px 0 5px;
+            }
+        }
+    }
+
+    body.catalog-category-view.filter-active, body.catalogsearch-result-index.filter-active{
+        .page-wrapper{
+            visibility: visible;
+            height: auto;
+            margin-top: 0;
+        }
+    }
+}

@@ -1,0 +1,1415 @@
+& when (@media-common = true) {
+    /** GIFT CARDS ON SHOPPING CART **/
+    .gifts {
+        .giftinner #cardsection {
+            h1 {
+                font-size: 20px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    #giftpopup {
+        button.giftaddtocart {
+            background-color: #1f9f3a;
+        }
+    }
+
+    .firecheckout-index-index {
+        .checkout-shipping-method .step-content {
+            .message.notice {
+                padding: 15px 15px 15px 55px;
+                font-weight: 500;
+                font-size: 13px;
+                font-family: 'Montserrat', sans-serif;
+                color: #fff;
+                background-color: #ed4337;
+
+                span::before {
+                    content: "";
+                    display: inline-block;
+                    width: 30px;
+                    height: 30px;
+                    background: url('@{baseDir}images/error-icon-white.png') no-repeat;
+                    position: absolute;
+                    top: 49%; //Somehow it's not showing properly with 50%.
+                    left: 15px;
+                }
+            }
+        }
+
+        .content.minicart-items {
+            padding: 0;
+            margin: 0;
+
+            .opc-block-summary span.title {
+                text-transform: uppercase;
+            }
+
+            .minicart-items-wrapper.overflowed,
+            .opc-block-summary .minicart-items-wrapper.overflowed {
+                max-height: inherit;
+                overflow: visible;
+                padding: 0;
+                border: none;
+
+                table tbody tr th {
+                    width: calc(100% / 4);
+                    text-align: center;
+                    font-weight: normal;
+                    font-size: 12px;
+                }
+
+                .minicart-items .product-item {
+                    padding: 0 0 10px 0;
+
+                    .product {
+                        border: 0 !important; //Override to remove legacy border and later set only for top.
+
+                        .product-image-container {
+                            width: calc(100% / 4);
+
+                            .product-image-wrapper {
+                                padding: 7px 10px !important; //Overriding legacy styling
+                            }
+
+                            strong.product-item-name {
+                                position: absolute;
+                                line-height: 1.4;
+                                width: 70%;
+                                transform: translate(100px, -40px);
+                            }
+                        }
+
+                        .product-item-details {
+                            padding-left: 0;
+                            width: 75%;
+                            display: inline-block;
+
+                            .product-item-inner {
+                                margin-top: 0;
+                                font-size: 12px;
+                                border-left: 0;
+                                padding-left: 0;
+                                width: 100%;
+                                text-align: center;
+
+                                & > div {
+                                    width: 32%;
+                                    display: inline-block;
+                                }
+
+                                .product-item-name-block {
+                                    .details-qty {
+                                        button {
+                                            background: none;
+                                            color: #3c3b40;
+                                            padding: 0px 10px;
+                                            font-size: 14px;
+                                            line-height: 1.8;
+
+                                            &:active {
+                                                background: #ededed;
+                                                box-shadow: none;
+                                            }
+                                        }
+
+                                        span.value {
+                                            line-height: 2;
+                                            display: inline-block;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .columns {
+        .column.main {
+            .opc-wrapper .opc {
+                label.label {
+                    &:after,
+                    span {
+                        font-size: 12px !important;
+                    }
+                }
+
+                #opc-shipping_method {
+                    .checkout-shipping-method {
+                        #checkout-step-shipping_method {
+                            table.table-checkout-shipping-method {
+                                & > tbody > tr.row {
+                                    td.col {
+                                        padding-bottom: 0;
+
+                                        &.col-estimate {
+                                            padding-top: 0;
+
+                                            p {
+                                                margin: 0;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            table.table-checkout-shipping-method ~ div {
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+
+                form#co-payment-form {
+                    .fieldset {
+                        .items.payment-methods {
+                            .payment-group {
+                                .message {
+                                    font-size: 14px;
+                                }
+
+                                .payment-method {
+                                    .payment-method-title {
+                                        z-index: 2;
+                                    }
+
+                                    .payment-method-content {
+
+                                        form ul {
+                                            z-index: 3;
+                                        }
+
+                                        .checkout-agreements-block {
+                                            display: block;
+                                            position: absolute;
+                                            top: 70px;
+                                            opacity: 0;
+
+                                            .terms-agreement-checkbox {
+                                                top: 0;
+                                                left: 0;
+                                            }
+                                        }
+
+                                        .adyen-checkout__store-details {
+                                            .adyen-checkout__checkbox {
+                                                input[type="checkbox"].adyen-checkout__checkbox__input {
+                                                    display: none;
+                                                }
+                                            }
+
+                                            .adyen-checkout__checkbox__label {
+                                                &:after {
+                                                    margin: 0 10px 0 0;
+                                                    border: 2px solid #ededed;
+                                                    border-radius: 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .field ._with-tooltip div.warning,
+            .field ._with-tooltip div.mage-error,
+            .field ._with-tooltip div.field-error {
+                right: 10px;
+            }
+
+            .field div.warning,
+            .field div.mage-error,
+            .field div.field-error {
+                top: 15px;
+                right: 10px;
+                z-index: 2;
+            }
+
+            #shipping {
+                .form.form-login {
+                    #customer-email-fieldset {
+                        .field input#customer-email {
+                            margin-bottom: 0;
+                        }
+
+                        .fieldset.checkout-registration {
+                            .fieldset.registration-form {
+                                padding-left: 5px;
+
+                                .field.password {
+                                    width: 50%;
+                                    padding-left: 0;
+                                    float: left;
+                                }
+
+                                .field.password-confirm {
+                                    width: 50%;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .form.form-shipping-address {
+                    #shipping-new-address-form {
+
+                        div.field[name="shippingAddress.firstname"],
+                        div.field[name="shippingAddress.lastname"],
+                        div.field.address-autofill-nl-postcode,
+                        div.field.address-autofill-nl-house-number,
+                        div.field[name="shippingAddress.city"] {
+                            display: inline-block;
+                            width: 50%;
+                        }
+
+                        div.field[name="shippingAddress.company"],
+                        div.field[name="shippingAddress.country_id"],
+                        div.field[name="shippingAddress.telephone"],
+                        div.field.address-autofill-intl-input,
+                        div.field.address-autofill-nl-house-number-select {
+                            width: 100%;
+                        }
+
+                        div.field[name="shippingAddress.region"],
+                        div.field[name="shippingAddress.region_id"] {
+                            width: 100%;
+                            display: none;
+                        }
+
+                        div.field[name="shippingAddress.vat_id"] {
+                            display: none;
+                        }
+
+                        div.field.address-autofill-nl-postcode,
+                        div.field.address-autofill-nl-house-number {
+                            label.label:after {
+                                position: static;
+                                content: ' *';
+                                color: #e02b27;
+                                font-size: 1.4rem;
+                                margin: 0 0 0 2px !important;
+                            }
+                        }
+                    }
+                }
+
+                .checkout-billing-address {
+                    div.field[name="billingAddressshared.region"],
+                    div.field[name="billingAddressshared.region_id"] {
+                        width: 100%;
+                        display: block;
+                    }
+
+                    div.field[name="billingAddressshared.firstname"],
+                    div.field[name="billingAddressshared.lastname"],
+                    div.field.address-autofill-nl-postcode,
+                    div.field.address-autofill-nl-house-number {
+                        display: inline-block;
+                        width: 50%;
+                    }
+
+                    div.field[name="billingAddressshared.city"] {
+                        display: inline-block;
+                        width: 50%;
+                    }
+
+                    div.field[name="billingAddressshared.company"],
+                    div.field[name="billingAddressshared.country_id"],
+                    div.field[name="billingAddressshared.telephone"],
+                    div.field.address-autofill-intl-input,
+                    div.field.address-autofill-nl-house-number-select {
+                        width: 100%;
+                    }
+
+                    div.field[name="billingAddressshared.vat_id"] {
+                        display: none;
+                    }
+
+                    div.field.address-autofill-nl-postcode,
+                    div.field.address-autofill-nl-house-number {
+                        label.label:after {
+                            position: static;
+                            content: ' *';
+                            color: #e02b27;
+                            font-size: 1.4rem;
+                            margin: 0 0 0 2px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .fc-form-tooltips.firecheckout {
+        #checkout,
+        .modal-custom,
+        .modal-popup {
+            .field {
+                .control,
+                .control._with-tooltip {
+                    .field-tooltip {
+                        top: 12px !important;
+                        right: -16px;
+                    }
+
+                    div.field-error {
+                        top: 10px;
+                        right: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    .page-main {
+        margin: 0 auto;
+    }
+
+    .checkout-index-index {
+        #maincontent.page-main {
+            max-width: 1170px;
+
+            .continue-shopping {
+                display: none;
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                max-width: 100%;
+
+                #shipping-new-address-form {
+                    div.field[name="shippingAddress.firstname"],
+                    div.field[name="shippingAddress.lastname"],
+                    div.field[name="shippingAddress.postcode"],
+                    div.field[name="shippingAddress.city"] {
+                        display: inline-block;
+                        width: 50%;
+                    }
+
+                    div.field[name="shippingAddress.company"],
+                    div.field[name="shippingAddress.country_id"],
+                    div.field[name="shippingAddress.telephone"],
+                    div.field.address-autofill-intl-input,
+                    div.field.address-autofill-nl-house-number-select {
+                        width: 100%;
+                    }
+
+                    div.field[name="shippingAddress.region"],
+                    div.field[name="shippingAddress.region_id"],
+                    div.field[name="shippingAddress.vat_id"] {
+                        width: 100%;
+                        display: none;
+                    }
+
+                    div.field.address-autofill-nl-postcode,
+                    div.field.address-autofill-nl-house-number,
+                    div.field[name="shippingAddress.vat_id"] {
+                        width: 50%;
+                        display: none;
+                    }
+                }
+            }
+            
+            footer.modal-footer {
+                padding: 1rem;
+
+                .action-save-address {
+                    margin: 4px 10px;
+                    padding: 7px 4px;
+                }
+
+                .action-hide-popup {
+                    font-size: 14px;
+                    padding: 7px 4px;
+                    text-transform: uppercase;
+                    font-family: Montserrat, san-serif;
+                }
+            }
+        }
+    }
+
+    // Custom style for address fields per store view
+    // 70% street name / 30% 1st 100% last additional
+    .fr_fr.firecheckout-index-index,
+    .uk_en.firecheckout-index-index {
+        .columns {
+            .column.main {
+                #checkout {
+                    .opc-wrapper .opc {
+                        .form.form-shipping-address {
+                            #shipping-new-address-form {
+                                fieldset.field.street {
+                                    .control {
+                                        div.field {
+                                            width: 70%;
+
+                                            &.additional {
+                                                width: 30%;
+                                                vertical-align: bottom;
+
+                                                &:last-child {
+                                                    width: 100%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                div.field[name="shippingAddress.region_id"],
+                                div.field[name="shippingAddress.region"] {
+                                    display: none;
+                                }
+
+                                div.field.address-autofill-nl-postcode,
+                                div.field.address-autofill-nl-house-number,
+                                div.field.address-autofill-intl-input,
+                                div.field.address-autofill-nl-house-number-select {
+                                    display: none !important;
+                                }
+                            }
+                        }
+
+                        .checkout-billing-address {
+                            fieldset.field.street {
+                                .control {
+                                    div.field {
+                                        width: 70%;
+
+                                        &.additional {
+                                            width: 30%;
+                                            vertical-align: bottom;
+
+                                            &:last-child {
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            div.field[name="billingAddressshared.region_id"],
+                            div.field[name="billingAddressshared.region"] {
+                                display: none;
+                            }
+
+                            div.field.address-autofill-nl-postcode,
+                            div.field.address-autofill-nl-house-number,
+                            div.field.address-autofill-intl-input,
+                            div.field.address-autofill-nl-house-number-select {
+                                display: none !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                #shipping-new-address-form {
+                    fieldset.field.street {
+                        .control {
+                            div.field {
+                                width: 70%;
+
+                                &.additional {
+                                    width: 30%;
+                                    vertical-align: bottom;
+
+                                    &:last-child {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    } 
+                    
+                    div.field[name="shippingAddress.region_id"],
+                    div.field[name="shippingAddress.region"] {
+                        display: none;
+                    }
+
+                    div.field.address-autofill-nl-postcode,
+                    div.field.address-autofill-nl-house-number,
+                    div.field.address-autofill-intl-input,
+                    div.field.address-autofill-nl-house-number-select {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+
+    // 100% street name / hidden additional
+    .nl_nl.firecheckout-index-index {
+        .columns {
+            .column.main {
+                #checkout {
+                    .opc-wrapper .opc {
+                        .form.form-shipping-address#co-shipping-form {
+                            div#shipping-new-address-form {
+                                fieldset.field.street {
+                                    .control {
+                                        div.field {
+                                            width: 100%;
+                                            display: none;
+
+                                            &.additional {
+                                                display: none;
+                                                width: 25%;
+                                                vertical-align: bottom;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                div.field[name="shippingAddress.postcode"] {
+                                    width: 50%;
+                                }
+
+                                div.field[name="shippingAddress.postcode"],
+                                div.field[name="shippingAddress.region_id"],
+                                div.field[name="shippingAddress.region"] {
+                                    display: none;
+                                }
+                                
+                                div.field[name="shippingAddress.city"] {
+                                    display: none;
+                                    width: 100%;
+                                }
+
+                                div.field.address-autofill-nl-house-number-select {
+                                    width: 100%;
+                                }
+
+                                div.field.address-autofill-nl-postcode,
+                                div.field.address-autofill-nl-house-number {
+                                    display: inline-block;
+                                }
+
+                                div.field.address-autofill-intl-input {
+                                    display: none !important;
+                                }
+                            }
+                        }
+
+                        .checkout-billing-address {
+                            fieldset.field.street {
+                                .control {
+                                    div.field {
+                                        width: 100%;
+                                        display: none;
+
+                                        &.additional {
+                                            display: none;
+                                            width: 25%;
+                                            vertical-align: bottom;
+                                        }
+                                    }
+                                }
+                            }
+
+                            div.field[name="billingAddressshared.postcode"] {
+                                width: 50%;
+                            }
+
+                            div.field[name="billingAddressshared.postcode"],
+                            div.field[name="billingAddressshared.region_id"],
+                            div.field[name="billingAddressshared.region"] {
+                                display: none;
+                            }
+                            
+                            div.field[name="billingAddressshared.city"] {
+                                display: none;
+                                width: 100%;
+                            }
+
+                            div.field.address-autofill-nl-house-number-select {
+                                width: 100%;
+                            }
+
+                            div.field.address-autofill-nl-postcode,
+                            div.field.address-autofill-nl-house-number {
+                                display: inline-block;
+                            }
+
+                            div.field.address-autofill-intl-input {
+                                display: none !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                #shipping-new-address-form {
+                    fieldset.field.street {
+                        .control {
+                            div.field {
+                                width: 100%;
+                                display: none;
+
+                                &.additional {
+                                    display: none;
+                                    width: 25%;
+                                    vertical-align: bottom;
+                                }
+                            }
+                        }
+                    }
+
+                    div.field[name="shippingAddress.postcode"] {
+                        width: 50%;
+                    }
+
+                    div.field[name="shippingAddress.postcode"],
+                    div.field[name="shippingAddress.region_id"],
+                    div.field[name="shippingAddress.region"] {
+                        display: none;
+                    }
+                    
+                    div.field[name="shippingAddress.city"] {
+                        display: none;
+                        width: 100%;
+                    }
+
+                    div.field.address-autofill-nl-house-number-select {
+                        width: 100%;
+                    }
+
+                    div.field.address-autofill-nl-postcode,
+                    div.field.address-autofill-nl-house-number {
+                        display: inline-block;
+                    }
+
+                    div.field.address-autofill-intl-input {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+
+    // 100% street name / 50% addtional
+    .at_at.firecheckout-index-index {
+        .columns {
+            .column.main {
+                #checkout {
+                    .opc-wrapper .opc {
+                        .form.form-shipping-address {
+                            #shipping-new-address-form {
+                                fieldset.field.street {
+                                    .control {
+                                        div.field {
+                                            width: 100%;
+
+                                            &.additional {
+                                                width: 50%;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                div.field[name="shippingAddress.region_id"],
+                                div.field[name="shippingAddress.region"] {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        .checkout-billing-address {
+                            fieldset.field.street {
+                                .control {
+                                    div.field {
+                                        width: 50%;
+
+                                        &.additional {
+                                            width: 25%;
+                                        }
+                                    }
+                                }
+                            }
+
+                            div.field[name="billingAddressshared.region_id"],
+                            div.field[name="billingAddressshared.region"] {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                #shipping-new-address-form {
+                    fieldset.field.street {
+                        .control {
+                            div.field {
+                                width: 100%;
+
+                                &.additional {
+                                    width: 50%;
+                                    vertical-align: bottom;
+                                }
+                            }
+                        }
+                    }
+                    div.field[name="shippingAddress.region_id"],
+                    div.field[name="shippingAddress.region"] {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // 50% street name / 50% 1st 100% last additional
+    .us_en.firecheckout-index-index,
+    .es_es.firecheckout-index-index,
+    .us_es.firecheckout-index-index,
+    .se_se.firecheckout-index-index,
+    .it_it.firecheckout-index-index {
+        .columns {
+            .column.main {
+                #checkout {
+                    .opc-wrapper .opc {
+                        .form.form-shipping-address {
+                            #shipping-new-address-form {
+                                fieldset.field.street {
+                                    .control {
+                                        div.field {
+                                            width: 50%;
+
+                                            &.additional {
+                                                width: 50%;
+
+                                                &:last-child {
+                                                    width: 100%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .checkout-billing-address {
+                            fieldset.field.street {
+                                .control {
+                                    div.field {
+                                        width: 50%;
+
+                                        &.additional {
+                                            width: 50%;
+
+                                            &:last-child {
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                #shipping-new-address-form {
+                    fieldset.field.street {
+                        .control {
+                            div.field {
+                                width: 50%;
+
+                                &.additional {
+                                    width: 50%;
+
+                                    &:last-child {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .da_dk.firecheckout-index-index {
+        .columns {
+            .column.main {
+                #checkout {
+                    .opc-wrapper .opc {
+                        .form.form-shipping-address {
+                            #shipping-new-address-form {
+                                fieldset.field.street {
+                                    .control {
+                                        div.field {
+                                            width: 50%;
+
+                                            &.additional {
+                                                width: 50%;
+
+                                                &:last-child {
+                                                    width: 100%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                div.field[name="shippingAddress.region_id"],
+                                div.field[name="shippingAddress.region"] {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        .checkout-billing-address {
+                            fieldset.field.street {
+                                .control {
+                                    div.field {
+                                        width: 50%;
+
+                                        &.additional {
+                                            width: 50%;
+
+                                            &:last-child {
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            div.field[name="billingAddressshared.region_id"],
+                            div.field[name="billingAddressshared.region"] {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                #shipping-new-address-form {
+                    fieldset.field.street {
+                        .control {
+                            div.field {
+                                width: 50%;
+
+                                &.additional {
+                                    width: 50%;
+
+                                    &:last-child {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    div.field[name="shippingAddress.region_id"],
+                    div.field[name="shippingAddress.region"] {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .es_es.firecheckout-index-index,
+    .us_es.firecheckout-index-index,
+    .it_it.firecheckout-index-index,
+    .us_en.firecheckout-index-index {
+        .columns {
+            .column.main {
+                #checkout {
+                    .opc-wrapper .opc {
+                        .form.form-shipping-address {
+                            #shipping-new-address-form {
+                                div.field[name="shippingAddress.region_id"],
+                                div.field[name="shippingAddress.region"] {
+                                    display: block;
+                                }
+
+                                div.field.address-autofill-nl-postcode,
+                                div.field.address-autofill-nl-house-number,
+                                div.field.address-autofill-intl-input {
+                                    display: none !important;
+                                }
+                            }
+                        }
+
+                        .checkout-billing-address {
+                            div.field[name="billingAddressshared.region_id"],
+                            div.field[name="billingAddressshared.region"] {
+                                display: block;
+                            }
+
+                            div.field.address-autofill-nl-postcode,
+                            div.field.address-autofill-nl-house-number,
+                            div.field.address-autofill-intl-input {
+                                display: none !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                #shipping-new-address-form {
+                    div.field[name="shippingAddress.region_id"],
+                    div.field[name="shippingAddress.region"] {
+                        display: block;
+                    }
+
+                    div.field.address-autofill-nl-postcode,
+                    div.field.address-autofill-nl-house-number,
+                    div.field.address-autofill-intl-input {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .uk_en.firecheckout-index-index {
+        .columns {
+            .column.main {
+                #checkout {
+                    .opc-wrapper .opc {
+                        .form.form-shipping-address {
+                            #shipping-new-address-form {
+                                div.field[name="shippingAddress.region_id"],
+                                div.field[name="shippingAddress.region"] {
+                                    display: none;
+                                }
+
+                                div.field.address-autofill-nl-postcode,
+                                div.field.address-autofill-nl-house-number,
+                                div.field.address-autofill-intl-input,
+                                div.field.address-autofill-nl-house-number-select {
+                                    display: none !important;
+                                }
+                            }
+                        }
+
+                        .checkout-billing-address {
+                            div.field[name="billingAddressshared.region_id"],
+                            div.field[name="billingAddressshared.region"] {
+                                display: none;
+                            }
+
+                            div.field.address-autofill-nl-postcode,
+                            div.field.address-autofill-nl-house-number,
+                            div.field.address-autofill-intl-input,
+                            div.field.address-autofill-nl-house-number-select {
+                                display: none !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                #shipping-new-address-form {
+                    div.field[name="shippingAddress.region_id"],
+                    div.field[name="shippingAddress.region"] {
+                        display: none;
+                    }
+
+                    div.field.address-autofill-nl-postcode,
+                    div.field.address-autofill-nl-house-number,
+                    div.field.address-autofill-intl-input,
+                    div.field.address-autofill-nl-house-number-select {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .se_se.firecheckout-index-index {
+        .columns {
+            .column.main {
+                #checkout {
+                    .opc-wrapper .opc {
+                        .form.form-shipping-address {
+                            #shipping-new-address-form {
+                                fieldset.field.street {
+                                    .control {
+                                        div.field {
+                                            &.additional {
+                                                &:last-child {
+                                                    display: none;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                div.field[name="shippingAddress.region_id"],
+                                div.field[name="shippingAddress.region"] {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        .checkout-billing-address {
+                            fieldset.field.street {
+                                .control {
+                                    div.field {
+                                        &.additional {
+                                            &:last-child {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            div.field[name="billingAddressshared.region_id"],
+                            div.field[name="billingAddressshared.region"] {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                #shipping-new-address-form {
+                    fieldset.field.street {
+                        .control {
+                            div.field {
+                                &.additional {
+                                    &:last-child {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    } 
+                    
+                    div.field[name="shippingAddress.region_id"],
+                    div.field[name="shippingAddress.region"] {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // 50% street name / 25% additional
+    .de_de.firecheckout-index-index {
+        .columns {
+            .column.main {
+                #checkout {
+                    .opc-wrapper .opc {
+                        .form.form-shipping-address {
+                            #shipping-new-address-form {
+                                fieldset.field.street {
+                                    .control {
+                                        div.field {
+                                            width: 50%;
+
+                                            &.additional {
+                                                width: 25%;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                div.field[name="shippingAddress.region_id"],
+                                div.field[name="shippingAddress.region"],
+                                div.field.address-autofill-intl-input {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        .checkout-billing-address {
+                            fieldset.field.street {
+                                .control {
+                                    div.field {
+                                        width: 50%;
+
+                                        &.additional {
+                                            width: 25%;
+                                            vertical-align: bottom;
+                                        }
+                                    }
+                                }
+                            }
+
+                            div.field[name="billingAddressshared.region_id"],
+                            div.field[name="billingAddressshared.region"],
+                            div.field.address-autofill-intl-input {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                #shipping-new-address-form {
+                    fieldset.field.street {
+                        .control {
+                            div.field {
+                                width: 50%;
+
+                                &.additional {
+                                    width: 25%;
+                                    vertical-align: bottom;
+                                }
+                            }
+                        }
+                    }
+                    
+                    div.field[name="shippingAddress.region_id"],
+                    div.field[name="shippingAddress.region"],
+                    div.field.address-autofill-intl-input {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .be_nl.firecheckout-index-index,
+    .be_fr.firecheckout-index-index {
+        .columns {
+            .column.main {
+                #checkout {
+                    .opc-wrapper .opc {
+                        .form.form-shipping-address {
+                            #shipping-new-address-form {
+                                fieldset.field.street {
+                                    display: block !important;
+                                    .control {
+                                        div.field {
+                                            width: 50%;
+
+                                            &.additional {
+                                                width: 25%;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                div.field[name="shippingAddress.region_id"],
+                                div.field[name="shippingAddress.region"],
+                                div.field.address-autofill-intl-input {
+                                    display: none;
+                                }
+
+                                div.field[name="shippingAddress.postcode"],
+                                div.field[name="shippingAddress.city"] {
+                                    display: inline-block !important;
+                                    width: 50%;
+                                }
+                            }
+                        }
+
+                        .checkout-billing-address {
+                            fieldset.field.street {
+                                display: block !important;
+                                .control {
+                                    div.field {
+                                        width: 50%;
+
+                                        &.additional {
+                                            width: 25%;
+                                            vertical-align: bottom;
+                                        }
+                                    }
+                                }
+                            }
+
+                            div.field[name="billingAddressshared.region_id"],
+                            div.field[name="billingAddressshared.region"],
+                            div.field.address-autofill-intl-input {
+                                display: none;
+                            }
+
+                            div.field[name="billingAddressshared.postcode"],
+                            div.field[name="billingAddressshared.city"] {
+                                display: inline-block !important;
+                                width: 50%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+            .form.form-shipping-address {
+                #shipping-new-address-form {
+                    fieldset.field.street {
+                        display: block !important;
+                        .control {
+                            div.field {
+                                width: 50%;
+
+                                &.additional {
+                                    width: 25%;
+                                    vertical-align: bottom;
+                                }
+                            }
+                        }
+                    }
+                    
+                    div.field[name="shippingAddress.region_id"],
+                    div.field[name="shippingAddress.region"],
+                    div.field.address-autofill-intl-input {
+                        display: none;
+                    }
+
+                    div.field.address-autofill-nl-postcode,
+                    div.field.address-autofill-nl-house-number {
+                        display: inline-block;
+                    }
+
+                    div.field[name="shippingAddress.postcode"],
+                    div.field[name="shippingAddress.city"] {
+                        display: inline-block !important;
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    .authentication-wrapper {
+        .block-authentication {
+            .block.block-customer-login {
+                width: 100%;
+                background: #ffffff;
+                float: none;
+
+                .block-content {
+                    .actions-toolbar {
+                        button.action.action-login {
+                            padding: 5px 20px;
+                            font-size: 20px;
+                            width: 140px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .checkout-onepage-success{
+        .page-title-wrapper{
+            display: none;
+            border-bottom: none;
+
+            h1.page-title{
+                font-size: 1.3rem;
+            }
+        }
+
+        .checkout-success{
+            margin-top: 20px;
+
+            .thank-you-message{
+                font-size: 1.3rem;
+                margin-bottom: 5px;
+            }
+
+            .check-inbox-message {
+                font-size: 1.3rem;
+                margin: 20px 0 5px;
+            }
+
+            ul {
+                list-style: inside;
+                margin-bottom: 5px;
+
+                li {
+                    margin-bottom: 0;
+                }
+            }
+
+            p{
+                margin-bottom: 0;
+            }
+
+            .actions-toolbar{
+                margin-top: 30px;
+
+                .primary{
+                    .action.primary.continue{
+                        background-color: #ed6d4f;
+                        font-size: 17px;
+                        line-height: 45px;
+                        padding: 0 25px;
+
+                        &:hover{
+                            background-color: #dd4a2c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .checkout-onepage-success{
+        .column.main, .page-title-wrapper{
+            padding: 0 10px;
+        }
+    }
+
+    .giftinner #giftsection {
+        .wrapcontainer {
+            .wrap {
+                padding: 10px;
+                flex-basis: 50%;
+                max-width: 50%;
+                box-sizing: border-box;
+
+                img {
+                    width: 100%;
+                }
+
+                &:nth-child(odd) {
+                    padding-right: 10px;
+                }
+
+                &:nth-child(even) {
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+}

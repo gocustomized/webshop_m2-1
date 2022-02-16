@@ -1,0 +1,23 @@
+<?xml version="1.0"?><!--
+/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="CustomConcepts_Kiyoh::css/sidebar.css"/>
+    </head>
+    <body>
+        <referenceContainer name="sidebar.main">
+            <block class="CustomConcepts\Kiyoh\Block\Sidebar" name="left.kiyoh" template="CustomConcepts_Kiyoh::sidebar/left.phtml"/>
+            <block class="CustomConcepts\Kiyoh\Block\Sidebar" name="right.kiyoh" template="CustomConcepts_Kiyoh::sidebar/right.phtml"/>
+        </referenceContainer>
+<!--        <referenceContainer name="header-wrapper">
+            <block class="CustomConcepts\Kiyoh\Block\Widget\Custom" name="top.richsnippets" as="top.richsnippets" />
+        </referenceContainer>-->
+    </body>
+</page>

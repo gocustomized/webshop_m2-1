@@ -1,0 +1,22 @@
+<?php
+/**
+ * $block CustomConcepts\UltimoGocustomized\Block\CategoryBottomDescription
+ *
+ */
+?>
+<?php
+$data = $this->getCurrentCategoryDescription();
+?>
+<?php if($data):?>
+<style>
+    .category-description.seo{ width:100%}
+    .category-description.seo .block-content{padding: 40px 0;font-size: 14px;line-height: 16px;}
+</style>
+<div class="category-description seo std">
+    <div class="block-graybg seo-block">
+        <div class="block-content container padding-top-30 padding-bottom-30">
+            <?= nl2br($data);?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

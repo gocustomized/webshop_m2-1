@@ -1,0 +1,6 @@
+CustomConcepts_Theme module
+
+Description: This module is created to extend core Magento module-theme functionalities
+
+Functionalities:
+ - Add Mobile Logo Image uploader on Admin > Content > Design > Configuration > Header to add dynamic mobile logo per store view

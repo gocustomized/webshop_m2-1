@@ -1,0 +1,244 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+?>
+<?php
+    $_product = $this->getProduct();
+    $theme = $this->helper('Infortis\Base\Helper\Data');
+?>
+
+<?php
+$images = $block->getGalleryImages()->getItems();
+$mainImage = current(array_filter($images, function ($img) use ($block) {
+    return $block->isMainImage($img);
+}));
+
+if (!empty($images) && empty($mainImage)) {
+    $mainImage = $block->getGalleryImages()->getFirstItem();
+}
+
+$helper = $block->getData('imageHelper');
+$mainImageData = $mainImage->getUrl();
+/*$mainImageData = $mainImage ?
+    $mainImage->getData('medium_image_url') :
+    $helper->getDefaultPlaceholderUrl('image');*/
+
+?>
+
+<div class="img-box img-box-style1">
+
+        <p id="test" class="product-image zoom-inside" style="max-width: 363px;">
+
+            <a  href="<?= /* @noEscape */ $mainImageData ?>" class="cloud-zoom product-image-gallery" id="zoom1" rel="position:'inside',showTitle:false,lensOpacity:0.5,smoothMove:3,zoomWidth:427,zoomHeight:275,adjustX:0,adjustY:0">
+                <img id="image-main" class="gallery-image visible" src="<?= /* @noEscape */ $mainImageData ?>" alt="mpc" title="mpc" itemprop="image" />
+            </a>
+
+            <div id="canvas"></div>
+            <div class="widgetcolors mobile-show"></div>
+        </p>
+        <div class="more-images slider-arrows3 itemslider-thumbnails count-3">
+        <div id="itemslider-zoom" class="thumbnails slides">
+            <div id="canvasthumbholder" style="width: 79px;display: none;">
+                <img id="canvasthumb" />
+            </div>
+                <?php foreach($images as $image) {?>
+                    <div class="item" >
+                        <a href="<?= /* @noEscape */ $image->getUrl() ?>" class="cloud-zoom-gallery lightbox-group" title="mpc" rel="useZoom:'zoom1', smallImage: '<?= /* @noEscape */ $image->getUrl() ?>'">
+                            <img src="<?= $image->getUrl() ?>" alt="mpc"/>
+                        </a>
+                    </div>
+                <?php }?>
+            </div>
+    </div> <!-- end: more-images -->
+</div> <!-- end: img-box -->
+
+
+<script type="text/javascript">
+    requirejs(['jquery'], function(jQuery) {
+        jQuery(function($) {
+
+            //Zoom button for main image
+            $zoomButton = $("#zoom-btn");
+            
+            //Init lightbox
+/*            $(".lightbox-group").colorbox({
+                rel:        'lightbox-group',
+                opacity:    0.5,
+                speed:      300,
+                current:    'image {current} of {total}',
+                previous: '',
+                next: '',
+                close: '' //No comma here
+                , maxWidth:'95%', maxHeight:'95%'           });*/
+            
+            //Product thumbnails - remove first one from gallery, it's already included in gallery by "zoom" button
+            $(".cloud-zoom-gallery").first().removeClass("cboxElement");
+                        
+            //Remove clicked thumbnail from gallery, it's already included in gallery by "zoom" button
+            $(".cloud-zoom-gallery").click(function() {
+                $zoomButton
+                    .attr('href', $(this).attr('href'))
+                    .attr('title', $(this).attr('title'));
+            
+                    //First add gallery class to all thumbnails
+                    $(".cloud-zoom-gallery").each(function() {
+                        $(this).addClass("cboxElement");
+                    });
+                    $(this).removeClass("cboxElement");
+            });
+
+            //On image change
+            $(document).on('product-media-manager-image-updated', function(e, data) {
+
+                var img = data.img;
+
+                //Add new image's URL to the zoom button's href attribute
+                $zoomButton.attr('href', img.attr('src'));
+                $zoomButton.attr('title', '');
+
+                $(".cloud-zoom-gallery").each(function() {
+                    $(this).addClass("cboxElement");
+                });
+                
+            }); //end: on event
+            
+        });
+        });
+    </script>
+
+<script type="text/javascript">
+//<![CDATA[
+requirejs(['jquery'], function(jQuery) {
+    jQuery(function($) {
+
+        var $cz = $('.cloud-zoom');
+        var czInstance = $('.cloud-zoom').data('zoom');
+
+        //On image change
+        $(document).on('product-media-manager-image-updated', function(e, data) {
+
+            var img = data.img;
+
+            czInstance.destroy();
+
+            //Add new image's URL to the CloudZoom element's href attribute
+            $cz.attr('href', img.attr('src'));
+
+            //Remove mousetrap
+            var $mt = $('.mousetrap');
+            $mt.unbind();
+            $mt.remove();
+            $mt = null;
+
+            //Reinitialize CloudZoom
+            $cz.CloudZoom();
+
+        }); //end: on event
+
+        //On resize
+        var t;
+        $(window).resize(function() {
+            clearTimeout(t);
+            t = setTimeout(function() {
+
+                czInstance.destroy();
+
+                //Remove mousetrap and other elements
+                var $mt = $('.mousetrap');
+                $mt.unbind();
+                $mt.remove();
+                $mt = null;
+                $('.cloud-zoom-lens').remove();
+                $('#cloud-zoom-big').remove();
+
+                //Reinitialize CloudZoom
+                $cz.CloudZoom();
+
+            }, 200);
+        });
+
+        var owl = $('#itemslider-zoom');
+        owl.owlCarousel({
+            mouseDrag: false,
+            itemsCustom: [ [0, 1], [219, 2], [299, 3] ],
+            responsiveRefreshRate: 50,
+            slideSpeed: 200,
+            scrollPerPage: true,
+            autoPlay: 5000,
+            stopOnHover: true,
+            rewindNav: true,
+            rewindSpeed: 600,
+            pagination: false,
+            navigation: true,
+            navigationText: false
+        }); //end: owl
+    
+    });
+    });
+//]]>
+</script>
+
+
+<script>
+requirejs(['jquery'], function(jQuery) {
+jQuery(document).ready(function () {
+    productVideoReset();
+    jQuery(".owl-wrapper").find(".cloud-zoom-gallery").click(function(e){
+      jQuery('iframe').hide();
+    });
+    jQuery(".yt-vid").click(function(e){
+      e.preventDefault();
+      jQuery('#yt').attr("src","https://www.youtube.com/embed/"+this.id+"?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1&loop=1");
+      setTimeout(function(){
+        jQuery('#yt').show();
+        }, 400);
+
+
+    });
+
+    jQuery('#vidimg').attr('src',jQuery('.owl-wrapper .owl-item:first .item img').attr('src'));
+
+    jQuery(".cloud-zoom-gallery").click(function (e) {
+        jQuery('#result').hide();
+        jQuery('#test').show();
+    })
+    jQuery(document).on('click', '#canvasthumbholder', function(){
+        jQuery('#result').show();
+        jQuery('#test').hide();
+    })
+
+})
+
+jQuery(window).on('load', function () {
+    productVideoReset();
+});
+
+jQuery(window).on('resize', function () {
+    productVideoReset();
+});
+
+});
+
+function productVideoReset() {
+    var maxHeight = jQuery('.product-image.zoom-inside').outerHeight();
+    var maxWidth = jQuery('.product-image.zoom-inside').outerWidth();
+
+    jQuery('iframe').height(maxHeight);
+    jQuery('iframe').width(maxWidth);
+
+}
+
+
+
+
+</script>

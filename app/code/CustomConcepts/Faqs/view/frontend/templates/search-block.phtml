@@ -1,0 +1,21 @@
+<div class="bannerblockfaq">
+    <picture>
+        <source srcset="<?php echo $this->getViewFileUrl('images/FAQ_banner_mob.jpg');?>" media="(max-width: 600px)"/>
+        <img src="<?php echo $this->getViewFileUrl('images/FAQ_banner.jpg');?>" class="bannerfaqimg" />
+    </picture>
+    <div class="faqbannerwrap">
+        <h1 class="faqbannertitle"><?php echo __('How can we help you?')?></h1>
+        <?php if ($block->isFaqSearchBlock()): ?>
+            <form action="<?php echo $block->getFaqUrl() . 'search' ?>" id="faqsForm" method="post" >
+                <?php echo $block->getBlockHtml('formkey')?>
+                <fieldset class="faqs">
+                    <input id="faqssearch" placeholder="<?php echo __('Search for help by topic, keywords')?>" name="faqssearch" value="" class="required-entry required-entry input-text" type="text">
+                    <button class="form-button search" type="submit">
+                        <i class="ic ic-search"></i>
+                    </button>
+                </fieldset>
+            </form>
+            <p id="quicksearch" data-mage-init='{"quick_search":{}}'><?php echo __('Popular topics:')?> <a href="shipping"><?php echo __('shipping')?></a>, <a href="return"><?php echo __('return')?></a>, <a href="payment"><?php echo __('payment')?></a></p>
+        <?php endif; ?>
+    </div>
+</div>

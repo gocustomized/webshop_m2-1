@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/cc/api/order/create" method="POST">
+        <service class="CustomConcepts\Api\Api\OrderCreatorInterface" method="createOrder"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <route url="/V1/cc/api/bulk/order/create" method="POST">
+        <service class="CustomConcepts\Api\Api\OrderCreatorInterface" method="createOrders"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+
+    <route url="/V1/cc/api/test" method="POST">
+        <service class="CustomConcepts\Api\Model\TestApi" method="execute"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+</routes>

@@ -1,0 +1,115 @@
+<div class="contact-form-container">
+<?php if($block->isLoggedIn()):  ?>
+    <?php $orders = $block->getOrders(['customer_email' => $this->getCustomer()->getEmail()]); ?>
+    <?php foreach ($orders as $order): ?>
+        <input type="hidden" class="orderdata" data-ordernr="<?php echo $order->getIncrementId(); ?>" data-created="<?php echo $order->getCreatedAt(); ?>>">
+    <?php endforeach ?>
+    <h1 class="section-title mobile-hide"><?= $block->escapeHtmlAttr(__('Hi %1, please specify your support request', $block->getCustomer()->getName())); ?></h1>
+    <h1 class="section-title mobile-show"><?= $block->escapeHtmlAttr(__('Hi %1, how can we help you?', $block->getCustomer()->getName())); ?></h1>
+
+    <div class="formoptionwrap">
+        <div class="questionwrap">
+            <p class=""><?php echo __('I need assistance with') ?></p>
+        </div>
+        <div class="radiowrap">
+            <label class="radiolabel" data-label="My product(s)"> <?php echo __('My received product(s)') ?>
+                <input type="radio" name="radio" id="topic_products">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="radiolabel" data-label="My shipment"> <?php echo __('My delivery') ?>
+                <input type="radio" name="radio" id="topic_shipment">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radiolabel" data-label="Cancel order"> <?php echo __('Cancel order') ?>
+                <input type="radio" name="radio" id="topic_cancelled">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radiolabel" data-label="Others"> <?php echo __('Others') ?>
+                <input type="radio" name="radio" id="topic_other">
+                <span class="checkmark"></span>
+            </label>
+            <p class="next"><?php echo __('Next') ?></p>
+            <span class="emptysubmit"><?php echo __('Please select your question or complaint'); ?></span>
+<?php else: ?>
+    <h1 class="section-title mobile-hide"><?= __('Contact'); ?></h1>
+    <h1 class="section-title mobile-show"><?= __('How can we help you?'); ?></h1>
+    <h2 class="txt_direct_support"><?php echo __('DIRECT CUSTOMER SUPPORT') ?></h2>
+    <div class="question-container">
+        <div class="question-container-wrapper">
+            <p>
+                <strong><?= __('Already a customer?'); ?></strong>
+                <?= __('Receive a faster answer about your order by login in below.'); ?>
+                <span class="tooltip-wrapper">
+                    <span class="question-tooltip">?</span>
+                    <span class="question-tooltip-message">
+                        <?= /* @escapeNotVerified */ __('Customer accounts are created when you place an order. An email to activate your account was sent the same day. Did not receive that email? Activate your account by resetting your password <a href="%1">here</a>.', $block->getForgotPasswordUrl()) ?>
+                    </span>
+                </span>
+            </p>
+        </div>
+    </div>
+    <span class="login"><?= __('Customer Contact'); ?></span>
+    <p id="login_text">
+        <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('helpdesk_login_text')->toHtml(); ?>
+    </p>
+    <div class="formoptionwrap">
+        <div class="radiowrap">
+            <span class="emptysubmit"><?php echo __('Please login to continue with direct support.'); ?></span>
+            <br/>
+            <br/>
+            <span class="not-yet"><?= __('Not yet a customer? If you haven’t placed an order with us, please fill out our contact form.'); ?></span>
+            <span class="fillout-button" onClick="otherQuestion()"><?= __('Fill out contact form'); ?></span>
+<?php endif ?>
+
+            <p style="display:none;" class="next"><?php echo __('Next') ?></p>
+
+            <label style="display: none;" class="radiolabel" data-label="Other"> <?php echo __('Other') ?>
+                <input type="radio" name="radio" id="topic_other">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+
+        <div id="formholder" style="position:relative;">
+            <?php if (!$block->isLoggedIn()): ?>
+                <div class="top">
+                    <div class="question-container">
+                        <div class="question-container-wrapper">
+                            <p>
+                                <strong><?= __('Not yet a customer?'); ?></strong>
+                                <?= __('If you haven’t placed an order with us, please fill out our contact form below. If your question is about your order, please login <span class="login">here</span>. This will help us give you a faster answer!'); ?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <?php else: ?>
+                <div class="top">
+                    <p><?php echo __('I have a question about') ?></p>
+                    <p id="selected" class=""></p>
+                    <span><?php echo __('change'); ?></span>
+                </div>
+            <?php endif ?>
+            <form id="issueform" enctype="multipart/form-data" method="POST"
+                  action="<?php echo $block->getSendIssueFormAction() ?>">
+                  <span><strong><?= __('General contact form:'); ?></strong></span>
+            </form>
+            <span class="errormessage"><?php echo __('Please fill in the required fields') ?></span>
+        </div>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "contact_form": {
+                "configs": <?php echo $block->getConfigs() ?>,
+                "cancelationReasons": <?php echo $block->getCancelationReasons() ?>,
+                "shipmentissues": <?php echo $block->getShipmentIssues() ?>,
+                "issues": <?php echo $block->getIssues() ?>,
+                "uploadLabel": "<?php echo __("Upload") ?>",
+                "uploadText": "<?php echo __("Make a picture of your purchase to clearly illustrate your issue") ?>",
+                "pleaseNoteText": "<?php echo __("Please note that we can only cancel your order if we did not start printing and shipping your product.") ?>",
+                "submitText": "<?php echo __("Submit") ?>"
+            }
+        }
+    }
+</script>

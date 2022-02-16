@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--/**
+* CustomConcepts_Oathlogin extension
+* @category  CustomConcepts_Extensions
+* @package   CustomConcepts_Oathlogin
+* @copyright Copyright (c) 2017
+* @author GoCustomized <info@gocustomized.com>
+*/-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="oathlogin" translate="label" sortOrder="130"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Base::config_gocustomized_oathlogin</resource>
+            <label>Oathlogin</label>
+            <group id="general" type="text" sortOrder="122" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                
+                <label>Oath Login</label>
+                
+                <field id="show_banner" translate="label" type="select" sortOrder="1" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Enable Oath Login?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                
+                <field id="serverApiKey" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Server API Key</label>
+                </field>
+            
+                <field id="clientId" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>OAuth 2.0 Client ID</label>
+                </field>
+                
+                <field id="enableNewUser" translate="label comment" type="select" sortOrder="4" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Create New User</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>create new user if user don't have account</comment>
+                </field>
+                
+                <field id="templateId" translate="label comment" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <!-- This model return all transactional email template list of magento -->
+                </field>
+                
+                <field id="defaultRole" translate="label" type="select" sortOrder="6" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Default Role For New Users </label>
+                    <source_model>CustomConcepts\Oathlogin\Model\System\Config\Source\Role</source_model>
+                </field>
+                
+                <field id="hostDomain" translate="label comment" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Host Domain</label>
+                    <comment><![CDATA[ Your company's host domain so other users were not able to log in through Oauth Sign in. For ex. <strong>Example.com</strong> ]]> </comment>
+                </field>
+                
+                
+                
+            </group>
+        </section>
+    </system>
+</config>

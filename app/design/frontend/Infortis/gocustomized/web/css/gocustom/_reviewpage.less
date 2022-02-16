@@ -1,0 +1,116 @@
+& when (@media-common =true) {
+    .kiyoh h1 {
+        font-weight: 500;
+        font-size: 2rem;
+    }
+    .kiyoh .review-header {
+        display: inline-block;
+    }
+    .kiyoh .review-list{
+        margin: 10px 30px 40px;
+        padding: 20px;
+    }
+    .kiyoh ul.experience li,.kiyoh ul.experience p, .kiyoh ul.experience {
+        padding: 0;
+        margin: 0;
+    }
+    .kiyoh .review-list .review-header h3{
+        width: 78%;
+        float: left;
+    }
+    .kiyoh .pager {
+        margin: 10px 0;
+        padding: 10px 0;
+        border-top: 1px solid #ededed;
+        border-bottom: 1px solid #ededed;
+        display: inline-block;
+        width: 100%;
+    }
+    .kiyoh .pager .amount,.kiyoh .sorter .amount {
+        float: left;
+        padding-right: 10px;
+        margin-bottom: 0;
+        line-height: 33px;
+    }
+    .kiyoh .pager .amount::after {
+        content: "";
+        border-right: 1px solid #ededed;
+        display: inline-block;
+        height: 10px;
+        margin-left: 10px;
+    }
+    .kiyoh .pager .limiter, .kiyoh .sorter .limiter {
+        float: left;
+        margin-right: 15px;   
+    }
+    .kiyoh .pager .pages {
+        margin: 0 auto;
+        float: right;
+        vertical-align: middle;
+        line-height: 0;
+    }
+    .kiyoh .pager .pages li {
+        float: left;
+        margin: 0 0 0 1px;
+        display: block;
+        text-align: center;
+    }
+    .kiyoh .pager .pages .page,.kiyoh .pager .pages .action,.kiyoh .pager .pages li a:hover, .kiyoh .pager .pages .current{
+        border-radius: 100%;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 1rem;
+        margin-left: 1px;
+        color: #a3b1c6;
+    }
+    .kiyoh .pages .action.next::before,.kiyoh .pages .action::before, .kiyoh .pages .action.previous::before,.kiyoh .pages .action::before,.kiyoh .pages .action.previous::before{
+        color: #a3b1c6;
+    }
+    .kiyoh .pager .pages li a:hover, .kiyoh .pager .pages .current,.kiyoh .pager .pages .action:hover{
+        background: #a3b1c6;
+        color: #fff;
+    }
+    .kiyoh .pager .pages li action.next:hover::before, .kiyoh .pager .pages .action.previous:hover::before,.kiyoh .pager .pages .action:hover::before{
+        color: #fff !important;
+    }
+    .kiyoh .modes-mode.active, .kiyoh .pages .current .page {
+        background-color: #a3b1c6;
+        color: #fff;
+        border-radius: 100%;
+    }
+}
+@media all and (max-width:768px) {
+    .kiyoh{
+        padding: 0 5px;
+    }
+}
+@media all and (max-width:600px) {
+    .kiyoh .review-header .overall{
+        width: 22%;
+        float: left;
+        margin-bottom: 0;
+    }
+    .kiyoh .content-kiyoh .about-kiyoh{
+        width:100%;
+    }
+    .kiyoh .pager{
+        text-align: center;
+    }
+    .kiyoh .pager .amount, .kiyoh .pager .limiter,.kiyoh .pager .pages{
+        float:none;
+        margin-bottom:10px;
+    }
+    .kiyoh .pager .amount::after {
+        border: 0;
+    }
+}
+@media all and (max-width:375px) {
+    .kiyoh .review-header .overall,.kiyoh .review-list .review-header h3{
+        width: 100%;
+        display: block;
+    }
+    .kiyoh .review-header ul.overall li{
+        float: left;
+    }
+   
+}

@@ -1,0 +1,39 @@
+<?php
+/** @var $block \Magento\Checkout\Block\Cart */
+
+/** @var $priceViewModel \CustomConcepts\Base\ViewModel\PriceViewModel */
+$priceViewModel = $block->getPriceViewModel();
+$priceCurrency = $priceViewModel->getPriceCurrency();
+$priceTax = ($block->getQuote()->getGrandTotal()-$block->getQuote()->getSubtotal());
+?>
+
+<table class="shopping-cart-totals-table">
+    <tfoot>
+        <tr class="grandtotal">
+            <td class="a-left" colspan="1">
+                <strong><?= $block->escapeHtml(__('Grand Total')) ?></strong>
+            </td>
+            <td class="a-right">
+                <strong><span class="price"><?= $priceCurrency->format($block->getQuote()->getGrandTotal(), false) ?></span></strong>
+            </td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td class="a-left" colspan="1"><?= $block->escapeHtml(__('Subtotal')) ?></td>
+            <td class="a-right">
+                <span class="price"><?= $priceCurrency->format($block->getQuote()->getSubtotal(), false) ?></span>
+            </td>
+        </tr>
+        <?php if ($priceTax > 0): ?>
+            <tr>
+                <td class="a-left" colspan="1"><?= $block->escapeHtml(__('Tax')) ?></td>
+                <td class="a-right">
+                    <span class="price"><?= $priceCurrency->format($priceTax, false); ?></span>
+                </td>
+            </tr>
+        <?php endif; ?>
+    </tbody>
+</table>
+
+

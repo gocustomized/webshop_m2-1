@@ -1,0 +1,16 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/**
+ * Product view HOW DO I MAKE MY OWN CUSTOM CASE
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+<?php // Get current product
+$product = $block->getProduct();
+?>
+
+<div style="margin: 20px 0 20px;">
+    <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('no_description_3')->toHtml();?>
+</div>

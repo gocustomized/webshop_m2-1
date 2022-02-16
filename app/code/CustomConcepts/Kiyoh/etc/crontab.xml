@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="customconcepts_kiyoh_stats" instance="CustomConcepts\Kiyoh\Cron\Processfeed" method="processStats"/>
+        <job name="customconcepts_kiyoh_reviews" instance="CustomConcepts\Kiyoh\Cron\Processfeed" method="processReviews"/>
+        <job name="customconcepts_kiyoh_reviewhistory" instance="CustomConcepts\Kiyoh\Cron\Processfeed" method="processHistory"/>
+        <job name="customconcepts_kiyoh_cleanlog" instance="CustomConcepts\Kiyoh\Cron\Processfeed" method="cleanLog">
+            <schedule>0 02 * * *</schedule>
+        </job>
+    </group>
+</config>

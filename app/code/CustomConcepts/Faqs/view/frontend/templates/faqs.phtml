@@ -1,0 +1,56 @@
+<?php
+/**
+ * FAQs And Product Questions
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    FAQs And Product Questions
+ * @author     Asif Hussain <support@fmeextensions.com>
+ *
+ * @copyright  Copyright 2012 www.fmeextensions.com All right reserved
+ */
+?>
+<?php
+$faqs = $this->viewTopicFaqs();
+$faqTitle = $block->getTopicTitle();
+$shipping_faq = $block->getShippingFaqId();
+
+?>
+<div class="faqs-top-container">
+    <div class="success-msg" id="rating-success" style="display:none;"><p id="rating_message"></p></div>
+    <div class="error-msg" id="rating-fail" style="display:none;"><p id="rating_message"></p></div>
+    <?php if (!isset($faqs[0]['faqs_id'])) : ?>
+        <p><?php echo __('No Faqs Found!'); ?></p>
+    <?php else : ?>
+        <h1 class="section-title mobile-hide"><?php
+            if ($faqTitle != '') {
+                echo $faqTitle;
+            }
+            ?></h1>
+        <div id="faqholder">
+            <?php $i = 0;
+            foreach ($faqs as $_faqs): $i++;
+                ?>
+                <div class="faq <?=($i == 1) ? 'expanded' : ''; ?>">
+                    <h2><?php echo $_faqs["title"]; ?></h2>
+                    <div class="answer" id="answer-<?php echo $_faqs['faqs_id'];?>"><?php echo $block->filterOutputHtml($_faqs['faq_answer']); ?>
+                        <?php if($_faqs['faqs_id'] == $shipping_faq):?>
+                            <div class="dynamic-shipping-methods">
+                                <?php echo $block->getHTMLShippingMethods();?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+
+            <h2 class="faqcontact"><?php echo __("Didn't find what you're looking for?"); ?></h2>
+            <a class="faqlink" href="./contactforms"><?php echo __('contact us'); ?></a>
+        </div>
+    <?php endif; ?>
+</div>

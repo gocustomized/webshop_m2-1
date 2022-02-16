@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">order_estimation_dates_grid.estimations_estimationdates_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>estimations_estimationdates_columns</spinner>
+        <deps>
+            <dep>order_estimation_dates_grid.estimations_estimationdates_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource component="Magento_Ui/js/grid/provider" name="estimations_estimationdates_listing_data_source">
+        <settings>
+            <filterUrlParams>
+                <param name="order_id">*</param>
+            </filterUrlParams>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>CustomConcepts_Estimations::EstimationDates</aclResource>
+        <dataProvider class="CustomConcepts\Estimations\Model\EstimationDates\DataProvider" name="estimations_estimationdates_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>estimationdates_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>false</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="estimations_estimationdates_columns">
+        <column name="shipping_date">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Estimated Shipping Date</label>
+            </settings>
+        </column>
+        <column name="min_delivery_date">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">EDD min</label>
+            </settings>
+        </column>
+        <column name="max_delivery_date">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">EDD max</label>
+            </settings>
+        </column>
+        <column name="created_at">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+        <column name="carrier">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Carrier</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

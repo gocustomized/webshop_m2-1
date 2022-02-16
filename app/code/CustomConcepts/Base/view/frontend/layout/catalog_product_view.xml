@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page>
+    <body>
+        <referenceBlock name="breadcrumbs" remove="true" />
+        <referenceContainer name="page.top">
+            <block class="CustomConcepts\Base\Block\CrumbBlock" name="crumbs" as="crumbs" template="CustomConcepts_Base::crumbs.phtml" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,101 @@
+.production-dashboard-container{
+    hr {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 0;
+        border-top: 1px solid #eee;
+    }
+
+    .form-wrapper{
+        .scan-barcode-label{
+            background-color: #777;
+            color: white;
+            padding: 2px 5px;
+            font-size: 12px;
+        }
+    }
+
+    .main-header{
+        margin-top: 20px;
+    }
+
+    .production-dashboard-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .order-info, .client-info, .shipment-item-info, .product-thumbnail, .product-printfile{
+            flex-basis: 20%;
+        }
+
+        .info-header{
+            text-align: center;
+        }
+
+        .scrollable{
+            max-height: 180px;
+            min-height: 180px;
+            width: 100%;
+            overflow-x: scroll;
+            margin: 10px 0px;
+            padding: 0px 10px;
+            background-color: #E6E6E6;
+        }
+
+        .blue-block{
+            background-color: #0BBAE4;
+            color: white;
+            height: 50px;
+            width: 100%;
+            padding: 5px;
+
+            h4{
+                padding: 10px;
+            }
+        }
+
+        .order-info{
+            .add-order-comment-form{
+                margin-top: 10px;
+                //display: none;
+            }
+
+            .otheritem-link{
+                text-decoration: underline;
+            }
+        }
+
+        .shipment-item-info{
+            .supplier{
+                color: green;
+            }
+        }
+
+        table{
+            tbody{
+                tr{
+                    th{
+                        text-align: left;
+                        padding: 2px;
+                    }
+
+                    td{
+                        text-align: right;
+                        padding: 2px;
+                    }
+                }
+            }
+        }
+
+        .production-dashboard-actions{
+            flex-basis: 100%;
+            margin-top: 30px;
+
+            .blue-block{
+                width: 20%;
+                text-align: center;
+            }
+        }
+    }
+}

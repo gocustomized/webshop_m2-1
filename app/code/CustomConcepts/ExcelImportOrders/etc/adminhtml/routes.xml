@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_ExcelImportOrders extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_ExcelImportOrders
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="excelimport" frontName="excelimport">
+            <module name="CustomConcepts_ExcelImportOrders" />
+        </route>
+    </router>
+</config>

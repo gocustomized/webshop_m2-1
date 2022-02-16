@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_Checkout extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Checkout
+ * @copyright Copyright (c) 2020
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="CustomConcepts_Checkout" setup_version="1.0.0">
+        <sequence>
+            <module name="Magento_Session" />
+            <module name="Bss_MultiStoreViewPricing" />
+            <module name="Magento_Checkout" />
+            <module name="Swissup_Firecheckout" />
+            <module name="Magento_Shipping" />
+            <module name="Bluebirdday_TranssmartSmartConnect" />
+            <module name="Swissup_AddressFieldManager" />
+        </sequence>
+    </module>
+</config>

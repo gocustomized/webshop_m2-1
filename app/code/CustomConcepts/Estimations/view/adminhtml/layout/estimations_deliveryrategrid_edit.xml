@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+     <update handle="editor"/>
+    <body>
+	   <referenceContainer name="content">
+            <block class="CustomConcepts\Estimations\Block\Adminhtml\Deliveryrate\Edit" name="estimations_deliveryrate_edit"/>
+        </referenceContainer>
+		 <referenceContainer name="left">
+            <block class="CustomConcepts\Estimations\Block\Adminhtml\Deliveryrate\Edit\Tabs" name="estimations_deliveryrate_edit_tabs">
+				<block class="CustomConcepts\Estimations\Block\Adminhtml\Deliveryrate\Edit\Tab\NewDeliveryRate" name="estimations_deliveryrate_edit_tab_newdeliveryrate"/>
+				 <action method="addTab">
+                    <argument name="name" xsi:type="string">newdeliveryrate_section</argument>
+                    <argument name="block" xsi:type="string">estimations_deliveryrate_edit_tab_newdeliveryrate</argument>
+                </action>
+				<!--CedAddTab-->
+			</block>
+        </referenceContainer>
+    </body>
+</page>

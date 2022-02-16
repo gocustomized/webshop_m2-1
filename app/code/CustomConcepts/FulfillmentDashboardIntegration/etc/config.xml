@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cc_dashboard_integration>
+            <general>
+                <enabled>0</enabled>
+            </general>
+            <api>
+                <shipment_creation_path>api/v2/shipment</shipment_creation_path>
+            </api>
+            <fields>
+                <supplier_name>Gocustomized</supplier_name>
+            </fields>
+        </cc_dashboard_integration>
+    </default>
+</config>

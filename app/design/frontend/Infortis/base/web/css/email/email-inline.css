@@ -1,0 +1,36 @@
+body,table.gc td { color:#3c3a40;font-family: Tahoma, Helvetica, sans-serif; font-size: 14px;}
+body,table.mpc td { color:#222323;font-family: Tahoma, Helvetica, sans-serif; font-size: 14px;}
+table, body {margin: 0; padding: 0;}
+p { padding: 0 20px;font-size: 14px; }
+table.gc a { color: #a3b1c6 !important; text-decoration: underline;}
+table.mpc a { color: #1e7ec8 !important; text-decoration: underline;}
+table.gc h2 { color: #a3b1c6; padding: 15px 0 10px 10px; margin-bottom: 0;}
+table.mpc h2 { color: #222323; padding: 15px 0 10px 10px; margin-bottom: 0;}
+.price { padding: 0 10px; }
+.blauw{
+    padding: 0px;
+}
+table.gc .blauw span{
+    color: #a3b1c6 !important; font-size: 16px;
+}
+table.mpc .blauw span{
+    color: #222323 !important; font-size: 16px;
+}
+
+.address-format br{
+    display: block !important;
+}
+.address-format br:first-child, .address-format br:nth-child(4), .address-format br:nth-child(6){
+    display: block;
+}
+.address-format br:nth-last-child(3), .address-format br:nth-last-child(5){
+    display: block;
+}
+
+.base_grandtotal{
+    display: none;
+}
+
+.payment-method {
+    margin-right: 1rem;
+}

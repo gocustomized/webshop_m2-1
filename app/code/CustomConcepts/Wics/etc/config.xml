@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cc_wics>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <api>
+                <base_url>https://test.servicelayer.wics.nl</base_url>
+            </api>
+            <slack>
+                <enabled>1</enabled>
+                <web_hook>https://hooks.slack.com/services/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</web_hook>
+            </slack>
+        </cc_wics>
+    </default>
+</config>

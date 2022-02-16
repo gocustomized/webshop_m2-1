@@ -1,0 +1,16 @@
+<?php
+ $design = null;
+ if ($serdata = $block->getItem()->getData('gocustomizer_data')) {
+     $data = @unserialize($serdata);
+     if ($data) {
+         $design = isset($data['design']) ? $data['design'] : '';
+         $thumb = isset($data['thumb']) ? $data['thumb'] : '';
+     }
+ }
+ if($design):?>
+    <a href="<?php echo $design?>" target="_blank"><span><img style="max-width: 75px;" src="<?php echo $thumb?>" /></span></a>
+<?php else:
+     $product = $block->getItem()->getProduct();
+     $image_url = $this->helper('Magento\Catalog\Helper\Image')->init($product,'cart_page_product_thumbnail') ->constrainOnly(true)->keepAspectRatio(true)->keepFrame(false)->setImageFile($product->getImage())->getUrl();
+     echo '<img src="'.$image_url.'" />';
+endif; ?>

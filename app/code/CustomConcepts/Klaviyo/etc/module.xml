@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_Klaviyo extension
+ * @category  CustomConcepts_Klaviyo
+ * @package   CustomConcepts_Klaviyo
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="CustomConcepts_Klaviyo" setup_version="1.0.0">
+        <sequence>
+        </sequence>
+    </module>
+</config>

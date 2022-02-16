@@ -1,0 +1,21 @@
+<?php
+/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+?>
+<?php if ($snippets = $this->getSnippets()) { ?>
+    <div class="kiyoh-snippets">
+        <?php echo $this->getHtmlStars($snippets->getPercentage()); ?>
+        <div itemscope="itemscope" itemtype="http://schema.org/WebPage">
+            <meta itemprop="name" content="<?php echo $snippets->getCompany(); ?>">
+            <div itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
+                <meta itemprop="bestRating" content="100">
+                <p><?php echo __(sprintf('Rating %s based on %s customer reviews ', '<span itemprop="ratingValue">' . $snippets->getPercentage() . '</span>%', '<span itemprop="reviewCount">' . $snippets->getVotes() . '</span>')) ?><?php echo $this->getExternalLink(); ?> </p>
+            </div>
+        </div>
+    </div>
+<?php } ?>

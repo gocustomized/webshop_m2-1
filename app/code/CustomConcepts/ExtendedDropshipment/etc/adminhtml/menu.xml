@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--/**
+ * CustomConcepts_ExtendedDropshipment extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_ExtendedDropshipment
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="CustomConcepts_ExtendedDropshipment::dropshipment" title="Dropshipment" module="CustomConcepts_ExtendedDropshipment" sortOrder="40" parent="Magento_Sales::sales" action="dropshipments" resource="CustomConcepts_ExtendedDropshipment::dropshipment" />
+    </menu>
+</config>

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+        <referenceBlock  name="order_tab_info" >
+            <block class="Magento\Sales\Block\Adminhtml\Order\View\Messages" name="order_messages"/>
+            <block class="Magento\Sales\Block\Adminhtml\Order\View\Info" name="order_info" template="order/view/info.phtml"/>
+            <block class="Magento\Sales\Block\Adminhtml\Order\View\Items" name="order_items" template="order/view/items.phtml">
+                <arguments>
+                    <argument name="columns" xsi:type="array">
+                        <item name="exported_id" xsi:type="string" translate="true">Item Id</item>
+                        <item name="product" xsi:type="string" translate="true">Product</item>
+                        <item name="status" xsi:type="string" translate="true">Item Status</item>
+                        <item name="gocustomizer_data" xsi:type="string" translate="true">Design</item>
+                        <item name="design_upload" xsi:type="string" translate="true">Design Upload</item>
+                        <item name="price-original" xsi:type="string" translate="true">Original Price</item>
+                        <item name="price" xsi:type="string" translate="true">Price</item>
+                        <item name="ordered-qty" xsi:type="string" translate="true">Qty</item>
+                        <item name="subtotal" xsi:type="string" translate="true">Subtotal</item>
+                        <item name="tax-amount" xsi:type="string" translate="true">Tax Amount</item>
+                        <item name="tax-percent" xsi:type="string" translate="true">Tax Percent</item>
+                        <item name="discont" xsi:type="string" translate="true">Discount Amount</item>
+                        <item name="total" xsi:type="string" translate="true">Row Total</item>
+                    </argument>
+                </arguments>
+                <block class="Magento\Sales\Block\Adminhtml\Order\View\Items\Renderer\DefaultRenderer" as="default" template="order/view/items/renderer/default.phtml">
+                    <arguments>
+                        <argument name="columns" xsi:type="array">
+                            <item name="exported_id" xsi:type="string" translate="false">col-exported_id</item>
+                            <item name="product" xsi:type="string" translate="false">col-product</item>
+                            <item name="status" xsi:type="string" translate="false">col-status</item>
+                            <item name="gocustomizer_data" xsi:type="string" translate="false">design</item>
+                            <item name="design_upload" xsi:type="string" translate="false">design_upload</item>
+                            <item name="price-original" xsi:type="string" translate="false">col-price-original</item>
+                            <item name="price" xsi:type="string" translate="false">col-price</item>
+                            <item name="qty" xsi:type="string" translate="false">col-ordered-qty</item>
+                            <item name="subtotal" xsi:type="string" translate="false">col-subtotal</item>
+                            <item name="tax-amount" xsi:type="string" translate="false">col-tax-amount</item>
+                            <item name="tax-percent" xsi:type="string" translate="false">col-tax-percent</item>
+                            <item name="discont" xsi:type="string" translate="false">col-discont</item>
+                            <item name="total" xsi:type="string" translate="false">col-total</item>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Sales\Block\Adminhtml\Items\Column\Qty" name="column_qty" template="items/column/qty.phtml" group="column"/>
+                <block class="Magento\Sales\Block\Adminhtml\Items\Column\Name" name="column_name" template="items/column/name.phtml" group="column"/>
+                <block class="Magento\Framework\View\Element\Text\ListText" name="order_item_extra_info"/>
+                <block class="Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn" name="column_gocustomizer_data" template="CustomConcepts_GoCustomizer::order/item/design_column.phtml"  group="column"/>
+                <block class="Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn" name="column_exported_id" template="CustomConcepts_GoCustomizer::order/item/export_id_column.phtml"  group="column"/>
+                <block class="Magento\Sales\Block\Adminhtml\Items\Column\DefaultColumn" name="column_design_upload" template="CustomConcepts_GoCustomizer::quote/view/items/imageupload.phtml" group="column"/>
+            </block>
+        </referenceBlock>
+
+        <referenceBlock name="content">
+            <block class="Magento\Backend\Block\Template" name="image.column_product" template="CustomConcepts_GoCustomizer::quote/view/items/uploadform.phtml">
+                <arguments>
+                    <argument name="action_type" xsi:type="string">order</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

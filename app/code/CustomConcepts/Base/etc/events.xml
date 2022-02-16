@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="email_shipment_set_template_vars_before">
+        <observer name="add_shipment_email_data" instance="CustomConcepts\Base\Observer\AddShipmentEmailData" />
+    </event>
+</config>

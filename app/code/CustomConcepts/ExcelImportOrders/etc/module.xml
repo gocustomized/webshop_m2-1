@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_ExcelImportOrders extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_ExcelImportOrders
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="CustomConcepts_ExcelImportOrders" setup_version="1.0.0">
+        <sequence/>
+    </module>
+</config>

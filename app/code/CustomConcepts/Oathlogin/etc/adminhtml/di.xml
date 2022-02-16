@@ -1,0 +1,13 @@
+<?xml version='1.0'?>
+<!--/**
+* CustomConcepts_Oathlogin extension
+* @category  CustomConcepts_Extensions
+* @package   CustomConcepts_Oathlogin
+* @copyright Copyright (c) 2017
+* @author GoCustomized <info@gocustomized.com>
+*/-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd" >
+    <type name='Magento\Backend\App\AbstractAction'>
+        <plugin name='beforeDispatch' type='CustomConcepts\Oathlogin\Plugin\Backend\App\AbstractAction' sortOrder='99'/>
+    </type>
+</config>

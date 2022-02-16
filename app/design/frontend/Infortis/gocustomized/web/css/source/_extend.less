@@ -1,0 +1,122 @@
+@import 'parts/_common';
+@import 'parts/_codazonmegamenu';
+@import 'parts/_header';
+@import 'parts/_breadcrums';
+@import 'parts/_home';
+@import 'parts/_customer-account';
+@import 'parts/_category';
+@import 'parts/_product';
+@import 'parts/_cart-dropdown';
+@import 'parts/_checkout-cart-index';
+@import 'parts/_about-us';
+@import 'parts/_team-list';
+@import 'parts/_login';
+@import 'parts/_footer';
+@import 'parts/_firecheckout';
+@import 'parts/_homepage-redesign';
+@import 'parts/_b2b';
+@import 'parts/_faq';
+
+#cookiescript_injected {
+    #cookiescript_wrapper {
+        #cookiescript_header {
+            font-size: 20px;
+        }
+
+        #cookiescript_description {
+            span,
+            a#cookiescript_readmore {
+                font-size: 14px;
+                line-height: 1;
+                font-family: 'Open Sans', Arial, 'Trebuchet MS', 'Segoe UI', 'Helvetica', sans-serif;
+            }
+        }
+    }
+}
+
+.cms-press-releases-gocustomized .page-main,
+.cms-privacy_policy .page-main,
+.cms-terms-conditions .page-main {
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .cms-page-view {
+        .page-main {
+            margin: 0 10px;
+            width: 95%;
+        }
+
+        &.cms-uber-gocustomized,
+        &.cms-over-gocustomized,
+        &.cms-a_propos_de_gocustomized,
+        &.cms-om-gocustomized,
+        &.cms-sobre_gocustomized,
+        &.cms-riguardo-gocustomized,
+        &.cms-omoss,
+        &.cms-about-gocustomized {
+            .page-main {
+                width: 100%;
+                .columns {
+                    .column.main {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .cms-profesionales {
+        .page-main {
+            .container {
+                width: 95%;;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .cms-page-view {
+        .page-main {
+            margin: 0 10px;
+            width: 97%;
+        }
+        
+        &.cms-uber-gocustomized,
+        &.cms-over-gocustomized,
+        &.cms-a_propos_de_gocustomized,
+        &.cms-om-gocustomized,
+        &.cms-sobre_gocustomized,
+        &.cms-riguardo-gocustomized,
+        &.cms-omoss,
+        &.cms-about-gocustomized {
+            .page-main {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .cms-page-view {
+        .page-main {
+            max-width: 1170px;
+            margin: 0 auto;
+        }
+
+        &.cms-uber-gocustomized,
+        &.cms-over-gocustomized,
+        &.cms-a_propos_de_gocustomized,
+        &.cms-om-gocustomized,
+        &.cms-sobre_gocustomized,
+        &.cms-riguardo-gocustomized,
+        &.cms-omoss,
+        &.cms-about-gocustomized {
+            .page-main {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+        }
+    }
+}

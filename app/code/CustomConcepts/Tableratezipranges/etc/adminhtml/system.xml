@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--/**
+ * CustomConcepts_Tableratezipranges extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Tableratezipranges
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cc_tableratezipranges" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+            <label>Tablerate Extended</label>
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Tableratezipranges::config_CustomConcepts_tableratezipranges</resource>
+            <group id="general" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="10" translate="label">
+                <label>General</label>
+                <field id="enable" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enable/Disable</label>
+                    <comment/>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

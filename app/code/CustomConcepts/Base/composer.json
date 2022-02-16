@@ -1,0 +1,28 @@
+{
+    "name": "CustomConcepts_Base",
+    "description": "Base smallchanges and for small tasks",
+    "require": {
+        "php": "~5.5.0|~5.6.0"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CustomConcepts\\Base\\": ""
+        }
+    },
+    "extra": {
+        "map": [
+            [
+                "*",
+                "CustomConcepts\/Base"
+            ]
+        ]
+    }
+}

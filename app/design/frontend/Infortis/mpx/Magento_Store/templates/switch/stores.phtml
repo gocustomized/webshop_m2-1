@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Store\Block\Switcher $block */
+$hys_helper = $this->helper('CustomConcepts\Helper\Helper\Helper');
+?>
+<?php if(count($block->getGroups())>1): ?>
+<div class="store-switcher">
+    <label for="select-store"><?php echo $block->escapeHtml(__('Select Store:')) ?></label>
+    <select id="select-store" title="<?php echo $block->escapeHtml(__('Select Store')) ?>" onchange="location.href=this.value">
+    <?php foreach ($this->getGroups() as $_group): ?>
+        <?php $_selected = ($_group->getId()==$this->getCurrentGroupId()) ? ' selected="selected"' : '' ?>
+        <option value="<?php echo $hys_helper->getHomeUrl($_group->getDefaultStoreId()) ?>"<?php echo $_selected ?>><?php echo $this->escapeHtml($_group->getName()) ?></option>
+    <?php endforeach; ?>
+    </select>
+</div>
+<?php endif; ?>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="prodfaqs" translate="label" sortOrder="500"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Faqs::faq</resource>
+            <label>FAQ</label>
+            <group id="list" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>General FAQ Settings</label>
+
+                <field id="identifier" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>URL Identifier</label>
+                </field>
+                <field id="sort_by" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Sort By</label>
+                    <source_model>CustomConcepts\Faqs\Model\Config\Source\SortBy</source_model>
+                </field>
+                <field id="display_categories" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Display Topics</label>
+                    <source_model>CustomConcepts\Faqs\Model\Config\Source\DisplayTopics</source_model>
+                </field>
+                <field id="show_number_of_questions" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Number of Questions</label>
+                </field>
+            </group>
+
+            <group id="general" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>General Topic Settings</label>
+
+                <field id="faq_search_block" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Enable Search</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="faq_block" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Show Topics Block</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="faq_maxtopic" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>Show Max Topic</label>
+                </field>
+
+                <field id="faq_block_view_by" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="0">
+                    <label>View Topics By</label>
+                    <source_model>CustomConcepts\Faqs\Model\ProdfaqsTopics\Source\TopicViewBy</source_model>
+                </field>
+                <field id="faq_id_for_dynamic_shippinginfo" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="0">
+                    <label>Set faq id to dynamicly show shipping methods below</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

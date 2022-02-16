@@ -1,0 +1,70 @@
+<?php $_order = $this->getOrder() ?>
+<div>
+    <div class="admin__page-section-title">
+        <span class="title"><?php echo __('Extra Order Info') ?></span>
+    </div>
+    <table cellspacing="0" class="form-list admin__table-secondary order-information-table">
+        <tr>
+            <td style="text-align: left;">
+                <?php 
+                   $config_order_note =  $this->getConfigOrderNote();
+                ?>
+                <?php $saved_option = $_order->getData('order_note'); ?>
+                <?php echo __('Order note') ?>:&nbsp;&nbsp;&nbsp;
+                <select class="select admin__control-select" id="order_note" <?php if ($saved_option != '') {
+                    echo "disabled";
+                } ?> >
+                    <option></option>
+                    <?php
+                    foreach ($config_order_note as $option) :
+                        ?>
+                        <option value="<?php echo $option ?>" <?php if ($saved_option == $option) {
+                        echo "selected";
+                    } ?> > <?php echo $option ?></option>
+                    <?php
+                endforeach;
+                ?>
+                </select>
+                &nbsp;&nbsp;&nbsp;
+                <?php if ($saved_option == '') : ?>
+                    <button class="scalable" id="extraorderrefrence"><span><span><?php echo __('Save') ?></span></span></button>
+                <?php endif; ?>
+            </td>
+        </tr>
+<?php if ($_order->getData('api_order_id') != '') : ?>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><?php echo __('Reseller order ID') ?>:&nbsp;&nbsp;&nbsp;<strong><?php echo $_order->getData('api_order_id'); ?></strong></td>
+        </tr>
+<?php endif; ?>     
+    </table>
+    
+</div>
+<div style="clear:both;"></div>
+
+<script>
+    require([
+        'jquery',
+        'prototype'
+    ], function ($) {
+
+        $('#extraorderrefrence').click(function () {
+            var order_note = $("#order_note").val();
+            var order_id = '<?php echo $_order->getId(); ?>';
+            $('#loading-mask').show();
+            var controller_url = '<?php echo $this->getUrl('basemodule/orderextrareference/index') ?>';
+            var jhx = $.ajax({
+                type: "GET",
+                data: "order_id=" + order_id + "&order_note=" + order_note,
+                url: controller_url,
+                success: function (data) {
+                    console.log(data);
+                    location.reload();
+                }
+            });
+        });
+
+    });
+</script>

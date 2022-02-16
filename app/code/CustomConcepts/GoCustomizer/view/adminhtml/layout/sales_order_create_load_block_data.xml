@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="items_grid" template="CustomConcepts_GoCustomizer::order/create/items/grid.phtml">
+                <arguments>
+                    <argument name="gc_view_model" xsi:type="object">CustomConcepts\GoCustomizer\ViewModel\GocustomizerViewModel</argument>
+                </arguments>
+            </referenceBlock>
+
+            <block class="Magento\Backend\Block\Template" name="image.column_product" template="CustomConcepts_GoCustomizer::quote/view/items/uploadform.phtml">
+                <arguments>
+                    <argument name="action_type" xsi:type="string">quote</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

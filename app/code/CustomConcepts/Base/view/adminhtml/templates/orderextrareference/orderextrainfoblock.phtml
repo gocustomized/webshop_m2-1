@@ -1,0 +1,28 @@
+<div class="box-left entry-edit">
+    <div class="admin__page-section-title">
+        <span class="title"><?php echo __('Extra Order Info') ?></span>
+    </div>
+    
+    <div class="content">	
+        <table cellspacing="0" class="form-list admin__table-secondary order-information-table">
+            <tr>
+                <td class="label" style="text-align: left; width: 100px;"> 
+                    <?php echo __('Order note') ?>:
+                </td>
+                <td class="value" style="text-align: left;">
+                    <select class="select admin__control-select" id="order_note" name="order_note">
+                        <option></option>
+                        <?php
+                        $config_order_note =  $this->getConfigOrderNote();
+                        foreach ($config_order_note as $orderNote) :
+                        ?>
+                            <option value="<?php echo $orderNote ?>"><?php echo $orderNote ?></option>
+                        <?php
+                        endforeach;
+                        ?>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>  
+</div>

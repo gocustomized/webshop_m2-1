@@ -1,0 +1,50 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+<?php
+/** @var CustomConcepts\Base\ViewModel\CheckoutSuccessViewModel $checkoutSuccessVm */
+$checkoutSuccessVm = $this->getCheckoutSuccessViewModel();
+$checkoutSuccessVm->setOrderByIncrementId($block->getOrderId());
+?>
+<div class="checkout-success">
+    <p class="thank-you-message"><?= __('Thank you for your purchase!'); ?></p>
+    <?php if ($block->getOrderId()):?>
+        <?php if ($block->getCanViewOrder()) :?>
+            <p>
+                <?php echo __('Your order was successfully received (order number: %1).', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?>
+                <?= $checkoutSuccessVm->getEsdMessage(); ?>
+            </p>
+        <?php  else :?>
+            <p>
+                <?php echo __('Your order was successfully received (order number: %1).', sprintf('<strong>%s</strong>', $block->escapeHtml($block->getOrderId()))) ?>
+                <?= $checkoutSuccessVm->getEsdMessage(); ?>
+            </p>
+        <?php endif;?>
+    <?php endif;?>
+
+    <p class="check-inbox-message"><?= __('Check your inbox, we’ll send you...'); ?></p>
+    <ul>
+        <li><?= __('An email to activate your Customer Account to follow up your order.'); ?></li>
+        <li><?= __('Your order confirmation with the details of your purchase.'); ?></li>
+    </ul>
+
+    <?php echo $block->getAdditionalInfoHtml() ?>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <a class="action primary continue" href="<?php /* @escapeNotVerified */ echo $block->getUrl() ?>"><span><?php /* @escapeNotVerified */ echo __('Continue Shopping') ?></span></a>
+        </div>
+    </div>
+    <?php echo $this->getChildBlock('shareOrder')->setOrder($block->getOrderId())->toHtml();  ?>
+</div>
+
+<script>
+    var custom_datalayer = <?= $checkoutSuccessVm->getCustomDataLayer() ?>
+</script>

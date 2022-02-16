@@ -1,0 +1,6 @@
+CustomConcepts_JsFunctions module
+
+description: this is module contains javascript functions that can be used on the frontend.
+
+functionalities:
+ - Sitewide Timer

@@ -1,0 +1,7 @@
+<?php
+/** @var $block \Magento\Checkout\Block\Cart */
+?>
+<button class="checkout-button"
+        onclick="window.location.assign('<?= $block->getCheckoutUrl() ?>')">
+    <?= $block->escapeHtml(__('Checkout')) ?>
+</button>

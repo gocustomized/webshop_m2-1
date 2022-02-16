@@ -1,0 +1,21 @@
+<!--@subject Your assistance is required for your order # {{var increment_id}} with GoCustomized@-->
+
+{{template config_path="design/email/header_template"}}
+
+<table cellspacing="0" cellpadding="0" border="0" width="650">
+    <tr>
+        <td valign="top">
+            <p>
+                <strong>{{trans "Dear %name" name=$CustomerName}}</strong>,<br/>
+                Thank you for your order at GoCustomized. Unfortunately, while we were processing your order, something went wrong and as a result, we could not produce the exact same phone case that was shown in the preview. We would like to invite you to redesign your phone case on our website once again, completely free of charge! That way, we can get right to work and send you your phone case right away.
+                <br/><br/>
+                <strong>{{trans "Discount code: %discountcode" discountcode=$discountcode}} </strong>On the Payment & Delivery page, simply input the code into the “Discount Codes” box and press "Apply Coupon" to activate your code.<br/>
+                <strong> {{trans "Discount code value: %discountvalue" discountvalue=$discountvalue}} </strong> <br/>
+                {{trans "Note (optional): %note" note=$note}}
+                <br/><br/>
+                Our apologies for the inconvenience. If you have any further questions, please contact us at <a href="mailto:support@gocustomized.co.uk" style="color:#1E7EC8;">support@gocustomized.co.uk</a></span></p>
+
+        </td>
+    </tr>
+</table>
+{{template config_path="design/email/footer_template"}}

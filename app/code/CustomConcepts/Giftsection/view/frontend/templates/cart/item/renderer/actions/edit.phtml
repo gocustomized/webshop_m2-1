@@ -1,0 +1,15 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \CustomConcepts\GiftSection\Block\Cart\Item\Renderer\Actions\Edit */
+?>
+<?php if ($block->getEditLink()) :?>
+    <a class="action action-edit"
+       href="<?= $block->getEditLink() ?>"
+       title="<?= $block->escapeHtmlAttr(__('Edit item parameters')) ?>">
+        <span><?= $block->escapeHtml(__('Edit')) ?></span>
+    </a>
+<?php endif ?>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_Theme extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Theme
+ * @copyright Copyright (c) 2020
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Theme\Model\Design\Config\MetadataProvider">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="header_mobile_logo_src" xsi:type="array">
+                    <item name="path" xsi:type="string">design/header/mobile_logo_src</item>
+                    <item name="fieldset" xsi:type="string">other_settings/header</item>
+                    <item name="backend_model" xsi:type="string">CustomConcepts\Theme\Model\Design\Backend\MobileLogo</item>
+                    <item name="base_url" xsi:type="array">
+                        <item name="type" xsi:type="string">media</item>
+                        <item name="scope_info" xsi:type="string">1</item>
+                        <item name="value" xsi:type="string">mobile_logo</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

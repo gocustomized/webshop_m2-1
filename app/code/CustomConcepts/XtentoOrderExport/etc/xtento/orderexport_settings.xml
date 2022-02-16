@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Xtento_OrderExport:etc/xtento/orderexport_settings.xsd">
+    <settings>
+        <setting name="custom_allowed_php_functions">CustomConcepts\XtentoOrderExport\Helper\Data::getGoCustomizerData,CustomConcepts\XtentoOrderExport\Helper\Data::getNoteCardTextBlock,CustomConcepts\XtentoOrderExport\Helper\Data::getOrderEsd,CustomConcepts\XtentoOrderExport\Helper\Data::checkOos,CustomConcepts\XtentoOrderExport\Helper\Data::getShippingConfigData</setting>
+    </settings>
+</config>

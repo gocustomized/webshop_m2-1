@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Eav\Model\ResourceModel\Form\Attribute\Collection"
+                type="CustomConcepts\CheckoutFieldsConfig\Model\ResourceModel\Form\Attribute\Eav\Collection" />
+    <preference for="Magento\Customer\Model\ResourceModel\Form\Attribute\Collection"
+                type="CustomConcepts\CheckoutFieldsConfig\Model\ResourceModel\Form\Attribute\Customer\Collection" />
+
+    <preference for="Swissup\AddressFieldManager\Model\ResourceModel\Customer\Form\AddressAttribute\Collection"
+                type="CustomConcepts\CheckoutFieldsConfig\Swissup\AddressFieldManager\Model\ResourceModel\Customer\Form\AddressAttribute\Collection" />
+    <preference for="Swissup\FieldManager\Model\ResourceModel\Customer\Form\Attribute\Collection"
+                type="CustomConcepts\CheckoutFieldsConfig\Swissup\FieldManager\Model\ResourceModel\Customer\Form\Attribute\Collection" />
+    <preference for="Swissup\FieldManager\Ui\DataProvider\Attributes\Listing"
+                type="CustomConcepts\CheckoutFieldsConfig\Swissup\FieldManager\Ui\DataProvider\Attributes\Listing" />
+</config>

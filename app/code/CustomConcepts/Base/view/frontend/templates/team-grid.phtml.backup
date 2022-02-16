@@ -1,0 +1,236 @@
+<div class="team-list">
+    <ul>
+        <li class="team-member">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/michiel-van-de-plassche_1.jpg" alt="Michiel van de Plassche">
+            </div>
+            <div class="content">
+                <p class="name">Michiel van de Plassche</p>
+                <div class="position"><?= $block->escapeHtml(__('CEO')) ?> &amp; <?= $block->escapeHtml(__('Founder')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/marc-hilhorst.jpg" alt="Marc Hilhorst">
+            </div>
+            <div class="content">
+                <p class="name">Marc Hilhorst</p>
+                <div class="position"><?= $block->escapeHtml(__('Managing Partner')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/elise-schoon.jpg" alt="Elise Schoon">
+            </div>
+            <div class="content">
+                <p class="name">Elise Schoon</p>
+                <div class="position"><?= $block->escapeHtml(__('Managing Partner')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/jeroen-van-rijn.jpg" alt="Jeroen van Rijn">
+            </div>
+            <div class="content">
+                <p class="name">Jeroen van Rijn</p>
+                <div class="position"><?= $block->escapeHtml(__('CTO')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/levi-meyer.jpg" alt="Levi Meyer">
+            </div>
+            <div class="content">
+                <p class="name">Levi Meyer</p>
+                <div class="position"><?= $block->escapeHtml(__('Marketing Manager')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member slide-up" style="display: none;">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/dave-crombeen.jpg" alt="Dave Crombeen">
+            </div>
+            <div class="content">
+                <p class="name">Dave Crombeen</p>
+                <div class="position"><?= $block->escapeHtml(__('Print Operator')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member slide-up" style="display: none;">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/michelle-caldeira-fernandez.jpg" alt="Michelle Caldeira FDez">
+            </div>
+            <div class="content">
+                <p class="name">Michelle Caldeira FDez</p>
+                <div class="position"><?= $block->escapeHtml(__('Marketing Manager')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member slide-up" style="display: none;">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/sandy-ter-meulen.jpg" alt="Sandy Termeulen">
+            </div>
+            <div class="content">
+                <p class="name">Sandy Termeulen</p>
+                <div class="position"><?= $block->escapeHtml(__('Production Manager')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member slide-up" style="display: none;">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/toby-van-der-ven.jpg" alt="Toby Van Der Ven">
+            </div>
+            <div class="content">
+                <p class="name">Toby Van Der Ven</p>
+                <div class="position"><?= $block->escapeHtml(__('Product Manager')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member slide-up" style="display: none;">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/jarmilla.jpg" alt="Jarmila Smolova">
+            </div>
+            <div class="content">
+                <p class="name">Jarmila Smolova</p>
+                <div class="position"><?= $block->escapeHtml(__('Production Shift Lead')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member slide-up" style="display: none;">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/nick-site.jpg" alt="Nick Rengers">
+            </div>
+            <div class="content">
+                <p class="name">Nick Rengers</p>
+                <div class="position"><?= $block->escapeHtml(__('Head of Operations')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member slide-up" style="display: none;">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/Maria-cutted.jpg" alt="Maria Garrido">
+            </div>
+            <div class="content">
+                <p class="name">Maria Garrido</p>
+                <div class="position"><?= $block->escapeHtml(__('Support Coordinator')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member slide-up" style="display: none;">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/Theodor-cutted.jpg" alt="Theodor Felix Iacob">
+            </div>
+            <div class="content">
+                <p class="name">Theodor Felix Iacob</p>
+                <div class="position"><?= $block->escapeHtml(__('Fullstack Developer')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+        <li class="team-member slide-up" style="display: none;">
+            <div class="user-img">
+                <img class="member_avatar " src="https://dg76wcc2f4h69.cloudfront.net/media/manageteam/manageteam/khalil-cutted.png" alt="Khalil Chourou">
+            </div>
+            <div class="content">
+                <p class="name">Khalil Chourou</p>
+                <div class="position"><?= $block->escapeHtml(__('Analyst')) ?> - <?= $block->escapeHtml(__('Data Engineer')) ?></div>
+                <div class="team-social">
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="center-text margin-tb-30">
+    <strong><?= $block->escapeHtml(__('SEE THE WHOLE TEAM')) ?></strong>
+    <p><a class="button view-team"><i class="ic ic-down"></i></a></p>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery(".team-member").each(function (index) {
+
+        });
+        jQuery(".view-team").click(function () {
+            jQuery(this).toggleClass('open');
+
+            jQuery('.slide-up').slideToggle('slow');
+        });
+
+        // Optimalisation: Store the references outside the event handler:
+        var $window = jQuery(window);
+
+        function checkWidth() {
+            var windowsize = $window.width();
+            jQuery('.slide-up').removeClass('slide-up').show();
+            jQuery(".team-member").each(function (index) {
+                if (windowsize < 768 && index > 2) {
+                    jQuery(this).addClass('slide-up').hide();
+
+                } else {
+
+                    if (index > 4) {
+                        jQuery(this).addClass('slide-up').hide();
+                    }
+                }
+            });
+
+        }
+        checkWidth();
+        jQuery(window).resize(checkWidth);
+    });
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery(".team-member").each(function (index) {
+
+        });
+
+        jQuery(".view-team").click(function () {
+            jQuery(this).toggleClass('open');
+
+            jQuery('.slide-up').slideToggle('slow');
+        });
+
+        // Optimalisation: Store the references outside the event handler:
+        var $window = jQuery(window);
+
+        function checkWidth() {
+            var windowsize = $window.width();
+            jQuery('.slide-up').removeClass('slide-up').show();
+            jQuery(".team-member").each(function (index) {
+                if (windowsize < 768 && index > 2) {
+                    jQuery(this).addClass('slide-up').hide();
+
+                } else {
+
+                    if (index > 4) {
+                        jQuery(this).addClass('slide-up').hide();
+                    }
+                }
+            });
+
+        }
+        checkWidth();
+        jQuery(window).resize(checkWidth);
+    });
+</script>

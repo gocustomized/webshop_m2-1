@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--/**
+* CustomConcepts_UltimoGocustomized extension
+* @category  CustomConcepts_Extensions
+* @package   CustomConcepts_UltimoGocustomized
+* @copyright Copyright (c) 2017
+* @author GoCustomized <info@gocustomized.com>
+*/-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Contact\Controller\Index\Post">
+        <plugin name="request-quote" type="CustomConcepts\UltimoGocustomized\Plugin\Controller\Index\Post" sortOrder="10"/>
+    </type>
+</config>

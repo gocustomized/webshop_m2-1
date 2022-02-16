@@ -1,0 +1,7 @@
+<?php
+/** @var $block Magento\Framework\View\Element\Template */
+$shippingNoteBlock = $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('after_shipping_method')->toHtml();
+?>
+<script type="text/javascript">
+    window.shippingNoteBlock = "<?php echo addslashes($shippingNoteBlock)?>";
+</script>

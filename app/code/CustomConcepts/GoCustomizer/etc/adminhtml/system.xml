@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_GoCustomizer extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_GoCustomizer
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="gocustomizer" translate="label" sortOrder="180"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Base::config_gocustomized_gocustomizer</resource>
+            <label>GoCustomizer</label>
+            <group id="general" type="text" sortOrder="122" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>Gocustomizer</label>
+                <field id="customizer_url" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>URL to customizer</label>
+                    <comment>URL given from CustomConceptss.</comment>
+                </field>
+                <field id="reseller_api_key" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Reseller id</label>
+                    <comment>Insert your reseller id given from CustomConcepts.</comment>
+                </field>
+                <field id="facebook_app_id" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook App id</label>
+                    <comment>Insert your facebook app id.</comment>
+                </field>
+                <field id="use_attribute" translate="label comment" type="select" sortOrder="4" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Use attribute for customizer_id</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Choose yes to use give attribute value in each product for customizer product id, if you choose no SKU from product itself will be tried to use, otherwise no product is pre-selected.</comment>
+                </field>
+            </group>
+        </section>
+
+        <section id="crosssell" translate="label" sortOrder="250"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_Base::config_gocustomized_gocustomizer</resource>
+            <label>Crosssell</label>
+            <group id="general" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>General</label>
+                <field id="sort_order" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort Order</label>
+                    <comment>Enter cross sell sort order by ID seperated by comma.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

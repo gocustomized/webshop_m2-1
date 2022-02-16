@@ -1,0 +1,1131 @@
+/*
+    All the styling needed for the gift-popup in the card
+
+*/
+.giftpopupbutton-wrapper{
+    float: right;
+}
+
+.giftpopupbutton{
+    display: block;
+    margin: 20px auto;
+    line-height: 55px;
+    font-size: 18px;
+    width: calc(100% - 40px);
+    max-width: 350px;
+    right: -12px;
+    position: absolute;
+    margin-top: 10px;
+}
+.giftpopupbutton i.fa.fa-gift {
+    font-size: 26px;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+.giftpopupbutton span {
+    vertical-align: middle;
+}
+.giftpopupbutton img{
+    vertical-align: middle;
+    margin-left: 8px;
+}
+/*
+    Reset some default styling on the page
+*/
+#giftpopup h1, #giftpopup h2{
+    margin: 0;
+    padding: 0;
+}
+
+#giftpopup{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #efefef;
+    transform: translateX(100%);
+    transition: transform 0.51s;
+    z-index: 999;
+    height: 100%;
+}
+
+#giftpopup .giftinner{
+    padding: 0 15px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: calc(100% - 40px);
+}
+
+#giftpopup .kruisjeholder{
+    position: relative;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    float: right;
+}
+
+#giftpopup .flexer .previewcard .zoomin{
+    position: absolute;
+    bottom: 28px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    top: auto;
+    transform: none;
+}
+
+#giftpopup .kruisje{
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    right: -40px;
+}
+
+#giftpopup .kruisje img{
+    height: 25px;
+    width: 25px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+#giftpopup .flexer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+#giftpopup .flexer .smalltext{
+    flex-basis: 50%;
+    line-height: 2;
+}
+
+#giftpopup .flexer .previewcard{
+    flex-basis: 30%;
+    align-self: stretch;
+    position: relative;
+}
+#giftpopup .flexer .form-area{
+    flex-basis: 70%;
+}
+#giftpopup .flexer .previewcard .imageholder {
+    padding: 0 20px;
+}
+#giftpopup .flexer .previewcard .imageholder img.notecard {
+    width: 100%;
+}
+#giftpopup .flexer .previewcard .imageholder img.magnifier {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-75%, -50%);
+    transform: translate(-75%, -50%);
+}
+
+#giftpopup #cardtext{
+    width: 95%;
+    margin-top: 20px;
+    height: 170px;
+    resize: none;
+    font-size: 16px;
+    line-height: 1.2;
+    background-color: #EFEFEF;
+    border: solid 1px #C4C4C4;
+}
+
+#cardtext:focus{
+    border: 2px solid #39AFD5;
+}
+
+#giftpopup .charcount{
+    padding: 5px 0;
+    color: #404040;
+    letter-spacing: 0.53px;
+    width: 95%;
+    line-height: 1.4;
+}
+
+#giftpopup .bluetext{
+    color:  #39AFD5;
+}
+
+#giftpopup .button{
+    font-size: 14px;
+    line-height: 40px;
+}
+
+#giftpopup .giftseperator{
+    display: block;
+    border: 1px solid #dadada;
+    margin: 30px 0;
+}
+
+#giftpopup .wrapcontainer{
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-height: 290px;
+    height: 290px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+}
+
+#giftpopup .wrap{
+    padding: 10px;
+    margin-bottom: 5px;
+    flex-basis: 28%;
+    align-self: stretch;
+    justify-content: space-between;
+    text-align: center;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    max-width: 28%;
+    background: #fff;
+    border: solid 1px #C4C4C4;
+}
+#giftpopup .wrap.mobile-show {
+    display: none;
+}
+#giftpopup .wrap img{
+    width: 100%;
+    flex-shrink: 0;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 180px;
+    max-width: 180px;
+}
+#giftpopup .wrap p {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+    color: #404040;
+    margin-bottom: 10px;
+}
+#giftpopup .wrap .product-price-container {
+    display: flex;
+    width: 45%;
+    margin: 0;
+    -webkit-transform: translate(0%, 100%);
+    transform: translate(0%, 100%);
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.5;
+}
+#giftpopup .wrap .product-price-container p.product-price {
+    display: flex;
+    float: left;
+    margin-bottom: 0;
+}
+#giftpopup .wrap .product-price-container p.product-special-price,
+#giftpopup .flexer .previewcard .buttonholder.note-price-button span.notecard-price-container .notecard-special-price {
+    color: #e7303a;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: line-through;
+    text-align: end;
+    margin-bottom: 0;
+    margin-left: 6px;
+    display: flex;
+    float: right;
+}
+.giftlabel,
+.notecardlabel {
+    display: flex;
+    width: 55%;
+    margin: 0;
+    -webkit-transform: translate(80%, -20%);
+    transform: translate(80%, -10%);
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.giftlabel .checkmark-text,
+.notecardlabel .checkmark-text {
+    text-align: end;
+    line-height: 1;
+    font-size: 13px;
+    margin-left: 0;
+    margin-right: 4px;
+    position: relative;
+    top: 6px;
+    width: 75%;
+}
+
+/* Hide the browser's default checkbox */
+.giftlabel input,
+.notecardlabel input {
+    display: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-color: white;
+    position: relative;
+    border: solid 1px #C4C4C4;
+    margin-top: 0px;
+}
+
+/* On mouse-over, add a grey background color */
+/*.giftlabel:hover input ~ .checkmark {*/
+/*    !*background-color:  #39AFD5;*!*/
+/*    background-color:  #E46D23;*/
+/*}*/
+
+/* When the checkbox is checked, add a blue background */
+.giftlabel:hover input:checked ~ .checkmark,
+.notecardlabel:hover input:checked ~ .checkmark {
+    background-color: white;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.giftlabel input:checked ~ .checkmark:after,
+.notecardlabel input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.giftlabel .checkmark:after,
+.notecardlabel .checkmark:after {
+    left: 3px;
+    top: 3px;
+    width: 18px;
+    height: 18px;
+    background-color: #E46D23;
+    background-image: url(../images/check.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gifttextholder{
+    margin-top: 16px;
+}
+
+.buttonholder label{
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.buttonholder label .checker{
+    position: relative;
+    display: inline-block;
+    height: 23px;
+    width: 23px;
+    background-color: white;
+    border: 1px solid #E46D23;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checker:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.buttonholder input:checked ~ .checker:after {
+    display: block;
+}
+
+.buttonholder label .checker:after{
+    top: 3px;
+    left: 3px;
+    height: 18px;
+    width: 18px;
+    background-image: url(../images/check.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #E46D23;
+}
+
+.buttonholder label input{
+    display: block;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+#giftpopup .giftaddtocart{
+    line-height: 45px;
+    margin-bottom: 100px;
+    margin-top: 48px;
+    font-size: 14px;
+    padding: 0 40px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#giftpopup .giftaddtocart.bigpopup{
+    display: none;
+}
+
+#giftpopup .previewoverlay{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+
+#giftpopup .previewoverlay img{
+    width: 95%;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#giftpopup #giftloader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100px;
+    height: 100px;
+    display: none;
+    z-index: 9999;
+}
+
+#giftloader img{
+    height: 100%;
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+
+.giftopen .dropdown.open > .dropdown-heading.cover > span{
+    z-index: 0 !important;
+}
+.giftopen .dropdown.open > .dropdown-heading.cover{
+    box-shadow: none;
+}
+
+.giftopen .dropdown.open > .dropdown-heading.cover > * {
+    background-color: #efefef;
+}
+
+#giftpopup .flexer .previewcard .buttonholder.note-price-button {
+    max-width: 200px;
+}
+
+#giftpopup .flexer .previewcard .buttonholder.note-price-button span.notecard-price-container {
+    display: flex;
+    width: 40%;
+    margin: 0;
+    -webkit-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.8;
+    float: left;
+}
+
+#giftpopup .flexer .previewcard .buttonholder.note-price-button p.notecard-title {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+    color: #404040;
+    margin-bottom: 5px;
+}
+
+#giftpopup .flexer .previewcard .buttonholder.note-price-button span.notecard-price-container .notecard-price {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+#giftpopup .flexer .previewcard .buttonholder.note-price-button span.notecard-price-container .notecard-special-price {
+    color: #e7303a;
+    font-weight: normal;
+    text-decoration: line-through;
+    text-align: end;
+    margin-bottom: 0;
+    margin-left: 6px;
+    padding-left: 6px;
+    display: flex;
+    float: right;
+}
+#giftpopup .flexer .previewcard .buttonholder.note-price-button label.hascard {
+    display: flex;
+    width: 60%;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+}
+#giftpopup .flexer .previewcard .buttonholder.note-price-button label.hascard .hascard-text {
+    text-align: end;
+    line-height: 1.5;
+    font-size: 13px;
+    font-weight: normal;
+    margin-left: 0;
+    margin-right: 4px;
+    position: relative;
+    width: 75%;
+}
+#giftpopup .flexer .previewcard .buttonholder.note-price-button label.hascard input {
+    display: none;
+}
+#giftpopup .flexer .previewcard .buttonholder.note-price-button label.hascard .checker {
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-color: white;
+    position: relative;
+    border: solid 1px #C4C4C4;
+    margin-top: 0;
+}
+#giftpopup .flexer .previewcard .buttonholder.note-price-button label.hascard .checker:after {
+    background-color: #E46D23;
+}
+
+#nowrapping{
+    opacity: 0;
+}
+
+.giftoverlay{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: 1s;
+    height: 100%;
+    z-index: 999999;
+    outline: 200vw solid rgba(0,0,0, 0.6);
+    display: none;
+}
+
+img.magnifier {
+    border-left: unset;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+@media screen and (min-width: 768px){
+    .giftpopupbutton{
+        padding: 0 40px;
+        line-height: 40px;
+        float: left;
+        width: auto;
+        margin: 0;
+        font-size: 14px;
+    }
+    .cart-table tfoot .giftpopupbutton{
+        padding: 0 40px;
+    }
+
+    .cart-table .btn-continue{
+        float: none;
+        margin-right: 20px;
+    }
+
+    .seemore{
+        line-height: 45px !important;
+    }
+
+    #giftpopup{
+        position: absolute;
+        max-width: 500px;
+        height: 90%;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .fading{
+        transform-origin: 0 0;
+        transition: all 0.5s;
+        transform: scale(0);
+        background-color: transparent;
+        outline: none;
+    }
+
+    .pulse{
+        -webkit-animation: shake  0.82s cubic-bezier(.36,.07,.19,.97) both;
+        animation: shake  0.82s cubic-bezier(.36,.07,.19,.97) both;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+
+    @keyframes shake {
+        10%, 90% {
+            -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+        }
+
+        20%, 80% {
+            -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+        }
+
+        30%, 50%, 70% {
+            -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0);
+        }
+
+        40%, 60% {
+            -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+        }
+    }
+}
+
+@media screen and (min-width: 768px){
+    #giftpopup{
+        max-width: none;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    #giftpopup{
+        width: 750px;
+        height: auto;
+        max-width: 1200px;
+        max-height: 99%;
+    }
+
+    #giftpopup .giftheader {
+        padding: 20px;
+    }
+
+    #giftpopup .giftheader h1 {
+        font-size: 24px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 700;
+    }
+
+    #giftpopup .giftheader p {
+        margin-bottom: 0;
+    }
+
+    #giftpopup .giftinner{
+        height: auto;
+        display: block;
+        justify-content: space-between;
+        padding: 0 20px;
+        padding-bottom: 20px;
+        border-bottom: solid 1px #CCCCCC;
+    }
+    #cardsection {
+        background: #ffffff;
+        border: solid 1px #cacaca;
+        width: 98%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    #cardsection, #giftsection{
+        flex-basis: 45%;
+        display: flex;
+        flex-direction: column;
+    }
+    .edit #cardsection,.nogift #cardsection{
+        flex-basis: 100%;
+    }
+
+    #giftpopup .flexer.auto{
+        margin-top: auto;
+        padding-top: 20px;
+    }
+
+    #giftpopup .buttonholder{
+        margin: 0 auto;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #giftpopup .giftseperator{
+        margin: 0;
+    }
+
+    #giftpopup.nogift .giftseperator, #giftpopup.edit .giftseperator{
+        display: none;
+    }
+
+    #giftpopup .giftaddtocart{
+        position: relative;
+        bottom: 25px;
+        margin-bottom: 0;
+    }
+
+    #giftpopup .giftaddtocart.smallpopup{
+        display: none;
+    }
+
+    #giftpopup .giftaddtocart.bigpopup{
+        display: inline-block;
+        text-transform: lowercase;
+    }
+    #giftpopup .giftaddtocart.bigpopup:first-letter {
+        text-transform: uppercase;
+    }
+    #giftpopup .previewoverlay img{
+        max-width: 750px;
+    }
+}
+#giftpopup .giftaddbuttonholder {
+    position: relative;
+    text-transform: uppercase;
+    width: 93%;
+    padding: 0 27px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+#giftpopup .giftaddbuttonholder p.concart {
+    font-size: 16px;
+    text-decoration: underline;
+    font-weight: 500;
+    color: #2B2B2B;
+    line-height: 48px;
+    margin: 10px 0;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+    width: auto;
+    height: auto;
+    right: unset;
+}
+#giftpopup .giftaddbuttonholder .giftaddtocart {
+    display: block;
+    left: 0;
+    bottom: 0;
+    transform: unset;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    background-color: #EA6D50;
+}
+/* support for ipad */
+@media screen and (max-width: 1024px) and (max-height: 768px) {
+    #giftpopup {
+        height: auto;
+    }
+}
+@media screen and (max-width: 767px){
+    #giftpopup.gifts.edit {
+        height: 65%;
+        -webkit-transform: translate(0, 25%);
+        transform: translate(0, 25%);
+    }
+
+    #giftpopup.gifts.edit #cardsection {
+        display: block;
+    }
+
+    #giftpopup.gifts.edit #cardsection.mobile-hide {
+        display: block !important;
+    }
+
+    #giftpopup.gifts.edit #cardsection.mobile-hide .previewcard {
+        border-top: unset;
+    }
+
+    #giftpopup.gifts.edit #cardsection.mobile-hide .previewcard .imageholder img.magnifier {
+        left: 20%;
+        -webkit-transform: translate(90%, 100%);
+        transform: translate(90%, 100%);
+    }
+
+    .giftinner #giftsection {
+        height: 100%;
+        max-height: 100%;
+        display: inline-table;
+    }
+
+    .giftinner #cardsection {
+        height: 100%;
+        max-height: 100%;
+        display: contents;
+        display: none;
+    }
+
+    #giftpopup .giftheader {
+        padding: 20px;
+        max-height: 80px;
+        height: 80px;
+        border-bottom: solid 1px #C4C4C4;
+    }
+
+    #giftpopup .giftheader h1 {
+        font-size: 22px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 700;
+    }
+
+    #giftpopup .giftheader p {
+        margin-bottom: 0;
+        line-height: 1.5;
+    }
+    .giftinner #giftsection .wrapcontainer {
+        height: calc(100vh - 192px);
+        max-height: calc(100vh - 192px);
+        margin-bottom: 0;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap {
+        height: calc(100%/4);
+        display: block;
+        width: 100vw;
+        max-width: 100%;
+        background-color: unset;
+        border: unset;
+        border-bottom: solid 1px #C4C4C4;
+        margin-bottom: 0;
+    }
+    .giftinner #giftsection .wrapcontainer .mobile-show.wrap {
+        border-bottom: unset;
+    }
+    .giftinner #cardsection h1, .giftinner #giftsection h1 {
+        font-size: 24px;
+        padding: 20px 20px 0;
+    }
+    .giftinner #giftsection > p {
+        padding: 0 20px;
+    }
+    #giftpopup .kruisjeholder{
+        display: none;
+    }
+    #giftpopup .giftinner{
+        margin: 0;
+        padding: 0;
+        height: calc(100% - 192px);
+        border-bottom: solid 1px #CCCCCC;
+    }
+    #giftpopup .flexer {
+        display: block;
+    }
+    #giftpopup .flexer .previewcard {
+        height: 34%;
+        display: flex;
+        border-top: solid 1px #C4C4C4;
+        width: 100vw;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap .image-container {
+        flex-basis: 30%;
+        width: 30%;
+        display: inline-flex;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap .image-container img.notecard {
+        padding: 7px 0;
+    }
+    #giftpopup .flexer .previewcard .imageholder {
+        width: 35%;
+        flex-basis: 35%;
+        padding: 0 18px;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap img,
+    #giftpopup .flexer .previewcard .imageholder img.notecard {
+        width: auto;
+        height: 90px;
+        margin: 10px;
+        margin-left: 0;
+    }
+    #giftpopup .flexer .previewcard .imageholder img.notecard {
+        height: 112px;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap img.magnifier,
+    #giftpopup .flexer .previewcard .imageholder img.magnifier {
+        left: 3%;
+        width: 20px;
+        top: 0;
+        height: fit-content;
+        -webkit-transform: translate(-120%, 75px);
+        transform: translate(-120%, 75px);
+    }
+    .giftinner #giftsection .wrapcontainer .wrap .details-container {
+        flex-basis: 65%;
+        width: 65%;
+        display: inline-block;
+        height: calc(100% - 10px);
+        transform: translateY(-55%);
+    }
+    .giftinner #giftsection .wrapcontainer .wrap .form-area {
+        padding: 0 10px;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap .form-area p.charcount {
+        font-weight: normal;
+        color: #A8A8A8;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button {
+        flex-basis: 76%;
+        width: 76%;
+        display: inline-block;
+        margin: 12px 0;
+    }
+    #giftpopup .wrap p.product-title,
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button p.notecard-title {
+        width: 100%;
+        display: block;
+        padding-left: 6px;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button p.notecard-title {
+        transform: unset;
+        margin: 10px 0 0 0;
+        padding-left: 0;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button span.notecard-price-container,
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button label.hascard {
+        top: 50%;
+        line-height: 1.6;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button label.hascard {
+        top: 48%;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button span.notecard-price-container .notecard-price {
+        margin-bottom: 0;
+    }
+    #giftpopup .wrap .product-price-container {
+        line-height: 1.2;
+    }
+    #giftpopup .wrap .product-price-container p.product-price {
+        padding-left: 6px;
+        padding-right: 0;
+    }
+    #giftpopup .wrap .product-price-container p.product-special-price {
+        padding-left: 6px;
+    }
+    #giftpopup .flexer .form-area {
+        padding: 0 20px;
+    }
+    #giftpopup #cardtext {
+        font-size: 12px;
+        background-color: #FFFFFF;
+        width: 100%;
+        height: 132px;
+        margin-top: 0;
+    }
+    #giftpopup .charcount {
+        color: #A8A8A8;
+        font-size: 14px;
+        margin: 0;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    #giftpopup .giftaddbuttonholder {
+        width: 100%;
+        height: 72px;
+        position: absolute;
+        bottom: 0;
+        background-color: #EFEFEF;
+        border-top: solid 1px #C4C4C4;
+    }
+    #giftpopup .giftaddbuttonholder p.concart {
+        font-size: 14px;
+        margin: 12px 0;
+    }
+    #giftpopup .giftaddbuttonholder .giftaddtocart {
+        font-size: 14px;
+        margin: 12px 0;
+    }
+}
+@media screen and (max-width: 414px){
+    .giftinner #giftsection .wrapcontainer .wrap img {
+        margin: 0;
+        height: 102px;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap .details-container {
+        -webkit-transform: translateY(-40%);
+        transform: translateY(-40%);
+    }
+    #giftpopup .wrap .product-price-container {
+        top: 35%;
+    }
+    #giftpopup .wrap .giftlabel,
+    #giftpopup .wrap .notecardlabel {
+        -webkit-transform: translate(80%, 0%);
+        transform: translate(80%, 0%);
+        top: 30%;
+    }
+    #giftpopup .flexer .previewcard .imageholder {
+        width: 26%;
+        flex-basis: 26%;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button {
+        flex-basis: 60%;
+        width: 60%;
+        max-width: unset;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button p.notecard-title {
+        margin-top: 5px;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button span.notecard-price-container {
+        top: 50%;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button label.hascard {
+        top: 48%;
+    }
+    #giftpopup .giftaddbuttonholder {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 375px){
+    .giftinner #giftsection .wrapcontainer .wrap .image-container {
+        flex-basis: 35%;
+        width: 35%;
+        height: 100%;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap img {
+        height: 95%;
+        margin: 0;
+        padding: 3px 0;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap .details-container {
+        flex-basis: 60%;
+        width: 60%;
+        -webkit-transform: translateY(-55%);
+        transform: translateY(-55%);
+    }
+    #giftpopup .wrap .product-price-container {
+        -webkit-transform: translate(0%, 0%);
+        transform: translate(0%, 0%);
+        top: 60%;
+    }
+    #giftpopup .wrap .giftlabel,
+    #giftpopup .wrap .notecardlabel {
+        -webkit-transform: translate(80%, 0%);
+        transform: translate(80%, 0%);
+        top: 40%;
+    }
+    #giftpopup .flexer .previewcard .imageholder {
+        padding: 0;
+        padding-right: 0;
+        width: 40%;
+        flex-basis: 40%;
+        margin: 5px 0;
+    }
+    #giftpopup .flexer .previewcard .imageholder img.notecard {
+        height: 125px;
+        margin: 0px;
+        margin-left: 10px;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button {
+        margin-top: 5px;
+        flex-basis: 55%;
+        width: 55%;
+        max-width: unset;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button label.hascard {
+        right: 0;
+    }
+    #giftpopup .giftaddbuttonholder {
+        width: 89%;
+    }
+}
+@media screen and (max-width: 375px) and (max-height: 667px){
+    #giftpopup.gifts.edit {
+        height: 80%;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap .details-container {
+        -webkit-transform: translateY(-40%);
+        transform: translateY(-40%);
+    }
+    #giftpopup .wrap .product-price-container {
+        top: 45%;
+    }
+    #giftpopup .wrap .giftlabel,
+    #giftpopup .wrap .notecardlabel {
+        top: 20%;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap img.magnifier {
+        -webkit-transform: translate(-120%, 55px);
+        transform: translate(-120%, 55px);
+    }
+}
+@media screen and (max-width: 320px){
+    #giftpopup.gifts.edit {
+        height: 90%;
+        -webkit-transform: translate(0px, 5%);
+        transform: translate(0px, 5%);
+    }
+    #giftpopup .wrap .giftlabel,
+    #giftpopup .wrap .notecardlabel {
+        -webkit-transform: translate(80%, -35%);
+        transform: translate(80%, -35%);
+        top: 13%;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap {
+        height: calc(100%/3);
+    }
+    .giftinner #giftsection .wrapcontainer .wrap .details-container {
+        -webkit-transform: translateY(-25%);
+        transform: translateY(-25%);
+        height: 90%;
+    }
+    .giftinner #giftsection .wrapcontainer .wrap .image-container,
+    .giftinner #giftsection .wrapcontainer .wrap .image-container img:not(.magnifier) {
+        height: 90px
+    }
+    .giftinner #giftsection .wrapcontainer .wrap img.magnifier {
+        -webkit-transform: translate(-120%, 55px);
+        transform: translate(-120%, 55px);
+    }
+    #giftpopup .wrap p.product-title {
+        margin-bottom: 20px;
+    }
+    #giftpopup .wrap .product-price-container {
+        top: 30%;
+    }
+    #giftpopup #cardsection .flexer .form-area {
+        margin-top: 10px;
+    }
+    .giftinner #cardsection {
+        height: 40%;
+        max-height: 40%;
+    }
+    #giftpopup .flexer .previewcard .imageholder {
+        padding-right: 0;
+    }
+    #giftpopup .flexer .previewcard .imageholder img.notecard {
+        height: 90px;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button {
+        flex-basis: 55%;
+        width: 55%;
+        margin-top: 10px;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button span.notecard-price-container {
+        top: 40%;
+    }
+    #giftpopup .flexer .previewcard .buttonholder.note-price-button label.hascard {
+        top: 38%;
+    }
+    #giftpopup .giftaddbuttonholder {
+        width: 95%;
+        padding-left: 6px;
+    }
+    #giftpopup .giftaddbuttonholder .giftaddtocart {
+        padding: 0 10px;
+    }
+}

@@ -1,0 +1,102 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+?>
+<?php
+$_product = $this->getProduct();
+$theme = $this->helper('Infortis\Base\Helper\Data');
+$images = $block->getGalleryImages()->getItems();
+$mainImage = current(array_filter($images, function ($img) use ($block) {
+    return $block->isMainImage($img);
+}));
+
+if (!empty($images) && empty($mainImage)) {
+    $mainImage = $block->getGalleryImages()->getFirstItem();
+}
+
+$helper = $block->getData('imageHelper');
+$mainImageData = $mainImage->getUrl();
+?>
+
+<div class="img-box img-box-style1">
+    <div id="product-main-image-wrap" class="product-image zoom-inside" style="max-width: 363px;">
+        <a href="<?= /* @noEscape */ $mainImageData ?>" class="cloud-zoom product-image-gallery" id="zoom-image" data-cloudzoom="position: 'zoom-image', zoomPosition: 'inside', autoInside: true, showTitle:false" rel="position: 'zoom-image', zoomPosition: 'inside', autoInside: true, showTitle:false, lensOpacity:0.5, smoothMove:3, zoomWidth:427,zoomHeight:275,adjustX:0,adjustY:0">
+            <img id="image-main" class="gallery-image visible" src="<?= /* @noEscape */ $mainImageData ?>" alt="gocustomized" title="gocustomized" itemprop="image" />
+        </a>
+
+        <div id="canvas"></div>
+        <div class="widgetcolors mobile-show"></div>
+    </div>
+
+    <div class="more-images slider-arrows3 itemslider-thumbnails count-<?php echo count($images); ?>">
+        <div id="itemslider-zoom" class="thumbnails slides owl-carousel owl-theme">
+            <?php foreach($images as $image) {?>
+                <div class="item">
+                    <a href="<?= /* @noEscape */ $image->getUrl() ?>" class="" title="gocustomized" rel="useZoom:'zoom-image', smallImage: '<?= /* @noEscape */ $image->getUrl() ?>'">
+                        <img src="<?= $image->getUrl() ?>" alt="gocustomized"/>
+                    </a>
+                </div>
+            <?php }?>
+            <div class="item" style="display: none"></div>
+        </div>
+    </div> <!-- end: more-images -->
+</div> <!-- end: img-box -->
+
+<script type="text/javascript">
+    requirejs(['jquery'], function(jQuery) {
+        jQuery(function($) {
+            let $cz = $('.cloud-zoom');
+            let czInstance = $cz.data('zoom');
+            let owl = $('#itemslider-zoom');
+
+            owl.owlCarousel({
+                lazyLoad: true,
+                items: 2,
+                itemsCustom: [0,2],
+                itemsMobile: [450,4],
+                responsiveRefreshRate: 50,
+                slideSpeed: 200,
+                autoPlay: 5000,
+                rewindNav: true,
+                pagination: false,
+                stopOnHover: true,
+                rewindSpeed: 600,
+                mouseDrag: false,
+                center: true,
+                navigation: true,
+                navigationText: false
+            });
+
+            $('#itemslider-zoom .item').click(function(event) {
+                event.stopPropagation();
+                event.preventDefault();
+
+                let imageUrl = $(this).find('a').attr('href');
+                $('#image-main').attr('src', imageUrl);
+                czInstance.destroy();
+
+                //Add new image's URL to the CloudZoom element's href attribute
+                $cz.attr('href', imageUrl);
+
+                //Remove mousetrap
+                let $mt = $('.mousetrap');
+                $mt.unbind();
+                $mt.remove();
+                $mt = null;
+
+                //Reinitialize CloudZoom
+                $cz.CloudZoom();
+            });
+        });
+    });
+</script>

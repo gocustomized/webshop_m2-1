@@ -1,0 +1,6 @@
+<?php
+$design = null;
+$item = $block->getItem();
+$exp_id = (!empty($item->getData('export_id')) ? $item->getData('export_id') : $item->getId());
+?>
+<span><?php echo $exp_id ?></span>

@@ -1,0 +1,146 @@
+/**
+ * 
+ * 
+ * Cart page Tab CSS
+ */
+ & when (@media-common = true) {
+    
+    //shopping cart
+    .cart-container {
+        background: #fbfbfb;
+        border: 1px solid #ededed;
+        padding: 20px;
+    }
+    #shopping-cart-table thead {
+        text-transform: uppercase;
+    }
+    .cart.table-wrapper .items thead+.item {
+        border: 0;
+        background: #ffffff;
+    }
+    .cart.table-wrapper thead .col {
+        padding-bottom: 20px;
+    }
+    .cart button, .cart.table-wrapper .actions-toolbar > .action, .cart .action-gift, .cart .action {
+        background: none !important;
+        border-bottom: 2px solid #a3b1c6 !important;
+        border: none;
+        padding: 0px !important;
+        min-height: 28px;
+        color: #a3b1c6 !important;
+        line-height: inherit !important;
+        height: 10px !important;
+        margin: 0 20px;
+        font-size: 16px !important;
+        text-transform: uppercase;
+        &:hover {
+            background: none;
+            color: #a3b1c6 !important;
+        }
+        &:active {
+            box-shadow: unset;
+        }
+    }
+    .cart-container .form-cart .action.continue:before, .cart.main  .action.update:before, .cart-container a.action.action-delete:before {
+        display: none !important;
+    }
+    .message {
+        &.success,
+        &.error,
+        &.warning {
+            font-size: 16px;
+            padding: 10px 20px 10px 35px;
+        }
+    }
+    .message.success {
+        background: #a3b1c6;
+        color: #ffffff;
+    }
+    .message.success > *:first-child:before {
+        font-size: 38px;
+        line-height: 30px;
+        color: #ffffff;
+    }
+    .cart a.action-delete:before {
+        color: #a3b1c6;
+        font-family: ThemeIcons;
+        content: "\e20f";
+    }
+    .primary.checkout {
+        background-color: #1f9f3a !important;
+    }
+    .summary.title {
+        text-transform: uppercase;
+        margin-top: 9px;
+    }
+    .cart .page-title-wrapper {
+        border: 0;
+        margin: 18px 0;
+    }   
+    .cart-summary {
+        background-color: #ffffff !important;
+        display: none;
+    }
+    .cart.main.actions {
+        background: none;
+    }
+    .cart.table-wrapper .item-actions td {
+        padding-bottom: 30px;
+    }
+    .minicart-items-wrapper.overflowed {
+        height: auto !important;
+        max-height: 320px;
+    }
+    .minicart-items-wrapper {
+        height: auto !important;
+        max-height: 320px;
+    }
+    a.action.viewcart {
+        color: #a3b1c6 !important;
+    }
+    .minicart-items .action.edit:before, .minicart-items .action.delete:before {
+        color: #a3b1c6 !important;
+    }
+    .dropdown-heading.action .counter.qty, .skip-link .counter {
+        position: absolute;
+        background: #3c3a40 !important;
+        color: #fff;
+        left: 18px;
+        top: 4px;
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+        border-radius: 100%;
+    }
+    .opc-progress-bar-item._active:before, .opc-progress-bar-item._active > span:before, .opc-wrapper .shipping-address-item.selected-item:after, .filter-title strong[data-count]:after, .main-color--bg {
+        background-color: #1f9f3a !important;
+    }
+    .opc-wrapper .shipping-address-item.selected-item, .main-color--border {
+        border-color: #1f9f3a !important;
+    }
+    .opc-progress-bar-item > span:after {
+
+        line-height: 25px;
+    }
+    .step-title {
+        text-transform: uppercase;
+    }
+    button.action.action-login.secondary, button.button.action.continue.primary {
+        background-color: #1f9f3a;
+        color: #fff;
+    }
+    .control .input-text, .control .select {
+        height: 40px !important;
+    }
+ } // end: media-common
+ //
+//  Desktop
+//  _____________________________________________
+
+@media (max-width: 992px) {
+    .cart-container .cart-summary, .cart-container .form.form-cart {
+        float: none;
+        width: 100%;
+    }
+}
+

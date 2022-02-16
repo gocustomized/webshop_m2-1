@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<!--
+/**
+ * CustomConcepts_GoCustomizer extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_GoCustomizer
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd" >
+    <type name='Magento\Quote\Model\Quote\Item'>
+        <plugin name='beforeDispatch' type='CustomConcepts\GoCustomizer\Plugin\Model\Quote\ItemPlugin' sortOrder='999'/>
+    </type>
+    <type name='Magento\Quote\Model\Quote\Item\ToOrderItem'>
+        <plugin name='AddOrderItemPlugin' type='CustomConcepts\GoCustomizer\Plugin\Model\Quote\Item\ToOrderItem' sortOrder='99' disabled="true"/>
+    </type>
+    <type name='Magento\Checkout\Model\Cart'>
+        <plugin name='getOrderItemDataForReorder' type='CustomConcepts\GoCustomizer\Plugin\Model\Cart' sortOrder='99'/>
+    </type>
+    <type name='Magento\Sales\Controller\Adminhtml\Order\Invoice\Save'>
+        <plugin name='InvoiceSavePlugin' type='CustomConcepts\GoCustomizer\Plugin\Controller\Adminhtml\Order\Invoice\SavePlugin' sortOrder='99' disabled="true"/>
+    </type>
+    <type name='Magento\Quote\Model\Quote\Item\Compare'>
+        <plugin name='QuoteAfterComparePlugin' type='CustomConcepts\GoCustomizer\Plugin\Quote\Model\Quote\Item\AfterCompare' sortOrder='100' disabled="false"/>
+    </type>
+    <!--<preference for="Magento\Checkout\Block\Cart\Item\Renderer" type="CustomConcepts\GoCustomizer\Block\Cart\Item\Renderer" />-->
+</config>
+

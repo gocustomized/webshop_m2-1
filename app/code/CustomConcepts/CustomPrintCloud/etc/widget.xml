@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="CustomConcepts\CustomPrintCloud\Block\Widget\CategoryPage" id="cpc_category_page">
+        <label>CPC Category</label>
+        <description>Cloud category</description>
+        <parameters>
+            <parameter name="brand" sort_order="10" visible="true" xsi:type="text">
+                <label>Brand selection</label>
+            </parameter>
+            <parameter name="device" sort_order="10" visible="true" xsi:type="text">
+                <label>Device selection</label>
+            </parameter>
+            <parameter name="design" sort_order="10" visible="true" xsi:type="text">
+                <label>Design selection</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

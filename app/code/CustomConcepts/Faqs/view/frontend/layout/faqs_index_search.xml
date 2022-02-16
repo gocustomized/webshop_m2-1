@@ -1,0 +1,30 @@
+<page layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.top">
+            <block class="CustomConcepts\Faqs\Block\Faq"
+                   name="search-block"
+                   before="-"
+                   template="CustomConcepts_Faqs::search-block.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="main">
+            <block class="CustomConcepts\Faqs\Block\Faq\Search"
+                   name="search-result"
+                   template="CustomConcepts_Faqs::search-result.phtml"/>
+            <block class="CustomConcepts\Faqs\Block\Faq\Topics"
+                   name="topics-block"
+                   template="CustomConcepts_Faqs::topics.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="sidebar.main">
+            <block class="CustomConcepts\Faqs\Block\Faq\Topics"
+                   name="side-topics-block"
+                   template="CustomConcepts_Faqs::block.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="side.topics.mobile">
+            <block class="CustomConcepts\Faqs\Block\Faq\Topics"
+                   name="side-topics-block-mobile"
+                   template="CustomConcepts_Faqs::block.phtml"/>
+        </referenceContainer>
+
+        <move element="side-topics-block-mobile" destination="main" before="faqs-view"/>
+    </body>
+</page>

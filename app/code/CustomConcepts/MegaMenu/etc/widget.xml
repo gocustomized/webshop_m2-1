@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2016 Codazon. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget id="codazon_category_tree_mpc" class="CustomConcepts\MegaMenu\Block\Widget\CategorieslistMpc" is_email_compatible="true"  placeholder_image="Codazon_MegaMenu::images/categoriestree_widget.png" ttl="86400">
+		<label translate="true">Codazon Category Tree MPC</label>
+		<description translate="true"></description>
+		<parameters>
+			<parameter name="parent_id" xsi:type="block" visible="true" required="true" sort_order="10">
+                <label translate="true">Category</label>
+                <block class="Magento\Catalog\Block\Adminhtml\Category\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Category...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+			<parameter name="item_count" xsi:type="text" visible="true" sort_order="20">
+                <label translate="true">Category children limit of first sublevel</label>
+				<description translate="true">Leave empty to show all</description>
+			</parameter>
+            <parameter name="include_products" xsi:type="select" visible="true" sort_order="30">
+                <label translate="true">Include Products</label>
+                <description translate="true">Include Products on category retrieval</description>
+                <options>
+                    <option name="true" value="1" selected="true">
+                        <label>True</label>
+                    </option>
+                    <option name="false" value="0">
+                        <label>False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="include_product_image" xsi:type="select" visible="true" sort_order="40">
+                <label translate="true">Include product image</label>
+                <description translate="true">Dependent on Include Products parameter. set false to exclude product image.</description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label>True</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label>False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="max_level" xsi:type="text" visible="true" sort_order="50">
+                <label translate="true">Max Level</label>
+                <description translate="true">Max level of category nesting.</description>
+            </parameter>
+            <parameter name="category_filter" xsi:type="text" visible="true" sort_order="60">
+                <label translate="true">Category Filter</label>
+                <description translate="true">Comma separatec id of specific categories to be retrieved from parent.</description>
+            </parameter>
+		</parameters>
+	</widget>
+</widgets>

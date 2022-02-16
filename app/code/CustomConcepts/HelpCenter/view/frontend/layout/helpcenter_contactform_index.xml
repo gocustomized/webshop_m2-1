@@ -1,0 +1,27 @@
+<page layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.top">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="contact-banner"
+                   before="-"
+                   template="CustomConcepts_HelpCenter::contact-banner.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="main">
+            <block class="CustomConcepts\HelpCenter\Block\ContactForm"
+                   name="contact-form"
+                   before="-"
+                   template="CustomConcepts_HelpCenter::contact-form.phtml"
+                   cacheable="false"/>
+            <block class="CustomConcepts\HelpCenter\Block\ContactForm"
+                   name="login-popup"
+                   before="-"
+                   template="CustomConcepts_HelpCenter::login.phtml"
+                   cacheable="false"/>
+        </referenceContainer>
+        <referenceContainer name="sidebar.main">
+            <block class="CustomConcepts\Faqs\Block\Faq\Topics"
+                   name="side-topics-block"
+                   template="CustomConcepts_Faqs::block.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

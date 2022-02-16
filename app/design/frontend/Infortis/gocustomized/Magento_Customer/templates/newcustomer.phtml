@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Form\Login\Info $block */
+?>
+<?php if ($block->getRegistration()->isAllowed()) : ?>
+<div class="new-users grid12-6 block-gray">
+    <div class="content">
+        <h2><?= $block->escapeHtml(__('New Customers')) ?></h2>
+        <p><?= $block->escapeHtml(__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.')) ?></p>
+    </div>
+    <div class="buttons-set right-text">
+        <button type="button" title="<?= $block->escapeHtml(__('Create an Account')) ?>" class="button" onclick="window.location='<?= $block->escapeUrl($block->getCreateAccountUrl()) ?>';"><span><span><?= $block->escapeHtml(__('Create an Account')) ?></span></span></button>
+    </div>
+</div>
+<?php endif; ?>

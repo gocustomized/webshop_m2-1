@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="264px" height="48px" viewBox="0 0 264 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>BTN_ gift</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Note-card-button" transform="translate(-28.000000, -702.000000)">
+            <g id="BTN_-gift" transform="translate(28.000000, 702.000000)">
+                <rect id="Rectangle-4" fill="#CF112B" x="0" y="0" width="264" height="48"></rect>
+                <path d="M21,37.5 C19.0668085,37.5 17.5,39.0671064 17.5,41 C17.5,39.0671064 15.9331915,37.5 14,37.5 C15.9331915,37.5 17.5,35.9328936 17.5,34 C17.5,35.9328936 19.0668085,37.5 21,37.5" id="Fill-1-Copy-6" fill="#FFFFFF"></path>
+                <path d="M110,38.5 C108.066809,38.5 106.5,40.0671064 106.5,42 C106.5,40.0671064 104.933191,38.5 103,38.5 C104.933191,38.5 106.5,36.9328936 106.5,35 C106.5,36.9328936 108.066809,38.5 110,38.5" id="Fill-1-Copy-11" fill="#FFFFFF" opacity="0.402120536"></path>
+                <path d="M57,10.5 C55.0668085,10.5 53.5,12.0671064 53.5,14 C53.5,12.0671064 51.9331915,10.5 50,10.5 C51.9331915,10.5 53.5,8.93289362 53.5,7 C53.5,8.93289362 55.0668085,10.5 57,10.5" id="Fill-1-Copy-9" fill="#FFFFFF"></path>
+                <path d="M252,12.5 C249.514468,12.5 247.5,14.5148511 247.5,17 C247.5,14.5148511 245.485532,12.5 243,12.5 C245.485532,12.5 247.5,10.4851489 247.5,8 C247.5,10.4851489 249.514468,12.5 252,12.5" id="Fill-1-Copy-7" fill="#FFFFFF"></path>
+                <path d="M222,29.5 C220.066809,29.5 218.5,31.0671064 218.5,33 C218.5,31.0671064 216.933191,29.5 215,29.5 C216.933191,29.5 218.5,27.9328936 218.5,26 C218.5,27.9328936 220.066809,29.5 222,29.5" id="Fill-1-Copy-6" fill="#FFFFFF" opacity="0.651785714"></path>
+                <circle id="Oval" fill="#FFFFFF" cx="13" cy="11" r="1"></circle>
+                <circle id="Oval-Copy" fill="#FFFFFF" cx="132" cy="7" r="1"></circle>
+                <circle id="Oval-Copy-7" fill="#FFFFFF" opacity="0.658203125" cx="36" cy="30" r="1"></circle>
+                <circle id="Oval-Copy-3" fill="#FFFFFF" cx="176" cy="36" r="1"></circle>
+                <circle id="Oval-Copy-2" fill="#FFFFFF" opacity="0.438560268" cx="229" cy="41" r="1"></circle>
+                <g id="txt" transform="translate(69.000000, 13.000000)"></g>
+            </g>
+        </g>
+    </g>
+</svg>

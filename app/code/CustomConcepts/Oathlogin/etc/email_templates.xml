@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--/**
+* CustomConcepts_Oathlogin extension
+* @category  CustomConcepts_Extensions
+* @package   CustomConcepts_Oathlogin
+* @copyright Copyright (c) 2017
+* @author GoCustomized <info@gocustomized.com>
+*/-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="oathlogin_general_templateId" label="Default Create Account Template " file="createaccount.html" type="html" module="CustomConcepts_Oathlogin" area="adminhtml"/>
+</config>

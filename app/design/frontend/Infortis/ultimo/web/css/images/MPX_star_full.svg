@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Shape Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-79.000000, -168.000000)" fill="#FBC23A" fill-rule="nonzero">
+            <g id="Review" transform="translate(79.000000, 168.000000)">
+                <path d="M11.385411,4.01933132 C11.9730735,4.10838281 12.2085871,4.86532045 11.7824196,5.29886058 L9.41158273,7.71262458 L9.9723294,11.1223591 C10.0732638,11.7386892 9.45195649,12.1980074 8.93158358,11.9121052 L6,10.3021481 L3.06841642,11.9121052 C2.54804351,12.2003508 1.9267362,11.7386892 2.0276706,11.1223591 L2.58841727,7.71262458 L0.217580359,5.29886058 C-0.208587109,4.86532045 0.0269264914,4.10838281 0.614589,4.01933132 L3.89159253,3.5201743 L5.35626283,0.417433009 C5.62093525,-0.142653976 6.38130773,-0.135623596 6.64373717,0.417433009 L8.10840747,3.5201743 L11.385411,4.01933132 Z" id="Shape-Copy"></path>
+            </g>
+        </g>
+    </g>
+</svg>

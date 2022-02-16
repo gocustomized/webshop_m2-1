@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--/**
+ * CustomConcepts_Giftsection extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Giftsection
+ * @copyright Copyright (c) 2020
+ * @author GoCustomized <info@gocustomized.com>
+ */-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="faqs" frontName="faqs">
+            <module name="CustomConcepts_Faqs" />
+        </route>
+    </router>
+</config>

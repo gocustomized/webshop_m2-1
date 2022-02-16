@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:hellomagento:Magento_Widget:etc/widget.xsd">
+    <widget class="CustomConcepts\Kiyoh\Block\Widget\KiyohRichSnippets" id="kiyoh_richsnippets">
+        <label>KiyOh Richsnippets</label>
+        <description>Reviews</description>
+    </widget>
+</widgets>

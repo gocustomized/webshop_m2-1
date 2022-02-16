@@ -1,0 +1,96 @@
+<?php
+/**
+ * CustomConcepts Infotech
+ * CustomConcepts Instagram Extension
+ * 
+ * @category   CustomConcepts
+ * @package    CustomConcepts_Instagram
+ * @copyright  Copyright © 2006-2016 CustomConcepts
+ *  
+ */
+$helper = $this->helper('\CustomConcepts\Instagram\Helper\Data');
+$enableinsta = $helper->getConfig('instagramsection/instagramgroup/active');
+$userId = $helper->getConfig('instagramsection/instagramgroup/userid');
+$accessToken = $helper->getConfig('instagramsection/instagramgroup/accesstoken');
+$imageResolution = $helper->getConfig('instagramsection/instagramgroup/selectimageresolution');
+$imageNumber = $this->getData('numberimage');
+
+$enablefacebook = $helper->getConfig('instagramsection/facebookgroup/active');
+$facebookblocktitle = $helper->getConfig('instagramsection/facebookgroup/facebooktitle');
+$facebookaccount = $helper->getConfig('instagramsection/facebookgroup/facebookaccount');
+$facebookaccesstoken = $helper->getConfig('instagramsection/facebookgroup/facebookaccesstoken');
+$facebookalubmid = $helper->getConfig('instagramsection/facebookgroup/facebookalubmid');
+?>
+<?php if ($enableinsta || $enablefacebook): ?> 
+    <div class="container padding-tb-50">
+        <?php
+        if ($enableinsta):
+            ?>
+            <div class="grid12-6">
+                <div class="section-title"><?php echo $this->getData('title'); ?></div>
+                <div id="instafeed" class="margin-tb-30 instangram-feed">
+                    <?php
+                    $url = 'https://api.instagram.com/v1/users/' . $userId . '/media/recent/?access_token=' . $accessToken;
+                    $args = stream_context_create(array('http' => array('timeout' => 2500,)));
+                    //for Live server
+                    $instagramFeedsData = file_get_contents($url, false, $args);
+                    $instagramFeeds = json_decode($instagramFeedsData);
+                    $instangramData = $instagramFeeds->data;
+
+                    $count = 1;
+                    foreach ($instangramData as $instagramFeed):
+                        if ($imageNumber < $count):
+                            break;
+                        endif;
+                        $instagramImage = $instagramFeed->images->$imageResolution->url;
+                        $count++;
+                        $caption_text = 'Instagram';
+                        if (is_object($instagramFeed->caption)):
+                            $caption_text = $instagramFeed->caption->text;
+                        endif;
+                        ?>
+                        <div class="img-half">
+                            <a href ="<?php echo $instagramFeed->link; ?>" target="_blank">
+                                <img src="<?php echo $instagramImage; ?>" title="<?php echo $caption_text; ?>" alt="<?php echo $caption_text; ?>"/>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php if ($enablefacebook): ?>
+            <div class="grid12-6">
+                <div class="section-title"><?php echo $facebookblocktitle; ?></div>
+                <?php
+                $access_token = $facebookaccesstoken;
+                $userId = $facebookaccount;
+                $albumId = $facebookalubmid;
+                ?>
+                <div class="fb-album-container margin-tb-30" data-album="<?php echo $albumId; ?>">
+                <?php
+                // Get photos of Facebook page album using Facebook Graph API
+                $graphPhoLink = "https://graph.facebook.com/v2.9/{$facebookalubmid}/photos?fields=source,images,link&limit=2&access_token={$facebookaccesstoken}";
+                $jsonData = file_get_contents($graphPhoLink);
+                $fbPhotoObj = json_decode($jsonData, true, 512, JSON_BIGINT_AS_STRING);
+
+                // Facebook photos content
+                
+                $fbPhotoData = $fbPhotoObj['data'];
+                
+                // Render all photos
+                foreach ($fbPhotoData as $data) {
+                    $imageData = end($data['images']);
+                    $imgSource = isset($imageData['source']) ? $imageData['source'] : '';
+                    $MainimgSource = isset($data['source']) ? $data['source'] : '';
+                    echo "<div class='img-half'>";
+                    echo '<a href ="'.$MainimgSource.'" >';
+                    echo "<img src='{$imgSource}' alt=''>";
+                    echo "</a>";
+                    echo "</div>";
+                }
+                ?>
+                    </div>
+            </div>
+    <?php endif; ?>
+    </div>
+<?php endif; ?>

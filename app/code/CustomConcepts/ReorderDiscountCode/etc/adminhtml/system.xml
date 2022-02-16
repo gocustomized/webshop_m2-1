@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--/**
+* CustomConcepts_ReorderDiscountCode extension
+* @category  CustomConcepts_Extensions
+* @package   CustomConcepts_ReorderDiscountCode
+* @copyright Copyright (c) 2017
+* @author GoCustomized <info@gocustomized.com>
+*/-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="reorderdiscountcode" translate="label" sortOrder="130"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>gocustomized</tab>
+            <resource>CustomConcepts_ReorderDiscountCode::config_CustomConcepts_reorderdiscountcode</resource>
+            <label>Reorder Discount code Email</label>
+            <group id="reorderdis_email" type="text" sortOrder="122" showInDefault="1" showInWebsite="1" showInStore="1" translate="label">
+                <label>Email Options</label>
+                
+                <field id="discountCoupanPrefix" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Discount Coupan Prefix</label>
+                </field>               
+                <field id="reorderdis_sender_email_identity" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="email_template" translate="label comment" type="multiselect" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>E-Mail Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="max_coupan" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Max Coupon No. </label>
+                    <comment>Maximum number of coupon can be sent to 1 customer </comment>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="usesPerCoupan" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Uses Per Coupon</label>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="usesPerCustomer" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Uses per customer </label>
+                    <validate>validate-number</validate>
+                </field>
+                
+                <field id="customerGroup" translate="label comment" type="multiselect" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Group</label>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                </field>
+                
+                <field id="simpleAction" translate="label comment" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Action</label>
+                    <source_model>CustomConcepts\ReorderDiscountCode\Model\Config\Source\SimpleAction</source_model>
+                    <comment>Apply rule on above condition</comment>
+                </field>             
+                                
+            </group>
+        </section>
+    </system>
+</config>

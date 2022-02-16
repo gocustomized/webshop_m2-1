@@ -1,0 +1,226 @@
+& when (@media-common = true) {
+    #search_autocomplete {
+        width: 100% !important; // Override legacy css and js
+        border-radius: 5px;
+        border: 1px solid @chinese-silver;
+        box-shadow: 0 10px 10px @davys-gray;
+        top: 40px;
+
+        &:before {
+            border-color: transparent transparent @chinese-silver transparent;
+            content: "";
+            position: absolute;
+            border-style: solid;
+            border-width: 5px;
+            height: 0;
+            width: 0;
+            top: -11px;
+            left: 30px;
+        }
+        
+        .amsearch-results {
+            .amsearch-leftside {
+                display: none;
+            }
+
+            .amsearch-products {
+                padding: 0;
+                display: block;
+                text-align: left;
+                width: 100%;
+
+                p.amasty-xsearch-block-header {
+                    display: none;
+                }
+
+                .amsearch-wrapper-content {
+                    padding: 4px;
+                    margin-bottom: 0;
+                    box-shadow: 0 3px 10px #00000026;
+
+                    .amsearch-item.product-item {
+                        width: 100%;
+                        min-height: 58px;
+                        padding: 5px;
+                        display: block;
+                        margin-bottom: 5px;
+                        border: 1px solid @platinum;
+
+                        &:hover {
+                            background: @honeydew;
+                        }
+
+                        .amsearch-autocomplete-image {
+                            float: left;
+                            margin: 0px 10px 5px 0px;
+                            width: 55px;
+
+                            .product-image-wrapper {
+                                min-height: unset;
+                            }
+
+                            img {
+                                border: none;
+                            }
+                        }
+
+                        .amsearch-autocomplete-information {
+                            width: 85%;
+                            min-height: 58px;
+                            float: left;
+                            text-align: left;
+                            margin-left: 4px;
+                            margin-top: 4px;
+
+                            .information-container {
+                                .product.details.product-item-details {
+                                    display: contents;
+
+                                    a.product-item-link {
+                                        width: 100%;
+                                        font-weight: 400;
+                                        color: @dark-charcoal;
+                                        text-decoration: none;
+                                        cursor: pointer;
+                                        display: inline-block;
+                                        line-height: 1.2;
+                                        text-align: left;
+
+                                        &:hover,
+                                        &:hover span {
+                                            color: @ripe-mango;
+                                        }
+
+                                        .amsearch-highlight {
+                                            background-color: transparent;
+                                            color: @dark-charcoal;
+                                            font-weight: 700;
+                                        }
+                                    }
+
+                                    div.product-reviews-summary {
+                                        display: none;
+                                    }
+
+                                    .amsearch-wrapper-inner {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .amsearch-more-results {
+                    text-align: right;
+                    padding: 10px;
+
+                    a.amsearch-link {
+                        color: @dark-charcoal !important;
+                        border-bottom: none;
+
+                        &:hover,
+                        &:hover span {
+                            color: @ripe-mango;
+                        }
+
+                        &:after {
+                            content: '→';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .search-autocomplete {
+        &.-bottom-position {
+            max-width: 500px;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .page-wrapper {
+        .header-container {
+            .header-container2 {
+                .header-container3 {
+                    #header-search {
+                        .block-search.search-wrapper {
+                            .block-content {
+                                #search_autocomplete {
+                                    margin: 0;
+
+                                    .amsearch-results {
+                                        padding-top: 0;
+
+                                        .amsearch-leftside {
+                                            display: block;
+
+                                            .amsearch-products {
+                                                .amsearch-wrapper-content {
+                                                    .amsearch-item.product-item {
+                                                        .amsearch-autocomplete-image {
+                                                            width: 42px;
+                                                        }
+
+                                                        .amsearch-autocomplete-information {
+                                                            width: 80%;
+                                                            padding-left: 5px;
+                                                        }
+                                                    }
+                                                }
+
+                                                .amsearch-more-results {
+                                                    margin-top: 0px;
+                                                }
+                                            }
+
+                                            .amsearch-item-container {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xxs) {
+    .page-wrapper {
+        .header-container {
+            .header-container2 {
+                .header-container3 {
+                    #header-search {
+                        .block-search.search-wrapper {
+                            .block-content {
+                                #search_autocomplete {
+                                    .amsearch-results {
+                                        .amsearch-leftside {
+                                            .amsearch-products {
+                                                .amsearch-wrapper-content {
+                                                    .amsearch-item.product-item {
+                                                        .amsearch-autocomplete-information {
+                                                            width: 75%;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

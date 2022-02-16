@@ -1,0 +1,85 @@
+<?php
+// @codingStandardsIgnoreFile
+?>
+<?php
+    $theme = $this->helper('Infortis\Base\Helper\Data');
+    $innerContainerClasses = '';
+    $jsScriptInit = '';
+
+    $mode = $theme->getCfg('product_page/tabs');
+    $openedTab = $theme->getCfg('product_page/opened_tab');
+    $jsOpenedTab = '';
+    if ($openedTab !== null)
+    {
+        $jsOpenedTab = ', "active": ' . $openedTab;
+    }
+    else
+    {
+        $jsOpenedTab = ', "active": null';
+    }
+
+    switch ($mode)
+    {
+        case 1:
+            $innerContainerClasses = 'product data items ' . $theme->getCfg('product_page/tabs_style') . ' show-tabs';
+            $jsScriptInit = '{"tabs": {"openedState": "active", "collapsible": true' . $jsOpenedTab . '}}';
+            break;
+
+        case 2:
+            $innerContainerClasses = 'product data items ' . $theme->getCfg('product_page/tabs_style');
+            $jsScriptInit = '{"tabs": {"openedState": "active", "collapsible": true' . $jsOpenedTab . '}}';
+            break;
+
+        default:
+            $innerContainerClasses = 'product data items style1 stacked-tabs';
+            $jsScriptInit = '{"tabs": {"openedState": "active", "collapsible": true}}';
+            break;
+    }
+?>
+<?php if ($detailedInfoGroup = $this->getGroupChildNames('detailed_info', 'getChildHtml')):?>
+    <div class="product info detailed collateral-container">
+        <?php $layout = $this->getLayout(); ?>
+        <div class="<?php echo $innerContainerClasses; ?>" <?php if ($jsScriptInit): ?>data-mage-init='<?php echo $jsScriptInit; ?>'<?php endif; ?>>
+            <?php foreach ($detailedInfoGroup as $name):?>
+                <?php
+                    $html = $layout->renderElement($name);
+                    if (!trim($html)) {
+                        continue;
+                    }
+                    $alias = $layout->getElementAlias($name);
+                    $label = $this->getChildData($alias, 'title');
+                ?>
+                <div class="data item title"
+                    aria-labeledby="tab-label-<?php /* @escapeNotVerified */ echo $alias; ?>-title"
+                    data-role="collapsible" id="tab-label-<?php /* @escapeNotVerified */ echo $alias; ?>">
+                    <a class="data switch"
+                        tabindex="-1"
+                        data-toggle="switch"
+                        href="#<?php /* @escapeNotVerified */ echo $alias; ?>"
+                        id="tab-label-<?php /* @escapeNotVerified */ echo $alias; ?>-title">
+                            <?php /* @escapeNotVerified */ echo $label; ?>
+                    </a>
+                </div>
+                <div class="data item content" id="<?php /* @escapeNotVerified */ echo $alias; ?>" data-role="content">
+                    <?php /* @escapeNotVerified */ echo $html; ?>
+                </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+<?php endif; ?>
+
+<script type="text/javascript">
+    requirejs(['jquery'], function (jQuery) {
+        jQuery(function($) {
+            $(document).on('click', '.data.item.title', function () {
+                // allow toggleable on mobile
+                if (window.innerWidth > 767) {
+                    if (!$(this).hasClass('active')) {
+                        $(this).addClass('active');
+                        $('.data.item.content[id="' + String($(this).attr('aria-controls')) + '"]').show();
+                    }
+                }
+            });
+        });
+    });
+</script>

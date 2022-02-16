@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/** @var Magento\Sales\Block\Order\Email\Shipment\Items $block */
+/** @var CustomConcepts\GoCustomizer\ViewModel\GocustomizerViewModel $gcViewModel */
+$gcViewModel = $block->getGcViewModel();
+$gcHelper = $gcViewModel->getGcHelper();
+?>
+<?php $_shipment = $block->getShipment() ?>
+<?php $_order    = $block->getOrder() ?>
+<?php if ($_shipment && $_order) : ?>
+    <table class="shipment-items-mpc">
+        <thead>
+        <tr>
+            <th class="item-info">
+                <?= $block->escapeHtml(__('Items')) ?>
+            </th>
+            <th class="item-sku">
+                <?= $block->escapeHtml(__('SKU')) ?>
+            </th>
+            <th class="item-qty">
+                <?= $block->escapeHtml(__('Qty')) ?>
+            </th>
+        </tr>
+        </thead>
+        <?php foreach ($_shipment->getAllItems() as $_item) : ?>
+            <?php if (!$_item->getOrderItem()->getParentItem()) : ?>
+                <?php $product = $gcViewModel->getProductById($_item->getProductId()); ?>
+                <tbody>
+                    <tr>
+                        <td class="item-info-data"><b><?= $product->getName(); ?></b></td>
+                        <td class="item-sku-data"><?= $product->getSku(); ?></td>
+                        <td class="item-qty-data"><?= number_format($_item->getQty()); ?></td>
+                    </tr>
+                </tbody>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </table>
+<?php endif; ?>
+

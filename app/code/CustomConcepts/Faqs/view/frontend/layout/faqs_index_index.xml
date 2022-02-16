@@ -1,0 +1,20 @@
+<page layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.top">
+            <block class="CustomConcepts\Faqs\Block\Faq"
+                   name="search-block"
+                   before="-"
+                   template="CustomConcepts_Faqs::search-block.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="main">
+            <block class="CustomConcepts\Faqs\Block\Faq\Topics"
+                   name="top-topics"
+                   after="search-block"
+                   template="CustomConcepts_Faqs::top_topics.phtml"/>
+            <block class="CustomConcepts\Faqs\Block\Faq\Topics"
+                   name="topics-block"
+                   after="top-topics"
+                   template="CustomConcepts_Faqs::topics.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

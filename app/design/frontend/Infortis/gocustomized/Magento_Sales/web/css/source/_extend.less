@@ -1,0 +1,66 @@
+& when (@media-common = true) {
+    .sales-order-view{
+        .order-details-items.ordered{
+            .order-title{
+                strong{
+                    font-size: 21px;
+                }
+            }
+
+            .table-wrapper.order-items{
+                .data.table.table-order-items{
+                    .price-including-tax{
+                        margin-bottom: 10px;
+                    }
+
+                    .price-excluding-tax{
+                        font-size: 14px;
+                        line-height: 2;
+                        .cart-price{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px){
+    .sales-order-view {
+        .page-title-wrapper{
+            margin-left: 10px;
+
+            .page-title{
+                padding-left: 0 !important;
+            }
+        }
+
+        .block.block-order-details-view{
+            .box-title{
+                span{
+                    font-weight: bold !important;
+                }
+            }
+        }
+
+        .order-details-items.ordered {
+            .table-wrapper.order-items{
+                .data.table.table-order-items{
+                    .price-including-tax{
+                        margin-right: 15px;
+                    }
+
+                    tfoot{
+                        .totals.tax.details{
+                            td.mark{
+                                width: 70%;
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

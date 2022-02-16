@@ -1,0 +1,7 @@
+<div data-bind="visible: canApply">
+    <a class="locator__trigger btn" data-bind="text: buttonText, click: openModal"></a>
+    <div data-bind="html: pickupLocationAddressHTML()" style="margin-top: 15px"></div>
+</div>
+<!-- ko foreach: getRegion('transsmart-locator-modal') -->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+    <!--
+    /**
+     * CustomConcepts_Faqs extension
+     * @category  CustomConcepts_Extensions
+     * @package   CustomConcepts_Faqs
+     * @copyright Copyright (c) 2020
+     * @author GoCustomized <info@gocustomized.com>
+     */
+    -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="CustomConcepts_CheckoutFieldsConfig" setup_version="1.0.0">
+        <sequence>
+            <module name="Swissup_FieldManager"/>
+            <module name="Magento_Customer"/>
+            <module name="Magento_Eav"/>
+        </sequence>
+    </module>
+</config>

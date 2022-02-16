@@ -1,0 +1,181 @@
+@media (max-width: 1024px) {
+    .aboutus {
+        .block-opening,
+        .ourstory,
+        .the-passion,
+        .the-team {
+            max-width: 1024px;
+            width: 98%;
+            padding: 0 10px;
+        }
+
+        .block-opening {
+            margin: 0;
+        }
+
+        .our-company {
+            margin: 30px 0;
+            width: 100%;
+
+            .section-title,
+            .block-content {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+
+        .the-team {
+            margin: 30px 0;
+            width: 98%;
+
+            .section-title,
+            .block-content {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutus {
+        .aboutimg, .ourstory, .our-company .passion-img {
+            min-height: 200px;
+            padding: 0;
+        }
+
+        .half {
+            width: 100%;
+            padding: 0;
+        }
+
+        .half.last {
+            padding: 15px 0 0;
+        }
+
+        .mobile-slide {
+            display: none;
+        }
+
+        .section-title,
+        .block-content {
+            margin: 0 10px;
+        }
+
+        .block-content {
+            blockquote {
+                padding: 0 !important;
+                margin: 20px;
+
+                &:after {
+                    font-size: 10em !important;
+                    left: -24px !important;
+                }
+            }
+        }
+
+        .block-opening {
+            width: 95%;
+        }
+
+        .the-passion,
+        .block-opening {
+            padding: 0;
+        }
+
+        .our-company,
+        .the-team {
+            margin: 30px 0;
+            width: 95%;
+
+            .section-title,
+            .block-content {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.aboutus {
+    h1 {
+        color: #a3b1c6;
+        font-size: 2rem;
+    }
+
+    .aboutimg {
+        text-align: center;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    blockquote {
+        position: relative;
+        margin-top: 40px;
+        padding: 0 0 0 1.5em;
+
+        &:after {
+            font-size: 16em;
+            content: "\201C";
+            font-family: 'Montserrat', sans-serif;
+            position: absolute;
+            left: 25px;
+            width: 100px;
+            top: 0;
+            color: #a3b1c6;
+            z-index: 1;
+            line-height: 110px;
+            font-weight: bold;
+        }
+
+        div {
+            font-size: 1.6rem;
+            font-weight: 300;
+            font-style: normal;
+            z-index: 98;
+            text-align: justify;
+            margin: 0 40px;
+            position: relative;
+            line-height: 40px;
+
+            p.by {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .block-opening,
+    .ourstory,
+    .our-company,
+    .the-passion,
+    .the-team {
+        margin: 30px auto;
+    }
+
+    .block-opening {
+        margin: 0 10px;
+    }
+
+    .ourstory {
+        img {
+            max-width: 250px;
+        }
+    }
+
+    .button.small-links {
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        color: #fff !important;
+    }
+
+    p.readmore {
+        display: none;
+    }
+
+    .button.view-team {
+        font-weight: 600 !important;
+        color: #fff !important;
+    }
+}

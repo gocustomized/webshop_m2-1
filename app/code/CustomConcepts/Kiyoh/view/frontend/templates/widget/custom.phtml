@@ -1,0 +1,38 @@
+<?php
+/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+// Load data
+$enabled = $this->getKiyohEnabled();
+//if ($enabled) {
+    $data = $this->getKiyohData();
+    if(!empty($data)){
+    $percentage = $data->getPercentage();
+    $rating = round(($data->getPercentage() / 10), 1);
+    ?>
+    <div class="kiyoh-header">
+        <div class="rating-box ">
+            <!--<div class="rating" style="width:<?php echo $percentage; ?>%"></div>-->
+            <div class="product-reviews-summary">
+                <div class="rating-summary">
+                    <div class="rating-result" title="80%">
+                        <span style="width:<?php echo $percentage; ?>%">
+                            <span>
+                                <span itemprop="ratingValue"><?php echo $rating; ?></span>% of <span itemprop="bestRating"><100</span>
+                            </span>
+                        </span>
+                    </div>
+                </div>           
+            </div>
+            <span class="headerkiyohscore"><?php echo $rating; ?> / 10</span>
+            <a href="<?php echo $this->getUrl('reviews'); ?>"><p><span
+                        class="headerkiyohtext"><?php echo $data->getVotes() . __(' reviews') ?></span></p></a>
+        </div>
+    </div>
+    <?php
+}
+?>

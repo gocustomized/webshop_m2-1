@@ -1,0 +1,328 @@
+/**
+ * Infortis/ultimo
+ * Custom CSS fallback
+ * app/design/frontend/Infortis/ultimo/web/css/_custom.less
+ */
+
+//
+//  Custom CSS fallback
+//  _____________________________________________
+
+//  Fallback file for CSS overrides in custom child-themes. Should be EMPTY.
+//
+//  To add custom CSS styles, create custom child-theme (with Ultimo
+//  as its parent theme) and create "_custom.less" in the following location:
+//  <YOUR_MAGENTO_INSTALL_DIRECTORY>/app/design/frontend/<YOUR_VENDOR_NAME>/<YOUR_THEME_NAME>/web/css/_custom.less
+
+
+ & when (@media-common = true) {
+     body {
+         //footer 
+    .footer .block.newsletter .action.subscribe {
+        background-color: #ffffff !important;
+        margin-left: 5px;
+        padding: 0;
+        &:before {
+            font-size: 38px;
+        }
+    }
+
+    .right-text {
+            text-align: right;
+        }
+         .ic-instagram::before {
+            content: "\e22f";
+        }
+        .ic-facebook::before {
+            content: "\e213";
+        }
+        .ic-twitter::before {
+            content: "\e214";
+        }
+        .ic-pinterest::before {
+            content: "\e23e";
+        }
+        [class^="ic-"], [class*=" ic-"], #subscribe-form .button::before {
+            font-family: 'ThemeIcons';
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 1.6rem;
+        }
+        .footer-container{
+            background-color: #383838;
+            color: #fbfbfb;
+            background-image: none !important;
+            ul{
+                margin-bottom:0px;
+            }
+            .footer-container2 {
+                background-color: #383838;
+                color: #fbfbfb;
+                background-image: none !important;
+                .footer-title {
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 500;
+                    font-size: 1.6rem;
+                }
+                .footer-payment-wrapper {
+                    background: #e0e0e0;
+                    clear: both;
+                    padding: 10px 0;
+                    color: #383838;
+                    .half {
+                        width: 47%;
+                        float: left;
+                        padding-right: 3%;
+                        &.last {
+                            padding-right: 0;
+                            padding-left: 3%;
+                        }
+                    }
+                    span {
+                        display: inline-block;
+                        width: 30%;
+                        vertical-align: middle;
+                    }
+                    p {
+                        display: inline-block;
+                        width: 60%;
+                        vertical-align: middle;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+        .footer-primary-container {
+            padding-top: 30px;
+            padding-bottom: 10px;
+        }
+        .footer-primary-bottom {
+            + .grid12-2{
+                margin: 0;
+                max-width: 20%;
+                padding: 0 45px;
+                width: auto;
+            }
+            ~ .grid12-3 {
+                margin: 0;
+                max-width: 20%;
+                padding: 0 45px;
+                width: auto;
+            }
+            ~ .grid12-4{
+                margin: 0;
+                max-width: 20%;
+                padding: 0 45px;
+                width: auto;
+            }
+        }
+        .footer-primary{
+            &.footer{
+                &.container{
+                    a {
+                        color: #fbfbfb;
+                        line-height: 2;
+                        font-weight: 500;
+                        font-size: 1.3rem;
+                    }
+                } 
+            }
+            .social {
+                display: flex;
+                justify-content: space-between;
+                li {
+                    flex: 0 0 0;
+                    margin-bottom: 20px;
+                    text-align: center;
+                    a {
+                        font-size: 1rem;
+                    }
+                }
+            }
+            .block{
+                &.newsletter {
+                    width: 230px;
+                }
+            }
+            .form{
+                &.subscribe {
+                    button{
+                        span {
+                            display: none;
+                        }
+                        &:before {
+                            content: "\e263";
+                            font-size: 2.2rem;
+                            vertical-align: middle;
+                            font-family: 'ThemeIcons';
+                            font-style: normal;
+                            font-weight: normal;
+                            font-variant: normal;
+                            text-transform: none;
+                            line-height: 1;
+                        }
+                    }
+                }
+            } 
+            
+        }
+        .footer-bottom-container {
+            background-color: #b5b5b5;
+            .footer-bottom{
+                font-weight: 500;
+                font-size: 11px;
+                color: #fff;
+                padding:0;
+                &.footer{
+                    &.container{
+                        ul{
+                            margin:inherit;
+                            li {
+                                display: inline-block;
+                                margin: 0 10px;
+                                &:after {
+                                    content: '|';
+                                }
+                                &:last-child{
+                                    a {
+                                        padding-right: 0;
+                                    }
+                                    &:after {
+                                        content: '';
+                                    }
+                                }
+                                a{
+                                    line-height: 36px;
+                                    padding-right: 20px;
+                                }
+                                
+                            }
+                            
+                        }
+                        
+                    } 
+                }
+                a{
+                   font-weight: 500;
+                   font-size: 11px;
+                   color: #fff;
+                   padding:0;
+                   &:hover{
+                       color: #fff;
+                   }
+                   &:active{
+                       color: #fff;
+                   }
+                }
+            }
+            
+            .footer-copyright {
+                margin: 0;
+                line-height: 36px;
+                font-size: 11px;
+            }
+        }
+    }
+        
+ } // end: media-common
+ 
+ 
+
+ 
+ //
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .mobile-show {
+        display: none;
+    }
+    
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+
+
+}
+ 
+ //
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+ 
+
+}
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    
+    // footer
+    body .footer-primary .block.newsletter {
+        width: 100% !important;
+    }
+    .footer-payment-wrapper {
+        display: none;
+    }   
+    .table-wrapper .table:not(.cart):not(.totals):not(.table-comparison).additional-attributes tbody td:last-child {
+        padding: 0 0 5px 10px;
+    }
+    .footer-primary.footer.container .footer-primary-bottom~.grid12-3:nth-child(3n+1){
+        clear: left;
+    }
+    
+    .container{
+        width:96%;
+    }
+    .mobile-show {
+        display: block;
+    }
+    .footer-primary-bottom {
+            + .grid12-2{
+                padding: 0 15px;
+            }
+            ~ .grid12-3 {
+                padding: 0 15px;
+            }
+            ~ .grid12-4{
+                padding: 0 15px;
+            }
+        }
+    .footer-primary{
+        &.footer.container {
+            .grid12-3 {
+                .item{
+                    &.newsletter-wrapper{
+                        &.clearer {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .footer-primary.footer.container .inner-container .footer-primary-bottom~.grid12-3 {
+        width: 90% !important;
+    }
+    .footer-primary.footer.container .inner-container .footer-primary-bottom~.grid12-3.right-text {
+           margin-bottom: 0 !important;
+    }
+
+}
+ 
+

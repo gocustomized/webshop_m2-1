@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+use Magento\Catalog\Model\Product\ProductList\Toolbar;
+
+?>
+<?php if ($block->getCollection()->getSize()): ?>
+    <div class="toolbar toolbar-products" data-mage-init='<?= /* @escapeNotVerified */ $block->getWidgetOptionsJson() ?>'>
+        <?php if ($block->isExpanded()): ?>
+            <?php echo $this->getLayout()
+                ->createBlock('\Magento\Catalog\Block\Product\ProductList\Toolbar')
+                ->setTemplate('Magento_Catalog::product/list/toolbar/viewmode.phtml')
+                ->toHtml(); ?>
+        <?php endif; ?>
+
+        <div class="toolbar-top mobile-hide">
+            <div class="toolbar-top-left">
+                <?php
+                echo $this->getLayout()
+                    ->createBlock('\Magento\Catalog\Block\Product\ProductList\Toolbar')
+                    ->setTemplate('Magento_Catalog::product/list/toolbar/amount.phtml')
+                    ->toHtml();
+                ?>
+
+                <?php if ($block->isExpanded()): ?>
+                    <?php
+                    echo $this->getLayout()
+                        ->createBlock('\Magento\Catalog\Block\Product\ProductList\Toolbar')
+                        ->setTemplate('Magento_Catalog::product/list/toolbar/sorter.phtml')
+                        ->toHtml();
+                    ?>
+                <?php endif; ?>
+            </div>
+
+            <div>
+                <?php
+                echo $this->getLayout()
+                    ->createBlock('\Magento\Catalog\Block\Product\ProductList\Toolbar')
+                    ->setTemplate('Magento_Catalog::product/list/toolbar/limiter.phtml')
+                    ->toHtml();
+                ?>
+            </div>
+        </div>
+        <?= $block->getPagerHtml() ?>
+    </div>
+<?php endif ?>

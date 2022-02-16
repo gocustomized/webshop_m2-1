@@ -1,0 +1,124 @@
+<?php if ($block->getHelper()->usePostRenderImpressionPayloadModel() && $block->getLayout()->getBlock('category.products.list')):?>
+
+    <script data-ommit="true">
+
+    	require(['jquery'],function($)
+    	{
+    		var payload = <?php echo $block->getProductList()->getImpressionPayload($block->getLayout()->getBlock('category.products.list')) ?>; 
+    			
+    		payload.ecommerce['impressions'] = (function()
+    		{
+    			var impressions = [];
+
+    			$('[data-event=productClick]').each(function()
+    			{
+    				impressions.push(
+    				{
+    					id: 				   $(this).attr('data-id'),
+    					name: 				   $(this).attr('data-name'),
+    					category:			   $(this).attr('data-category'),
+    					brand:				   $(this).attr('data-brand'),
+    					price:		parseFloat($(this).attr('data-price')),
+    					position: 	parseFloat($(this).attr('data-position')),
+    					<?php echo $block->getHelper()->getStockDimensionIndex(true) ?>: $(this).attr('data-<?php echo $block->getHelper()->getStockDimensionIndex(true) ?>')
+    				});
+            	});
+    
+    			return impressions;
+    		})();
+
+    		(function(payload, payload_max_size)
+    	    {
+    			var payloadSize = AEC.getPayloadSize(payload);
+    			
+    			if (payload_max_size > payloadSize)
+    			{
+    				AEC.Cookie.impressions(payload).push(dataLayer, false);
+
+    				<?php
+    				/**
+    				 * Private browser fallback
+    				 */
+    				?>
+    				
+    				dataLayerTransport.push(payload);
+    			}
+    			else 
+    			{
+    				var chunks = AEC.getPayloadChunks(payload.ecommerce.impressions, Math.ceil(payload.ecommerce.impressions.length/Math.ceil(payloadSize/payload_max_size)));
+
+    				var lazyPush = function(chunks)
+    				{
+    					if (chunks.length)
+    					{
+    						var chunk = chunks.shift(), chunkPush = $.extend({}, payload);
+
+    						chunkPush['event'] 					= 'impression';
+    						chunkPush.ecommerce['impressions']  = chunk;
+    						chunkPush['eventCallback'] 			= (function(chunks)
+    						{
+    							return function()
+    							{
+    								lazyPush(chunks);
+    							}
+    						})(chunks);
+
+    						(function(data)
+    						{
+    							AEC.Cookie.impressions(data).push(dataLayer);
+    							
+    						})(chunkPush);
+    					}
+    				};
+
+    				/**
+    				 * Call lazy push
+    				 */
+    				lazyPush(chunks);
+    			}
+    			
+        	})(payload, <?php echo \Anowave\Ec\Helper\Constants::GOOGLE_PAYOAD_SIZE ?>);
+
+
+    		<?php 
+    		/**
+    		 * AdWords Dynamic Remarketing
+    		 */
+    		?>
+    		window.google_tag_params = window.google_tag_params || {};
+    
+    		window.google_tag_params.ecomm_pagetype = 'category';
+    		window.google_tag_params.ecomm_category = <?php echo $block->getProductList()->getCurrentCategoryName() ?>;
+    		window.google_tag_params.returnCustomer = <?php echo $block->getHelper()->getIsReturnCustomer() ?>;
+    		
+    		<?php
+    		/**
+    		 * Facebook Pixel Tracking
+    		 */
+    		?>
+    		<?php if ($block->getHelper()->facebook()): ?>
+
+        		if ("undefined" !== typeof fbq)
+        		{
+            		(function(params)
+                    {
+            			if (AEC.Const.COOKIE_DIRECTIVE)
+            			{
+            				AEC.CookieConsent.queue(function()
+            				{
+            					fbq('trackCustom', 'ViewCategory', params);
+            				});
+            			}
+            			else 
+            			{
+            				fbq('trackCustom', 'ViewCategory', params);
+            			}
+            			
+                    })({ content_ids: payload.ecommerce.impressions.map(function(impression){ return impression.id; }), content_type: 'product', content_name: <?php echo $block->getProductList()->getCurrentCategoryName() ?>, content_category: <?php echo $block->getProductList()->getCurrentCategoryName() ?> });
+        		}
+    		
+    		<?php endif ?>
+    	});
+    </script>
+    
+<?php endif ?>

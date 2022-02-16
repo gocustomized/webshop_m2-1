@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * CustomConcepts_GoCustomizer extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_GoCustomizer
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <gocustomizer>
+            <general>
+                <customizer_url>http://gocustomizedv2.hypernode.io:8888/</customizer_url>
+                <reseller_api_key>0</reseller_api_key>
+                <use_attribute>1</use_attribute>
+            </general>
+        </gocustomizer>
+    </default>
+</config>

@@ -1,0 +1,126 @@
+#customizer-container.setContainer{
+    overflow: hidden;
+}
+
+#customizer-container.setContainer .navbarTablet {
+    height: 10%;
+    display: flex;
+    background-color: #ffffff;
+    border-bottom: 2px solid #efefef;
+    color: #3c3a40;
+}
+
+#customizer-container.setContainer .navbarDesktop{
+    display: none;
+}
+
+#customizer-container.setContainer .columnone{
+    display: none;
+}
+
+#customizer-container.setContainer .prodnameinner,#customizer-container.setContainer .prodpricewrap, .prodnamewrap,#customizer-container.setContainer .prodpriceinner{
+    display: flex;
+    align-items: center;
+    flex: 1 0 0;
+    justify-content: space-around;
+}
+#customizer-container.setContainer .prodpricewrap,#customizer-container.setContainer .prodnameinner{
+    justify-content: flex-start;
+}
+#customizer-container.setContainer h2{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+#customizer-container.setContainer .casetype{
+    margin-left: 1rem;
+    margin-top: 4px;
+    font-size: 14px;
+}
+.orderbefore{
+    font-style: italic;
+}
+#customizer-container.setContainer .sterretjes, #customizer-container.setContainer .changedevice{
+    display: none;
+}
+
+#campaign-landing.customizer-landing .std{
+    line-height: 1.4;
+}
+
+#campaign-landing.customizer-landing .bannerholder{
+    position: absolute;
+    width: 100%;
+}
+
+#campaign-landing.customizer-landing .customizerwrap{
+    color: white;
+    top: 150px;
+    position: relative;
+    margin-bottom: 300px;
+}
+#campaign-landing.customizer-landing .customizerinnerwrap {
+    box-shadow: 0 0 41px 0 rgba(0, 0, 0, 0.26);
+    background-color: white;
+}
+
+#campaign-landing.customizer-landing .customizerinnerwrap > p {
+    color: #3C3A40;
+    font-size: 14px;
+    line-height: 24px;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 24px 0;
+}
+
+#campaign-landing.customizer-landing #customizer-container{
+    height: 90vh;
+    min-height: 675px;
+    border: 1px solid #efefef;
+}
+
+#campaign-landing.customizer-landing .textholder h1{
+    margin-bottom: 32px;
+}
+
+#customizer-container.setContainer .productholder img{
+    max-height: 55px;
+    width: auto;
+}
+
+#customizer-container .tweede .rotaterangeholder input{
+    padding: 0;
+    border: 0;
+}
+
+@media screen and (max-width: 768px){
+    #campaign-landing.customizer-landing #customizer-container{
+        /*height: 100vh;*/
+        min-height: 0;
+    }
+
+    #campaign-landing.customizer-landing .wrapper{
+        padding: 0;
+    }
+
+    #campaign-landing.customizer-landing .topsection.wrapper{
+        padding: 0 30px;
+    }
+
+    #campaign-landing.customizer-landing .customizerinnerwrap > p{
+        padding: 24px 30px;
+    }
+
+    #customizer-container.setContainer .navbarTablet {
+        display: none;
+    }
+    #customizer-container.setContainer .columnone{
+        display: block;
+    }
+    #campaign-landing.customizer-landing .footer-container{
+        display: none;
+    }
+
+    #campaign-landing.customizer-landing .customizerwrap{
+        margin-bottom: 0;
+    }
+}

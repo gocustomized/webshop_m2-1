@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route method="POST" url="/V1/ordercreateapi/">
+        <service class="CustomConcepts\CustomAPI\Api\OrderCreateManagementInterface" method="createApiOrder"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/ordercreateapi/checkorder/:$apiOrderId">
+        <service class="CustomConcepts\CustomAPI\Api\OrderCreateManagementInterface" method="verifyNewOrder"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="POST" url="/V1/ordercreateapi/processcustomizer/">
+        <service class="CustomConcepts\CustomAPI\Api\OrderCreateManagementInterface" method="processCustomizerItem"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="POST" url="/V1/ordercreateapi/assignCartCustomer/">
+        <service class="CustomConcepts\CustomAPI\Api\OrderCreateManagementInterface" method="assignCartCustomer"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="POST" url="/V1/ordercreateapi/addapiorder/">
+        <service class="CustomConcepts\CustomAPI\Api\OrderCreateManagementInterface" method="addAPIOrderId"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

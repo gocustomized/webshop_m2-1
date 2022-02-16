@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="miniquote" remove="true"/>
+        <referenceBlock name="catalog.topnav.stickylogo" remove="true"/>
+        <move element="top.links" destination="account-links"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="wishlist_sidebar" remove="true"/>
+        <referenceBlock name="left.kiyoh" remove="true"/>
+        <referenceBlock name="umm.sidemenu.catalog_category_view.main" remove="true"/>
+        <referenceBlock name="umm.sidemenu.catalog_category_view.additional" remove="true"/>
+        <referenceBlock name="store_language" remove="true" />
+        <referenceBlock name="store.settings.language" remove="true"/>
+        <referenceBlock name="store_language.mobile" remove="true"/>
+        <referenceBlock name="store.settings.currency" remove="true" />
+        <referenceBlock name="currency" remove="true" />
+        <referenceBlock name="mobile.currency" remove="true" />
+        <referenceBlock name="sale.reorder.sidebar" remove="true" />
+
+        <referenceBlock name="site-logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.svg</argument>
+                <argument name="logo_img_width" xsi:type="number">293</argument>
+                <argument name="logo_img_height" xsi:type="number">72</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="base-header-container">
+            <block class="Magento\Cms\Block\Block" name="header.top.bar">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header_top_bar</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="base-footer-container">
+            <block class="Magento\Cms\Block\Block" name="block_footer_info">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">block_footer_info</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="block_footer_faq">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">block_footer_faq</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="footer_block_myaccount">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_block_myaccount</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="footer_block_sociallinks">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_block_sociallinks</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="footer_payment_container">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_payment_container</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="footer_privacy_links">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_privacy_links</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="top.links">
+            <referenceBlock name="register-link" remove="true"/>           <!--for Create Account Link-->
+            <referenceBlock name="wish-list-link" remove="true"/>          <!--for WishList Link-->
+            <referenceBlock name="my-account-link" remove="true"/>         <!--for My Account Link-->
+            <referenceBlock name="b2b" remove="true"/>
+        </referenceBlock>
+        <referenceBlock name="top.links">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="help">
+                <arguments>
+                    <argument name="label" xsi:type="string">Help</argument>
+                    <argument name="path" xsi:type="string">help</argument>
+                </arguments>
+            </block>
+            <!--            <block class="CustomConcepts\UltimoGocustomized\Block\Helplink" name="b2b.accountlinks" template="Magento_Theme::html/toplinkhelp.phtml"/>-->
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="b2b">
+                <arguments>
+                    <argument name="label" xsi:type="string">B2b</argument>
+                    <argument name="path" xsi:type="string">business-2-business</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceContainer name="container_header_top_right_1">
+            <block class="Magento\Store\Block\Switcher" name="custom.store.switcher"
+                   template="Magento_Store::switch/stores.phtml" after="-"/>
+        </referenceContainer>
+        <!--        <referenceContainer name="container_mobile_header_top">
+                    <block class="Magento\Store\Block\Switcher" name="custom.store.switcher.mobile" template="Magento_Store::switch/stores.phtml"/>
+                </referenceContainer>-->
+
+
+        <move element="header-wrapper" destination="base-header-container"/>
+        <move element="top.search" destination="base-header-container"/>
+        <move element="minicart" destination="base-header-container"/>
+        <move element="store.menu" destination="base-header-container"/>
+
+    </body>
+</page>

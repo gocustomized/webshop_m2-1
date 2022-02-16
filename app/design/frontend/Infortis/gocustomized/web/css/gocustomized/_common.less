@@ -1,0 +1,194 @@
+/**
+ * Infortis/ultimo
+ * Custom CSS fallback
+ * app/design/frontend/Infortis/ultimo/web/css/_custom.less
+ */
+
+//
+//  Custom CSS fallback
+//  _____________________________________________
+
+//  Fallback file for CSS overrides in custom child-themes. Should be EMPTY.
+//
+//  To add custom CSS styles, create custom child-theme (with Ultimo
+//  as its parent theme) and create "_custom.less" in the following location:
+//  <YOUR_MAGENTO_INSTALL_DIRECTORY>/app/design/frontend/<YOUR_VENDOR_NAME>/<YOUR_THEME_NAME>/web/css/_custom.less
+
+
+ & when (@media-common = true) {
+    body {
+        .main {
+            padding: 0;
+        }
+        img {
+            border: 0;
+            vertical-align: top;
+            max-width: 100%;
+        }
+        padding-tb-30 {
+            padding: 30px 0;
+        }
+        .header-primary {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .block-graybg{
+            background-color: #fbfbfb;
+        }
+        .border-bottom {
+            border-bottom: 1px solid #ededed;
+        }
+        .padding-top-30 {
+            padding-top: 30px !important;
+        }
+        .padding-bottom-30 {
+            padding-bottom: 30px !important;
+        }
+        .container {
+            width: 96%;
+        }
+        .block.block-faqs .block-title, h1 {
+            text-transform: uppercase;
+        }
+        .section-title {
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 2rem;
+            padding-bottom: 5px;
+            margin-bottom: 40px;
+        }
+        p.readmore {
+            margin-bottom: 20px;
+            padding: 0;
+            text-align: right;
+            font-family: "";
+            text-transform: uppercase;
+            color: #3c3a40;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+
+        }
+        .read-more {
+            background: rgba(0, 0, 0, 0) url("../images/small-arrow-blue-right.png") no-repeat scroll right center / 13px 13px;
+            font-size: 1.7rem;
+            padding-right: 18px;
+            color: #a3b1c6;
+            &:hover{
+                color: #7d8faa;
+            }
+        }
+        .owl-controls .owl-buttons div.owl-prev, .owl-controls .owl-buttons div.owl-next {
+            width: 31px;
+            background: url(../images/sprite.png) no-repeat -10px -123px !important;
+            background: rgba(0, 0, 0, 0) url("../images/arrow-left-gray.svg") no-repeat scroll 0 center !important;
+            height: 81px;
+            opacity: 1;
+            left: 0;
+            top: 40%;
+            position: absolute;
+            &:before{
+                content: '';
+            }
+        }
+        .owl-controls .owl-buttons div.owl-next {
+            background: url(../images/sprite.png) no-repeat -10px -214px !important;
+            background: rgba(0, 0, 0, 0) url("../images/arrow-right-gray.svg") no-repeat scroll 0 center !important;
+            left: auto;
+            right: 0;
+            &:before{
+                content: '';
+            }
+        }
+        .category-slider{
+            .category-item {
+                margin: 15px 0;
+            }
+        } 
+        .slider-arrows1-pos-top-right .owl-controls .owl-buttons {
+            top: inherit;
+            right: inherit;
+        }
+        .slider-arrows1 .owl-controls .owl-buttons {
+            position: inherit;
+        }
+        .seemore:hover, .buttons-set .back-link:hover, .block .actions a:hover {
+            color: #7d8faa;
+            border-bottom: 2px solid #7d8faa;
+        }
+        .category-item .name {
+            margin-bottom: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+        .category-item .image {
+            margin-bottom: 10px;
+            min-height: 100px;
+        }
+        .category-item {
+            margin: 15px 0;
+            text-align: center;
+        }
+        .seemore, .buttons-set .back-link, .block .actions a {
+            font-family: 'Montserrat', sans-serif;
+            border-bottom: 2px solid #a3b1c6;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 1.7rem;
+            color: #a3b1c6;
+        }
+        .seemore:hover, .buttons-set .back-link:hover, .block .actions a:hover {
+            color: #7d8faa;
+        }
+        .category-section.padding-tb-30.container {
+            padding-top: 50px;
+        }
+        .itemslider .block-content{
+            width:96%; margin:0 auto;
+        }
+        .product-info-main .price-box .price-wrapper .price, .product-options-bottom .price-box .price-wrapper .price {
+            font-size: 2.1rem;
+            line-height: 2.1rem;
+            font-weight: normal;
+            color: #3c3a40;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+        .product-view .btn-cart, 
+        .btn-checkout, 
+        .btn-checkout:focus, 
+        #product-addtocart-button {
+            background-color: #1f9f3a;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            line-height:45px;
+            padding:0 25px;
+            font-size:15px;
+            &:hover{
+                background-color: #1f9f3a;
+                color: #fff;
+                font-family: 'Montserrat', sans-serif;
+                line-height:45px;
+                padding:0 25px;
+                font-size:15px;
+            }
+        }
+        .std.description .title {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 15px 0;
+        }
+        a {
+            &:hover, &:focus {
+                color: #a3b1c6;
+            }
+        }
+        .action.primary:hover, .action.primary:focus {
+           background-color: #1f9f39;
+           color: #fff;
+       }
+    }
+    
+    
+ } // end: media-common

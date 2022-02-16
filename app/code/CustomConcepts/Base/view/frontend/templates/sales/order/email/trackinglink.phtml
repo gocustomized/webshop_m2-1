@@ -1,0 +1,22 @@
+<?php
+$order = $this->getOrder();
+$storeId = $order->getStoreId();
+$transsmart_final_service_level_ids = explode(',', $this->getTrackAndTraceIds());
+$shipmentCollection = $order->getShipmentsCollection();
+?>
+<?php foreach ($shipmentCollection as $shipment): ?>
+    <?php
+        $tracking_url = $shipment->getTranssmartTrackingUrl() ?: '';
+//        $transsmart_final_service_level_time_id = $shipment->getTranssmartFinalServicelevelTimeId();
+        $booking_profile_id = $shipment->getTranssmartBookingprofileId()
+    ?>
+    <?php if(in_array($booking_profile_id, $transsmart_final_service_level_ids)): ?>
+        <a href="<?php echo $tracking_url ?>" style="display:block;color:white !important;margin:0 auto;background-color:#ed6d4f;padding: 10px;width:160px;text-decoration:none;text-align:center;"><?php echo __('Track Shipment')?></a>
+    <?php else: ?>
+        <br/>
+        <p style="padding:0 20px"><strong><?php echo $this->getTrackAndTraceInfoText($storeId)?></strong></p>
+        <br/>
+    <?php endif; ?>
+<?php endforeach; ?>
+
+

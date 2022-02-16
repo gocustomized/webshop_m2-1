@@ -1,0 +1,12 @@
+{
+    "sales_shipment": {
+        "column": {
+            "ghost_shipment": true
+        }
+    },
+    "sales_shipment_grid": {
+        "column": {
+            "ghost_shipment": true
+        }
+    }
+}

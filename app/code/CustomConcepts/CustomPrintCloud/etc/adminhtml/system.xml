@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="cpc" sortOrder="999" translate="label">
+			<label>cpc</label>
+		</tab>
+		<section id="products" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<label>products</label>
+			<tab>cpc</tab>
+			<resource>CustomConcepts_CustomPrintCloud::config_customconcepts_customprintcloud</resource>
+			<group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>general</label>
+				<field id="api_key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>api_key</label>
+					<comment/>
+				</field>
+				<field id="api_secret" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label>api_secret</label>
+					<comment/>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

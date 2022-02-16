@@ -1,0 +1,256 @@
+@orange-text: #ed6d4f;
+@blue-text: #a3b1c6;
+
+//TODO: REMOVE THIS AFTER REMOVING THE banner-container CODE BLOCK FROM CMS PAGE
+.banner-container{
+    display: none;
+}
+
+.orange-text{
+    color: @orange-text;
+}
+
+.blue-text{
+    color: @blue-text;
+}
+
+.margin-tb-60.container.center-text{
+    p{
+        margin-bottom: 4em;
+    }
+}
+
+.cross-blocks{
+    margin-bottom: 35px;
+
+    ul{
+        li.htmlcontent-item{
+            display: flex;
+            margin-bottom: 0;
+            justify-content: space-between;
+
+            &:nth-child(odd){
+                flex-direction: row;
+
+                h3{
+                    color: @blue-text;
+                }
+
+                .item-html{
+                    text-align: right;
+                    margin: 0 10px;
+                }
+            }
+
+            &:nth-child(even){
+                flex-direction: row-reverse;
+
+                h3{
+                    color: @orange-text;
+                }
+
+                .item-html{
+                    margin: 0 10px;
+                }
+            }
+
+            .imgBox{
+                flex-basis: 50%;
+            }
+
+            .item-html{
+                flex-basis: 25%;
+                margin-top: 100px;
+
+                @media(max-width: 1240px){
+                    &{
+                        flex-basis: 40%;
+                        margin-top: 50px;
+                    }
+                }
+
+                @media(max-width: 950px){
+                    &{
+                        flex-basis: 48%;
+                        margin-top: 0;
+                    }
+                }
+            }
+
+            h3{
+                color: #a3b1c6;
+                font-size: 1.5em;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.service-block{
+    h3{
+        font-size: 1.5rem;
+    }
+
+    .servie-list{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        li.service-item{
+            flex-basis: 33.3%;
+
+            .img{
+                height: 175px;
+                padding: 20px;
+                background: #fff;
+            }
+
+            .slist-item{
+                height: 175px;
+                width: 65%;
+                margin: 0 auto;
+                position: relative;
+
+                h3{
+                    margin-top: 0;
+                    text-transform: uppercase;
+                }
+
+                p{
+                    font-size: 12px;
+                    line-height: 1.8;
+                    margin-bottom: 0;
+                }
+            }
+
+        }
+    }
+}
+
+.client-say-block{
+    .intro{
+        width: 32%;
+        margin: 0 auto;
+    }
+
+    .img{
+        border: 0;
+        vertical-align: top;
+        max-width: 100%;
+    }
+
+    blockquote{
+        width: 38%;
+        margin: 60px auto;
+        text-align: center;
+        position: relative;
+
+        div{
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 100;
+            text-align: center;
+            margin: 60px auto;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        &:before{
+            font-size: 6em;
+            content: "\201C";
+            font-family: 'Montserrat', sans-serif;
+            position: absolute;
+            left: -13px;
+            top: 32px;
+            color: #a3b1c6;
+            z-index: 1;
+            line-height: 0;
+            font-weight: bold;
+
+        }
+
+        &:after{
+            content: "\201D";
+            position: relative;
+            right: -175px;
+            top: -40px;
+            font-size: 6em;
+            font-family: 'Montserrat', sans-serif;
+            color: #a3b1c6;
+            z-index: 1;
+            line-height: 0;
+            font-weight: bold;
+        }
+    }
+}
+
+.free-sample-block{
+    .half{
+        width: 47%;
+        float: left;
+        padding-right: 3%;
+
+        img{
+            height: 152px;
+        }
+
+        p{
+            padding: 0 20px;
+        }
+
+        &.last{
+            padding-right: 0;
+            padding-left: 3%;
+        }
+    }
+}
+
+/** mobile design */
+@media (max-width: 768px) {
+    .cross-blocks{
+        ul{
+            li.htmlcontent-item{
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 0;
+                flex-direction: row;
+
+                .imgBox{
+                    flex-basis: 100%;
+                    margin-bottom: 20px;
+                }
+
+                .item-html{
+                    flex-basis: 100%;
+                    //text-align: center;
+                    margin: 0;
+                }
+
+            }
+        }
+    }
+
+    .service-block{
+        .servie-list{
+            li.service-item{
+                flex-basis: 49%;
+            }
+        }
+    }
+
+    .client-say-block {
+        .intro {
+            width: 100%;
+        }
+
+        blockquote {
+            width: 80%;
+        }
+    }
+
+    .free-sample-block{
+        .half{
+            width: 100%;
+        }
+    }
+}

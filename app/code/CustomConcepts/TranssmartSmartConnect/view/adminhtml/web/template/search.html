@@ -1,0 +1,19 @@
+<div class="locator__search">
+    <p for="locator-search" class="locator__intro" data-bind="text: searchIntro"></p>
+    <div data-bind="visible: errorMessages().length > 0">
+        <div class="locator__errors">
+            <ul data-bind="foreach: errorMessages">
+                <li><span data-bind="text: message"></span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="locator__filters" data-bind="if: hasLocations">
+        <ul data-bind="foreach: filters">
+            <li>
+                <input type="checkbox" name="filter" class="locator__checkbox" data-bind="checkedValue: $data, checked: $parent.chosenFilters, attr: {id: filterValue}" />
+                <label class="locator__checkbox-label" data-bind="text: filterLabel, attr: {for: filterValue}"></label>
+            </li>
+        </ul>
+    </div>
+</div>

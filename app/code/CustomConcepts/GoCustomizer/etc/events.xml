@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_GoCustomizer extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_GoCustomizer
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_cart_product_add_after">
+        <observer name="CheckoutCartProductAddAfter" instance="CustomConcepts\GoCustomizer\Observer\CheckoutCartProductAddAfter" />
+    </event>
+    <event name="sales_model_service_quote_submit_before">
+        <observer name="PlaceOrderSucess" instance="CustomConcepts\GoCustomizer\Observer\PlaceOrderSuccess" disabled="false"/>
+    </event>
+    <event name="sales_convert_order_item_to_quote_item">
+        <observer name="OrderToQuote" instance="CustomConcepts\GoCustomizer\Observer\OrderToQuote" />
+    </event>
+</config>

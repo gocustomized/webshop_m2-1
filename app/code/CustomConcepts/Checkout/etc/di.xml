@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Quote\Model\ShippingMethodManagement">
+        <plugin name="after_estimate_by_extended_address" type="CustomConcepts\Checkout\Plugin\Model\AfterEstimateByExtendedAddress" sortOrder="1" disabled="false" />
+        <plugin name="after_estimate_by_address" type="CustomConcepts\Checkout\Plugin\Model\AfterEstimateByAddress" sortOrder="1" disabled="false" />
+        <plugin name="after_estimate_by_address_id" type="CustomConcepts\Checkout\Plugin\Model\AfterEstimateByAddressId" sortOrder="1" disabled="false" />
+        <plugin name="after_get_estimated_rates" type="CustomConcepts\Checkout\Plugin\Model\AfterGetEstimatedRates" sortOrder="1" disabled="false" />
+    </type>
+
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="cc_checkout_configs" type="CustomConcepts\Checkout\Plugin\Block\CheckoutLayoutProcessor" sortOrder="100"/>
+    </type>
+
+    <preference for="Magento\Checkout\Block\Cart\Sidebar" type="CustomConcepts\Checkout\Block\Cart\Sidebar"/>
+    <preference for="Magento\Checkout\Block\Cart\Crosssell" type="CustomConcepts\Checkout\Block\Cart\Crosssell"/>
+    <preference for="Bss\MultiStoreViewPricing\Model\Checkout\Session" type="CustomConcepts\Checkout\Model\CCSession"/>
+
+    <!-- Override magento country validator Magento\Customer\Model\Address\Validator\Country. changed the checking of allowed countries by website instead of by store -->
+    <type name="Magento\Customer\Model\Address\CompositeValidator">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="object">CustomConcepts\Checkout\Model\Address\Validator\Country</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Override magento country validator Magento\Quote\Model\ValidationRules\AllowedCountryValidationRule. changed the checking of allowed countries by website instead of by store -->
+    <type name="Magento\Quote\Model\ValidationRules\QuoteValidationComposite">
+        <arguments>
+            <argument name="validationRules" xsi:type="array">
+                <item name="AllowedCountryValidationRule" xsi:type="object">CustomConcepts\Checkout\Model\ValidationRules\AllowedCountryValidationRule</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

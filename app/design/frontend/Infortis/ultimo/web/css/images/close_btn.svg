@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>close_btn</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Note-card-PopUp-dispaly" transform="translate(-943.000000, -120.000000)">
+            <g id="Overlay-board">
+                <g id="Popup" transform="translate(465.000000, 113.000000)">
+                    <g id="close_btn" transform="translate(479.000000, 8.000000)">
+                        <g>
+                            <circle id="Oval" stroke="#6B6B6B" stroke-width="2" fill="#6B6B6B" cx="11.5" cy="11.5" r="11.5"></circle>
+                            <path d="M15.5,15.5 L7.25378875,7.25378875" id="Line-3" stroke="#EAEAEA" stroke-width="2" stroke-linecap="square" transform="translate(11.500000, 11.500000) scale(-1, 1) translate(-11.500000, -11.500000) "></path>
+                            <path d="M15.5,15.5 L7.25378875,7.25378875" id="Line-3-Copy" stroke="#EAEAEA" stroke-width="2" stroke-linecap="square"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

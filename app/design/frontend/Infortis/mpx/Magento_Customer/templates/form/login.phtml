@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<div class="registered-users grid12-6 block-gray">
+    <div class="content">
+        <h2 role="heading"><?= $block->escapeHtml(__('Registered Customers')) ?></h2>
+        <p><?= $block->escapeHtml(__('If you have an account with us, please log in.')) ?></p>
+
+        <form class="form form-login"
+              action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>"
+              method="post"
+              id="login-form"
+              data-mage-init='{"validation":{}}'>
+            <?= $block->getBlockHtml('formkey') ?>
+            <fieldset class="fieldset login">
+                <div class="field email required">
+                    <label class="label" for="email"><span><?= $block->escapeHtml(__('Email Address')) ?></span></label>
+                    <div class="control">
+                        <input name="login[username]" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" data-mage-init='{"mage/trim-input":{}}' data-validate="{required:true, 'validate-email':true}">
+                    </div>
+                </div>
+                <div class="field password required">
+                    <label for="pass" class="label"><span><?= $block->escapeHtml(__('Password')) ?></span></label>
+                    <div class="control">
+                        <input name="login[password]" type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?> class="input-text" id="pass" title="<?= $block->escapeHtmlAttr(__('Password')) ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <p class="required p_required"><?= $block->escapeHtmlAttr(__('* Required Fields')) ?></p>
+
+                <div class="buttons-set right-text">
+                    <button type="submit" class="button" title="Login" name="send" id="send2"><span><span><?= $block->escapeHtml(__('Login')) ?></span></span></button>
+                </div>
+                <p><a href="<?= $block->escapeUrl($block->getForgotPasswordUrl()) ?>" class="f-forgot underline"><?= $block->escapeHtml(__('Forgot Your Password?')) ?></a></p>
+
+                <?= $block->getChildHtml('form_additional_info') ?>
+            </fieldset>
+        </form>
+    </div>
+</div>
+

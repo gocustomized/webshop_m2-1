@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--/**
+* CustomConcepts_Oathlogin extension
+* @category  CustomConcepts_Extensions
+* @package   CustomConcepts_Oathlogin
+* @copyright Copyright (c) 2017
+* @author GoCustomized <info@gocustomized.com>
+*/-->
+<page xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' layout='admin-login' xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'>
+    <head>
+        <script src='CustomConcepts_Oathlogin::main.js' defer='defer'/>
+        <css src='CustomConcepts_Oathlogin::main.css'/>
+    </head>
+    
+    <body>
+        
+    <referenceContainer name="content">
+        <block class='Magento\Backend\Block\Template' name='addMeta' template='CustomConcepts_Oathlogin::test.phtml' />
+    </referenceContainer>
+    
+    <block class='Magento\RequireJs\Block\Html\Head\Config' name='requirejs-config'/>
+        <referenceContainer name='form.buttons'>
+            <block class='Magento\Backend\Block\Template' name='googleBackendLoginButtons' template='CustomConcepts_Oathlogin::buttons.phtml' after='adminhtml_auth_login_buttons' />
+        </referenceContainer>
+    </body>
+</page>

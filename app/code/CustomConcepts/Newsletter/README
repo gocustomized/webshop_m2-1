@@ -1,0 +1,6 @@
+CustomConcepts_Newsletter module
+
+description: this module contains modifications for the newsletter functionalities of magento.
+
+functionalities:
+ - disable email functionality for newsletter subscription/unsubscription

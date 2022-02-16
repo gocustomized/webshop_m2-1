@@ -1,0 +1,39 @@
+<?php
+$productCollection = $block->getProductCollection();
+?>
+<?php if($productCollection){?>
+<div class="block widget block-products-list grid bestseller padding-tb-50">
+    <div class="container">
+        <div class="block-title">
+            <strong><?php echo __('Bestsellers'); ?></strong>
+        </div>
+        
+        <div class="block-content">
+            <div class="products-grid grid">
+                <ol class="product-items widget-product-grid">
+                    <?php foreach ($productCollection as $product) { ?>
+                        <li class="single-product-item col-sm-4 col-md-3 col-lg-3">
+                            <div class="product-item-info">
+                                <a href="<?php echo $product->getProductUrl()?>" class="product-item-photo">
+                                    <span class="product-image-container" style="width:240px;">
+                                        <span class="product-image-wrapper">
+                                            <img class="product-image-photo" src="<?php echo $imageUrl = $this->helper('Magento\Catalog\Helper\Image')->init($product, 'category_page_grid')->getUrl();?>" />
+                                        </span>
+                                    </span>
+                                </a>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="<?php echo $product->getName()?>" href="<?php echo $product->getProductUrl()?>" class="product-item-link">
+                                            <?php echo $product->getName()?></a>
+                                    </strong>
+                                    <?php echo $block->getProductPrice($product); ?>
+                                </div>
+                            </div>
+                        </li>
+                    <?php }?>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<?php }?>

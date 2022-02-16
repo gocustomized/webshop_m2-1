@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CustomConcepts_Kiyoh extension
+ * @category  CustomConcepts_Extensions
+ * @package   CustomConcepts_Kiyoh
+ * @copyright Copyright (c) 2017
+ * @author GoCustomized <info@gocustomized.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="CustomConcepts_Kiyoh::kiyoh" title="Manage Kiyoh Reviews" module="CustomConcepts_Kiyoh" sortOrder="40" parent="Magento_Backend::marketing_user_content" action="kiyohreview" resource="CustomConcepts_Kiyoh::kiyoh" />
+        <add id="CustomConcepts_Kiyoh::kiyohlogs" title="Manage Kiyoh Log" module="CustomConcepts_Kiyoh" sortOrder="60" parent="Magento_Backend::marketing_user_content" action="kiyohreview/index/kiyohlog" resource="CustomConcepts_Kiyoh::kiyoh" />
+    </menu>
+</config>

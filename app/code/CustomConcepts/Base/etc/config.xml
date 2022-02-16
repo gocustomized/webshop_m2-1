@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+        <default>
+            <cookielaw>
+                <cookielawGroup>
+                    <show_banner>1</show_banner>
+                    <cookie_lifetime>14</cookie_lifetime>
+                    <privacy_url>privacy-policy-cookie-restriction-mode</privacy_url>
+                    <privacy_url_text>Policy Details</privacy_url_text>
+                    <privacy_message>Our website uses cookies. By continuing we assume your permission to deploy cookies, as detailed in our Privacy Policy</privacy_message>
+                    <fadeout>0</fadeout>
+                    <position>bottom</position>
+                </cookielawGroup>
+            </cookielaw>
+        </default>
+    </config>
